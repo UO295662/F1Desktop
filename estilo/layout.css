@@ -1,0 +1,92 @@
+* { /* Especificidad: 0,0,0 */
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo del encabezado */
+header { /* Especificidad: 0,0,1 */
+  background-color: #d77a61; /* Fondo del encabezado: coral */
+  /*color heredado de nav*/
+  display: flex;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  width: calc(100% + 30em);
+  margin-left: -15em;
+  margin-right: -15em;
+  margin-top: -15em;
+}
+
+/* Estilo para el menú de navegación en el encabezado */
+header nav { /* Especificidad: 0,0,2 */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 5%;
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 800px) {
+  header { /* Especificidad: 0,0,1 */
+    margin-top:0%;/*Redefinición de margin-top*/
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;/*Redefinición de padding-top,bottom,left,right*/
+  }
+  body{/* Especificidad: 0,0,1 */
+    margin: 0;
+  }
+  h1 { /* Especificidad: 0,0,1 */
+    font-size: 1.5rem;
+    display: block;
+  }
+
+  nav { /* Especificidad: 0,0,1 */
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a { /* Especificidad: 0,0,2 */
+    width: 100%;
+    text-align: center;
+  }
+
+  p { /* Especificidad: 0,0,1 */
+    display: none;
+  }
+  main p{
+    display: block;
+  }
+
+  h2 { /* Especificidad: 0,0,1 */
+    margin-top: 0%;
+  }
+}
+
+/* Estilo del menú de navegación */
+nav { /* Especificidad: 0,0,1 */
+  padding: 1em;
+  text-align: center;
+  display: flex;
+}
+nav a { /* Especificidad: 0,0,2 */
+  text-decoration: none;
+  color: #fff; /* Enlaces del menú: blanco */
+  background-color: #d77a61; /* Fondo de enlaces: rojo oscuro */
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover { /* Especificidad: 0,1,2 */
+  color: #a63d40; /* Texto al pasar el cursor: rojo oscuro */
+  background-color: #fef6e4; /* Fondo al pasar el cursor: crema */
+}
+nav a.active { /* Especificidad: 0,1,2 */
+  color: #fff; /* Enlace activo: blanco */
+  background-color: #6b4226; /* Fondo del enlace activo: marrón */
+}
+header h1 a { /* Especificidad: 0,0,3 */
+  text-decoration: none;
+  color: #fff; /* Título del encabezado: blanco */
+}

@@ -1,0 +1,177 @@
+main {/* Especificidad: 0,0,1 */
+  display: grid; /* Activar Grid Layout */
+  grid-template-columns: repeat(4, 1fr); /* Crear 4 columnas iguales */
+  gap: 1rem; /* Espacio entre columnas */
+  text-align: center;
+}
+
+main div {/* Especificidad: 0,0,2 */
+  grid-column: span 1; /* Cada div ocupa 1 columna */
+  color: white;
+  text-align: center; 
+  padding: 1rem;
+  width: 10vw;
+  height: 10vw;
+  border-radius: 50%;
+  background-color: #333;
+  /*color heredado de body*/
+  opacity: 0.5;
+  transition: background-color 0.5s ease-in-out;
+  border: 0.25rem solid rgb(0, 0, 0)
+}
+main h2{/* Especificidad: 0,0,2 */
+  grid-column: span 4;
+}
+main button{/* Especificidad: 0,0,2 */
+  grid-column:span 2;
+}
+
+
+/* Animación de luces */
+@keyframes encender {
+  0% {
+    background-color: #000;
+    color: #fff;
+  }
+  100% {
+    background-color: #ff0000;
+    color: #000;
+  }
+}
+
+/* Animaciones de luces con retrasos */
+main.load div:nth-child(3) {/* Especificidad: 0,3,2 */
+  animation: encender 0.5s forwards;
+  animation-delay: 0s;
+}
+
+main.load div:nth-child(4) {/* Especificidad: 0,3,2 */
+  animation: encender 0.5s forwards;
+  animation-delay: 0.5s;
+}
+
+main.load div:nth-child(5) {/* Especificidad: 0,3,2 */
+  animation: encender 0.5s forwards;
+  animation-delay: 1s;
+}
+
+main.load div:nth-child(6) {/* Especificidad: 0,3,2 */
+  animation: encender 0.5s forwards;
+  animation-delay: 1.5s;
+}
+
+main.unload div {/* Especificidad: 0,1,2 */
+  animation: out 0.1s forwards;
+}
+
+/* Botones */
+button {/* Especificidad: 0,0,1 */
+  padding: 1rem;
+  background-color: #1f3541;
+  color: #afd8f2;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  width: 20%;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {/* Especificidad: 0,1,1 */
+  background-color: #13323d;
+  /*color heredado de button*/
+  transform: scale(1.05);
+}
+
+button:disabled {/* Especificidad: 0,1,1 */
+  background-color: #ccc;
+  color: #999;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Tablas */
+section table {/* Especificidad: 0,0,2 */
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 1rem;
+  text-align: left;
+  border: none;
+}
+
+section table thead tr {/* Especificidad: 0,0,4 */
+  background-color: #1f3541;
+  color: #ffffff;
+}
+
+section table th, 
+section table td {/* Especificidad: 0,0,3 */
+  padding: 1rem 1.5rem;
+  border: 0.1rem solid #dddddd;
+}
+
+section table tbody tr {/* Especificidad: 0,0,4 */
+  background-color: #f3f3f3;
+  /*color heredado de tr*/
+}
+
+section table th {/* Especificidad: 0,0,3 */
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Listas */
+ul {/* Especificidad: 0,0,1 */
+  list-style-type: square;
+  font-size: 1.2rem;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+ul li {/* Especificidad: 0,0,2 */
+  margin: 0.5rem 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Títulos */
+h1 {/* Especificidad: 0,0,1 */
+  text-transform: uppercase;
+  padding: 1.5em;
+  text-align: center;
+  font-size: 3em;
+}
+
+h2 {/* Especificidad: 0,0,1 */
+  font-size: 2em;
+  text-decoration: double;
+}
+
+h3 {/* Especificidad: 0,0,1 */
+  font-size: 1.4em;
+}
+
+h4 {/* Especificidad: 0,0,1 */
+  font-size: 1em;
+}
+
+/* Estilo general del cuerpo */
+body {/* Especificidad: 0,0,1 */
+  font-family: Verdana, sans-serif;
+  color: #1f3541;
+  background-color: #afd8f2;
+  margin: 15em;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+form {/* Especificidad: 0,0,1 */
+  text-align: center;
+  margin: 2rem 0 3rem;
+}
+section{/* Especificidad: 0,0,1 */
+  text-align: center;
+}

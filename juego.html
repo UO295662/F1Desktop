@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>F1 Desktop-Memoria</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Gael Horta Calzada">
+    <meta name="description" content="Documento basado en la F1 y Daniel Ricciardo" >
+    <meta name="keywords" content="F1, juego, memoria, parejas">
+    <link rel="stylesheet" href="estilo/memoria.css"> 
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+    <link rel="icon" href="multimedia/imagenes/favicon.ico">
+</head>
+<body>
+    <header>
+        <h1><a href="index.html" title="Ir a la página principal">F1 Desktop</a></h1>
+        <nav>
+            <a href="index.html" title="Inicio Oviedo" class="active">Inicio</a>
+            <a href="juego.html" title="Juego Oviedo">Juego</a>
+            <a href="calendario.html" title="Calendario Oviedo">Calendario</a>
+            <a href="rutas.html" title="Rutas Oviedo">Rutas</a>
+            <a href="php/viajes.php" title="Viajes Oviedo">Viajes</a>
+            <a href="meteorologia.html" title="Meteorología Oviedo">Meteorología</a>
+            <a href="gastronomia.html" title="Gastronomia Oviedo">Gastronomia</a>
+            <a href="ayuda.html" title="Ayuda Oviedo">Ayuda</a>
+        </nav>
+    </header>
+    <p>Estás en: <a href="index.html">Inicio</a> >> <a href="juegos.html">Juegos</a> >> Memoria</p>
+    <h2>Variedad de juegos disponibles</h2>
+        <main>
+        <p>Este juego consiste en pulsar las tarjetas para darles la vuelta y realizar parejas de imágenes iguales</p>
+        <section><h2>Juego de Memoria</h2></section>
+        </main>
+    <script src="js/memoria.js" ></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const juegoMemoria = new Memoria();
+    });
+    </script>
+</body>
+</html>

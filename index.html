@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>F1 Desktop-Index</title>
+    <link rel="icon" href="multimedia/imagenes/favicon.ico">
+    <meta name="author" content="Gael Horta Calzada">
+    <meta name="description" content="Página inicial">
+    <meta name="keywords" content="oviedo,indice">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+    <script src="js/turismo.js"></script>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html" title="Ir a la página principal">F1 Desktop</a></h1>
+        <nav>
+             <a href="index.html" title="Inicio Oviedo" class="active">Inicio</a>
+            <a href="juego.html" title="Juego Oviedo">Juego</a>
+            <a href="calendario.html" title="Calendario Oviedo">Calendario</a>
+            <a href="rutas.html" title="Rutas Oviedo">Rutas</a>
+            <a href="php/viajes.php" title="Viajes Oviedo">Viajes</a>
+            <a href="meteorologia.html" title="Meteorología Oviedo">Meteorología</a>
+            <a href="gastronomia.html" title="Gastronomia Oviedo">Gastronomia</a>
+            <a href="ayuda.html" title="Ayuda Oviedo">Ayuda</a>
+        </nav>
+    </header>   
+    <main>
+    <section>
+        <h2>Imágenes del Concejo de Oviedo</h2>
+        <figure role="region" aria-label="Carrusel de imágenes">
+            <img src="multimedia/Situacion_Oviedo.jpg" alt="Mapa de situación del concejo de Oviedo" />
+            <figcaption>Catedral de Oviedo</figcaption>
+            <nav aria-label="Controles del carrusel">
+                <button type="button" aria-label="Anterior">&#10094;</button>
+                <button type="button" aria-label="Siguiente">&#10095;</button>
+            </nav>
+        </figure>
+    </section>
+
+    <script>
+        const imagenes = [
+            {src: "multimedia/Situacion_Oviedo.jpg", alt: "Mapa de situación del concejo de Oviedo", caption: "Mapa de situación del concejo de Oviedo"},
+            {src: "multimedia/oviedo-catedral.jpg", alt: "Catedral de Oviedo", caption: "Catedral de Oviedo"},
+            {src: "multimedia/naranco.jpg", alt: "Santa María del Naranco", caption: "Santa María del Naranco"},
+            {src: "multimedia/san_julian_delosprados.jpg", alt: "San Julián de Los Prados", caption: "San Julián de Los Prados"},
+            {src: "multimedia/la_foncalada.jpg", alt: "La Foncalada", caption: "La Foncalada"}
+        ];
+
+        let indice = 0;
+        
+        function mostrarImagen(i) {
+            const contenedor = document.querySelector('figure[role="region"]');
+            const imagen = contenedor.querySelector('img');
+            const texto = contenedor.querySelector('figcaption');
+            
+            imagen.src = imagenes[i].src;
+            imagen.alt = imagenes[i].alt;
+            texto.textContent = imagenes[i].caption;
+        }
+
+        document.querySelector('button[aria-label="Anterior"]').addEventListener('click', function() {
+            indice = (indice - 1 + imagenes.length) % imagenes.length;
+            mostrarImagen(indice);
+        });
+
+        document.querySelector('button[aria-label="Siguiente"]').addEventListener('click', function() {
+            indice = (indice + 1) % imagenes.length;
+            mostrarImagen(indice);
+        });
+        mostrarImagen(indice);
+    </script>
+    
+    <section>
+        <h2>Noticias de Oviedo y alrededores</h2>
+        <article role="feed" aria-live="polite">
+        </article>
+    </section>
+</main>
+</body>
+</html>

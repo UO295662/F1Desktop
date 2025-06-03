@@ -1,0 +1,59 @@
+    <!DOCTYPE HTML>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>F1 Desktop-Circuito</title>
+        <meta name="author" content="Gael Horta Calzada">
+        <meta name="description" content="Documento basado en las rutas del concejo de oviedo">
+        <meta name="keywords" content="rutas,oviedo">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+        <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+        <link rel="icon" href="multimedia/imagenes/favicon.ico">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1><a href="index.html" title="Ir a la página principal">F1 Desktop</a></h1>
+            <nav>
+                 <a href="index.html" title="Inicio Oviedo" class="active">Inicio</a>
+                <a href="juego.html" title="Juego Oviedo">Juego</a>
+                <a href="calendario.html" title="Calendario Oviedo">Calendario</a>
+                <a href="rutas.html" title="Rutas Oviedo">Rutas</a>
+                <a href="php/viajes.php" title="Viajes Oviedo">Viajes</a>
+                <a href="meteorologia.html" title="Meteorología Oviedo">Meteorología</a>
+                <a href="gastronomia.html" title="Gastronomia Oviedo">Gastronomia</a>
+                <a href="ayuda.html" title="Ayuda Oviedo">Ayuda</a>
+            </nav>
+        </header>
+        <p>Estás en: <a href="index.html">Inicio</a> >> Circuito</p>
+        <main>
+            <section>
+                <h2>Cargar KML</h2>
+                <label for="archivoKML">Selecciona archivo KML:</label>
+                <input type="file" id="archivoKML" accept=".kml"/>
+                <div></div>
+            </section>
+        
+            <section>
+                <h2>Cargar SVG</h2>
+                <label for="archivoSVG">Selecciona archivo SVG:</label>
+                <input type="file" id="archivoSVG" accept=".svg"/>
+                <pre></pre>
+            </section>
+        
+            <section>
+                <h2>Cargar XML</h2>
+                <label for="archivoXML">Selecciona archivo XML:</label>
+                <input type="file" id="archivoXML" accept=".xml"/>
+                <article>
+                    <h3>Introduce xml</h3>
+                </article>
+            </section>
+        </main>
+        <script src="js/rutas.js"></script>
+        <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQz2BOIGZarND4L4WVBfRCqCigjJ2f4PU&">
+        </script>
+    </body>
+    </html> 

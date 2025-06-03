@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8">
+    <title>F1 Desktop-Piloto</title>
+    <meta name="author" content="Gael Horta Calzada">
+    <meta name="description" content="Documento basado en la gastronomia del concejo de oviedo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="gastronomia, comida, recetas, cocina">
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+    <link rel="icon" href="multimedia/imagenes/favicon.ico">
+</head>
+
+<body>
+    <header>
+        <h1><a href="index.html" title="Ir a la página principal">F1 Desktop</a></h1>
+        <nav>
+            <a href="index.html" title="Inicio Oviedo" class="active">Inicio</a>
+            <a href="juego.html" title="Juego Oviedo">Juego</a>
+            <a href="calendario.html" title="Calendario Oviedo">Calendario</a>
+            <a href="rutas.html" title="Rutas Oviedo">Rutas</a>
+            <a href="php/viajes.php" title="Viajes Oviedo">Viajes</a>
+            <a href="meteorologia.html" title="Meteorología Oviedo">Meteorología</a>
+            <a href="gastronomia.html" title="Gastronomia Oviedo">Gastronomia</a>
+            <a href="ayuda.html" title="Ayuda Oviedo">Ayuda</a>
+        </nav>
+    </header>
+    <p>Estás en: <a href="index.html">Inicio</a> >> Gastronomia</p>
+    <main>
+        <h2>Gastronomía del Concejo de Oviedo</h2>
+        <section>
+            <h3>Presentación</h3>
+            <p>
+                La gastronomía del concejo de Oviedo es una parte fundamental de su identidad cultural, reconocida por su riqueza, tradición y sabor auténtico. 
+                En esta tierra asturiana, los platos típicos como la fabada, el cachopo o el arroz con leche conviven con una fuerte cultura sidrera que se vive 
+                especialmente en la popular Calle Gascona. Oviedo ofrece una experiencia culinaria única, donde la calidad de los productos locales y el saber 
+                hacer de sus cocineros dan lugar a una cocina sabrosa, reconfortante y profundamente ligada a sus raíces.
+            </p>
+        </section>
+        <section>
+            <h3>Platos Típicos del Concejo de Oviedo</h3>
+            <ul>
+                <li>Fabada Asturiana</li>
+                <li>Cachopo</li>
+                <li>Arroz con Leche</li>
+                <li>Carbayones</li>
+                <li>Sidra Natural</li>
+            </ul>
+        </section>
+        <section>  
+            <h3>Experiencias Gastronómicas en Oviedo</h3>
+            <ol>
+                <li>Ruta de la sidra en la Calle Gascona</li>
+                <li>Degustación de fabada en restaurantes tradicionales</li>
+                <li>Feria del Queso y el Vino</li>
+                <li>Jornadas del Cachopo en otoño</li>
+                <li>Confiterías típicas con carbayones y moscovitas</li>
+                <li>Mercado El Fontán con productos locales</li>
+                <li>Menús de cocina asturiana en la Plaza del Ayuntamiento</li>
+            </ol>
+        </section>
+        <section>
+            <h3>Definiciones Gastronómicas</h3>
+            <dl>
+                <dt>Fabada</dt>
+                <dd>Plato típico asturiano elaborado con fabes, chorizo, morcilla y panceta.</dd>
+                <dt>Cachopo</dt>
+                <dd>Dos filetes de ternera rellenos de jamón y queso, empanados y fritos.</dd>
+                <dt>Sidra</dt>
+                <dd>Bebida alcohólica elaborada a partir de la fermentación de manzanas.</dd>
+            </dl>
+        </section>
+        <section>
+            <h3>Platos y Precios en Oviedo</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col" id="plato">Plato</th>
+                        <th scope="col" id="precio">Precio Medio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td headers="plato">Fabada Asturiana</td>
+                        <td headers="precio">12€</td>
+                    </tr>
+                    <tr>
+                        <td headers="plato">Cachopo</td>
+                        <td headers="precio">15€</td>
+                    </tr>
+                    <tr>
+                        <td headers="plato">Arroz con Leche</td>
+                        <td headers="precio">5€</td>
+                    </tr>
+                    <tr>
+                        <td headers="plato">Carbayones</td>
+                        <td headers="precio">3€</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h4>Imagen: La fabada, plato típico asturiano</h4>
+            <picture>
+                <source srcset="multimedia/fabada.jpg" media="(max-width: 465px)">
+                <source srcset="multimedia/fabada_tablet.jpg" media="(max-width: 799px)">
+                <source srcset="multimedia/fabada_monitor.jpg" media="(min-width: 800px)">
+                <img src="multimedia/fabada_monitor.jpg" alt="Fabada" loading="lazy">
+            </picture>
+            <h4>Video: Gastronomia de Oviedo</h4>
+            <video controls style="max-width: 100%; height: auto;">
+                <source src="multimedia/gastronomia.mp4" type="video/mp4">
+                <source src="multimedia/gastronomia.webm" type="video/webm">
+                Tu navegador no soporta el elemento de video.
+            </video>
+            <h4>Audio: Historia de la sidra</h4>
+            <audio controls>
+                <source src="multimedia/sidra.mp3" type="audio/mp3">
+                <source src="multimedia/sidra.wav" type="audio/wav">
+            </audio>
+        </section>
+    </main>
+</body>
+</html>

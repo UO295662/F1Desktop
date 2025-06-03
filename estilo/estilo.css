@@ -1,0 +1,627 @@
+body { /* Especificidad: 0,0,1 */
+  font-family: Verdana, sans-serif;
+  color: #2c2c2c; /* Texto principal: gris oscuro */
+  background-color: #fef6e4; /* Fondo: crema */
+  margin: 15em;
+  padding-top: 0;
+  padding-bottom: 0%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos de los enlaces externos */
+  a[href^="http://"], a[href^="https://"] { /* Especificidad: 0,1,1 */
+  text-decoration: underline;
+  /*color de fondo heredado de body*/
+  color: #d77a61; /* Enlaces: coral */
+  transition: color 0.3s, transform 0.3s, text-decoration 0.3s;
+}
+
+a[href^="http://"]:hover, a[href^="https://"]:hover { /* Especificidad: 0,2,1 */
+  color: #a63d40; /* Enlaces al pasar el cursor: rojo oscuro */
+  /*color de fondo heredado de body*/
+  text-decoration: underline;
+  transform: scale(1.1);
+}
+
+/* Estilo de listas (ul, ol) */
+ul { /* Especificidad: 0,0,1 */
+  list-style-type: square;
+  font-size: 1.2rem;
+  color: #6b4226; /* Listas: marrón */
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+ul li { /* Especificidad: 0,0,2 */
+  margin: 0.5rem 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Estilo de los títulos h1, h2, h3, h4 */
+h1 { /* Especificidad: 0,0,1 */
+  text-transform: uppercase;
+  text-decoration: wavy;
+  padding: 1.5em;
+  text-align: center;
+  font-size: 3em;
+}
+
+h2 { /* Especificidad: 0,0,1 */
+  font-size: 2em;
+  text-decoration: double;
+}
+
+h3 { /* Especificidad: 0,0,1 */
+  font-size: 1.4em;
+}
+
+h4 { /* Especificidad: 0,0,1 */
+  font-size: 1em;
+}
+ol { /* Especificidad: 0,0,1 */
+  list-style-type: decimal;
+  padding-left: 2rem;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+ol li { /* Especificidad: 0,0,2 */
+  margin: 0.5rem 0;
+  font-style: italic;
+}
+
+/* Estilo para las celdas de la tabla */
+table { /* Especificidad: 0,0,1 */
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 1rem;
+}
+
+th, td { /* Especificidad: 0,0,1 */
+  padding: 1rem;
+  text-align: left;
+}
+
+th { /* Especificidad: 0,0,1 */
+  background-color: #a63d40; /* Encabezados de tabla: rojo oscuro */
+  color: #fff; /* Texto blanco */
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+td { /* Especificidad: 0,0,1 */
+  background-color: #fef6e4; /* Celdas de tabla: crema */
+  /*color heredado de body*/
+}
+article section {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+
+/* Estilo para la descripción dd */
+dd { /* Especificidad: 0,0,1 */
+  font-size: 1.1rem;
+  margin-left: 2rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* Estilo para los botones dentro de un artículo */
+article button { /* Especificidad: 0,0,2 */
+  position: absolute;
+  top: 45%;
+  width: 8%; /* Ancho igual a la altura */
+  height: 8%; /* Altura igual al ancho */
+  border: none;
+  border-radius: 50%; /* Hace que el botón sea un círculo perfecto */
+  background: #d77a61; /* Botones: coral */
+  color: #fff; /* Texto blanco */
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+article button:hover { /* Especificidad: 0,1,2 */
+  background: #a63d40; /* Botones al pasar el cursor: rojo oscuro */
+  transform: scale(1.1);
+}
+
+article button:nth-of-type(1) { /* Especificidad: 0,1,2 */
+  left: 15%;
+}
+
+article button:nth-of-type(2) { /* Especificidad: 0,1,2 */
+  right: 35%;
+}
+
+article { /* Especificidad: 0,0,1 */
+  position: relative;
+  display: flex;
+  width: 30%;
+  max-width: 100%;
+  height: auto; /* Cambiado de 20vh a auto */
+  overflow: visible; /* Cambiado de hidden a visible */
+  border-radius: 1em;
+}
+section article { /* Especificidad: 0,0,1 */
+  position: relative;
+  display: flex;
+  width: 80%;
+  max-width: 100%;
+  height: 20vh;
+  overflow: hidden;
+  border-radius: 1em;
+}
+
+article img { /* Especificidad: 0,0,2 */
+  width: 88%;
+  height: 88%;
+  position: absolute;
+  transition: all 0.5s;
+  object-fit: contain;
+  background-color: #BFC7D4;
+  /*color heredado de body*/
+}
+
+main section article canvas { /* Especificidad: 0,0,4  */
+  width: 400%;
+  height: auto; 
+  background-color: #BFC7D4; 
+  /*color heredado de body*/
+  display: block; 
+  margin: 0 auto;
+}
+section div { /* Especificidad: 0,0,2 */
+  min-width: 20%; 
+  width: 25%;
+  min-height: 20vh;
+  display: block;   
+}
+section > input[type='file'] + article{/*Especificidad: 0,1,3*/
+  visibility: hidden;
+}
+video {
+  max-width: 100%;
+  height: auto;
+}
+article img:hover,
+picture img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1;
+}
+
+video:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1;
+}
+
+/* Estilos para el carrusel de imágenes */
+figure {
+    margin: 1.5rem auto;
+    width: 50%;
+    max-width: 70vw;
+    background-color: #fff;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 0.4rem;
+    margin-bottom: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+figure img:hover {
+    transform: scale(1.01);
+}
+
+figure figcaption {
+    text-align: center;
+    margin: 0.75rem 0;
+    font-size: clamp(0.875rem, 1.5vw, 1.25rem);
+    color: #2c2c2c;
+    font-weight: 500;
+}
+
+figure nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    gap: 0.75rem;
+}
+
+figure button {
+    background: #d77a61;
+    color: #fff;
+    border: none;
+    padding: 0.75em 1.5em;
+    cursor: pointer;
+    border-radius: 1.5rem;
+    font-size: clamp(0.75rem, 1.2vw, 1rem);
+    transition: all 0.3s ease;
+    flex: 1;
+    max-width: 6rem;
+}
+
+/* Añade estos estilos para los botones del carrusel: */
+
+/* Estilos base para los botones del carrusel */
+figure nav button {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1rem 1.2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    transform: translateY(-50%);
+    z-index: 10;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+/* Posicionamiento específico */
+figure nav button:first-of-type {
+    left: 1rem;
+}
+
+figure nav button:first-of-type {
+    right: 1rem;
+}
+
+/* Estilos hover para los botones */
+figure nav button:hover {
+    background: rgba(215, 122, 97, 0.9); /* Color del tema F1 */
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0.4rem 1rem rgba(215, 122, 97, 0.4);
+}
+
+/* Estilos focus para accesibilidad */
+figure nav button:focus {
+    outline: 2px solid #d77a61;
+    outline-offset: 2px;
+    background: rgba(215, 122, 97, 0.8);
+}
+
+/* Estilos active para cuando se presiona */
+figure nav button:active {
+    transform: translateY(-50%) scale(0.95);
+    background: rgba(215, 122, 97, 1);
+}
+
+/* Responsive para dispositivos móviles */
+@media (max-width: 768px) {
+    figure[role="region"] nav button {
+        padding: 0.8rem 1rem;
+        font-size: 1.2rem;
+    }
+    
+    figure[role="region"] nav button[aria-label="Anterior"] {
+        left: 0.5rem;
+    }
+    
+    figure[role="region"] nav button[aria-label="Siguiente"] {
+        right: 0.5rem;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 60rem) {
+    figure {
+        width: 80%;
+        max-width: 80vw;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 40rem) {
+    figure {
+        width: 90%;
+        max-width: 90vw;
+        padding: 0.75rem;
+    }
+}
+
+/* Estilos para las noticias */
+article[role="feed"] {
+    width: 90%;
+    margin: 2rem auto;
+    padding: 2rem;
+    display: block; /* Cambiado de flex a block */
+    height: auto;
+    max-width: 120rem;
+}
+
+article[role="feed"] > article {
+    width: auto;
+    height: auto;
+    display: block;
+    background-color: #fff;
+    border: 0.2rem solid #d77a61;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+    overflow: visible;
+}
+
+article[role="feed"] h3 {
+    font-size: 2rem;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    width: 100%;
+}
+
+article[role="feed"] p {
+    width: 100%;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #2c2c2c;
+    margin: 1rem 0;
+    white-space: normal;
+    overflow: visible;
+}
+
+article[role="feed"] time {
+    display: block;
+    font-size: 1.1rem;
+    color: #666;
+    margin: 1rem 0;
+}
+
+article[role="feed"] a {
+    display: inline-block;
+    background-color: #d77a61;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+article[role="feed"] a:hover {
+    background-color: #a63d40;
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive design */
+@media screen and (max-width: 60rem) {
+    article[role="feed"] {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    article[role="feed"] h3 {
+        font-size: 1.6rem;
+    }
+
+    article[role="feed"] p {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 40rem) {
+    article[role="feed"] > article {
+        padding: 1.5rem;
+    }
+
+    article[role="feed"] h3 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Estilos específicos para la meteorología */
+aside {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    padding: 1rem !important;
+    max-width: 95vw;
+    margin: 1rem auto !important;
+    width: 100% !important;
+}
+
+/* Primer aside - Clima actual */
+aside:first-of-type {
+    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%) !important;
+    border-radius: 1rem !important;
+    padding: 2rem !important;
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+aside:first-of-type h3 {
+    color: #d77a61 !important;
+    margin-bottom: 2rem !important;
+    align-self: center !important;
+}
+
+aside:first-of-type section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+aside:first-of-type img {
+    width: 6rem !important;
+    height: 6rem !important;
+    margin: 1rem auto !important;
+    order: 1 !important;
+    position: static !important;
+    display: block !important;
+}
+
+aside:first-of-type ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 1rem auto !important;
+    max-width: 400px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    order: 2 !important;
+}
+
+aside:first-of-type li {
+    padding: 0.5rem 0 !important;
+    border-bottom: 1px solid #ddd !important;
+    background: none !important;
+    border-left: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+}
+
+/* Segundo aside - Pronósticos */
+aside:last-of-type {
+    padding: 1rem !important;
+    background: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+aside:last-of-type h3 {
+    color: #d77a61 !important;
+    align-self: center !important;
+    margin-bottom: 2rem !important;
+    font-size: 2rem !important;
+    order: 1 !important;
+}
+
+aside:last-of-type section {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    gap: 1.5rem !important;
+    justify-items: center !important;
+    padding: 0 !important;
+    order: 2 !important;
+}
+
+/* Tarjetas de pronóstico - articles */
+aside:last-of-type article {
+    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%) !important;
+    border-radius: 1rem !important;
+    padding: 1.5rem !important;
+    width: 200px !important;
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    position: relative !important;
+    height: auto !important;
+}
+
+aside:last-of-type article:hover {
+    transform: translateY(-0.5rem) !important;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15) !important;
+}
+
+aside:last-of-type article p {
+    font-size: 1.1rem !important;
+    color: #2c2c2c !important;
+    margin-bottom: 1rem !important;
+    font-weight: 500 !important;
+    order: 1 !important; /* Fecha arriba */
+    align-self: center !important;
+}
+
+aside:last-of-type article img {
+    margin: 0.5rem auto !important;
+    width: 4rem !important;
+    height: 4rem !important;
+    object-fit: contain !important;
+    order: 2 !important; /* Imagen en el medio */
+    position: static !important;
+    display: block !important;
+    background-color: transparent !important;
+}
+
+aside:last-of-type article ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 1rem 0 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+    order: 3 !important; /* Lista de datos al final */
+    width: 100% !important;
+}
+
+/* También corrige las imágenes generales dentro de articles para meteorología */
+aside:last-of-type article img,
+aside:first-of-type img {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    background-color: transparent !important;
+    object-fit: contain !important;
+}
+
+/* Específicamente para el clima actual */
+aside:first-of-type img {
+    width: 6rem !important;
+    height: 6rem !important;
+    margin: 1rem auto !important;
+    order: 1 !important;
+    position: static !important;
+    display: block !important;
+}
+
+/* Específicamente para las tarjetas de pronóstico */
+aside:last-of-type article img {
+    width: 4rem !important;
+    height: 4rem !important;
+    margin: 0.5rem auto !important;
+    order: 2 !important;
+    position: static !important;
+    display: block !important;
+    background-color: transparent !important;
+}
+
+/* Responsive usando Grid y Flexbox */
+@media (max-width: 768px) {
+    aside:last-of-type section {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    aside:first-of-type section {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+}
+
+@media (max-width: 480px) {
+    aside:last-of-type section {
+        grid-template-columns: 1fr !important;
+    }
+    
+    aside:last-of-type article {
+        width: 100% !important;
+        max-width: 300px !important;
+    }
+}
+

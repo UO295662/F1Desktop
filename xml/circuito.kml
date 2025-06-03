@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Enzo E Dino Ferrari</name>
+    <description>Circuito en Imola, Italia.
+      Longitud de la pista: 4909.0 m
+      Fecha: 2024-05-19 Hora: 15:00:00
+    </description>
+    <Style id="yellowLine">
+      <LineStyle>
+        <color>7f00ffff</color>
+        <width>4</width>
+      </LineStyle>
+    </Style>
+     <Placemark id="centro_circuito">
+      <name>Centro del Circuito</name>
+      <description>Ubicado en Imola, Italia</description>
+      <Point>
+        <coordinates>11.712222,44.342189,162</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="ruta_circuito">
+      <name>Ruta del Circuito</name>
+      <styleUrl>#yellowLine</styleUrl>
+      <LineString>
+        <coordinates>
+          11.7139,44.3441,35
+          11.7122,44.3444,37
+          11.7094,44.3442,37
+          11.7081,44.3439,37
+          11.7078,44.3433,37
+          11.7064,44.3428,37
+          11.7042,44.3391,38
+          11.7044,44.3383,39
+          11.7019,44.3369,40
+          11.7019,44.3366,45
+          11.7022,44.3364,47
+          11.7067,44.3366,64
+          11.7092,44.3364,67
+          11.7097,44.3366,67
+          11.7103,44.3372,65
+          11.7106,44.3380,61
+          11.7100,44.3400,46
+          11.7106,44.3408,46
+          11.7114,44.3405,65
+          11.7173,44.3402,65
+          11.7198,44.3411,64
+          11.7208,44.3417,53
+          11.7228,44.3430,49
+          11.7248,44.3439,37
+          11.7250,44.3441,36
+          11.7242,44.3450,36
+          11.7203,44.3439,36
+          11.7167,44.3439,35
+          11.7139,44.3441,35
+        </coordinates>
+      </LineString>
+    </Placemark>
+  </Document>
+</kml>

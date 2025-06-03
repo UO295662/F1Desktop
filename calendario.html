@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>F1 Desktop-Calendario</title>
+    <meta name="author" content="Gael Horta Calzada" />
+    <meta name="description" content="Documento basado en la F1 y Daniel Ricciardo" />
+    <meta name="keywords" content="calendario, carreras"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/agenda_grid.css" />
+    <link rel="icon" href="multimedia/imagenes/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/agenda.js"></script>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html" title="Ir a la página principal">F1 Desktop</a></h1>
+        <nav>
+             <a href="index.html" title="Inicio Oviedo" class="active">Inicio</a>
+            <a href="juego.html" title="Juego Oviedo">Juego</a>
+            <a href="calendario.html" title="Calendario Oviedo">Calendario</a>
+            <a href="rutas.html" title="Rutas Oviedo">Rutas</a>
+            <a href="php/viajes.php" title="Viajes Oviedo">Viajes</a>
+            <a href="meteorologia.html" title="Meteorología Oviedo">Meteorología</a>
+            <a href="gastronomia.html" title="Gastronomia Oviedo">Gastronomia</a>
+            <a href="ayuda.html" title="Ayuda Oviedo">Ayuda</a>
+        </nav>
+    </header>
+    <p>Estás en: <a href="index.html">Inicio</a> >> Calendario</p>
+    <main>
+        <h2>Calendario</h2>
+        <button>Cargar carreras</button>
+        <section>
+            <h3>Calendario de las Carreras de la Temporada</h3>
+        </section>
+    </main>
+    <script>
+        $(document).ready(() => {
+        const agenda = new Agenda();
+        $('button').on('click', () => {
+        agenda.obtenerYMostrarCalendario();
+        });
+        });
+    </script>
+    </body>
+    </html>

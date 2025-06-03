@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rutas SYSTEM "rutas.dtd">
+<rutas>
+    <ruta>
+        <nombre>Ruta de los Monumentos Prerrománicos</nombre>
+        <tipo>Arquitectura y monumentos</tipo>
+        <medio_transporte>A pie</medio_transporte>
+        <fecha_inicio>2025-06-15</fecha_inicio>
+        <hora_inicio>10:00</hora_inicio>
+        <duracion>4 horas</duracion>
+        <agencia>NaturaTur</agencia>
+        <descripcion>
+            Una ruta cultural que recorre los principales monumentos prerrománicos del concejo de Oviedo.
+        </descripcion>
+        <personas>Apta para toda la familia</personas>
+        <inicio>
+            <lugar>Plaza del Ayuntamiento</lugar>
+            <direccion>Calle Mayor</direccion>
+            <coordenadas>
+                <latitud>43.3623</latitud>
+                <longitud>-5.8448</longitud>
+                <altitud>232</altitud>
+            </coordenadas>
+        </inicio>
+        <referencias>
+            <referencia>https://es.wikipedia.org/wiki/Foncalada</referencia>
+            <referencia>http://prerromanicoasturiano.es/</referencia>
+            <referencia>https://www.turismoasturias.es/</referencia>
+        </referencias>
+        <recomendacion>9</recomendacion>
+        <hitos>
+            <hito>
+                <nombre>La Foncalada</nombre>
+                <descripcion>Fuente prerrománica declarada Patrimonio de la Humanidad.</descripcion>
+                <coordenadas>
+                    <latitud>43.3631</latitud>
+                    <longitud>-5.8470</longitud>
+                    <altitud>230</altitud>
+                </coordenadas>
+                <distancia unidad="m">500</distancia>
+                <galeria_fotos>
+                    <foto archivo="multimedia/la_foncalada.jpg">Imagen de La Foncalada</foto>
+                </galeria_fotos>
+            </hito>
+            <hito>
+                <nombre>San Julián de los Prados</nombre>
+                <descripcion>Iglesia prerrománica construida en el siglo IX.</descripcion>
+                <coordenadas>
+                    <latitud>43.3645</latitud>
+                    <longitud>-5.8500</longitud>
+                    <altitud>240</altitud>
+                </coordenadas>
+                <distancia unidad="m">1200</distancia>
+                <galeria_fotos>
+                    <foto archivo="multimedia/san_julian_delosprados.jpg">Imagen de San Julián de los prados</foto>
+                </galeria_fotos>
+            </hito>
+            <hito>
+                <nombre>Santa María del Naranco</nombre>
+                <descripcion>Palacio prerrománico convertido en iglesia.</descripcion>
+                <coordenadas>
+                    <latitud>43.3675</latitud>
+                    <longitud>-5.8575</longitud>
+                    <altitud>320</altitud>
+                </coordenadas>
+                <distancia unidad="m">2500</distancia>
+                <galeria_fotos>
+                    <foto archivo="multimedia/naranco.jpg">Imagen de Santa María del Naranco</foto>
+                </galeria_fotos>
+            </hito>
+        </hitos>
+        <planimetria archivo="ruta1.kml" />
+        <altimetria archivo="ruta1.svg" />
+    </ruta>
+
+    <ruta>
+        <nombre>Ruta Gastronómica de Oviedo</nombre>
+        <tipo>Gastronómica</tipo>
+        <medio_transporte>A pie</medio_transporte>
+        <duracion>3 horas</duracion>
+        <agencia>Sin agencia</agencia>
+        <descripcion>
+            Descubre los sabores de Oviedo visitando sidrerías y restaurantes típicos.
+        </descripcion>
+        <personas>Personas en buena forma física</personas>
+        <inicio>
+            <lugar>Calle Gascona</lugar>
+            <direccion>Calle Gascona</direccion>
+            <coordenadas>
+                <latitud>43.3628</latitud>
+                <longitud>-5.8475</longitud>
+                <altitud>230</altitud>
+            </coordenadas>
+        </inicio>
+        <referencias>
+            <referencia>https://www.sidraasturiana.org/</referencia>
+            <referencia>https://www.turismoasturias.es/descubre/gastronomia</referencia>
+            <referencia>https://www.gastronomiaoviedo.com/</referencia>
+        </referencias>
+        <recomendacion>8</recomendacion>
+        <hitos>
+            <hito>
+                <nombre>Sidrería Tierra Astur</nombre>
+                <descripcion>Degustación de sidra y tapas asturianas.</descripcion>
+                <coordenadas>
+                    <latitud>43.3629</latitud>
+                    <longitud>-5.8476</longitud>
+                    <altitud>230</altitud>
+                </coordenadas>
+                <distancia unidad="m">100</distancia>
+                <galeria_fotos>
+                    <foto archivo="multimedia/tierra_astur.jpg">Imagen del Tierra Astur</foto>
+                </galeria_fotos>
+            </hito>
+            <hito>
+                <nombre>Restaurante El Fartuquín</nombre>
+                <descripcion>Especialidad en cachopos y fabada asturiana.</descripcion>
+                <coordenadas>
+                    <latitud>43.3630</latitud>
+                    <longitud>-5.8478</longitud>
+                    <altitud>230</altitud>
+                </coordenadas>
+                <distancia unidad="m">200</distancia>
+                <galeria_fotos>
+                    <foto archivo="multimedia/fartuquin.jpg">Imagen del Restaurante Fartuquín</foto>
+                </galeria_fotos>
+            </hito>
+        </hitos>
+        <planimetria archivo="ruta2.kml" />
+        <altimetria archivo="ruta2.svg" />
+    </ruta>
+
+    <ruta>
+        <nombre>Ruta Paisajística del Monte Naranco</nombre>
+        <tipo>Paisajística</tipo>
+        <medio_transporte>Bicicleta</medio_transporte>
+        <duracion>2 horas</duracion>
+        <agencia>Sin agencia</agencia>
+        <descripcion>
+            Una ruta en bicicleta que recorre los paisajes del Monte Naranco.
+        </descripcion>
+        <personas>Personas en buena forma física</personas>
+        <inicio>
+            <lugar>Monte Naranco</lugar>
+            <direccion>Carretera del Naranco</direccion>
+            <coordenadas>
+                <latitud>43.3675</latitud>
+                <longitud>-5.8575</longitud>
+                <altitud>320</altitud>
+            </coordenadas>
+        </inicio>
+        <referencias>
+            <referencia>https://www.turismoasturias.es/descubre/naturaleza/monte-naranco</referencia>
+            <referencia>https://es.wikipedia.org/wiki/Monte_Naranco</referencia>
+            <referencia>https://www.rutasoviedo.com/</referencia>
+        </referencias>
+        <recomendacion>10</recomendacion>
+        <hitos>
+            <hito>
+                <nombre>Mirador del Naranco</nombre>
+                <descripcion>Vistas panorámicas de Oviedo y alrededores.</descripcion>
+                <coordenadas>
+                    <latitud>43.3680</latitud>
+                    <longitud>-5.8580</longitud>
+                    <altitud>340</altitud>
+                </coordenadas>
+                <distancia unidad="m">500</distancia>
+                <galeria_fotos>
+                    <foto archivo="multimedia/mirador.jpg">Imagen del Cristo del Naranco</foto>
+                </galeria_fotos>
+                <galeria_videos>
+                    <video archivo="multimedia/mirador.mp4">Video del Cristo del Naranco</video>
+                </galeria_videos>
+            </hito>
+        </hitos>
+        <planimetria archivo="ruta3.kml" />
+        <altimetria archivo="ruta3.svg" />
+    </ruta>
+</rutas>

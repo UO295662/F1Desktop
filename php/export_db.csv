@@ -1,0 +1,25 @@
+#TABLE:equipos
+id_equipo,nombre_equipo,pais_origen
+1,"Red Bull Racing",Austria
+2,Ferrari,Italia
+3,Mercedes,Alemania
+#TABLE:pilotos
+id_piloto,nombre,nacionalidad,fecha_nacimiento,id_equipo
+1,"Max Verstappen","Países Bajos",1997-09-30,1
+2,"Charles Leclerc",Mónaco,1997-10-16,2
+3,"Lewis Hamilton","Reino Unido",1985-01-07,3
+#TABLE:circuitos
+id_circuito,nombre_circuito,localizacion,longitud
+1,"Silverstone Circuit","Reino Unido",5.891
+2,"Circuit de Monaco",Mónaco,3.337
+3,"Red Bull Ring",Austria,4.318
+#TABLE:carreras
+id_carrera,id_circuito,fecha,nombre_carrera
+1,1,2024-07-10,"Gran Premio de Gran Bretaña"
+2,2,2024-05-26,"Gran Premio de Mónaco"
+3,3,2024-06-30,"Gran Premio de Austria"
+#TABLE:resultados
+id_resultado,id_carrera,id_piloto,posicion
+1,1,3,1
+2,2,2,1
+3,3,1,1

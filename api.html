@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>F1 Desktop-Api</title>
+    <meta name="author" content="Gael Horta Calzada">
+    <meta name="description" content="Documento basado en la F1 y Daniel Ricciardo">
+    <meta name="keywords" content="aplicacion, pilotos, grafica">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+    <link rel="icon" href="multimedia/imagenes/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html" title="Ir a la página principal">F1 Desktop</a></h1>
+        <nav>
+            <a href="index.html" title="Inicio F1Dekstop">Inicio</a>
+            <a href="juegos.html" title="Juegos F1Dekstop">Juegos</a>
+            <a href="calendario.html" title="Calendario F1Dekstop">Calendario</a>
+            <a href="circuito.html" title="Circuito F1Dekstop">Circuito</a>
+            <a href="php/viajes.php" title="Viajes F1Dekstop">Viajes</a>
+            <a href="meteorologia.html" title="Meteorología F1Dekstop">Meteorología</a>
+            <a href="noticias.html" title="Noticias F1Dekstop">Noticias</a>
+            <a href="piloto.html" title="Piloto F1Dekstop">Piloto</a>
+        </nav>
+    </header>
+
+    <p>Estás en: <a href="index.html">Inicio</a> >> <a href="juegos.html">Juegos</a> >> Api</p>
+    <h2>Variedad de juegos disponibles</h2>
+    <ul>
+        <li><a href="memoria.html" title="Jugar al juego de memoria">Juego de Memoria</a></li>
+        <li><a href="php/semaforo.php" title="Jugar al juego de semáforo">Semáforo</a></li>
+        <li><a href="api.html" title="Aplicacion web" class="active">Ejercicio Api</a></li>
+        <li><a href="php/api.php" title="Ejercicio libre">Ejercicio Libre php</a></li>
+    </ul>
+    <main>
+        <section>
+            <h2>Selecciona tu Piloto</h2>
+            <select></select>
+        </section>
+        <section><h2>Visualización de los resultados</h2>
+        <article>
+            <h3>Gráfico de los resultados en la temporada 2023/24:</h3>
+            <canvas></canvas>
+        </article>
+    </section>
+    </main>
+    <script src="js/api.js"></script>
+</body>
+</html>
