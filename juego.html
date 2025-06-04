@@ -2,20 +2,20 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>F1 Desktop-Memoria</title>
+    <title>F1 Desktop - Test de Conocimientos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Gael Horta Calzada">
-    <meta name="description" content="Documento basado en la F1 y Daniel Ricciardo" >
-    <meta name="keywords" content="F1, juego, memoria, parejas">
-    <link rel="stylesheet" href="estilo/memoria.css"> 
+    <meta name="description" content="Test de conocimientos sobre Oviedo y el contenido del sitio web">
+    <meta name="keywords" content="test, conocimientos, Oviedo, preguntas">
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css">    
     <link rel="stylesheet" type="text/css" href="estilo/layout.css">
     <link rel="icon" href="multimedia/imagenes/favicon.ico">
 </head>
 <body>
     <header>
-        <h1><a href="index.html" title="Ir a la página principal">F1 Desktop</a></h1>
+        <h1><a href="index.html" title="Ir a la página principal">Oviedo</h1>
         <nav>
-            <a href="index.html" title="Inicio Oviedo" class="active">Inicio</a>
+             <a href="index.html" title="Inicio Oviedo" class="active">Inicio</a>
             <a href="juego.html" title="Juego Oviedo">Juego</a>
             <a href="calendario.html" title="Calendario Oviedo">Calendario</a>
             <a href="rutas.html" title="Rutas Oviedo">Rutas</a>
@@ -24,18 +24,27 @@
             <a href="gastronomia.html" title="Gastronomia Oviedo">Gastronomia</a>
             <a href="ayuda.html" title="Ayuda Oviedo">Ayuda</a>
         </nav>
-    </header>
-    <p>Estás en: <a href="index.html">Inicio</a> >> <a href="juegos.html">Juegos</a> >> Memoria</p>
-    <h2>Variedad de juegos disponibles</h2>
-        <main>
-        <p>Este juego consiste en pulsar las tarjetas para darles la vuelta y realizar parejas de imágenes iguales</p>
-        <section><h2>Juego de Memoria</h2></section>
-        </main>
-    <script src="js/memoria.js" ></script>
+    </header> 
+
+    <p>Estás en: <a href="index.html">Inicio</a> >> Test de Conocimientos</p>
+
+    <main>
+        <h2>Test de Conocimientos sobre Oviedo</h2>
+        <p>Responde las 10 preguntas sobre el contenido de este sitio web. Cada respuesta correcta vale 1 punto.</p>
+        
+        <section>
+        </section>
+        
+        <aside style="display: none;">
+        </aside>
+    </main>
+
+    <script src="js/juego.js"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const juegoMemoria = new Memoria();
-    });
+        document.addEventListener('DOMContentLoaded', () => {
+            const test = new TestConocimientos();
+            test.iniciarTest();
+        });
     </script>
 </body>
 </html>
