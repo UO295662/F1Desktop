@@ -24,8 +24,7 @@
         </inicio>
         <referencias>
             <referencia>https://es.wikipedia.org/wiki/Foncalada</referencia>
-            <referencia>http://prerromanicoasturiano.es/</referencia>
-            <referencia>https://www.turismoasturias.es/</referencia>
+            <referencia>https://www.visitoviedo.info/que-visitar/imprescindibles/prerromanico</referencia>
         </referencias>
         <recomendacion>9</recomendacion>
         <hitos>
@@ -35,7 +34,7 @@
                 <coordenadas>
                     <latitud>43.3631</latitud>
                     <longitud>-5.8470</longitud>
-                    <altitud>230</altitud>
+                    <altitud>207</altitud>
                 </coordenadas>
                 <distancia unidad="m">500</distancia>
                 <galeria_fotos>
@@ -69,7 +68,7 @@
                 </galeria_fotos>
             </hito>
         </hitos>
-        <planimetria archivo="ruta1.kml" />
+        <planimetria archivo="rutas.kml" />
         <altimetria archivo="ruta1.svg" />
     </ruta>
 
@@ -93,9 +92,8 @@
             </coordenadas>
         </inicio>
         <referencias>
-            <referencia>https://www.sidraasturiana.org/</referencia>
             <referencia>https://www.turismoasturias.es/descubre/gastronomia</referencia>
-            <referencia>https://www.gastronomiaoviedo.com/</referencia>
+            <referencia>https://gasconaoviedo.es/</referencia>
         </referencias>
         <recomendacion>8</recomendacion>
         <hitos>
@@ -105,7 +103,7 @@
                 <coordenadas>
                     <latitud>43.3629</latitud>
                     <longitud>-5.8476</longitud>
-                    <altitud>230</altitud>
+                    <altitud>235</altitud>
                 </coordenadas>
                 <distancia unidad="m">100</distancia>
                 <galeria_fotos>
@@ -118,7 +116,7 @@
                 <coordenadas>
                     <latitud>43.3630</latitud>
                     <longitud>-5.8478</longitud>
-                    <altitud>230</altitud>
+                    <altitud>239</altitud>
                 </coordenadas>
                 <distancia unidad="m">200</distancia>
                 <galeria_fotos>
@@ -126,7 +124,7 @@
                 </galeria_fotos>
             </hito>
         </hitos>
-        <planimetria archivo="ruta2.kml" />
+        <planimetria archivo="rutas.kml" />
         <altimetria archivo="ruta2.svg" />
     </ruta>
 
@@ -150,9 +148,8 @@
             </coordenadas>
         </inicio>
         <referencias>
-            <referencia>https://www.turismoasturias.es/descubre/naturaleza/monte-naranco</referencia>
             <referencia>https://es.wikipedia.org/wiki/Monte_Naranco</referencia>
-            <referencia>https://www.rutasoviedo.com/</referencia>
+            <referencia>https://lasendadelhayedo.com/monte-naranco-ruta-oviedo/</referencia>
         </referencias>
         <recomendacion>10</recomendacion>
         <hitos>
@@ -164,7 +161,7 @@
                     <longitud>-5.8580</longitud>
                     <altitud>340</altitud>
                 </coordenadas>
-                <distancia unidad="m">500</distancia>
+                <distancia unidad="m">633</distancia>
                 <galeria_fotos>
                     <foto archivo="multimedia/mirador.jpg">Imagen del Cristo del Naranco</foto>
                 </galeria_fotos>
@@ -173,7 +170,7 @@
                 </galeria_videos>
             </hito>
         </hitos>
-        <planimetria archivo="ruta3.kml" />
+        <planimetria archivo="rutas.kml" />
         <altimetria archivo="ruta3.svg" />
     </ruta>
 </rutas>

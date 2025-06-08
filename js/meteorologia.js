@@ -52,8 +52,8 @@ class Meteorologia {
 
     mostrarClimaActual(datos) {
         return `
-            <h3>Clima Actual en ${this.ciudad}</h3>
             <section>
+                <h3>Clima Actual en ${this.ciudad}</h3>
                 <img src="https://openweathermap.org/img/wn/${this.obtenerIcono(datos.current.weather_code)}@2x.png" 
                      alt="${this.obtenerDescripcion(datos.current.weather_code)}">
                 <ul>
@@ -71,12 +71,14 @@ class Meteorologia {
     mostrarPronostico(datos) {
         let pronosticoHTML = `
             <h3>Pronóstico para los próximos días</h3>
-            <section>`;
+            <section>
+            <h3 style="display: none;">Pronóstico para los próximos días</h3>`;
         
         datos.daily.time.forEach((fecha, index) => {
             const weatherCode = datos.daily.weathercode[index];
             pronosticoHTML += `
                 <article>
+                <h5>Pronóstico del día</h5>
                     <p>${new Date(fecha).toLocaleDateString()}</p>
                     <img src="https://openweathermap.org/img/wn/${this.obtenerIcono(weatherCode)}@2x.png" 
                          alt="${this.obtenerDescripcion(weatherCode)}">

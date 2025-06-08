@@ -132,14 +132,15 @@ class TestConocimientos {
         const pregunta = this.preguntas[this.preguntaActual];
         
         container.innerHTML = `
+            <h3>Preguntas del Test</h3>
             <article>
                 <h3>Pregunta ${this.preguntaActual + 1} de ${this.preguntas.length}</h3>
-                <p><strong>${pregunta.pregunta}</strong></p>
+                <p>${pregunta.pregunta}</p>
                 <form>
                     ${pregunta.opciones.map((opcion, index) => `
                         <fieldset>
-                            <input type="radio" name="respuesta" value="${index}">
-                            <label>${opcion}</label>
+                            <input type="radio" name="respuesta" value="${index}" id="opcion_${index}">
+                            <label for="opcion_${index}">${opcion}</label>
                         </fieldset>
                     `).join('')}
                     <button type="submit" disabled>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Rutas de Oviedo</name>
+    <description>Rutas turísticas por Oviedo y alrededores</description>
+    <Style id="rutaArquitectura">
+      <LineStyle>
+        <color>ff0000ff</color>
+        <width>4</width>
+      </LineStyle>
+      <IconStyle>
+        <color>ff0000ff</color>
+        <scale>1.2</scale>
+      </IconStyle>
+    </Style>
+    <Style id="rutaGastronomica">
+      <LineStyle>
+        <color>ff00ff00</color>
+        <width>4</width>
+      </LineStyle>
+      <IconStyle>
+        <color>ff00ff00</color>
+        <scale>1.2</scale>
+      </IconStyle>
+    </Style>
+    <Style id="rutaPaisajistica">
+      <LineStyle>
+        <color>ffff0000</color>
+        <width>4</width>
+      </LineStyle>
+      <IconStyle>
+        <color>ffff0000</color>
+        <scale>1.2</scale>
+      </IconStyle>
+    </Style>
+    <Folder>
+      <name>Ruta de los Monumentos Prerrománicos</name>
+      <description>
+        Tipo: Arquitectura y monumentos
+        Transporte: A pie
+        Duración: 4 horas
+        Dirigida a: Apta para toda la familia
+        Recomendación: 9/10
+        Descripción: Una ruta cultural que recorre los principales monumentos prerrománicos del concejo de Oviedo.
+      </description>
+      <Placemark>
+        <name>INICIO: Plaza del Ayuntamiento</name>
+        <description>Dirección: Calle Mayor</description>
+        <styleUrl>#rutaArquitectura</styleUrl>
+        <Point>
+          <coordinates>-5.8448,43.3623,232</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>La Foncalada</name>
+        <description>Fuente prerrománica declarada Patrimonio de la Humanidad.
+Distancia: 500 m
+Fotos disponibles: multimedia/la_foncalada.jpg </description>
+        <styleUrl>#rutaArquitectura</styleUrl>
+        <Point>
+          <coordinates>-5.8470,43.3631,207</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>San Julián de los Prados</name>
+        <description>Iglesia prerrománica construida en el siglo IX.
+Distancia: 1200 m
+Fotos disponibles: multimedia/san_julian_delosprados.jpg </description>
+        <styleUrl>#rutaArquitectura</styleUrl>
+        <Point>
+          <coordinates>-5.8500,43.3645,240</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Santa María del Naranco</name>
+        <description>Palacio prerrománico convertido en iglesia.
+Distancia: 2500 m
+Fotos disponibles: multimedia/naranco.jpg </description>
+        <styleUrl>#rutaArquitectura</styleUrl>
+        <Point>
+          <coordinates>-5.8575,43.3675,320</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Recorrido: Ruta de los Monumentos Prerrománicos</name>
+        <description>Línea que conecta todos los puntos de la ruta</description>
+        <styleUrl>#rutaArquitectura</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -5.8448,43.3623,232
+            -5.8470,43.3631,207
+            -5.8500,43.3645,240
+            -5.8575,43.3675,320
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Ruta Gastronómica de Oviedo</name>
+      <description>
+        Tipo: Gastronómica
+        Transporte: A pie
+        Duración: 3 horas
+        Dirigida a: Personas en buena forma física
+        Recomendación: 8/10
+        Descripción: Descubre los sabores de Oviedo visitando sidrerías y restaurantes típicos.
+      </description>
+      <Placemark>
+        <name>INICIO: Calle Gascona</name>
+        <description>Dirección: Calle Gascona</description>
+        <styleUrl>#rutaGastronomica</styleUrl>
+        <Point>
+          <coordinates>-5.8475,43.3628,230</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sidrería Tierra Astur</name>
+        <description>Degustación de sidra y tapas asturianas.
+Distancia: 100 m
+Fotos disponibles: multimedia/tierra_astur.jpg </description>
+        <styleUrl>#rutaGastronomica</styleUrl>
+        <Point>
+          <coordinates>-5.8476,43.3629,235</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Restaurante El Fartuquín</name>
+        <description>Especialidad en cachopos y fabada asturiana.
+Distancia: 200 m
+Fotos disponibles: multimedia/fartuquin.jpg </description>
+        <styleUrl>#rutaGastronomica</styleUrl>
+        <Point>
+          <coordinates>-5.8478,43.3630,239</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Recorrido: Ruta Gastronómica de Oviedo</name>
+        <description>Línea que conecta todos los puntos de la ruta</description>
+        <styleUrl>#rutaGastronomica</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -5.8475,43.3628,230
+            -5.8476,43.3629,235
+            -5.8478,43.3630,239
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Ruta Paisajística del Monte Naranco</name>
+      <description>
+        Tipo: Paisajística
+        Transporte: Bicicleta
+        Duración: 2 horas
+        Dirigida a: Personas en buena forma física
+        Recomendación: 10/10
+        Descripción: Una ruta en bicicleta que recorre los paisajes del Monte Naranco.
+      </description>
+      <Placemark>
+        <name>INICIO: Monte Naranco</name>
+        <description>Dirección: Carretera del Naranco</description>
+        <styleUrl>#rutaPaisajistica</styleUrl>
+        <Point>
+          <coordinates>-5.8575,43.3675,320</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mirador del Naranco</name>
+        <description>Vistas panorámicas de Oviedo y alrededores.
+Distancia: 633 m
+Fotos disponibles: multimedia/mirador.jpg 
+Videos disponibles: multimedia/mirador.mp4 </description>
+        <styleUrl>#rutaPaisajistica</styleUrl>
+        <Point>
+          <coordinates>-5.8580,43.3680,340</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Recorrido: Ruta Paisajística del Monte Naranco</name>
+        <description>Línea que conecta todos los puntos de la ruta</description>
+        <styleUrl>#rutaPaisajistica</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -5.8575,43.3675,320
+            -5.8580,43.3680,340
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

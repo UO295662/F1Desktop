@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500">
+    <polygon points="50.0,250.0 350.0,250.0 950.0,250.0 950.0,450 50.0,450" fill="rgba(215, 122, 97, 0.3)" stroke="#d77a61" stroke-width="2" />
+    <text x="500.0" y="30" text-anchor="middle" font-family="Arial" font-size="16" fill="#2c2c2c">Ruta Gastronómica de Oviedo</text>
+    <text x="500.0" y="50" text-anchor="middle" font-family="Arial" font-size="12" fill="#666">Distancia: 300m - Desnivel: 20m</text>
+    </svg>
