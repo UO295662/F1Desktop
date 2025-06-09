@@ -31,50 +31,13 @@
         <h2>Imágenes del Concejo de Oviedo</h2>
         <figure>
             <img src="multimedia/Situacion_Oviedo.jpg" alt="Mapa de situación del concejo de Oviedo" />
-            <figcaption>Catedral de Oviedo</figcaption>
+            <figcaption>Mapa de situación del concejo de Oviedo</figcaption>
         </figure>
         <nav>
             <button type="button">&#10094;</button>
             <button type="button">&#10095;</button>
         </nav>
     </section>
-
-    <script>
-        const imagenes = [
-            {src: "multimedia/Situacion_Oviedo.jpg", alt: "Mapa de situación del concejo de Oviedo", caption: "Mapa de situación del concejo de Oviedo"},
-            {src: "multimedia/oviedo-catedral.jpg", alt: "Catedral de Oviedo", caption: "Catedral de Oviedo"},
-            {src: "multimedia/naranco.jpg", alt: "Santa María del Naranco", caption: "Santa María del Naranco"},
-            {src: "multimedia/san_julian_delosprados.jpg", alt: "San Julián de Los Prados", caption: "San Julián de Los Prados"},
-            {src: "multimedia/la_foncalada.jpg", alt: "La Foncalada", caption: "La Foncalada"}
-        ];
-
-        let indice = 0;
-        
-        function mostrarImagen(i) {
-            const contenedor = document.querySelector('figure');
-            const imagen = contenedor.querySelector('img');
-            const texto = contenedor.querySelector('figcaption');
-            
-            imagen.src = imagenes[i].src;
-            imagen.alt = imagenes[i].alt;
-            texto.textContent = imagenes[i].caption;
-        }
-
-        // Seleccionar botones por posición
-        const botones = document.querySelectorAll('nav button');
-        
-        botones[0].addEventListener('click', function() {
-            indice = (indice - 1 + imagenes.length) % imagenes.length;
-            mostrarImagen(indice);
-        });
-
-        botones[1].addEventListener('click', function() {
-            indice = (indice + 1) % imagenes.length;
-            mostrarImagen(indice);
-        });
-        
-        mostrarImagen(indice);
-    </script>
     
     <section>
         <h2>Noticias de Oviedo y alrededores</h2>

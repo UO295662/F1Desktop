@@ -37,18 +37,35 @@ $(document).ready(function() {
 
     mostrarImagen(indice);
 
+    function limpiarTexto(texto) {
+        if (!texto) return 'Descripción no disponible';
+        
+        // Normalizar Unicode y limpiar caracteres problemáticos
+        return texto.normalize('NFC')
+                   .replace(/[\u2026]/g, '...')  // Reemplazar elipsis Unicode
+                   .replace(/[\u201C\u201D]/g, '"')  // Comillas curvas
+                   .replace(/[\u2018\u2019]/g, "'")  // Comillas simples curvas
+                   .replace(/[\u2013\u2014]/g, '-')  // Guiones largos
+                   .replace(/[^\x00-\x7F]/g, '')    // Eliminar caracteres no ASCII
+                   .trim();
+    }
+
     function mostrarNoticia(noticia) {
         const fecha = new Date(noticia.pubDate).toLocaleDateString('es-ES');
-        const descripcion = noticia.description || noticia.content || 'Descripción no disponible';
+        const titulo = limpiarTexto(noticia.title);
+        const descripcion = limpiarTexto(noticia.description || noticia.content || 'Descripción no disponible');
+        const descripcionCorta = descripcion.length > 150 ? 
+                                descripcion.substring(0, 150) + '...' : 
+                                descripcion;
         
         return $('<article>').append(
-            $('<h3>').text(noticia.title),
+            $('<h3>').text(titulo),
             $('<p>').append(
                 $('<time>')
                     .attr('datetime', noticia.pubDate)
                     .text(fecha)
             ),
-            $('<p>').text(descripcion.substring(0, 200) + '...'),
+            $('<p>').text(descripcionCorta),
             $('<a>')
                 .attr({
                     'href': noticia.link,
@@ -56,7 +73,7 @@ $(document).ready(function() {
                     'rel': 'noopener noreferrer'
                 })
                 .text('Leer más'),
-            noticia.source_id ? $('<p>').text(`Fuente: ${noticia.source_id}`) : ''
+            noticia.source_id ? $('<p>').text('Fuente: ' + limpiarTexto(noticia.source_id)) : ''
         );
     }
 
@@ -65,26 +82,36 @@ $(document).ready(function() {
             url: API_URL,
             method: 'GET',
             dataType: 'json',
-            timeout: 10000
+            timeout: 10000,
+            headers: {
+                'Accept': 'application/json; charset=utf-8',
+                'Content-Type': 'application/json; charset=utf-8'
+            }
         })
         .done(function(datos) {
             const $contenedor = $('article[role="feed"]');
             $contenedor.empty();
 
             if (datos.status === 'success' && datos.results && datos.results.length > 0) {
+                $contenedor.append('<h3>Noticias recientes sobre Oviedo</h3>');
+                
                 const noticias = datos.results.slice(0, 5);
                 
                 noticias.forEach(function(noticia) {
                     if (noticia.title && noticia.link) {
-                        $contenedor.append(mostrarNoticia(noticia));
+                        try {
+                            $contenedor.append(mostrarNoticia(noticia));
+                        } catch (error) {
+                            console.warn('Error procesando noticia:', error);
+                        }
                     }
                 });
                 
-                if ($contenedor.children().length === 0) {
-                    $contenedor.html('<p>No se encontraron noticias relevantes sobre Oviedo.</p>');
+                if ($contenedor.children().length <= 1) {
+                    $contenedor.html('<h3>Noticias sobre Oviedo</h3><p>No se encontraron noticias relevantes sobre Oviedo.</p>');
                 }
             } else {
-                $contenedor.html('<p>No se encontraron noticias recientes sobre Oviedo.</p>');
+                $contenedor.html('<h3>Noticias sobre Oviedo</h3><p>No se encontraron noticias recientes sobre Oviedo.</p>');
             }
         })
         .fail(function(xhr, status, error) {
@@ -92,12 +119,11 @@ $(document).ready(function() {
             const $contenedor = $('article[role="feed"]');
             
             if (xhr.status === 429) {
-                $contenedor.html('<p>Se ha alcanzado el límite de consultas de la API de noticias. Inténtalo más tarde.</p>');
+                $contenedor.html('<h3>Noticias sobre Oviedo</h3><p>Se ha alcanzado el límite de consultas de la API de noticias. Inténtalo más tarde.</p>');
             } else if (xhr.status === 401) {
-                $contenedor.html('<p>Error de autenticación con la API de noticias.</p>');
+                $contenedor.html('<h3>Noticias sobre Oviedo</h3><p>Error de autenticación con la API de noticias.</p>');
             } else {
-                $contenedor.html('<p>Lo sentimos, no se pudieron cargar las noticias en este momento. ' +
-                              'Verifica tu conexión a internet.</p>');
+                $contenedor.html('<h3>Noticias sobre Oviedo</h3><p>Lo sentimos, no se pudieron cargar las noticias en este momento. Verifica tu conexión a internet.</p>');
             }
         });
     }

@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p><?= htmlspecialchars($error) ?></p>
     <?php endif; ?>
     
-    <form method="POST" action="">
+    <form method="POST" action="login.php">
         <fieldset>
             <legend>Acceso al Sistema</legend>
             

@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p><strong>No hay horarios disponibles para este recurso en este momento.</strong></p>
         <p><a href="viajes.php">← Volver al catálogo</a></p>
     <?php else: ?>
-        <form method="POST" action="">
+        <form method="POST" action="reservar.php?id=<?= $recursoId ?>">
             <fieldset>
                 <legend>Datos de la Reserva</legend>
                 

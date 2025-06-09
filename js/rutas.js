@@ -7,7 +7,7 @@ function MapHandler() {
     this.mapInitialized = false;
     
     this.findMapContainer();
-    this.mapSection && (this.mapSection.style.display = 'none');
+    this.mapSection && (this.mapSection.hidden = true);
     this.configurarInputFile();
 }
 
@@ -30,7 +30,6 @@ MapHandler.prototype.configurarInputFile = function() {
     fileInput.onchange = (e) => {
         const file = e.target.files[0];
         loadButton.textContent = file?.name.toLowerCase().endsWith('.xml') ? `Cargar: ${file.name}` : 'Cargar Rutas';
-        loadButton.style.backgroundColor = file?.name.toLowerCase().endsWith('.xml') ? '#d77a61' : '';
     };
 };
 
@@ -51,13 +50,7 @@ MapHandler.prototype.findMapContainer = function() {
 MapHandler.prototype.mostrarMapa = function() {
     if (!this.mapSection) return;
     
-    this.mapSection.style.display = 'block';
-    Object.assign(this.mapSection.style, {
-        height: '500px', width: '100%', border: '2px solid #d77a61',
-        borderRadius: '10px', marginTop: '1rem', position: 'relative',
-        overflow: 'hidden', backgroundColor: '#f8f9fa',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.1)', padding: '0'
-    });
+    this.mapSection.hidden = false;
     
     if (!this.mapInitialized) {
         setTimeout(() => this.initMap(), 500);
@@ -67,11 +60,7 @@ MapHandler.prototype.mostrarMapa = function() {
 
 MapHandler.prototype.initMap = function() {
     const popupElement = document.createElement('section');
-    popupElement.innerHTML = '<h6 style="display:none;">Popup</h6><a href="#">×</a><section><h6 style="display:none;">Contenido</h6></section>';
-    Object.assign(popupElement.style, {
-        position: 'absolute', background: 'white', border: '1px solid #ccc',
-        borderRadius: '4px', padding: '10px', boxShadow: '0 2px 8px rgba(0,0,0,0.2)', zIndex: '1000'
-    });
+    popupElement.innerHTML = '<h6>Popup</h6><a href="#">×</a><section><h6>Contenido</h6></section>';
     
     this.popup = new ol.Overlay({ element: popupElement, autoPan: { animation: { duration: 250 } } });
     this.map = new ol.Map({
@@ -88,7 +77,7 @@ MapHandler.prototype.initMap = function() {
         const feature = this.map.forEachFeatureAtPixel(evt.pixel, f => f);
         if (feature) {
             const content = popupElement.querySelector('section');
-            content.innerHTML = `<h6 style="display:none;">Info</h6><section><h6 style="margin:0 0 10px 0;color:#d77a61;">${feature.get('name') || 'Punto'}</h6><p style="margin:0;white-space:pre-line;">${feature.get('description') || ''}</p></section>`;
+            content.innerHTML = `<h6>Info</h6><section><h6>${feature.get('name') || 'Punto'}</h6><p>${feature.get('description') || ''}</p></section>`;
             this.popup.setPosition(evt.coordinate);
         }
     });
@@ -254,11 +243,18 @@ MapHandler.prototype.crearSelectorRutas = function() {
     const main = document.querySelector('main');
     
     // Limpiar selectores existentes
-    main.querySelectorAll('.selector-rutas, .contenedor-ruta').forEach(el => el.remove());
+    const selectoresAnteriores = main.querySelectorAll('section[data-tipo="selector-rutas"], section[data-tipo="contenedor-ruta"]');
+    selectoresAnteriores.forEach(el => el.remove());
 
     const selectorSection = document.createElement('section');
-    selectorSection.className = 'selector-rutas';
-    selectorSection.innerHTML = `<h3>Selecciona una Ruta</h3><select><option value="">-- Elige una ruta --</option></select>`;
+    selectorSection.setAttribute('data-tipo', 'selector-rutas');
+    selectorSection.innerHTML = `
+        <h3>Selecciona una Ruta</h3>
+        <label for="selector-rutas">Elige una ruta:</label>
+        <select id="selector-rutas">
+            <option value="">-- Elige una ruta --</option>
+        </select>
+    `;
     
     const select = selectorSection.querySelector('select');
     this.rutasData.forEach((ruta, i) => {
@@ -268,7 +264,8 @@ MapHandler.prototype.crearSelectorRutas = function() {
     });
     
     const contenedorRuta = document.createElement('section');
-    contenedorRuta.className = 'contenedor-ruta';
+    contenedorRuta.setAttribute('data-tipo', 'contenedor-ruta');
+    contenedorRuta.innerHTML = '<h3>Información de la Ruta</h3><p>Selecciona una ruta para ver su información detallada.</p>';
     
     main.appendChild(selectorSection);
     main.appendChild(contenedorRuta);
@@ -278,8 +275,8 @@ MapHandler.prototype.crearSelectorRutas = function() {
             this.mostrarMapa();
             this.mostrarRutaSeleccionada(parseInt(select.value));
         } else {
-            this.mapSection.style.display = 'none';
-            contenedorRuta.innerHTML = '';
+            this.mapSection.hidden = true;
+            contenedorRuta.innerHTML = '<h3>Información de la Ruta</h3><p>Selecciona una ruta para ver su información detallada.</p>';
             this.clearMap();
         }
     };
@@ -287,7 +284,7 @@ MapHandler.prototype.crearSelectorRutas = function() {
 
 MapHandler.prototype.mostrarRutaSeleccionada = function(indice) {
     const ruta = this.rutasData[indice];
-    const contenedorRuta = document.querySelector('.contenedor-ruta');
+    const contenedorRuta = document.querySelector('section[data-tipo="contenedor-ruta"]');
     
     const nombreRuta = ruta.querySelector("nombre")?.textContent || "";
     const planimetria = ruta.querySelector("planimetria")?.getAttribute("archivo");
@@ -295,7 +292,8 @@ MapHandler.prototype.mostrarRutaSeleccionada = function(indice) {
     
     if (nombreRuta && planimetria) this.cargarKMLPorRuta(nombreRuta, `xml/${planimetria}`);
     
-    contenedorRuta.innerHTML = this.convertirRutaAHTML(ruta);
+    // Mantener el encabezado de la sección y añadir el contenido
+    contenedorRuta.innerHTML = '<h3>Información de la Ruta</h3>' + this.convertirRutaAHTML(ruta);
     if (altimetria) this.cargarSVGRuta(contenedorRuta, altimetria);
     contenedorRuta.scrollIntoView({ behavior: 'smooth' });
 };
@@ -305,17 +303,12 @@ MapHandler.prototype.cargarSVGRuta = function(contenedorRuta, archivoSVG) {
         .then(r => r.text())
         .then(svg => {
             const section = document.createElement('section');
-            section.innerHTML = `<h4>Perfil Altimétrico</h4><section><h5 style="display:none;">SVG</h5>${svg}</section>`;
-            const svgEl = section.querySelector('svg');
-            if (svgEl) Object.assign(svgEl.style, {
-                maxWidth: '100%', height: 'auto', border: '1px solid #d77a61',
-                borderRadius: '8px', backgroundColor: '#f8f9fa', boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-            });
+            section.innerHTML = `<h4>Perfil Altimétrico</h4><section><h5>SVG</h5>${svg}</section>`;
             contenedorRuta.querySelector('article')?.appendChild(section);
         })
         .catch(() => {
             const error = document.createElement('section');
-            error.innerHTML = '<h4>Perfil Altimétrico</h4><p style="color:#666;">No disponible</p>';
+            error.innerHTML = '<h4>Perfil Altimétrico</h4><p>No disponible</p>';
             contenedorRuta.querySelector('article')?.appendChild(error);
         });
 };

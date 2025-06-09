@@ -219,7 +219,7 @@ class TestConocimientos {
             <article>
                 <h3>¡Test Completado!</h3>
                 <section>
-                    <p><strong>Tu puntuación: ${puntuacion}/10</strong></p>
+                    <h3>Tu puntuación: ${puntuacion}/10</h3>
                     <p>(${(puntuacion * 10)}%)</p>
                 </section>
                 <p>${mensaje}</p>
