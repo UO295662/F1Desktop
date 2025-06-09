@@ -139,11 +139,11 @@
         </descripcion>
         <personas>Personas en buena forma física</personas>
         <inicio>
-            <lugar>Monte Naranco</lugar>
+            <lugar>Santa María del Naranco</lugar>
             <direccion>Carretera del Naranco</direccion>
             <coordenadas>
-                <latitud>43.3675</latitud>
-                <longitud>-5.8575</longitud>
+                <latitud>43.3775</latitud>
+                <longitud>-5.8640</longitud>
                 <altitud>320</altitud>
             </coordenadas>
         </inicio>
@@ -154,19 +154,32 @@
         <recomendacion>10</recomendacion>
         <hitos>
             <hito>
-                <nombre>Mirador del Naranco</nombre>
-                <descripcion>Vistas panorámicas de Oviedo y alrededores.</descripcion>
+                <nombre>San Miguel de Lillo</nombre>
+                <descripcion>Iglesia prerrománica del siglo IX, situada muy cerca de Santa María del Naranco.</descripcion>
                 <coordenadas>
-                    <latitud>43.3680</latitud>
-                    <longitud>-5.8580</longitud>
+                    <latitud>43.3770</latitud>
+                    <longitud>-5.8635</longitud>
+                    <altitud>315</altitud>
+                </coordenadas>
+                <distancia unidad="m">150</distancia>
+                <galeria_fotos>
+                    <foto archivo="multimedia/san_miguel_lillo.jpg">Imagen de San Miguel de Lillo</foto>
+                </galeria_fotos>
+            </hito>
+            <hito>
+                <nombre>Mirador del Naranco</nombre>
+                <descripcion>Vistas panorámicas de Oviedo y la cordillera cantábrica desde la ladera del monte.</descripcion>
+                <coordenadas>
+                    <latitud>43.3780</latitud>
+                    <longitud>-5.8645</longitud>
                     <altitud>340</altitud>
                 </coordenadas>
-                <distancia unidad="m">633</distancia>
+                <distancia unidad="m">400</distancia>
                 <galeria_fotos>
-                    <foto archivo="multimedia/mirador.jpg">Imagen del Cristo del Naranco</foto>
+                    <foto archivo="multimedia/mirador.jpg">Vistas panorámicas desde el Mirador del Naranco</foto>
                 </galeria_fotos>
                 <galeria_videos>
-                    <video archivo="multimedia/mirador.mp4">Video del Cristo del Naranco</video>
+                    <video archivo="multimedia/mirador.mp4">Video panorámico del mirador</video>
                 </galeria_videos>
             </hito>
         </hitos>

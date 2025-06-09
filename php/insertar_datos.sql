@@ -1,0 +1,31 @@
+-- Insertar tipos de recursos
+INSERT INTO tipos_recursos (nombre, descripcion, icono) VALUES
+('Museo', 'Museos y centros culturales', 'museum'),
+('Ruta Turística', 'Rutas guiadas por la ciudad', 'route'),
+('Restaurante', 'Establecimientos gastronómicos', 'restaurant'),
+('Hotel', 'Alojamientos y hospedajes', 'hotel'),
+('Monumento', 'Sitios históricos y monumentos', 'monument'),
+('Parque Natural', 'Espacios naturales y parques', 'park');
+
+-- Insertar recursos turísticos
+INSERT INTO recursos_turisticos (nombre, descripcion, tipo_recurso_id, ubicacion, direccion, latitud, longitud, capacidad_maxima, precio, duracion_horas) VALUES
+('Catedral de San Salvador', 'Visita guiada a la histórica Catedral de Oviedo, conocida por su impresionante arquitectura gótica y la Cámara Santa.', 1, 'Centro Histórico de Oviedo', 'Plaza de Alfonso II El Casto, s/n, 33003 Oviedo', 43.3614, -5.8434, 25, 8.50, 1.5),
+('Museo de Bellas Artes', 'Colección permanente de arte asturiano y exposiciones temporales en el corazón de Oviedo.', 1, 'Centro de Oviedo', 'Calle Santa Ana, 1, 33003 Oviedo', 43.3627, -5.8456, 30, 6.00, 2.0),
+('Ruta del Prerrománico Asturiano', 'Tour guiado por los monumentos prerrománicos declarados Patrimonio de la Humanidad.', 2, 'Oviedo y alrededores', 'Punto de encuentro: Plaza de la Constitución', 43.3603, -5.8423, 15, 12.00, 3.5),
+('Restaurante Casa Ramón', 'Experiencia gastronómica tradicional asturiana con menú degustación.', 3, 'Barrio de Vetusta', 'Calle Melquíades Álvarez, 8, 33002 Oviedo', 43.3591, -5.8401, 40, 35.00, 2.0),
+('Hotel de la Reconquista', 'Alojamiento de lujo en palacio del siglo XVIII en el centro histórico.', 4, 'Centro Histórico', 'Calle Gil de Jaz, 16, 33004 Oviedo', 43.3625, -5.8445, 80, 120.00, 24.0),
+('Monte Naranco', 'Excursión guiada al Monte Naranco con visita a Santa María y San Miguel.', 6, 'Monte Naranco', 'Carretera de los Monumentos, s/n', 43.3789, -5.8567, 20, 15.00, 4.0);
+
+-- Insertar horarios disponibles
+INSERT INTO horarios_recursos (recurso_id, fecha_inicio, fecha_fin, plazas_totales, plazas_disponibles) VALUES
+(1, '2025-06-15 10:00:00', '2025-06-15 11:30:00', 25, 20),
+(1, '2025-06-15 16:00:00', '2025-06-15 17:30:00', 25, 25),
+(1, '2025-06-16 10:00:00', '2025-06-16 11:30:00', 25, 18),
+(2, '2025-06-15 09:00:00', '2025-06-15 11:00:00', 30, 25),
+(2, '2025-06-16 15:00:00', '2025-06-16 17:00:00', 30, 30),
+(3, '2025-06-17 09:30:00', '2025-06-17 13:00:00', 15, 12),
+(3, '2025-06-18 09:30:00', '2025-06-18 13:00:00', 15, 15),
+(4, '2025-06-15 13:00:00', '2025-06-15 15:00:00', 40, 35),
+(4, '2025-06-16 20:00:00', '2025-06-16 22:00:00', 40, 28),
+(5, '2025-06-15 15:00:00', '2025-06-16 15:00:00', 80, 65),
+(6, '2025-06-20 08:00:00', '2025-06-20 12:00:00', 20, 16);

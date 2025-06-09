@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <a href="../juegos.html" title="Juegos F1Dekstop">Juegos</a>
             <a href="../calendario.html" title="Calendario F1Dekstop">Calendario</a>
             <a href="../circuito.html" title="Circuito F1Dekstop">Circuito</a>
-            <a href="viajes.php" title="Viajes F1Dekstop">Viajes</a>
+            <a href="recursos.php" title="Viajes F1Dekstop">Viajes</a>
             <a href="../meteorologia.html" title="Meteorología F1Dekstop">Meteorología</a>
             <a href="../noticias.html" title="Noticias F1Dekstop">Noticias</a>
             <a href="../piloto.html" title="Piloto F1Dekstop">Piloto</a>

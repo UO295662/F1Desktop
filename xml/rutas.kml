@@ -159,22 +159,32 @@ Fotos disponibles: multimedia/fartuquin.jpg </description>
         Descripción: Una ruta en bicicleta que recorre los paisajes del Monte Naranco.
       </description>
       <Placemark>
-        <name>INICIO: Monte Naranco</name>
+        <name>INICIO: Santa María del Naranco</name>
         <description>Dirección: Carretera del Naranco</description>
         <styleUrl>#rutaPaisajistica</styleUrl>
         <Point>
-          <coordinates>-5.8575,43.3675,320</coordinates>
+          <coordinates>-5.8640,43.3775,320</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>San Miguel de Lillo</name>
+        <description>Iglesia prerrománica del siglo IX, situada muy cerca de Santa María del Naranco.
+Distancia: 150 m
+Fotos disponibles: multimedia/san_miguel_lillo.jpg </description>
+        <styleUrl>#rutaPaisajistica</styleUrl>
+        <Point>
+          <coordinates>-5.8635,43.3770,315</coordinates>
         </Point>
       </Placemark>
       <Placemark>
         <name>Mirador del Naranco</name>
-        <description>Vistas panorámicas de Oviedo y alrededores.
-Distancia: 633 m
+        <description>Vistas panorámicas de Oviedo y la cordillera cantábrica desde la ladera del monte.
+Distancia: 400 m
 Fotos disponibles: multimedia/mirador.jpg 
 Videos disponibles: multimedia/mirador.mp4 </description>
         <styleUrl>#rutaPaisajistica</styleUrl>
         <Point>
-          <coordinates>-5.8580,43.3680,340</coordinates>
+          <coordinates>-5.8645,43.3780,340</coordinates>
         </Point>
       </Placemark>
       <Placemark>
@@ -184,8 +194,9 @@ Videos disponibles: multimedia/mirador.mp4 </description>
         <LineString>
           <tessellate>1</tessellate>
           <coordinates>
-            -5.8575,43.3675,320
-            -5.8580,43.3680,340
+            -5.8640,43.3775,320
+            -5.8635,43.3770,315
+            -5.8645,43.3780,340
           </coordinates>
         </LineString>
       </Placemark>

@@ -235,7 +235,7 @@ class TestConocimientos {
                             return `
                                 <li>
                                     <strong>Pregunta ${index + 1}:</strong> ${esCorrecta ? '✓ Correcta' : '✗ Incorrecta'}
-                                    ${!esCorrecta ? `<br><small>Tu respuesta: ${respuestaUsuario}<br>Respuesta correcta: ${respuestaCorrecta}</small>` : ''}
+                                    ${!esCorrecta ? `<small>Tu respuesta: ${respuestaUsuario} - Respuesta correcta: ${respuestaCorrecta}</small>` : ''}
                                 </li>
                             `;
                         }).join('')}

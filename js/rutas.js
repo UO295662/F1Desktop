@@ -356,7 +356,6 @@ MapHandler.prototype.convertirRutaAHTML = function(ruta) {
         html += '</ul></section>';
     }
     
-    // Hitos
     const hitos = ruta.querySelectorAll("hito");
     if (hitos.length > 0) {
         html += '<section><h4>Hitos de la Ruta</h4>';
@@ -378,7 +377,6 @@ MapHandler.prototype.convertirRutaAHTML = function(ruta) {
             }
             html += '</ul>';
             
-            // Fotos
             const fotos = hito.querySelectorAll("galeria_fotos foto");
             if (fotos.length > 0) {
                 html += '<aside><p><strong>Fotos:</strong></p>';
@@ -392,7 +390,6 @@ MapHandler.prototype.convertirRutaAHTML = function(ruta) {
                 html += '</aside>';
             }
             
-            // Videos
             const videos = hito.querySelectorAll("galeria_videos video");
             if (videos.length > 0) {
                 html += '<aside><p><strong>Videos:</strong></p>';
@@ -411,7 +408,6 @@ MapHandler.prototype.convertirRutaAHTML = function(ruta) {
         html += '</section>';
     }
     
-    // Referencias
     const refs = ruta.querySelectorAll("referencias referencia");
     if (refs.length > 0) {
         html += '<section><h4>Referencias</h4><ul>';
@@ -419,7 +415,6 @@ MapHandler.prototype.convertirRutaAHTML = function(ruta) {
         html += '</ul></section>';
     }
     
-    // Archivos adjuntos
     const planimetria = ruta.querySelector("planimetria");
     const altimetria = ruta.querySelector("altimetria");
     if (planimetria || altimetria) {
