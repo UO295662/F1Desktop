@@ -5,13 +5,14 @@
 
 /* Estilo del encabezado */
 header { /* Especificidad: 0,0,1 */
-  background-color: #d77a61; /* Fondo del encabezado: coral */
+  background-color: #5a1f1f; /* Cambiado de #d77a61 */
   /*color heredado de nav*/
   display: flex;
   padding: 2rem;
   text-align: center;
   position: relative;
   width: calc(100% + 30em);
+  length: calc(100% + 30em);
   margin-left: -15em;
   margin-right: -15em;
   margin-top: -15em;
@@ -72,19 +73,19 @@ nav { /* Especificidad: 0,0,1 */
 nav a { /* Especificidad: 0,0,2 */
   text-decoration: none;
   color: #fff; /* Enlaces del menú: blanco */
-  background-color: #d77a61; /* Fondo de enlaces: rojo oscuro */
+  background-color: #5a1f1f; /* Cambiado de #d77a61 */
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   transition: background-color 0.3s, color 0.3s;
 }
 
 nav a:hover { /* Especificidad: 0,1,2 */
-  color: #a63d40; /* Texto al pasar el cursor: rojo oscuro */
+  color: #5a1f1f; /* Cambiado de #a63d40 */
   background-color: #fef6e4; /* Fondo al pasar el cursor: crema */
 }
 nav a.active { /* Especificidad: 0,1,2 */
   color: #fff; /* Enlace activo: blanco */
-  background-color: #6b4226; /* Fondo del enlace activo: marrón */
+  background-color: #2d1b0f; /* Cambiado de #6b4226 */
 }
 header h1 a { /* Especificidad: 0,0,3 */
   text-decoration: none;

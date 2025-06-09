@@ -12,7 +12,7 @@ body { /* Especificidad: 0,0,1 */
 /* Estilos de los enlaces externos */
 a[href^="http://"], a[href^="https://"] { /* Especificidad: 0,1,1 */
   text-decoration: underline;
-  color: #d77a61; /* Enlaces: coral */
+  color: #5a1f1f; /* Enlaces: coral */
   transition: color 0.3s, transform 0.3s, text-decoration 0.3s;
 }
 
@@ -150,7 +150,7 @@ article button { /* Especificidad: 0,0,2 */
   height: 8%;
   border: none;
   border-radius: 50%;
-  background: #d77a61;
+  background: #5a1f1f;
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
@@ -246,7 +246,7 @@ figure nav {
 }
 
 figure button {
-    background: #d77a61;
+    background: #5a1f1f;
     color: #fff;
     border: none;
     padding: 0.75em 1.5em;
@@ -276,7 +276,7 @@ section nav {
 
 /* Botones del carrusel */
 section nav button {
-    background: linear-gradient(145deg, #d77a61, #c96a51) !important;
+    background: linear-gradient(145deg, #5a1f1f, #c96a51) !important;
     color: #ffffff !important;
     border: 2px solid #a63d40 !important;
     border-radius: 50% !important;
@@ -318,7 +318,7 @@ article[role="feed"] > article {
     height: auto;
     display: block;
     background-color: #fff;
-    border: 0.2rem solid #d77a61;
+    border: 0.2rem solid #5a1f1f;
     border-radius: 1rem;
     margin-bottom: 2rem;
     padding: 2rem;
@@ -353,7 +353,7 @@ article[role="feed"] time {
 
 article[role="feed"] a {
     display: inline-block;
-    background-color: #d77a61;
+    background-color: #5a1f1f;
     color: #fff;
     padding: 1rem 2rem;
     border-radius: 0.5rem;
@@ -391,7 +391,7 @@ aside:first-of-type {
 }
 
 aside:first-of-type h3 {
-    color: #d77a61 !important;
+    color: #5a1f1f !important;
     margin-bottom: 2rem !important;
     align-self: center !important;
 }
@@ -439,7 +439,7 @@ aside:last-of-type {
 }
 
 aside:last-of-type h3 {
-    color: #d77a61 !important;
+    color: #5a1f1f !important;
     align-self: center !important;
     margin-bottom: 2rem !important;
     font-size: 2rem !important;
@@ -537,7 +537,7 @@ body main section article:not(aside article) {
 }
 
 body main section article:not(aside article) h3 {
-    color: #d77a61 !important;
+    color: #5a1f1f !important;
     text-align: center !important;
     margin-bottom: 1.5rem !important;
     font-size: 1.5rem !important;
@@ -588,7 +588,7 @@ body main section article:not(aside article) label {
 }
 
 body main section article:not(aside article) button[type="submit"] {
-    background: #d77a61 !important;
+    background: #5a1f1f !important;
     color: white !important;
     border: none !important;
     padding: 1rem 2rem !important;
@@ -635,7 +635,7 @@ body main aside[style*="block"] article {
 }
 
 body main aside[style*="block"] article h3 {
-    color: #d77a61 !important;
+    color: #5a1f1f !important;
     margin-bottom: 2rem !important;
     font-size: 2.5rem !important;
     font-weight: bold !important;
@@ -653,11 +653,11 @@ body main aside[style*="block"] article section:first-of-type {
     background: #f8f9fa !important;
     padding: 2rem !important;
     border-radius: 1rem !important;
-    border: 2px solid #d77a61 !important;
+    border: 2px solid #5a1f1f !important;
 }
 
 body main aside[style*="block"] article section:first-of-type p:first-child {
-    color: #d77a61 !important;
+    color: #5a1f1f !important;
     font-size: 3rem !important;
     font-weight: bold !important;
     margin: 0 0 1rem 0 !important;
@@ -696,7 +696,7 @@ body main aside[style*="block"] article section:last-of-type {
 }
 
 body main aside[style*="block"] article h4 {
-    color: #d77a61 !important;
+    color: #5a1f1f !important;
     margin-bottom: 1.5rem !important;
     text-align: center !important;
     font-size: 1.5rem !important;
@@ -718,7 +718,7 @@ body main aside[style*="block"] article li {
     margin: 1rem 0 !important;
     border-radius: 0.5rem !important;
     background: #f8f9fa !important;
-    border-left: 0.5rem solid #d77a61 !important;
+    border-left: 0.5rem solid #5a1f1f !important;
     border-bottom: none !important;
     order: unset !important;
     font-size: 1.1rem !important;
@@ -734,7 +734,7 @@ body main aside[style*="block"] article small {
 }
 
 body main aside[style*="block"] article button {
-    background: #d77a61 !important;
+    background: #5a1f1f !important;
     color: white !important;
     border: none !important;
     padding: 1.2rem 2.5rem !important;
@@ -857,7 +857,7 @@ main section article section {
     padding: 1.5rem !important;
     background: #f8f9fa !important;
     border-radius: 1rem !important;
-    border-left: 5px solid #d77a61 !important;
+    border-left: 5px solid #5a1f1f !important;
 }
 
 main section article section h4,
@@ -865,7 +865,7 @@ main section article section h5 {
     order: -1 !important;
     text-align: center !important;
     margin: 0 0 1.5rem 0 !important;
-    color: #d77a61 !important;
+    color: #5a1f1f !important;
     font-size: 1.4rem !important;
 }
 
@@ -1077,7 +1077,7 @@ main section:last-of-type section article ul li {
 main section select {
     appearance: none;
     background: #fff;
-    border: 2px solid #d77a61;
+    border: 2px solid #5a1f1f;
     border-radius: 0.5rem;
     padding: 1rem 2rem 1rem 1rem;
     font-size: 1.1rem;
@@ -1119,133 +1119,195 @@ main section select option[value=""] {
         max-width: 100%;
         font-size: 1rem;
     }
-}
-form {
-    background: #fff;
-    border-radius: 1rem;
-    padding: 2rem;
-    margin: 2rem auto;
-    max-width: 40rem;
-    box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.1);
-}
-
-fieldset {
-    border: 2px solid #d77a61;
-    border-radius: 0.8rem;
-    padding: 2rem;
-    margin: 1.5rem 0;
-    background: #f8f9fa;
+}   
+main form {
+    background: #fff !important;
+    border-radius: 1rem !important;
+    padding: 2rem !important;
+    margin: 2rem auto !important;
+    max-width: 40rem !important;
+    box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid #e9ecef !important;
+    display: block !important;
 }
 
-fieldset legend {
-    background: #d77a61;
-    color: #fff;
-    padding: 0.8rem 1.5rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    border: none;
+main form fieldset {
+    border: 2px solid #8b3a3a !important;
+    border-radius: 0.8rem !important;
+    padding: 2rem !important;
+    margin: 1.5rem 0 !important;
+    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%) !important;
+    display: block !important;
 }
 
-label {
-    display: block;
-    margin: 1rem 0 0.5rem 0;
-    font-weight: 600;
-    color: #2c2c2c;
+main form fieldset legend {
+    background: #8b3a3a !important;
+    color: #fff !important;
+    padding: 0.8rem 1.5rem !important;
+    border-radius: 0.5rem !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    border: none !important;
+    margin-left: 1rem !important;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="tel"],
-input[type="date"],
-input[type="number"],
-textarea,
-select {
-    width: 100%;
-    padding: 1rem;
-    border: 2px solid #ddd;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    color: #2c2c2c;
-    background: #fff;
-    box-sizing: border-box;
+main form label {
+    display: block !important;
+    margin: 1.5rem 0 0.5rem 0 !important;
+    font-weight: 600 !important;
+    color: #1a1a1a !important;
+    font-size: 1.1rem !important;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
-    outline: none;
-    border-color: #d77a61;
-    box-shadow: 0 0 0 3px rgba(215, 122, 97, 0.2);
+main form input[type="text"],
+main form input[type="email"],
+main form input[type="password"],
+main form input[type="tel"],
+main form input[type="date"],
+main form input[type="number"],
+main form textarea,
+main form select {
+    width: 100% !important;
+    padding: 1rem !important;
+    border: 2px solid #ddd !important;
+    border-radius: 0.5rem !important;
+    font-size: 1rem !important;
+    color: #1a1a1a !important;
+    background: #fff !important;
+    transition: all 0.3s ease !important;
+    box-sizing: border-box !important;
 }
 
-textarea {
-    resize: vertical;
-    min-height: 100px;
-    font-family: inherit;
+main form input[type="text"]:focus,
+main form input[type="email"]:focus,
+main form input[type="password"]:focus,
+main form input[type="tel"]:focus,
+main form input[type="date"]:focus,
+main form input[type="number"]:focus,
+main form textarea:focus,
+main form select:focus {
+    outline: none !important;
+    border-color: #8b3a3a !important;
+    box-shadow: 0 0 0 3px rgba(139, 58, 58, 0.2) !important;
+    transform: translateY(-2px) !important;
 }
 
-select {
-    cursor: pointer;
+main form textarea {
+    resize: vertical !important;
+    min-height: 100px !important;
+    font-family: inherit !important;
+    line-height: 1.5 !important;
 }
 
-input[type="submit"],
-button[type="submit"] {
-    background: #d77a61;
-    color: #fff;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 0.8rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    margin: 1.5rem auto 0;
-    display: block;
-    min-width: 150px;
+main form input[type="submit"],
+main form button[type="submit"] {
+    background: linear-gradient(145deg, #8b3a3a, #7a3333) !important;
+    color: #fff !important;
+    border: none !important;
+    padding: 1rem 2.5rem !important;
+    border-radius: 0.8rem !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    margin: 1.5rem auto 0 !important;
+    display: block !important;
+    min-width: 150px !important;
+    box-shadow: 0 0.3rem 0.8rem rgba(139, 58, 58, 0.3) !important;
 }
 
-input[type="submit"]:hover,
-button[type="submit"]:hover {
-    background: #a63d40;
+main form input[type="submit"]:hover,
+main form button[type="submit"]:hover {
+    background: linear-gradient(145deg, #5a1f1f, #4a1a1a) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 0.6rem 1.2rem rgba(90, 31, 31, 0.4) !important;
 }
 
-input[type="submit"]:disabled,
-button[type="submit"]:disabled {
-    background: #ccc;
-    cursor: not-allowed;
+main form input[type="submit"]:active,
+main form button[type="submit"]:active {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 0.2rem 0.4rem rgba(90, 31, 31, 0.3) !important;
 }
 
-input[type="file"] {
-    padding: 0.8rem;
-    border: 2px dashed #d77a61;
-    border-radius: 0.5rem;
-    background: #f8f9fa;
-    cursor: pointer;
+main form input[type="submit"]:disabled,
+main form button[type="submit"]:disabled {
+    background: #ccc !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+    box-shadow: none !important;
 }
 
-input[type="radio"],
-input[type="checkbox"] {
-    width: auto;
-    margin-right: 0.8rem;
-    transform: scale(1.2);
+main form input[type="file"] {
+    padding: 0.8rem !important;
+    border: 2px dashed #8b3a3a !important;
+    border-radius: 0.5rem !important;
+    background: #f8f9fa !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
 }
 
-/* Responsive */
+main form input[type="file"]:hover {
+    border-color: #5a1f1f !important;
+    background: #e9ecef !important;
+}
+
+main form input[type="radio"],
+main form input[type="checkbox"] {
+    width: auto !important;
+    margin-right: 0.8rem !important;
+    transform: scale(1.2) !important;
+    accent-color: #8b3a3a !important;
+}
+
+/* Responsive para formularios de login */
 @media (max-width: 768px) {
-    form {
-        margin: 1rem;
-        padding: 1.5rem;
-        max-width: none;
+    main form {
+        margin: 1rem !important;
+        padding: 1.5rem !important;
+        max-width: none !important;
     }
     
-    fieldset {
-        padding: 1.5rem;
-        margin: 1rem 0;
+    main form fieldset {
+        padding: 1.5rem !important;
+        margin: 1rem 0 !important;
     }
     
-    input[type="submit"],
-    button[type="submit"] {
-        width: 100%;
-        min-width: auto;
+    main form fieldset legend {
+        font-size: 1rem !important;
+        padding: 0.6rem 1rem !important;
+    }
+    
+    main form input[type="submit"],
+    main form button[type="submit"] {
+        width: 100% !important;
+        min-width: auto !important;
+        font-size: 1rem !important;
+        padding: 1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    main form {
+        padding: 1rem !important;
+    }
+    
+    main form fieldset {
+        padding: 1rem !important;
+    }
+    
+    main form label {
+        font-size: 1rem !important;
+    }
+    
+    main form input[type="text"],
+    main form input[type="email"],
+    main form input[type="password"],
+    main form input[type="tel"],
+    main form input[type="date"],
+    main form input[type="number"],
+    main form textarea,
+    main form select {
+        font-size: 0.9rem !important;
+        padding: 0.8rem !important;
     }
 }
