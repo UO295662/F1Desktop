@@ -23,14 +23,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Iniciar Sesión - Oviedo Turismo</title>
+    <title>Login - Oviedo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilo/estilo.css">
-    <link rel="stylesheet" href="../estilo/layout.css">
+    <meta name="author" content="Gael Horta Calzada">
+    <meta name="description" content="Página de inicio de sesión para el sistema de reservas de Oviedo">
+    <meta name="keywords" content="login, acceso, reservas, Oviedo">
+    <link rel="stylesheet" type="text/css" href="../estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="../estilo/layout.css">
+    <link rel="icon" href="../multimedia/favicon.ico">
 </head>
 <body>
 <header>

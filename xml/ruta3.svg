@@ -1,5 +1,42 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500">
-    <polygon points="50.0,370.0 295.4545454545455,450.0 950.0,50.0 950.0,450 50.0,450" fill="rgba(215, 122, 97, 0.3)" stroke="#d77a61" stroke-width="2" />
-    <text x="500.0" y="30" text-anchor="middle" font-family="Arial" font-size="16" fill="#2c2c2c">Ruta Paisajística del Monte Naranco</text>
-    <text x="500.0" y="50" text-anchor="middle" font-family="Arial" font-size="12" fill="#666">Distancia: 550m - Desnivel: 25m</text>
+    <!-- Fondo del gráfico -->
+    <rect x="80" y="60" width="840" height="320" fill="#f8f9fa" stroke="#ddd" stroke-width="1"/>
+    
+    <!-- Línea del nivel del mar (siempre visible en la base) -->
+    <line x1="80" y1="380" x2="920" y2="380" stroke="#0066cc" stroke-width="2" stroke-dasharray="8,4"/>
+    <text x="75" y="384" text-anchor="end" font-family="Arial" font-size="12" fill="#0066cc" font-weight="bold">Nivel del mar (0m)</text>
+    
+    <!-- Perfil altimétrico -->
+    <polygon points="80.0,97.64705882352939 309.0909090909091,102.05882352941177 920.0,80.0 920.0,380 80.0,380" fill="rgba(139, 58, 58, 0.3)" stroke="#8b3a3a" stroke-width="2" />
+    
+    <!-- Puntos de hitos -->
+    <circle cx="80.0" cy="97.64705882352939" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="80.0" y="85.64705882352939" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold">Santa María del Naranco</text>
+    <text x="80.0" y="119.64705882352939" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">320m</text>
+    <circle cx="309.0909090909091" cy="102.05882352941177" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="309.0909090909091" y="90.05882352941177" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold">San Miguel de Lillo</text>
+    <text x="309.0909090909091" y="124.05882352941177" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">315m</text>
+    <circle cx="920.0" cy="80.0" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="920.0" y="68.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold">Mirador del Naranco</text>
+    <text x="920.0" y="102.0" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">340m</text>
+    <line x1="80" y1="335.88235294117646" x2="920" y2="335.88235294117646" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="338.88235294117646" text-anchor="end" font-family="Arial" font-size="8" fill="#666">50m</text>
+    <line x1="80" y1="291.7647058823529" x2="920" y2="291.7647058823529" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="294.7647058823529" text-anchor="end" font-family="Arial" font-size="8" fill="#666">100m</text>
+    <line x1="80" y1="247.64705882352942" x2="920" y2="247.64705882352942" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="250.64705882352942" text-anchor="end" font-family="Arial" font-size="8" fill="#666">150m</text>
+    <line x1="80" y1="203.52941176470588" x2="920" y2="203.52941176470588" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="206.52941176470588" text-anchor="end" font-family="Arial" font-size="8" fill="#666">200m</text>
+    <line x1="80" y1="159.41176470588235" x2="920" y2="159.41176470588235" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="162.41176470588235" text-anchor="end" font-family="Arial" font-size="8" fill="#666">250m</text>
+    <line x1="80" y1="115.29411764705884" x2="920" y2="115.29411764705884" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="118.29411764705884" text-anchor="end" font-family="Arial" font-size="8" fill="#666">300m</text>
+    
+    <!-- Títulos -->
+    <text x="500.0" y="30" text-anchor="middle" font-family="Arial" font-size="16" fill="#1a1a1a" font-weight="bold">Ruta Paisajística del Monte Naranco</text>
+    <text x="500.0" y="50" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a1f1f">Distancia: 550m - Altitud máxima: 340m</text>
+    
+    <!-- Ejes -->
+    <text x="40.0" y="250.0" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a1f1f" transform="rotate(-90 40.0 250.0)">Altitud (m)</text>
+    <text x="500.0" y="490" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a1f1f">Distancia (m)</text>
     </svg>

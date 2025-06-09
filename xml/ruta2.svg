@@ -1,5 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500">
-    <polygon points="50.0,450.0 350.0,227.77777777777777 950.0,50.0 950.0,450 50.0,450" fill="rgba(215, 122, 97, 0.3)" stroke="#d77a61" stroke-width="2" />
-    <text x="500.0" y="30" text-anchor="middle" font-family="Arial" font-size="16" fill="#2c2c2c">Ruta Gastronómica de Oviedo</text>
-    <text x="500.0" y="50" text-anchor="middle" font-family="Arial" font-size="12" fill="#666">Distancia: 300m - Desnivel: 9m</text>
+    <!-- Fondo del gráfico -->
+    <rect x="80" y="60" width="840" height="320" fill="#f8f9fa" stroke="#ddd" stroke-width="1"/>
+    
+    <!-- Línea del nivel del mar (siempre visible en la base) -->
+    <line x1="80" y1="380" x2="920" y2="380" stroke="#0066cc" stroke-width="2" stroke-dasharray="8,4"/>
+    <text x="75" y="384" text-anchor="end" font-family="Arial" font-size="12" fill="#0066cc" font-weight="bold">Nivel del mar (0m)</text>
+    
+    <!-- Perfil altimétrico -->
+    <polygon points="80.0,91.29707112970715 360.0,85.02092050209205 920.0,80.0 920.0,380 80.0,380" fill="rgba(139, 58, 58, 0.3)" stroke="#8b3a3a" stroke-width="2" />
+    
+    <!-- Puntos de hitos -->
+    <circle cx="80.0" cy="91.29707112970715" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="80.0" y="79.29707112970715" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold">Calle Gascona</text>
+    <text x="80.0" y="113.29707112970715" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">230m</text>
+    <circle cx="360.0" cy="85.02092050209205" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="360.0" y="73.02092050209205" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold">Sidrería Tierra Astur</text>
+    <text x="360.0" y="107.02092050209205" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">235m</text>
+    <circle cx="920.0" cy="80.0" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="920.0" y="68.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold">Restaurante El Fartuquín</text>
+    <text x="920.0" y="102.0" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">239m</text>
+    <line x1="80" y1="317.2384937238494" x2="920" y2="317.2384937238494" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="320.2384937238494" text-anchor="end" font-family="Arial" font-size="8" fill="#666">50m</text>
+    <line x1="80" y1="254.47698744769875" x2="920" y2="254.47698744769875" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="257.4769874476988" text-anchor="end" font-family="Arial" font-size="8" fill="#666">100m</text>
+    <line x1="80" y1="191.71548117154813" x2="920" y2="191.71548117154813" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="194.71548117154813" text-anchor="end" font-family="Arial" font-size="8" fill="#666">150m</text>
+    <line x1="80" y1="128.9539748953975" x2="920" y2="128.9539748953975" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="131.9539748953975" text-anchor="end" font-family="Arial" font-size="8" fill="#666">200m</text>
+    
+    <!-- Títulos -->
+    <text x="500.0" y="30" text-anchor="middle" font-family="Arial" font-size="16" fill="#1a1a1a" font-weight="bold">Ruta Gastronómica de Oviedo</text>
+    <text x="500.0" y="50" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a1f1f">Distancia: 300m - Altitud máxima: 239m</text>
+    
+    <!-- Ejes -->
+    <text x="40.0" y="250.0" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a1f1f" transform="rotate(-90 40.0 250.0)">Altitud (m)</text>
+    <text x="500.0" y="490" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a1f1f">Distancia (m)</text>
     </svg>

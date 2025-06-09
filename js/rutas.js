@@ -39,11 +39,30 @@ MapHandler.prototype.findMapContainer = function() {
         const h2 = section.querySelector('h2');
         if (h2?.textContent.includes('Mapa de Rutas')) {
             this.mapSection = section;
+            // Crear un div específico para el mapa dentro de la sección
+            let mapDiv = section.querySelector('#map');
+            if (!mapDiv) {
+                mapDiv = document.createElement('div');
+                mapDiv.id = 'map';
+                mapDiv.style.width = '100%';
+                mapDiv.style.height = '400px';
+                mapDiv.style.border = '1px solid #ccc';
+                mapDiv.style.borderRadius = '0.5rem';
+                section.appendChild(mapDiv);
+            }
             return;
         }
     }
+    // Si no encuentra la sección, crear una nueva
     this.mapSection = document.createElement('section');
     this.mapSection.innerHTML = '<h2>Mapa de Rutas</h2>';
+    const mapDiv = document.createElement('div');
+    mapDiv.id = 'map';
+    mapDiv.style.width = '100%';
+    mapDiv.style.height = '400px';
+    mapDiv.style.border = '1px solid #ccc';
+    mapDiv.style.borderRadius = '0.5rem';
+    this.mapSection.appendChild(mapDiv);
     document.body.appendChild(this.mapSection);
 };
 
@@ -53,59 +72,196 @@ MapHandler.prototype.mostrarMapa = function() {
     this.mapSection.hidden = false;
     
     if (!this.mapInitialized) {
-        setTimeout(() => this.initMap(), 500);
+        // Dar más tiempo para que se renderice el contenedor
+        setTimeout(() => this.initMap(), 100);
         this.mapInitialized = true;
+    } else if (this.map) {
+        // Si el mapa ya existe, solo actualizar el tamaño
+        setTimeout(() => this.map.updateSize(), 100);
     }
 };
 
 MapHandler.prototype.initMap = function() {
-    const popupElement = document.createElement('section');
-    popupElement.innerHTML = '<h6>Popup</h6><a href="#">×</a><section><h6>Contenido</h6></section>';
+    // Crear elemento popup
+    const popupElement = document.createElement('div');
+    popupElement.innerHTML = `
+        <div style="background: white; padding: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.3); min-width: 200px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h6 style="margin: 0; color: #8b3a3a;">Información</h6>
+                <a href="#" style="text-decoration: none; font-size: 18px; color: #999;">&times;</a>
+            </div>
+            <div class="popup-content">
+                <h6 style="margin: 0 0 5px 0;">Punto</h6>
+                <p style="margin: 0; font-size: 14px;">Información del punto</p>
+            </div>
+        </div>
+    `;
     
-    this.popup = new ol.Overlay({ element: popupElement, autoPan: { animation: { duration: 250 } } });
-    this.map = new ol.Map({
-        target: this.mapSection,
-        layers: [new ol.layer.Tile({ source: new ol.source.OSM() })],
-        overlays: [this.popup],
-        view: new ol.View({ center: ol.proj.fromLonLat([-5.8593, 43.3614]), zoom: 14 }),
-        controls: [new ol.control.Zoom(), new ol.control.Rotate(), new ol.control.Attribution(), new ol.control.FullScreen()]
+    this.popup = new ol.Overlay({ 
+        element: popupElement, 
+        autoPan: { 
+            animation: { duration: 250 } 
+        },
+        positioning: 'bottom-center',
+        stopEvent: false,
+        offset: [0, -10]
     });
     
-    popupElement.querySelector('a').onclick = () => (this.popup.setPosition(undefined), false);
+    // Inicializar el mapa
+    this.map = new ol.Map({
+        target: 'map', // Usar el ID del div específico
+        layers: [
+            new ol.layer.Tile({ 
+                source: new ol.source.OSM() 
+            })
+        ],
+        overlays: [this.popup],
+        view: new ol.View({ 
+            center: ol.proj.fromLonLat([-5.8593, 43.3614]), // Coordenadas de Oviedo
+            zoom: 14 
+        }),
+        controls: [
+            new ol.control.Zoom(),
+            new ol.control.Rotate(),
+            new ol.control.Attribution(),
+            new ol.control.FullScreen()
+        ]
+    });
     
+    // Configurar el cierre del popup
+    const closeButton = popupElement.querySelector('a');
+    closeButton.onclick = (e) => {
+        e.preventDefault();
+        this.popup.setPosition(undefined);
+        return false;
+    };
+    
+    // Manejar clicks en el mapa
     this.map.on('singleclick', (evt) => {
         const feature = this.map.forEachFeatureAtPixel(evt.pixel, f => f);
         if (feature) {
-            const content = popupElement.querySelector('section');
-            content.innerHTML = `<h6>Info</h6><section><h6>${feature.get('name') || 'Punto'}</h6><p>${feature.get('description') || ''}</p></section>`;
+            const content = popupElement.querySelector('.popup-content');
+            const name = feature.get('name') || 'Punto';
+            const description = feature.get('description') || 'Sin descripción';
+            
+            content.innerHTML = `
+                <h6 style="margin: 0 0 5px 0; color: #8b3a3a;">${name}</h6>
+                <p style="margin: 0; font-size: 14px; line-height: 1.4;">${description}</p>
+            `;
             this.popup.setPosition(evt.coordinate);
+        } else {
+            this.popup.setPosition(undefined);
         }
     });
     
-    setTimeout(() => this.map.updateSize(), 500);
+    // Forzar actualización del tamaño después de inicializar
+    setTimeout(() => {
+        this.map.updateSize();
+    }, 250);
+    
+    console.log('Mapa inicializado correctamente');
 };
 
 MapHandler.prototype.clearMap = function() {
-    if (this.currentVectorLayer) {
-        this.map?.removeLayer(this.currentVectorLayer);
+    if (this.currentVectorLayer && this.map) {
+        this.map.removeLayer(this.currentVectorLayer);
         this.currentVectorLayer = null;
     }
     this.popup?.setPosition(undefined);
 };
 
 MapHandler.prototype.cargarKMLPorRuta = function(nombreRuta, archivoKML) {
-    if (!this.map) return setTimeout(() => this.cargarKMLPorRuta(nombreRuta, archivoKML), 1000);
+    if (!this.map) {
+        console.log('Mapa no inicializado, esperando...');
+        return setTimeout(() => this.cargarKMLPorRuta(nombreRuta, archivoKML), 500);
+    }
     
     this.clearMap();
-    fetch(archivoKML || 'xml/rutas.kml')
-        .then(r => r.text())
+    const archivo = archivoKML || 'xml/rutas.kml';
+    console.log('Cargando archivo KML:', archivo);
+    
+    fetch(archivo)
+        .then(r => {
+            if (!r.ok) throw new Error(`HTTP ${r.status}: ${r.statusText}`);
+            return r.text();
+        })
         .then(kml => this.procesarKMLPorRuta(kml, nombreRuta))
-        .catch(e => console.error('Error KML:', e));
+        .catch(e => {
+            console.error('Error cargando KML:', e);
+            // Si falla, mostrar puntos de ejemplo para Oviedo
+            this.mostrarPuntosEjemplo(nombreRuta);
+        });
+};
+
+MapHandler.prototype.mostrarPuntosEjemplo = function(nombreRuta) {
+    console.log('Mostrando puntos de ejemplo para:', nombreRuta);
+    
+    const puntosOviedo = [
+        { nombre: 'Catedral de Oviedo', coords: [-5.8593, 43.3614], desc: 'Catedral gótica del siglo XIV' },
+        { nombre: 'Teatro Campoamor', coords: [-5.8441, 43.3658], desc: 'Teatro histórico de Oviedo' },
+        { nombre: 'Universidad de Oviedo', coords: [-5.8448, 43.3547], desc: 'Campus histórico universitario' },
+        { nombre: 'Parque de San Francisco', coords: [-5.8506, 43.3625], desc: 'Principal parque urbano' }
+    ];
+    
+    const features = puntosOviedo.map((punto, i) => {
+        const feature = new ol.Feature({
+            geometry: new ol.geom.Point(ol.proj.fromLonLat(punto.coords)),
+            name: punto.nombre,
+            description: punto.desc
+        });
+        
+        feature.setStyle(new ol.style.Style({
+            image: new ol.style.Circle({
+                radius: 10,
+                fill: new ol.style.Fill({ color: '#8b3a3a' }),
+                stroke: new ol.style.Stroke({ color: '#fff', width: 2 })
+            })
+        }));
+        
+        return feature;
+    });
+    
+    // Crear línea conectando los puntos
+    const coords = puntosOviedo.map(p => ol.proj.fromLonLat(p.coords));
+    const routeLine = new ol.Feature({
+        geometry: new ol.geom.LineString(coords),
+        name: `Ruta: ${nombreRuta}`,
+        type: 'route'
+    });
+    
+    routeLine.setStyle(new ol.style.Style({
+        stroke: new ol.style.Stroke({ 
+            color: '#5a1f1f', 
+            width: 3, 
+            lineDash: [5, 5] 
+        })
+    }));
+    
+    features.push(routeLine);
+    
+    const vectorSource = new ol.source.Vector({ features });
+    this.currentVectorLayer = new ol.layer.Vector({ source: vectorSource });
+    this.map.addLayer(this.currentVectorLayer);
+    
+    // Ajustar vista a los puntos
+    this.map.getView().fit(vectorSource.getExtent(), { 
+        padding: [50, 50, 50, 50], 
+        maxZoom: 16 
+    });
 };
 
 MapHandler.prototype.procesarKMLPorRuta = function(kmlText, nombreRuta) {
     const parser = new DOMParser();
     const kmlDoc = parser.parseFromString(kmlText, "application/xml");
+    
+    // Verificar si hay errores de parsing
+    const parserError = kmlDoc.querySelector("parsererror");
+    if (parserError) {
+        console.error('Error parsing KML:', parserError.textContent);
+        this.mostrarPuntosEjemplo(nombreRuta);
+        return;
+    }
+    
     const folders = kmlDoc.querySelectorAll("Folder");
     
     for (let folder of folders) {
@@ -114,6 +270,8 @@ MapHandler.prototype.procesarKMLPorRuta = function(kmlText, nombreRuta) {
             return this.mostrarRutaEnMapa(folder, folderName);
         }
     }
+    
+    // Si no encuentra la ruta específica, cargar todos los puntos
     this.cargarTodosPuntosKML(kmlText);
 };
 
@@ -133,12 +291,14 @@ MapHandler.prototype.mostrarRutaEnMapa = function(folder, nombreRuta) {
                 
                 const feature = new ol.Feature({
                     geometry: new ol.geom.Point(point),
-                    name, description: desc || `${lat.toFixed(6)}, ${lng.toFixed(6)}\n${alt || 0}m`
+                    name, 
+                    description: desc || `${lat.toFixed(6)}, ${lng.toFixed(6)}\n${alt || 0}m`
                 });
                 
                 feature.setStyle(new ol.style.Style({
                     image: new ol.style.Circle({
-                        radius: 10, fill: new ol.style.Fill({ color: '#ff0000' }),
+                        radius: 10, 
+                        fill: new ol.style.Fill({ color: '#8b3a3a' }),
                         stroke: new ol.style.Stroke({ color: '#fff', width: 2 })
                     })
                 }));
@@ -161,10 +321,11 @@ MapHandler.prototype.mostrarRutaEnMapa = function(folder, nombreRuta) {
             if (linePoints.length > 1) {
                 const lineFeature = new ol.Feature({
                     geometry: new ol.geom.LineString(linePoints),
-                    name, description: desc || `Línea de ruta: ${nombreRuta}`
+                    name, 
+                    description: desc || `Línea de ruta: ${nombreRuta}`
                 });
                 lineFeature.setStyle(new ol.style.Style({
-                    stroke: new ol.style.Stroke({ color: '#d77a61', width: 4 })
+                    stroke: new ol.style.Stroke({ color: '#8b3a3a', width: 4 })
                 }));
                 features.push(lineFeature);
             }
@@ -174,10 +335,15 @@ MapHandler.prototype.mostrarRutaEnMapa = function(folder, nombreRuta) {
     if (coords.length > 1) {
         const routeLine = new ol.Feature({
             geometry: new ol.geom.LineString(coords),
-            name: `Ruta: ${nombreRuta}`, type: 'route'
+            name: `Ruta: ${nombreRuta}`, 
+            type: 'route'
         });
         routeLine.setStyle(new ol.style.Style({
-            stroke: new ol.style.Stroke({ color: '#2E8B57', width: 3, lineDash: [5, 5] })
+            stroke: new ol.style.Stroke({ 
+                color: '#5a1f1f', 
+                width: 3, 
+                lineDash: [5, 5] 
+            })
         }));
         features.push(routeLine);
     }
@@ -186,7 +352,13 @@ MapHandler.prototype.mostrarRutaEnMapa = function(folder, nombreRuta) {
         const vectorSource = new ol.source.Vector({ features });
         this.currentVectorLayer = new ol.layer.Vector({ source: vectorSource });
         this.map.addLayer(this.currentVectorLayer);
-        this.map.getView().fit(vectorSource.getExtent(), { padding: [50, 50, 50, 50], maxZoom: 16 });
+        this.map.getView().fit(vectorSource.getExtent(), { 
+            padding: [50, 50, 50, 50], 
+            maxZoom: 16 
+        });
+    } else {
+        // Si no hay features del KML, mostrar puntos de ejemplo
+        this.mostrarPuntosEjemplo(nombreRuta);
     }
 };
 
@@ -210,7 +382,8 @@ MapHandler.prototype.cargarTodosPuntosKML = function(kmlText) {
                     });
                     feature.setStyle(new ol.style.Style({
                         image: new ol.style.Circle({
-                            radius: 8, fill: new ol.style.Fill({ color: '#d77a61' }),
+                            radius: 8, 
+                            fill: new ol.style.Fill({ color: '#8b3a3a' }),
                             stroke: new ol.style.Stroke({ color: '#fff', width: 2 })
                         })
                     }));
@@ -224,13 +397,28 @@ MapHandler.prototype.cargarTodosPuntosKML = function(kmlText) {
         const vectorSource = new ol.source.Vector({ features });
         this.currentVectorLayer = new ol.layer.Vector({ source: vectorSource });
         this.map.addLayer(this.currentVectorLayer);
-        this.map.getView().fit(vectorSource.getExtent(), { padding: [50, 50, 50, 50], maxZoom: 16 });
+        this.map.getView().fit(vectorSource.getExtent(), { 
+            padding: [50, 50, 50, 50], 
+            maxZoom: 16 
+        });
+    } else {
+        // Si no hay puntos, mostrar ejemplo de Oviedo
+        this.mostrarPuntosEjemplo("Ruta por defecto");
     }
 };
 
 MapHandler.prototype.procesarRutasXML = function(xmlString) {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlString, "application/xml");
+    
+    // Verificar errores de parsing
+    const parserError = xmlDoc.querySelector("parsererror");
+    if (parserError) {
+        console.error('Error parsing XML:', parserError.textContent);
+        alert('Error al procesar el archivo XML. Verifica que el formato sea correcto.');
+        return;
+    }
+    
     const rutas = xmlDoc.querySelectorAll("ruta");
     
     if (rutas.length === 0) return;
@@ -299,14 +487,27 @@ MapHandler.prototype.mostrarRutaSeleccionada = function(indice) {
 };
 
 MapHandler.prototype.cargarSVGRuta = function(contenedorRuta, archivoSVG) {
-    fetch(`xml/${archivoSVG}`)
-        .then(r => r.text())
+    // Añadir timestamp para evitar cache
+    const timestamp = new Date().getTime();
+    const urlConCache = `xml/${archivoSVG}?v=${timestamp}`;
+    
+    fetch(urlConCache)
+        .then(r => {
+            if (!r.ok) throw new Error(`HTTP ${r.status}: ${r.statusText}`);
+            return r.text();
+        })
         .then(svg => {
             const section = document.createElement('section');
-            section.innerHTML = `<h4>Perfil Altimétrico</h4><section><h5>SVG</h5>${svg}</section>`;
+            section.innerHTML = `
+                <h4>Perfil Altimétrico</h4>
+                <div class="svg-container">
+                    ${svg}
+                </div>
+            `;
             contenedorRuta.querySelector('article')?.appendChild(section);
         })
-        .catch(() => {
+        .catch(e => {
+            console.error('Error cargando SVG:', e);
             const error = document.createElement('section');
             error.innerHTML = '<h4>Perfil Altimétrico</h4><p>No disponible</p>';
             contenedorRuta.querySelector('article')?.appendChild(error);

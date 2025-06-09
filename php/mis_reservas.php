@@ -26,14 +26,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar_reserva'])) 
 }
 ?>
 
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mis Reservas - Oviedo Turismo</title>
+    <title>Mis Reservas - Oviedo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estilo/estilo.css">
-    <link rel="stylesheet" href="../estilo/layout.css">
+    <meta name="author" content="Gael Horta Calzada">
+    <meta name="description" content="Gestión de mis reservas en el sistema de Oviedo">
+    <meta name="keywords" content="mis reservas, gestión, cancelar, Oviedo">
+    <link rel="stylesheet" type="text/css" href="../estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="../estilo/layout.css">
+    <link rel="icon" href="../multimedia/favicon.ico">
 </head>
 <body>
 <header>

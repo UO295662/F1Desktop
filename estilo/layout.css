@@ -12,7 +12,6 @@ header { /* Especificidad: 0,0,1 */
   text-align: center;
   position: relative;
   width: calc(100% + 30em);
-  length: calc(100% + 30em);
   margin-left: -15em;
   margin-right: -15em;
   margin-top: -15em;
