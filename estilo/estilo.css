@@ -621,17 +621,19 @@ body main aside article {
     max-width: 60rem;
     box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.15);
     text-align: center;
-    position: static;
-    width: auto;
-    height: auto;
+    font-size: 1rem;
+    line-height: 1.6;
+    /* Resetting flex and order properties */
     display: block;
     flex-direction: unset;
     align-items: unset;
     order: unset;
-    font-size: 1rem;
-    line-height: 1.6;
+    position: static;
+    width: auto;
+    height: auto;
 }
 
+/* Estilos para el título principal dentro del contenedor (0,2,3) */
 body main aside article h3 {
     color: #5a1f1f;
     margin-bottom: 2rem;
@@ -641,19 +643,22 @@ body main aside article h3 {
     order: unset;
 }
 
+/* Estilos para las secciones dentro del contenedor (0,2,3) */
 body main aside article section {
     font-size: 1.5rem;
     margin: 2rem 0;
     color: #2c2c2c;
     font-weight: normal;
-    display: block;
-    order: unset;
-    background: #f8f9fa;
     padding: 2rem;
     border-radius: 1rem;
     border: 0.125rem solid #5a1f1f;
+    background: #f8f9fa;
+    /* Resetting flex and order properties */
+    display: block;
+    order: unset;
 }
 
+/* Estilos para el primer párrafo dentro de las secciones (0,2,4) */
 body main aside article section p:first-child {
     color: #5a1f1f;
     font-size: 3rem;
@@ -662,6 +667,7 @@ body main aside article section p:first-child {
     order: unset;
 }
 
+/* Estilos para el último párrafo dentro de las secciones (0,2,4) */
 body main aside article section p:last-child {
     color: #666;
     font-size: 1.8rem;
@@ -669,60 +675,68 @@ body main aside article section p:last-child {
     margin: 0;
 }
 
+/* Estilos para párrafos directamente dentro del artículo (0,2,3) */
 body main aside article > p {
     font-size: 1.5rem;
     font-weight: 500;
     margin: 2rem 0;
     padding: 1.5rem;
     border-radius: 1rem;
-    background: #e7f3ff;
     color: #004085;
     text-align: center;
-    order: unset;
     border: 0.125rem solid #b3d7ff;
+    background: #e7f3ff;
+    order: unset;
 }
 
+/* Estilos para la última sección (0,2,3) */
 body main aside article section:last-of-type {
     text-align: left;
     margin: 3rem 0;
-    display: block;
-    order: unset;
-    background: #fff;
     padding: 2rem;
     border-radius: 1rem;
     border: 0.0625rem solid #ddd;
+    background: #fff;
+    /* Resetting flex and order properties */
+    display: block;
+    order: unset;
 }
 
+/* Estilos para los títulos h4 dentro del contenedor (0,2,3) */
 body main aside article h4 {
     color: #5a1f1f;
     margin-bottom: 1.5rem;
-    text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
+    text-align: center;
 }
 
+/* Estilos para listas no ordenadas dentro del contenedor (0,2,3) */
 body main aside article ul {
     list-style: none;
     padding: 0;
     margin: 1rem 0;
+    /* Resetting flex and order properties */
     display: block;
     flex-direction: unset;
     order: unset;
     width: auto;
 }
 
+/* Estilos para los items de lista dentro del contenedor (0,2,3) */
 body main aside article li {
     padding: 1.5rem;
     margin: 1rem 0;
     border-radius: 0.5rem;
-    background: #f8f9fa;
     border-left: 0.5rem solid #5a1f1f;
     border-bottom: none;
-    order: unset;
     font-size: 1.1rem;
     line-height: 1.6;
+    background: #f8f9fa;
+    order: unset;
 }
 
+/* Estilos para el elemento small dentro del contenedor (0,2,3) */
 body main aside article small {
     color: #666;
     font-size: 1rem;
@@ -731,6 +745,7 @@ body main aside article small {
     margin-top: 0.5rem;
 }
 
+/* Estilos para botones dentro del contenedor (0,2,3) */
 body main aside article button {
     background: #5a1f1f;
     color: white;
@@ -742,11 +757,13 @@ body main aside article button {
     cursor: pointer;
     margin: 1rem 0.5rem;
     transition: all 0.3s ease;
+    /* Resetting position properties */
     position: static;
     width: auto;
     height: auto;
 }
 
+/* Estilos para botones dentro del contenedor en hover (0,2,3) */
 body main aside article button:hover {
     background: #a63d40;
     transform: translateY(-0.3rem);
@@ -1009,4 +1026,82 @@ body > main > section > select:focus {
     border-color: #5a1f1f;
     box-shadow: 0 0 0 0.15rem rgba(166, 61, 64, 0.15);
     background: #fff;
+}
+
+/* Reemplaza los estilos de botones del aside por section */
+
+/* Estilos para botones dentro de los resultados del test (0,2,3) */
+body main section:last-of-type article button {
+    background: #5a1f1f;
+    color: white;
+    border: none;
+    padding: 1.2rem 2.5rem;
+    border-radius: 0.8rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 1rem 0.5rem;
+    transition: all 0.3s ease;
+    /* Resetting position properties */
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+/* Estilos para botones dentro de los resultados del test en hover (0,2,3) */
+body main section:last-of-type article button:hover {
+    background: #a63d40;
+    transform: translateY(-0.3rem);
+    box-shadow: 0 0.5rem 1rem rgba(166, 61, 64, 0.3);
+}
+
+/* Estilos para el elemento strong dentro de las listas de resultados */
+body main section:last-of-type article li strong {
+    color: #5a1f1f;
+    font-weight: bold;
+}
+
+/* Mejora la apariencia del texto de las respuestas incorrectas */
+body main section:last-of-type article li {
+    padding: 1.5rem;
+    margin: 1rem 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}    background: #f8fff8;    border-left-color: #28a745;body main section:last-of-type article li:has(strong:contains("✓")) {/* Estilo específico para el texto de respuestas correctas */}    background: #fff5f5;    border-left-color: #dc3545;body main section:last-of-type article li:has(strong:contains("✗")) {/* Estilo específico para el texto de respuestas incorrectas */}    order: unset;    background: #f8f9fa;    line-height: 1.6;    font-size: 1.1rem;    border-bottom: none;    border-left: 0.5rem solid #5a1f1f;    border-radius: 0.5rem;    border-radius: 0.5rem;
+    border-left: 0.5rem solid #5a1f1f;
+    border-bottom: none;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    background: #f8f9fa;
+    order: unset;
+}
+
+/* Estilo específico para el texto de respuestas incorrectas */
+body main section:last-of-type article li:has(strong:contains("✗")) {
+    border-left-color: #dc3545;
+    background: #fff5f5;
+}
+
+/* Estilo específico para el texto de respuestas correctas */
+body main section:last-of-type article li:has(strong:contains("✓")) {
+    border-left-color: #28a745;
+    background: #f8fff8;
 }

@@ -200,7 +200,7 @@ class TestConocimientos {
         const puntuacion = aciertos;
         
         document.querySelector('main section').style.display = 'none';
-        const resultadoContainer = document.querySelector('main aside');
+        const resultadoContainer = document.querySelector('main section:last-of-type');
         resultadoContainer.style.display = 'block';
         
         let mensaje = '';
@@ -234,8 +234,8 @@ class TestConocimientos {
                             
                             return `
                                 <li>
-                                    <strong>Pregunta ${index + 1}:</strong> ${esCorrecta ? '✓ Correcta' : '✗ Incorrecta'}
-                                    ${!esCorrecta ? `<small>Tu respuesta: ${respuestaUsuario} - Respuesta correcta: ${respuestaCorrecta}</small>` : ''}
+                                    Pregunta ${index + 1}: ${esCorrecta ? '✓ Correcta' : '✗ Incorrecta'}
+                                    ${!esCorrecta ? `Tu respuesta: ${respuestaUsuario} - Respuesta correcta: ${respuestaCorrecta}` : ''}
                                 </li>
                             `;
                         }).join('')}
