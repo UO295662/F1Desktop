@@ -146,13 +146,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 function calcularPrecio() {
     const horarioSelect = document.getElementById('horario_id');
     const numeroPersonas = document.getElementById('numero_personas').value;
-    const precioDiv = document.getElementById('precio_total');
+    const precio = document.getElementById('precio_total');
     
     if (horarioSelect.value && numeroPersonas) {
         const option = horarioSelect.selectedOptions[0];
         const precio = parseFloat(option.dataset.precio);
         const total = precio * parseInt(numeroPersonas);
-        precioDiv.innerHTML = `<strong>Precio total: €${total.toFixed(2)}</strong>`;
+        precio.innerHTML = `<strong>Precio total: €${total.toFixed(2)}</strong>`;
         
         // Verificar plazas disponibles
         const plazasDisponibles = parseInt(option.dataset.plazas);
@@ -165,7 +165,7 @@ function calcularPrecio() {
             alert(`Solo hay ${plazasDisponibles} plazas disponibles para este horario.`);
         }
     } else {
-        precioDiv.innerHTML = '<strong>Precio total: €0.00</strong>';
+        precio.innerHTML = '<strong>Precio total: €0.00</strong>';
     }
 }
 

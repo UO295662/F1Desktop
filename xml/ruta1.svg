@@ -7,37 +7,45 @@
     <text x="75" y="384" text-anchor="end" font-family="Arial" font-size="12" fill="#0066cc" font-weight="bold">Nivel del mar (0m)</text>
     
     <!-- Perfil altimétrico -->
-    <polygon points="80.0,162.5 180.0,185.9375 420.0,155.0 920.0,80.0 920.0,380 80.0,380" fill="rgba(139, 58, 58, 0.3)" stroke="#8b3a3a" stroke-width="2" />
+    <polygon points="80.0,189.01639344262296 146.31578947368422,211.9672131147541 290.0,219.34426229508196 555.2631578947369,106.22950819672133 643.6842105263157,80.0 920.0,190.65573770491804 920.0,380 80.0,380" fill="rgba(139, 58, 58, 0.3)" stroke="#8b3a3a" stroke-width="2" />
     
     <!-- Puntos de hitos -->
-    <circle cx="80.0" cy="162.5" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
-    <text x="80.0" y="150.5" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold">Plaza del Ayuntamiento</text>
-    <text x="80.0" y="184.5" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">232m</text>
-    <circle cx="180.0" cy="185.9375" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
-    <text x="180.0" y="173.9375" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold">La Foncalada</text>
-    <text x="180.0" y="207.9375" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">207m</text>
-    <circle cx="420.0" cy="155.0" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
-    <text x="420.0" y="143.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold">San Julián de los Prados</text>
-    <text x="420.0" y="177.0" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">240m</text>
-    <circle cx="920.0" cy="80.0" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
-    <text x="920.0" y="68.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold">Santa María del Naranco</text>
-    <text x="920.0" y="102.0" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">320m</text>
-    <line x1="80" y1="333.125" x2="920" y2="333.125" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
-    <text x="70" y="336.125" text-anchor="end" font-family="Arial" font-size="8" fill="#666">50m</text>
-    <line x1="80" y1="286.25" x2="920" y2="286.25" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
-    <text x="70" y="289.25" text-anchor="end" font-family="Arial" font-size="8" fill="#666">100m</text>
-    <line x1="80" y1="239.375" x2="920" y2="239.375" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
-    <text x="70" y="242.375" text-anchor="end" font-family="Arial" font-size="8" fill="#666">150m</text>
-    <line x1="80" y1="192.5" x2="920" y2="192.5" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
-    <text x="70" y="195.5" text-anchor="end" font-family="Arial" font-size="8" fill="#666">200m</text>
-    <line x1="80" y1="145.625" x2="920" y2="145.625" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
-    <text x="70" y="148.625" text-anchor="end" font-family="Arial" font-size="8" fill="#666">250m</text>
-    <line x1="80" y1="98.75" x2="920" y2="98.75" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
-    <text x="70" y="101.75" text-anchor="end" font-family="Arial" font-size="8" fill="#666">300m</text>
+    <circle cx="80.0" cy="189.01639344262296" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="80.0" y="177.01639344262296" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold" transform="rotate(-90 80.0 177.01639344262296)">Plaza del Ayuntamiento</text>
+    <text x="80.0" y="211.01639344262296" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">233m</text>
+    <circle cx="146.31578947368422" cy="211.9672131147541" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="146.31578947368422" y="199.9672131147541" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold" transform="rotate(-90 146.31578947368422 199.9672131147541)">La Foncalada</text>
+    <text x="146.31578947368422" y="233.9672131147541" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">205m</text>
+    <circle cx="290.0" cy="219.34426229508196" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="290.0" y="207.34426229508196" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold" transform="rotate(-90 290.0 207.34426229508196)">San Julián de los Prados</text>
+    <text x="290.0" y="241.34426229508196" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">196m</text>
+    <circle cx="555.2631578947369" cy="106.22950819672133" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="555.2631578947369" y="94.22950819672133" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold" transform="rotate(-90 555.2631578947369 94.22950819672133)">Santa María del Naranco</text>
+    <text x="555.2631578947369" y="128.22950819672133" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">334m</text>
+    <circle cx="643.6842105263157" cy="80.0" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="643.6842105263157" y="68.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold" transform="rotate(-90 643.6842105263157 68.0)">San Miguel de Lillo</text>
+    <text x="643.6842105263157" y="102.0" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">366m</text>
+    <circle cx="920.0" cy="190.65573770491804" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="920.0" y="178.65573770491804" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold" transform="rotate(-90 920.0 178.65573770491804)">Catedral de Oviedo</text>
+    <text x="920.0" y="212.65573770491804" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">231m</text>
+    <line x1="80" y1="339.0163934426229" x2="920" y2="339.0163934426229" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="342.0163934426229" text-anchor="end" font-family="Arial" font-size="8" fill="#666">50m</text>
+    <line x1="80" y1="298.0327868852459" x2="920" y2="298.0327868852459" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="301.0327868852459" text-anchor="end" font-family="Arial" font-size="8" fill="#666">100m</text>
+    <line x1="80" y1="257.04918032786884" x2="920" y2="257.04918032786884" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="260.04918032786884" text-anchor="end" font-family="Arial" font-size="8" fill="#666">150m</text>
+    <line x1="80" y1="216.0655737704918" x2="920" y2="216.0655737704918" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="219.0655737704918" text-anchor="end" font-family="Arial" font-size="8" fill="#666">200m</text>
+    <line x1="80" y1="175.08196721311475" x2="920" y2="175.08196721311475" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="178.08196721311475" text-anchor="end" font-family="Arial" font-size="8" fill="#666">250m</text>
+    <line x1="80" y1="134.0983606557377" x2="920" y2="134.0983606557377" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="137.0983606557377" text-anchor="end" font-family="Arial" font-size="8" fill="#666">300m</text>
+    <line x1="80" y1="93.11475409836066" x2="920" y2="93.11475409836066" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="96.11475409836066" text-anchor="end" font-family="Arial" font-size="8" fill="#666">350m</text>
     
     <!-- Títulos -->
     <text x="500.0" y="30" text-anchor="middle" font-family="Arial" font-size="16" fill="#1a1a1a" font-weight="bold">Ruta de los Monumentos Prerrománicos</text>
-    <text x="500.0" y="50" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a1f1f">Distancia: 4200m - Altitud máxima: 320m</text>
+    <text x="500.0" y="50" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a1f1f">Distancia: 7600m - Altitud máxima: 366m</text>
     
     <!-- Ejes -->
     <text x="40.0" y="250.0" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a1f1f" transform="rotate(-90 40.0 250.0)">Altitud (m)</text>

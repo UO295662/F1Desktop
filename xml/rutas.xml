@@ -15,11 +15,11 @@
         <personas>Apta para toda la familia</personas>
         <inicio>
             <lugar>Plaza del Ayuntamiento</lugar>
-            <direccion>Calle Mayor</direccion>
+            <direccion>Plaza de Alfonso II El Casto, s/n</direccion>
             <coordenadas>
-                <latitud>43.3623</latitud>
-                <longitud>-5.8448</longitud>
-                <altitud>232</altitud>
+                <latitud>43.3603</latitud>
+                <longitud>-5.8442</longitud>
+                <altitud>233</altitud>
             </coordenadas>
         </inicio>
         <referencias>
@@ -32,11 +32,11 @@
                 <nombre>La Foncalada</nombre>
                 <descripcion>Fuente prerrománica declarada Patrimonio de la Humanidad.</descripcion>
                 <coordenadas>
-                    <latitud>43.3631</latitud>
-                    <longitud>-5.8470</longitud>
-                    <altitud>207</altitud>
+                    <latitud>43.3656</latitud>
+                    <longitud>-5.8461</longitud>
+                    <altitud>205</altitud>
                 </coordenadas>
-                <distancia unidad="m">500</distancia>
+                <distancia unidad="m">600</distancia>
                 <galeria_fotos>
                     <foto archivo="multimedia/la_foncalada.jpg">Imagen de La Foncalada</foto>
                 </galeria_fotos>
@@ -45,11 +45,11 @@
                 <nombre>San Julián de los Prados</nombre>
                 <descripcion>Iglesia prerrománica construida en el siglo IX.</descripcion>
                 <coordenadas>
-                    <latitud>43.3645</latitud>
-                    <longitud>-5.8500</longitud>
-                    <altitud>240</altitud>
+                    <latitud>43.3675</latitud>
+                    <longitud>-5.8372</longitud>
+                    <altitud>196</altitud>
                 </coordenadas>
-                <distancia unidad="m">1200</distancia>
+                <distancia unidad="m">1300</distancia>
                 <galeria_fotos>
                     <foto archivo="multimedia/san_julian_delosprados.jpg">Imagen de San Julián de los prados</foto>
                 </galeria_fotos>
@@ -58,13 +58,39 @@
                 <nombre>Santa María del Naranco</nombre>
                 <descripcion>Palacio prerrománico convertido en iglesia.</descripcion>
                 <coordenadas>
-                    <latitud>43.3675</latitud>
-                    <longitud>-5.8575</longitud>
-                    <altitud>320</altitud>
+                    <latitud>43.3695</latitud>
+                    <longitud>-5.8611</longitud>
+                    <altitud>334</altitud>
+                </coordenadas>
+                <distancia unidad="m">2400</distancia>
+                <galeria_fotos>
+                    <foto archivo="multimedia/naranco.jpg">Imagen de Santa María del Naranco</foto>
+                </galeria_fotos>
+            </hito>
+            <hito>
+                <nombre>San Miguel de Lillo</nombre>
+                <descripcion>Iglesia prerrománica del siglo IX, ejemplo único del arte asturiano.</descripcion>
+                <coordenadas>
+                    <latitud>43.3789</latitud>
+                    <longitud>-5.8658</longitud>
+                    <altitud>366</altitud>
+                </coordenadas>
+                <distancia unidad="m">800</distancia>
+                <galeria_fotos>
+                    <foto archivo="multimedia/san_miguel_lillo.jpg">Imagen de San Miguel de Lillo</foto>
+                </galeria_fotos>
+            </hito>
+            <hito>
+                <nombre>Catedral de Oviedo</nombre>
+                <descripcion>Catedral gótica que alberga la Cámara Santa con importantes reliquias.</descripcion>
+                <coordenadas>
+                    <latitud>43.3622</latitud>
+                    <longitud>-5.8439</longitud>
+                    <altitud>231</altitud>
                 </coordenadas>
                 <distancia unidad="m">2500</distancia>
                 <galeria_fotos>
-                    <foto archivo="multimedia/naranco.jpg">Imagen de Santa María del Naranco</foto>
+                    <foto archivo="multimedia/catedral_oviedo.jpg">Imagen de la Catedral de Oviedo</foto>
                 </galeria_fotos>
             </hito>
         </hitos>
@@ -84,11 +110,11 @@
         <personas>Personas en buena forma física</personas>
         <inicio>
             <lugar>Calle Gascona</lugar>
-            <direccion>Calle Gascona</direccion>
+            <direccion>Calle Gascona, 1</direccion>
             <coordenadas>
-                <latitud>43.3628</latitud>
-                <longitud>-5.8475</longitud>
-                <altitud>230</altitud>
+                <latitud>43.3639</latitud>
+                <longitud>-5.8442</longitud>
+                <altitud>233</altitud>
             </coordenadas>
         </inicio>
         <referencias>
@@ -101,11 +127,11 @@
                 <nombre>Sidrería Tierra Astur</nombre>
                 <descripcion>Degustación de sidra y tapas asturianas.</descripcion>
                 <coordenadas>
-                    <latitud>43.3629</latitud>
-                    <longitud>-5.8476</longitud>
-                    <altitud>235</altitud>
+                    <latitud>43.3639</latitud>
+                    <longitud>-5.8439</longitud>
+                    <altitud>238</altitud>
                 </coordenadas>
-                <distancia unidad="m">100</distancia>
+                <distancia unidad="m">50</distancia>
                 <galeria_fotos>
                     <foto archivo="multimedia/tierra_astur.jpg">Imagen del Tierra Astur</foto>
                 </galeria_fotos>
@@ -114,13 +140,52 @@
                 <nombre>Restaurante El Fartuquín</nombre>
                 <descripcion>Especialidad en cachopos y fabada asturiana.</descripcion>
                 <coordenadas>
-                    <latitud>43.3630</latitud>
-                    <longitud>-5.8478</longitud>
+                    <latitud>43.3594</latitud>
+                    <longitud>-5.8433</longitud>
                     <altitud>239</altitud>
+                </coordenadas>
+                <distancia unidad="m">500</distancia>
+                <galeria_fotos>
+                    <foto archivo="multimedia/fartuquin.jpg">Imagen del Restaurante Fartuquín</foto>
+                </galeria_fotos>
+            </hito>
+            <hito>
+                <nombre>Mercado El Fontán</nombre>
+                <descripcion>Mercado tradicional con productos locales y puestos de comida típica.</descripcion>
+                <coordenadas>
+                    <latitud>43.3600</latitud>
+                    <longitud>-5.8456</longitud>
+                    <altitud>245</altitud>
                 </coordenadas>
                 <distancia unidad="m">200</distancia>
                 <galeria_fotos>
-                    <foto archivo="multimedia/fartuquin.jpg">Imagen del Restaurante Fartuquín</foto>
+                    <foto archivo="multimedia/mercado_fontan.jpg">Imagen del Mercado El Fontán</foto>
+                </galeria_fotos>
+            </hito>
+            <hito>
+                <nombre>Casa Ramón</nombre>
+                <descripcion>Taberna centenaria especializada en mariscos y pescados frescos.</descripcion>
+                <coordenadas>
+                    <latitud>43.3594</latitud>
+                    <longitud>-5.8453</longitud>
+                    <altitud>242</altitud>
+                </coordenadas>
+                <distancia unidad="m">100</distancia>
+                <galeria_fotos>
+                    <foto archivo="multimedia/casa_ramon.jpg">Imagen de Casa Ramón</foto>
+                </galeria_fotos>
+            </hito>
+            <hito>
+                <nombre>Chigre Casa Conrado</nombre>
+                <descripcion>Auténtico chigre asturiano con ambiente tradicional y sidra de calidad.</descripcion>
+                <coordenadas>
+                    <latitud>43.3628</latitud>
+                    <longitud>-5.8477</longitud>
+                    <altitud>228</altitud>
+                </coordenadas>
+                <distancia unidad="m">400</distancia>
+                <galeria_fotos>
+                    <foto archivo="multimedia/casa_conrado.jpg">Imagen del Chigre Casa Conrado</foto>
                 </galeria_fotos>
             </hito>
         </hitos>
@@ -132,55 +197,81 @@
         <nombre>Ruta Paisajística del Monte Naranco</nombre>
         <tipo>Paisajística</tipo>
         <medio_transporte>Bicicleta</medio_transporte>
-        <duracion>2 horas</duracion>
-        <agencia>Sin agencia</agencia>
+        <duracion>3 horas</duracion>
+        <agencia>Asturias con Bici</agencia>
         <descripcion>
-            Una ruta en bicicleta que recorre los paisajes del Monte Naranco.
+            Una ruta en bicicleta que abraza el Monte Naranco siguiendo senderos y caminos rurales dentro del concejo de Oviedo, combinando patrimonio prerrománico con paisajes naturales.
         </descripcion>
         <personas>Personas en buena forma física</personas>
         <inicio>
-            <lugar>Santa María del Naranco</lugar>
-            <direccion>Carretera del Naranco</direccion>
+            <lugar>Plaza de América (Oviedo)</lugar>
+            <direccion>Plaza de América, s/n</direccion>
             <coordenadas>
-                <latitud>43.3775</latitud>
-                <longitud>-5.8640</longitud>
-                <altitud>320</altitud>
+                <latitud>43.3608</latitud>
+                <longitud>-5.8567</longitud>
+                <altitud>242</altitud>
             </coordenadas>
         </inicio>
         <referencias>
-            <referencia>https://es.wikipedia.org/wiki/Monte_Naranco</referencia>
-            <referencia>https://lasendadelhayedo.com/monte-naranco-ruta-oviedo/</referencia>
+            <referencia>https://rutas.asturiesconbici.org/ruta/abrazando-al-naranco-i-el-nora-como-vera/</referencia>
+            <referencia>https://www.turismoasturias.es/descubre/que-hacer/deportes/cicloturismo</referencia>
         </referencias>
-        <recomendacion>10</recomendacion>
+        <recomendacion>9</recomendacion>
         <hitos>
             <hito>
-                <nombre>San Miguel de Lillo</nombre>
-                <descripcion>Iglesia prerrománica del siglo IX, situada muy cerca de Santa María del Naranco.</descripcion>
+                <nombre>Santa María del Naranco</nombre>
+                <descripcion>Palacio prerrománico del siglo IX convertido en iglesia, Patrimonio de la Humanidad UNESCO.</descripcion>
                 <coordenadas>
-                    <latitud>43.3770</latitud>
-                    <longitud>-5.8635</longitud>
-                    <altitud>315</altitud>
+                    <latitud>43.3695</latitud>
+                    <longitud>-5.8611</longitud>
+                    <altitud>334</altitud>
                 </coordenadas>
-                <distancia unidad="m">150</distancia>
+                <distancia unidad="m">1500</distancia>
                 <galeria_fotos>
-                    <foto archivo="multimedia/san_miguel_lillo.jpg">Imagen de San Miguel de Lillo</foto>
+                    <foto archivo="multimedia/santa_maria_naranco.jpg">Vista de Santa María del Naranco desde el sendero</foto>
+                </galeria_fotos>
+                <galeria_videos>
+                    <video archivo="multimedia/naranco_exterior.mp4">Recorrido exterior del monumento</video>
+                </galeria_videos>
+            </hito>
+            <hito>
+                <nombre>Mirador Monte Naranco</nombre>
+                <descripcion>Punto elevado con vistas panorámicas hacia la ciudad de Oviedo.</descripcion>
+                <coordenadas>
+                    <latitud>43.3844</latitud>
+                    <longitud>-5.8636</longitud>
+                    <altitud>633</altitud>
+                </coordenadas>
+                <distancia unidad="m">1800</distancia>
+                <galeria_fotos>
+                    <foto archivo="multimedia/mirador.jpg">Panorámica desde el Mirador de Fitoria</foto>
                 </galeria_fotos>
             </hito>
             <hito>
-                <nombre>Mirador del Naranco</nombre>
-                <descripcion>Vistas panorámicas de Oviedo y la cordillera cantábrica desde la ladera del monte.</descripcion>
+                <nombre>Area recreativa Naranco</nombre>
+                <descripcion>Una parada para descansar y reponer fuerzas.</descripcion>
                 <coordenadas>
-                    <latitud>43.3780</latitud>
-                    <longitud>-5.8645</longitud>
-                    <altitud>340</altitud>
+                    <latitud>43.3846</latitud>
+                    <longitud>-5.8564</longitud>
+                    <altitud>564</altitud>
                 </coordenadas>
-                <distancia unidad="m">400</distancia>
+                <distancia unidad="m">700</distancia>
                 <galeria_fotos>
-                    <foto archivo="multimedia/mirador.jpg">Vistas panorámicas desde el Mirador del Naranco</foto>
+                    <foto archivo="multimedia/area.jpg">Ciclistas en la Senda Verde del Naranco</foto>
                 </galeria_fotos>
-                <galeria_videos>
-                    <video archivo="multimedia/mirador.mp4">Video panorámico del mirador</video>
-                </galeria_videos>
+            </hito>
+            <hito>
+                <nombre>Ermita de San Isidro</nombre>
+                <descripcion>Pequeña ermita situada en las faldas del Monte Naranco, cerca del cementerio El Salvador.</descripcion>
+                <coordenadas>
+                    <latitud>43.3786</latitud>
+                    <longitud>-5.8875</longitud>
+                    <altitud>360</altitud>
+                </coordenadas>
+                <distancia unidad="m">2000</distancia>
+                <galeria_fotos>
+                    <foto archivo="multimedia/cementerio_salvador.jpg">Vista del cementerio histórico desde el sendero</foto>
+                </galeria_fotos>
             </hito>
         </hitos>
         <planimetria archivo="rutas.kml" />

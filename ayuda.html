@@ -5,12 +5,11 @@
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8">
     <title>Oviedo-Ayuda</title>
-	<link rel="icon" href="multimedia/imagenes/icon.ico" type="image/x-icon">
-	<meta name ="author" content ="Gael Horta Calzada">
-	<meta name ="description" content ="Página que contiene varios juegos">
-	<meta name ="keywords" content ="juegos, entretenimiento">
+    <meta name="author" content="Gael Horta Calzada">
+    <meta name="description" content="Página de ayuda con información sobre cómo usar el sitio web de Oviedo">
+    <meta name="keywords" content="ayuda, guía de usuario, Oviedo, turismo">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	<link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
     <link rel="stylesheet" type="text/css" href="estilo/layout.css">
     <link rel="icon" href="multimedia/favicon.ico">
 </head>
@@ -19,70 +18,100 @@
     <header>
         <h1><a href="index.html" title="Ir a la página principal">Oviedo</a></h1>
         <nav>
-            <a href="index.html" title="Inicio Oviedo"  >Inicio</a>
+            <a href="index.html" title="Inicio Oviedo">Inicio</a>
             <a href="juego.html" title="Juego Oviedo">Juego</a>
             <a href="rutas.html" title="Rutas Oviedo">Rutas</a>
             <a href="php/login.php" title="Reservas Oviedo">Reservas</a>
-            <a href="meteorologia.html" title="Meteorología Oviedo" >Meteorología</a>
+            <a href="meteorologia.html" title="Meteorología Oviedo">Meteorología</a>
             <a href="gastronomia.html" title="Gastronomia Oviedo">Gastronomia</a>
             <a href="ayuda.html" title="Ayuda Oviedo" class="active">Ayuda</a>
         </nav>
-        
     </header>
-	<p>Estás en: <a href="index.html">Inicio</a> >> Ayuda</p>
-	<main>
+    <p>Estás en: <a href="index.html">Inicio</a> >> Ayuda</p>
+    <main>
         <h2>Ayuda - Guía de Usuario</h2>
         
-        <section aria-label="navegacion">
+        <section>
             <h3>Navegación Principal</h3>
             <dl>
                 <dt>Inicio</dt>
-                <dd>Página principal que muestra un carrusel de imágenes de Oviedo y las últimas noticias relacionadas con la ciudad.</dd>
+                <dd>Página principal con información general sobre Oviedo, incluyendo carrusel de imágenes representativas de la ciudad y enlaces a las principales secciones del sitio.</dd>
 
                 <dt>Juego</dt>
-                <dd>Juego de memoria donde debes encontrar parejas de imágenes relacionadas con Oviedo. Haz clic en las tarjetas para revelarlas y encuentra todas las parejas.</dd>
-
-                <dt>Calendario</dt>
-                <dd>Muestra el calendario de eventos importantes en Oviedo. Utiliza el botón "Cargar carreras" para ver la información actualizada.</dd>
+                <dd>Test de conocimientos sobre esta pagina web. Preguntas sobre los temas de los que trata la aplicación.</dd>
 
                 <dt>Rutas</dt>
-                <dd>Permite cargar y visualizar rutas turísticas de Oviedo en diferentes formatos:
+                <dd>Sección completa de rutas turísticas por Oviedo que incluye:
                     <ul>
-                        <li>KML: Para ver rutas en Google Maps</li>
-                        <li>SVG: Para visualizar mapas vectoriales</li>
-                        <li>XML: Para información detallada de las rutas</li>
+                        <li>Carga de archivos: Sube archivos KML, SVG o XML para visualizar rutas personalizadas</li>
+                        <li>Mapas interactivos: Visualización con OpenLayers y marcadores de puntos de interés</li>
+                        <li>Información detallada: Descripción, coordenadas GPS, distancias y galerías multimedia de cada hito</li>
                     </ul>
                 </dd>
 
-                <dt>Viajes</dt>
-                <dd>Sección para planificar visitas a Oviedo, incluyendo información sobre alojamiento y transporte.</dd>
+                <dt>Reservas</dt>
+                <dd>Sistema de reservas con formulario de login y registro para usuarios. Permite realizar reservas de servicios turísticos en Oviedo con autenticación segura.</dd>
 
                 <dt>Meteorología</dt>
-                <dd>Consulta el pronóstico meteorológico de Oviedo para los próximos días, incluyendo temperatura, probabilidad de lluvia y condiciones climáticas.</dd>
+                <dd>Información meteorológica completa que incluye:
+                    <ul>
+                        <li>Temperatura actual y sensación térmica</li>
+                        <li>Pronóstico para los próximos 5 días</li>
+                        <li>Humedad, viento y presión atmosférica</li>
+                        <li>Datos actualizados mediante API meteorológica</li>
+                    </ul>
+                </dd>
 
                 <dt>Gastronomía</dt>
-                <dd>Explora la rica gastronomía de Oviedo, con información sobre platos típicos, precios y experiencias culinarias recomendadas.</dd>
+                <dd>Guía gastronómica completa de Oviedo con:
+                    <ul>
+                        <li>Platos típicos asturianos (fabada, cachopo, carbayones)</li>
+                        <li>Tabla de precios de restaurantes locales</li>
+                        <li>Experiencias culinarias recomendadas</li>
+                        <li>Galería multimedia con fotos, videos y audios</li>
+                        <li>Información sobre sidrerías y la cultura de la sidra</li>
+                    </ul>
+                </dd>
             </dl>
         </section>
 
-        <section aria-label="funcionalidades">
+        <section>
             <h3>Funcionalidades Especiales</h3>
             <ul>
-                <li><strong>Carrusel de Imágenes:</strong> Usa los botones de navegación para ver diferentes imágenes de Oviedo.</li>
-                <li><strong>Noticias en Tiempo Real:</strong> Las noticias se actualizan automáticamente para mostrarte la información más reciente.</li>
-                <li><strong>Mapas Interactivos:</strong> Carga tus propios archivos KML para visualizar rutas personalizadas.</li>
-                <li><strong>Pronóstico del Tiempo:</strong> Datos meteorológicos actualizados diariamente.</li>
+                <li>Carrusel de Imágenes: Navegación automática y manual con botones de control para ver diferentes vistas de Oviedo.</li>
+                <li>Carga de Archivos: Sube tus propios archivos KML, SVG o XML para visualizar rutas personalizadas en mapas interactivos.</li>
+                <li>Mapas con OpenLayers: Visualización avanzada de mapas con marcadores, popups informativos y controles de zoom.</li>
+                <li>Gráficos SVG Dinámicos: Visualización de datos meteorológicos y altimetrías de rutas mediante gráficos escalables.</li>
+                <li>Multimedia Responsivo: Imágenes adaptativas con diferentes resoluciones según el dispositivo (picture element).</li>
+                <li>Formularios Interactivos: Sistema de login, registro y reservas con validación en tiempo real.</li>
+                <li>Datos en Tiempo Real: Información meteorológica actualizada automáticamente.</li>
             </ul>
         </section>
-
-        <section aria-label="consejos">
+        
+        <section>
             <h3>Consejos de Uso</h3>
             <ol>
-                <li>La web es completamente responsive - se adapta a cualquier dispositivo.</li>
-                <li>Los archivos KML deben estar en formato válido para su correcta visualización.</li>
-                <li>El pronóstico meteorológico se actualiza automáticamente cada vez que visitas la página.</li>
-                <li>Puedes acceder a cualquier sección desde el menú de navegación superior.</li>
+                <li>Diseño Responsivo: La web se adapta automáticamente a móviles, tablets y escritorio.</li>
+                <li>Archivos KML: Deben estar en formato válido con coordenadas correctas para visualización en mapas.</li>
+                <li>Navegación: Usa las migas de pan para saber tu ubicación actual en el sitio.</li>
+                <li>Accesibilidad: Todos los elementos multimedia incluyen texto alternativo >li>
+                <li>Rendimiento: Las imágenes usan lazy loading para mejorar la velocidad de carga.</li>
+                <li>Compatibilidad: Probado en los principales navegadores modernos (Chrome, Firefox, Safari, Edge).</li>
             </ol>
+        </section>
+
+        <section >
+            <h3>Solución de Problemas Comunes</h3>
+            <dl>
+                <dt>El mapa no se carga</dt>
+                <dd>Verifica tu conexión a internet y que el archivo KML tenga el formato correcto. Refresca la página si es necesario.</dd>
+
+                <dt>Las imágenes tardan en cargar</dt>
+                <dd>Normal en conexiones lentas. Las imágenes usan lazy loading y se cargan progresivamente al hacer scroll.</dd>
+
+                <dt>Los datos meteorológicos no se actualizan</dt>
+                <dd>Los datos se obtienen de APIs externas. Si no se cargan, puede deberse a problemas temporales del servicio.</dd>
+            </dl>
         </section>
 
     </main>

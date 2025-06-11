@@ -7,34 +7,52 @@
     <text x="75" y="384" text-anchor="end" font-family="Arial" font-size="12" fill="#0066cc" font-weight="bold">Nivel del mar (0m)</text>
     
     <!-- Perfil altimétrico -->
-    <polygon points="80.0,97.64705882352939 309.0909090909091,102.05882352941177 920.0,80.0 920.0,380 80.0,380" fill="rgba(139, 58, 58, 0.3)" stroke="#8b3a3a" stroke-width="2" />
+    <polygon points="80.0,265.3080568720379 290.0,221.70616113744074 542.0,80.0 640.0,112.70142180094786 920.0000000000001,209.38388625592415 920.0000000000001,380 80.0,380" fill="rgba(139, 58, 58, 0.3)" stroke="#8b3a3a" stroke-width="2" />
     
     <!-- Puntos de hitos -->
-    <circle cx="80.0" cy="97.64705882352939" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
-    <text x="80.0" y="85.64705882352939" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold">Santa María del Naranco</text>
-    <text x="80.0" y="119.64705882352939" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">320m</text>
-    <circle cx="309.0909090909091" cy="102.05882352941177" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
-    <text x="309.0909090909091" y="90.05882352941177" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold">San Miguel de Lillo</text>
-    <text x="309.0909090909091" y="124.05882352941177" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">315m</text>
-    <circle cx="920.0" cy="80.0" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
-    <text x="920.0" y="68.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold">Mirador del Naranco</text>
-    <text x="920.0" y="102.0" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">340m</text>
-    <line x1="80" y1="335.88235294117646" x2="920" y2="335.88235294117646" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
-    <text x="70" y="338.88235294117646" text-anchor="end" font-family="Arial" font-size="8" fill="#666">50m</text>
-    <line x1="80" y1="291.7647058823529" x2="920" y2="291.7647058823529" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
-    <text x="70" y="294.7647058823529" text-anchor="end" font-family="Arial" font-size="8" fill="#666">100m</text>
-    <line x1="80" y1="247.64705882352942" x2="920" y2="247.64705882352942" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
-    <text x="70" y="250.64705882352942" text-anchor="end" font-family="Arial" font-size="8" fill="#666">150m</text>
-    <line x1="80" y1="203.52941176470588" x2="920" y2="203.52941176470588" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
-    <text x="70" y="206.52941176470588" text-anchor="end" font-family="Arial" font-size="8" fill="#666">200m</text>
-    <line x1="80" y1="159.41176470588235" x2="920" y2="159.41176470588235" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
-    <text x="70" y="162.41176470588235" text-anchor="end" font-family="Arial" font-size="8" fill="#666">250m</text>
-    <line x1="80" y1="115.29411764705884" x2="920" y2="115.29411764705884" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
-    <text x="70" y="118.29411764705884" text-anchor="end" font-family="Arial" font-size="8" fill="#666">300m</text>
+    <circle cx="80.0" cy="265.3080568720379" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="80.0" y="253.30805687203792" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold" transform="rotate(-90 80.0 253.30805687203792)">Plaza de América (Oviedo)</text>
+    <text x="80.0" y="287.3080568720379" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">242m</text>
+    <circle cx="290.0" cy="221.70616113744074" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="290.0" y="209.70616113744074" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold" transform="rotate(-90 290.0 209.70616113744074)">Santa María del Naranco</text>
+    <text x="290.0" y="243.70616113744074" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">334m</text>
+    <circle cx="542.0" cy="80.0" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="542.0" y="68.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold" transform="rotate(-90 542.0 68.0)">Mirador Monte Naranco</text>
+    <text x="542.0" y="102.0" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">633m</text>
+    <circle cx="640.0" cy="112.70142180094786" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="640.0" y="100.70142180094786" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold" transform="rotate(-90 640.0 100.70142180094786)">Area recreativa Naranco</text>
+    <text x="640.0" y="134.70142180094786" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">564m</text>
+    <circle cx="920.0000000000001" cy="209.38388625592415" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="920.0000000000001" y="197.38388625592415" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold" transform="rotate(-90 920.0000000000001 197.38388625592415)">Ermita de San Isidro</text>
+    <text x="920.0000000000001" y="231.38388625592415" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">360m</text>
+    <line x1="80" y1="356.30331753554503" x2="920" y2="356.30331753554503" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="359.30331753554503" text-anchor="end" font-family="Arial" font-size="8" fill="#666">50m</text>
+    <line x1="80" y1="332.60663507109007" x2="920" y2="332.60663507109007" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="335.60663507109007" text-anchor="end" font-family="Arial" font-size="8" fill="#666">100m</text>
+    <line x1="80" y1="308.9099526066351" x2="920" y2="308.9099526066351" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="311.9099526066351" text-anchor="end" font-family="Arial" font-size="8" fill="#666">150m</text>
+    <line x1="80" y1="285.2132701421801" x2="920" y2="285.2132701421801" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="288.2132701421801" text-anchor="end" font-family="Arial" font-size="8" fill="#666">200m</text>
+    <line x1="80" y1="261.5165876777251" x2="920" y2="261.5165876777251" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="264.5165876777251" text-anchor="end" font-family="Arial" font-size="8" fill="#666">250m</text>
+    <line x1="80" y1="237.81990521327015" x2="920" y2="237.81990521327015" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="240.81990521327015" text-anchor="end" font-family="Arial" font-size="8" fill="#666">300m</text>
+    <line x1="80" y1="214.12322274881515" x2="920" y2="214.12322274881515" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="217.12322274881515" text-anchor="end" font-family="Arial" font-size="8" fill="#666">350m</text>
+    <line x1="80" y1="190.4265402843602" x2="920" y2="190.4265402843602" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="193.4265402843602" text-anchor="end" font-family="Arial" font-size="8" fill="#666">400m</text>
+    <line x1="80" y1="166.72985781990522" x2="920" y2="166.72985781990522" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="169.72985781990522" text-anchor="end" font-family="Arial" font-size="8" fill="#666">450m</text>
+    <line x1="80" y1="143.03317535545023" x2="920" y2="143.03317535545023" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="146.03317535545023" text-anchor="end" font-family="Arial" font-size="8" fill="#666">500m</text>
+    <line x1="80" y1="119.33649289099526" x2="920" y2="119.33649289099526" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="122.33649289099526" text-anchor="end" font-family="Arial" font-size="8" fill="#666">550m</text>
+    <line x1="80" y1="95.6398104265403" x2="920" y2="95.6398104265403" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="98.6398104265403" text-anchor="end" font-family="Arial" font-size="8" fill="#666">600m</text>
     
     <!-- Títulos -->
     <text x="500.0" y="30" text-anchor="middle" font-family="Arial" font-size="16" fill="#1a1a1a" font-weight="bold">Ruta Paisajística del Monte Naranco</text>
-    <text x="500.0" y="50" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a1f1f">Distancia: 550m - Altitud máxima: 340m</text>
+    <text x="500.0" y="50" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a1f1f">Distancia: 6000m - Altitud máxima: 633m</text>
     
     <!-- Ejes -->
     <text x="40.0" y="250.0" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a1f1f" transform="rotate(-90 40.0 250.0)">Altitud (m)</text>

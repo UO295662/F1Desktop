@@ -1,7 +1,7 @@
 body { /* Especificidad: 0,0,1 */
   font-family: Verdana, sans-serif;
-  color: #2c2c2c; /* Texto principal: gris oscuro */
-  background-color: #fef6e4; /* Fondo: crema */
+  color: #2c2c2c;
+  background-color: #fef6e4;
   margin: 15em;
   padding-top: 0;
   padding-bottom: 0%;
@@ -12,12 +12,12 @@ body { /* Especificidad: 0,0,1 */
 /* Estilos de los enlaces externos */
 a[href^="http://"], a[href^="https://"] { /* Especificidad: 0,1,1 */
   text-decoration: underline;
-  color: #5a1f1f; /* Enlaces: coral */
+  color: #5a1f1f;
   transition: color 0.3s, transform 0.3s, text-decoration 0.3s;
 }
 
 a[href^="http://"]:hover, a[href^="https://"]:hover { /* Especificidad: 0,2,1 */
-  color: #a63d40; /* Enlaces al pasar el cursor: rojo oscuro */
+  color: #a63d40;
   text-decoration: underline;
   transform: scale(1.1);
 }
@@ -26,7 +26,7 @@ a[href^="http://"]:hover, a[href^="https://"]:hover { /* Especificidad: 0,2,1 */
 ul { /* Especificidad: 0,0,1 */
   list-style-type: square;
   font-size: 1.2rem;
-  color: #6b4226; /* Listas: marrón */
+  color: #6b4226;
   padding-left: 1.5rem;
   margin: 1rem 0;
 }
@@ -84,15 +84,15 @@ th, td { /* Especificidad: 0,0,1 */
 }
 
 th { /* Especificidad: 0,0,1 */
-  background-color: #a63d40; /* Encabezados de tabla: rojo oscuro */
-  color: #fff; /* Texto blanco */
+  background-color: #a63d40;
+  color: #fff;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 td { /* Especificidad: 0,0,1 */
-  background-color: #fef6e4; /* Celdas de tabla: crema */
+  background-color: #fef6e4;
 }
 
 /* Estilo para la descripción dd */
@@ -104,7 +104,7 @@ dd { /* Especificidad: 0,0,1 */
 }
 
 /* Estructuras de contenido */
-article section {
+article section { /* Especificidad: 0,0,2 */
     display: flex;
     overflow: hidden;
     width: 100%;
@@ -121,7 +121,7 @@ article { /* Especificidad: 0,0,1 */
   border-radius: 1em;
 }
 
-section article { /* Especificidad: 0,0,1 */
+section article { /* Especificidad: 0,0,2 */
   position: relative;
   display: flex;
   width: 80%;
@@ -131,14 +131,14 @@ section article { /* Especificidad: 0,0,1 */
   border-radius: 1em;
 }
 
-section div div { /* Especificidad: 0,0,2 */
+section div div { /* Especificidad: 0,0,3 */
   min-width: 20%; 
   width: 25%;
   min-height: 20vh;
   display: block;   
 }
 
-section > input[type='file'] + article {/*Especificidad: 0,1,3*/
+section > input[type='file'] + article { /* Especificidad: 0,1,3 */
   display: none;
 }
 
@@ -183,7 +183,7 @@ article img { /* Especificidad: 0,0,2 */
   background-color: #BFC7D4;
 }
 
-main section article canvas { /* Especificidad: 0,0,4  */
+main section article canvas { /* Especificidad: 0,0,4 */
   width: 400%;
   height: auto; 
   background-color: #BFC7D4; 
@@ -191,21 +191,21 @@ main section article canvas { /* Especificidad: 0,0,4  */
   margin: 0 auto;
 }
 
-video {
+video { /* Especificidad: 0,0,1 */
   max-width: 100%;
   height: auto;
 }
 
 article img:hover,
 picture img:hover,
-video:hover {
+video:hover { /* Especificidad: 0,1,2 / 0,1,2 / 0,1,1 */
   transform: scale(1.05);
   transition: transform 0.3s ease-in-out;
   z-index: 1;
 }
 
 /* Estilos para el carrusel de imágenes */
-figure {
+figure { /* Especificidad: 0,0,1 */
     margin: 1.5rem auto;
     width: 50%;
     max-width: 70vw;
@@ -216,7 +216,7 @@ figure {
     transition: all 0.3s ease;
 }
 
-figure img {
+figure img { /* Especificidad: 0,0,2 */
     width: 100%;
     height: auto;
     aspect-ratio: 16/9;
@@ -226,11 +226,11 @@ figure img {
     transition: transform 0.3s ease;
 }
 
-figure img:hover {
+figure img:hover { /* Especificidad: 0,1,2 */
     transform: scale(1.01);
 }
 
-figure figcaption {
+figure figcaption { /* Especificidad: 0,0,2 */
     text-align: center;
     margin: 0.75rem 0;
     font-size: clamp(0.875rem, 1.5vw, 1.25rem);
@@ -238,14 +238,14 @@ figure figcaption {
     font-weight: 500;
 }
 
-figure nav {
+figure nav { /* Especificidad: 0,0,2 */
     display: flex;
     justify-content: center;
     padding: 0.75rem 0;
     gap: 0.75rem;
 }
 
-figure button {
+figure button { /* Especificidad: 0,0,2 */
     background: #5a1f1f;
     color: #fff;
     border: none;
@@ -258,7 +258,7 @@ figure button {
     max-width: 6rem;
 }
 
-figure nav button:hover {
+figure nav button:hover { /* Especificidad: 0,1,3 */
     background: rgba(215, 122, 97, 0.9);
     color: white;
     transform: translateY(-50%) scale(1.1);
@@ -266,45 +266,45 @@ figure nav button:hover {
 }
 
 /* Contenedor de botones del carrusel */
-section nav {
-    display: flex !important;
-    justify-content: center !important;
-    gap: 2rem !important;
-    margin: 2rem 0 !important;
-    padding: 1rem !important;
+section nav { /* Especificidad: 0,0,2 */
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 1rem;
 }
 
 /* Botones del carrusel */
-section nav button {
-    background: linear-gradient(145deg, #5a1f1f, #c96a51) !important;
-    color: #ffffff !important;
-    border: 2px solid #a63d40 !important;
-    border-radius: 50% !important;
-    font-size: 1.8rem !important;
-    font-weight: bold !important;
-    cursor: pointer !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    transition: all 0.3s ease !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 4rem !important;
-    height: 4rem !important;
-    min-width: 4rem !important;
-    min-height: 4rem !important;
-    box-shadow: 0 0.3rem 0.8rem rgba(166, 61, 64, 0.3) !important;
+section nav button { /* Especificidad: 0,0,3 */
+    background: linear-gradient(145deg, #5a1f1f, #c96a51);
+    color: #ffffff;
+    border: 0.125rem solid #a63d40;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    min-width: 4rem;
+    min-height: 4rem;
+    box-shadow: 0 0.3rem 0.8rem rgba(166, 61, 64, 0.3);
 }
 
-section nav button:hover {
-    background: linear-gradient(145deg, #a63d40, #8b3439) !important;
-    border-color: #8b3439 !important;
-    transform: translateY(-0.3rem) scale(1.1) !important;
-    box-shadow: 0 0.6rem 1.2rem rgba(166, 61, 64, 0.4) !important;
+section nav button:hover { /* Especificidad: 0,1,3 */
+    background: linear-gradient(145deg, #a63d40, #8b3439);
+    border-color: #8b3439;
+    transform: translateY(-0.3rem) scale(1.1);
+    box-shadow: 0 0.6rem 1.2rem rgba(166, 61, 64, 0.4);
 }
 
 /* Estilos para las noticias */
-article[role="feed"] {
+article[role="feed"] { /* Especificidad: 0,1,1 */
     width: 90%;
     margin: 2rem auto;
     padding: 2rem;
@@ -313,7 +313,7 @@ article[role="feed"] {
     max-width: 120rem;
 }
 
-article[role="feed"] > article {
+article[role="feed"] > article { /* Especificidad: 0,1,2 */
     width: auto;
     height: auto;
     display: block;
@@ -326,7 +326,7 @@ article[role="feed"] > article {
     overflow: visible;
 }
 
-article[role="feed"] h3 {
+article[role="feed"] h3 { /* Especificidad: 0,1,2 */
     font-size: 2rem;
     color: #2c2c2c;
     margin-bottom: 1rem;
@@ -334,7 +334,7 @@ article[role="feed"] h3 {
     width: 100%;
 }
 
-article[role="feed"] p {
+article[role="feed"] p { /* Especificidad: 0,1,2 */
     width: 100%;
     font-size: 1.3rem;
     line-height: 1.6;
@@ -344,14 +344,14 @@ article[role="feed"] p {
     overflow: visible;
 }
 
-article[role="feed"] time {
+article[role="feed"] time { /* Especificidad: 0,1,2 */
     display: block;
     font-size: 1.1rem;
     color: #666;
     margin: 1rem 0;
 }
 
-article[role="feed"] a {
+article[role="feed"] a { /* Especificidad: 0,1,2 */
     display: inline-block;
     background-color: #5a1f1f;
     color: #fff;
@@ -363,951 +363,650 @@ article[role="feed"] a {
     transition: all 0.3s ease;
 }
 
-article[role="feed"] a:hover {
+article[role="feed"] a:hover { /* Especificidad: 0,2,2 */
     background-color: #a63d40;
     transform: translateY(-0.2rem);
     box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 /* Estilos específicos para la meteorología */
-aside {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2rem !important;
-    padding: 1rem !important;
+aside { /* Especificidad: 0,0,1 */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
     max-width: 95vw;
-    margin: 1rem auto !important;
-    width: 100% !important;
-}
-
-aside:first-of-type {
-    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%) !important;
-    border-radius: 1rem !important;
-    padding: 2rem !important;
-    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-}
-
-aside:first-of-type h3 {
-    color: #5a1f1f !important;
-    margin-bottom: 2rem !important;
-    align-self: center !important;
-}
-
-aside:first-of-type section {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-}
-
-aside:first_of_type img {
-    width: 6rem !important;
-    height: 6rem !important;
-    margin: 1rem auto !important;
-    order: 1 !important;
-    position: static !important;
-    display: block !important;
-}
-
-aside:first-of-type ul {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 1rem auto !important;
-    max-width: 400px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    order: 2 !important;
-}
-
-aside:first-of-type li {
-    padding: 0.5rem 0 !important;
-    border-bottom: 1px solid #ddd !important;
-    background: none !important;
-    border-left: none !important;
-    border-radius: 0 !important;
-    margin: 0 !important;
-}
-
-aside:last-of-type {
-    padding: 1rem !important;
-    background: none !important;
-    display: flex !important;
-    flex-direction: column !important;
-}
-
-aside:last-of-type h3 {
-    color: #5a1f1f !important;
-    align-self: center !important;
-    margin-bottom: 2rem !important;
-    font-size: 2rem !important;
-    order: 1 !important;
-}
-
-aside:last-of-type section {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
-    gap: 1.5rem !important;
-    justify-items: center !important;
-    padding: 0 !important;
-    order: 2 !important;
-}
-
-aside:last-of-type article {
-    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%) !important;
-    border-radius: 1rem !important;
-    padding: 1.5rem !important;
-    width: 200px !important;
-    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1) !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    position: relative !important;
-    height: auto !important;
-}
-
-aside:last-of-type article:hover {
-    transform: translateY(-0.5rem) !important;
-    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15) !important;
-}
-
-aside:last-of-type article p {
-    font-size: 1.1rem !important;
-    color: #2c2c2c !important;
-    margin-bottom: 1rem !important;
-    font-weight: 500 !important;
-    order: 1 !important;
-    align-self: center !important;
-}
-
-aside:last-of-type article img {
-    margin: 0.5rem auto !important;
-    width: 4rem !important;
-    height: 4rem !important;
-    object-fit: contain !important;
-    order: 2 !important;
-    position: static !important;
-    display: block !important;
-    background-color: transparent !important;
-}
-
-aside:last-of-type article ul {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 1rem 0 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    flex-grow: 1 !important;
-    order: 3 !important;
-    width: 100% !important;
-}
-
-aside:last-of-type article li {
-    padding: 0.6rem 0 !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-    font-size: 0.9rem !important;
-    color: #666 !important;
-    background: none !important;
-    border-left: none !important;
-    border-radius: 0 !important;
-    margin: 0 !important;
-    align-self: flex-start !important;
-}
-
-aside:last-of-type article li:last-child {
-    border-bottom: none !important;
-}
-
-/* Estilos para el test de conocimientos */
-body main section article:not(aside article) {
-    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%) !important;
-    border-radius: 1rem !important;
-    padding: 2rem !important;
-    margin: 2rem auto !important;
-    max-width: 50rem !important;
-    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1) !important;
-    position: static !important;
-    width: auto !important;
-    height: auto !important;
-    display: block !important;
-    overflow: visible !important;
-}
-
-body main section article:not(aside article) h3 {
-    color: #5a1f1f !important;
-    text-align: center !important;
-    margin-bottom: 1.5rem !important;
-    font-size: 1.5rem !important;
-    order: unset !important;
-}
-
-body main section article:not(aside article) p {
-    font-size: 1.2rem !important;
-    margin-bottom: 2rem !important;
-    line-height: 1.6 !important;
-    text-align: center !important;
-    order: unset !important;
-}
-
-body main section article:not(aside article) form {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1rem !important;
-}
-
-body main section article:not(aside article) fieldset {
-    border: none !important;
-    padding: 1rem !important;
-    margin: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    background: #f8f9fa !important;
-    border-radius: 0.5rem !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-}
-
-body main section article:not(aside article) fieldset:hover {
-    background: #e9ecef !important;
-    transform: translateX(0.5rem) !important;
-}
-
-body main section article:not(aside article) input[type="radio"] {
-    margin-right: 1rem !important;
-    transform: scale(1.2) !important;
-    position: static !important;
-}
-
-body main section article:not(aside article) label {
-    flex: 1 !important;
-    cursor: pointer !important;
-    font-size: 1.1rem !important;
-}
-
-body main section article:not(aside article) button[type="submit"] {
-    background: #5a1f1f !important;
-    color: white !important;
-    border: none !important;
-    padding: 1rem 2rem !important;
-    border-radius: 0.5rem !important;
-    font-size: 1.1rem !important;
-    cursor: pointer !important;
-    margin-top: 1rem !important;
-    transition: all 0.3s ease !important;
-    align-self: center !important;
-    position: static !important;
-    width: auto !important;
-    height: auto !important;
-}
-
-body main section article:not(aside article) button[type="submit"]:hover:not(:disabled) {
-    background: #a63d40 !important;
-    transform: translateY(-0.2rem) !important;
-}
-
-body main section article:not(aside article) button[type="submit"]:disabled {
-    background: #ccc !important;
-    cursor: not-allowed !important;
-    transform: none !important;
-}
-
-/* Resultados del test */
-body main aside[style*="block"] article {
-    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%) !important;
-    border-radius: 1rem !important;
-    padding: 3rem !important;
-    margin: 2rem auto !important;
-    max-width: 60rem !important;
-    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.15) !important;
-    text-align: center !important;
-    position: static !important;
-    width: auto !important;
-    height: auto !important;
-    display: block !important;
-    flex-direction: unset !important;
-    align-items: unset !important;
-    order: unset !important;
-    font-size: 1rem !important;
-    line-height: 1.6 !important;
-}
-
-body main aside[style*="block"] article h3 {
-    color: #5a1f1f !important;
-    margin-bottom: 2rem !important;
-    font-size: 2.5rem !important;
-    font-weight: bold !important;
-    text-align: center !important;
-    order: unset !important;
-}
-
-body main aside[style*="block"] article section:first-of-type {
-    font-size: 1.5rem !important;
-    margin: 2rem 0 !important;
-    color: #2c2c2c !important;
-    font-weight: normal !important;
-    display: block !important;
-    order: unset !important;
-    background: #f8f9fa !important;
-    padding: 2rem !important;
-    border-radius: 1rem !important;
-    border: 2px solid #5a1f1f !important;
-}
-
-body main aside[style*="block"] article section:first-of-type p:first-child {
-    color: #5a1f1f !important;
-    font-size: 3rem !important;
-    font-weight: bold !important;
-    margin: 0 0 1rem 0 !important;
-    order: unset !important;
-}
-
-body main aside[style*="block"] article section:first-of-type p:last-child {
-    color: #666 !important;
-    font-size: 1.8rem !important;
-    font-weight: normal !important;
-    margin: 0 !important;
-}
-
-body main aside[style*="block"] article > p {
-    font-size: 1.5rem !important;
-    font-weight: 500 !important;
-    margin: 2rem 0 !important;
-    padding: 1.5rem !important;
-    border-radius: 1rem !important;
-    background: #e7f3ff !important;
-    color: #004085 !important;
-    text-align: center !important;
-    order: unset !important;
-    border: 2px solid #b3d7ff !important;
-}
-
-body main aside[style*="block"] article section:last-of-type {
-    text-align: left !important;
-    margin: 3rem 0 !important;
-    display: block !important;
-    order: unset !important;
-    background: #fff !important;
-    padding: 2rem !important;
-    border-radius: 1rem !important;
-    border: 1px solid #ddd !important;
-}
-
-body main aside[style*="block"] article h4 {
-    color: #5a1f1f !important;
-    margin-bottom: 1.5rem !important;
-    text-align: center !important;
-    font-size: 1.5rem !important;
-    font-weight: bold !important;
-}
-
-body main aside[style*="block"] article ul {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 1rem 0 !important;
-    display: block !important;
-    flex-direction: unset !important;
-    order: unset !important;
-    width: auto !important;
-}
-
-body main aside[style*="block"] article li {
-    padding: 1.5rem !important;
-    margin: 1rem 0 !important;
-    border-radius: 0.5rem !important;
-    background: #f8f9fa !important;
-    border-left: 0.5rem solid #5a1f1f !important;
-    border-bottom: none !important;
-    order: unset !important;
-    font-size: 1.1rem !important;
-    line-height: 1.6 !important;
-}
-
-body main aside[style*="block"] article small {
-    color: #666 !important;
-    font-size: 1rem !important;
-    line-height: 1.4 !important;
-    display: block !important;
-    margin-top: 0.5rem !important;
-}
-
-body main aside[style*="block"] article button {
-    background: #5a1f1f !important;
-    color: white !important;
-    border: none !important;
-    padding: 1.2rem 2.5rem !important;
-    border-radius: 0.8rem !important;
-    font-size: 1.2rem !important;
-    font-weight: 500 !important;
-    cursor: pointer !important;
-    margin: 1rem 0.5rem !important;
-    transition: all 0.3s ease !important;
-    position: static !important;
-    width: auto !important;
-    height: auto !important;
-    min-width: 200px !important;
-}
-
-body main aside[style*="block"] article button:hover {
-    background: #a63d40 !important;
-    transform: translateY(-0.3rem) !important;
-    box-shadow: 0 0.5rem 1rem rgba(166, 61, 64, 0.3) !important;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    aside:last-of-type section {
-        grid-template-columns: repeat(2, 1fr) !important;
-    }
-    
-    aside:first-of-type section {
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-    
-    body main aside[style*="block"] article {
-        padding: 2rem 1rem !important;
-        margin: 1rem !important;
-        max-width: 95% !important;
-    }
-    
-    body main aside[style*="block"] article h3 {
-        font-size: 2rem !important;
-    }
-    
-    body main aside[style*="block"] article section:first-of-type p:first-child {
-        font-size: 2.5rem !important;
-    }
-    
-    body main aside[style*="block"] article section:first-of-type p:last-child {
-        font-size: 1.5rem !important;
-    }
-    
-    body main aside[style*="block"] article > p {
-        font-size: 1.2rem !important;
-    }
-    
-    body main aside[style*="block"] article button {
-        width: 100% !important;
-        margin: 0.5rem 0 !important;
-        min-width: unset !important;
-    }
-}
-
-@media (max-width: 60rem) {
-    article[role="feed"] {
-        width: 95%;
-        padding: 1rem;
-    }
-
-    article[role="feed"] h3 {
-        font-size: 1.6rem;
-    }
-
-    article[role="feed"] p {
-        font-size: 1.1rem;
-    }
-    
-    figure {
-        width: 80%;
-        max-width: 80vw;
-        padding: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    aside:last-of-type section {
-        grid-template-columns: 1fr !important;
-    }
-    
-    aside:last-of-type article {
-        width: 100% !important;
-        max-width: 300px !important;
-    }
-}
-
-@media (max-width: 40rem) {
-    article[role="feed"] > article {
-        padding: 1.5rem;
-    }
-
-    article[role="feed"] h3 {
-        font-size: 1.4rem;
-    }
-    
-    figure {
-        width: 90%;
-        max-width: 90vw;
-        padding: 0.75rem;
-    }
-}
-main section article h4 {
-    text-align: center;
-}
-main section article section h4 {
-    text-align: center;
-}
-
-main section article section {
-    display: flex !important;
-    flex-direction: column !important;
-    margin-bottom: 2rem !important;
-    padding: 1.5rem !important;
-    background: #f8f9fa !important;
-    border-radius: 1rem !important;
-    border-left: 5px solid #5a1f1f !important;
-}
-
-main section article section h4,
-main section article section h5 {
-    order: -1 !important;
-    text-align: center !important;
-    margin: 0 0 1.5rem 0 !important;
-    color: #5a1f1f !important;
-    font-size: 1.4rem !important;
-}
-
-main section article section ul {
-    order: 0 !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 0.5rem !important;
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 0 0 1.5rem 0 !important;
-}
-
-main section article section p {
-    order: 1 !important;
-    margin: 0 !important;
-    padding: 1rem !important;
-    background: #ffffff !important;
-    border-radius: 0.5rem !important;
-    border: 1px solid #e9ecef !important;
-    font-size: 1.1rem !important;
-    line-height: 1.6 !important;
-}
-
-/* Responsive - en móviles volver a una columna */
-@media (max-width: 768px) {
-    main section article section ul {
-        grid-template-columns: 1fr !important;
-    }
-}
-
-main section article section aside figure img {
-    margin: 0 auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
-}
-
-/* Corregir imágenes en rutas - evitar solapamiento */
-main section:last-of-type aside {
-    margin: 1rem 0 !important;
-    padding: 1rem !important;
-    background: #f8f9fa !important;
-    border-radius: 0.5rem !important;
-    border: 1px solid #ddd !important;
-    display: block !important;
-    width: 100% !important;
-    clear: both !important;
-    overflow: hidden !important;
-}
-
-main section:last-of-type aside p {
-    margin: 0 0 1rem 0 !important;
-    padding: 0.5rem !important;
-    background: transparent !important;
-    border: none !important;
-    font-weight: bold !important;
-    color: #666 !important;
-    order: unset !important;
-}
-
-main section:last-of-type aside figure {
-    display: inline-block !important;
-    margin: 0.5rem !important;
-    padding: 0.5rem !important;
-    background: #fff !important;
-    border: 1px solid #ddd !important;
-    border-radius: 0.5rem !important;
-    width: auto !important;
-    max-width: 150px !important;
-    min-width: 120px !important;
-    vertical-align: top !important;
-    box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1) !important;
-    position: static !important;
-    overflow: hidden !important;
-}
-
-main section:last-of-type aside figure img {
-    width: 100% !important;
-    height: auto !important;
-    max-height: 100px !important;
-    min-height: 80px !important;
-    object-fit: cover !important;
-    border-radius: 0.3rem !important;
-    margin: 0 0 0.5rem 0 !important;
-    padding: 0 !important;
-    position: static !important;
-    display: block !important;
-    background: transparent !important;
-}
-
-main section:last-of-type aside figure figcaption {
-    font-size: 0.8rem !important;
-    color: #555 !important;
-    text-align: center !important;
-    margin: 0 !important;
-    padding: 0.3rem !important;
-    background: #f8f9fa !important;
-    border-radius: 0.3rem !important;
-    line-height: 1.2 !important;
-    word-wrap: break-word !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    max-height: 3rem !important;
-}
-
-main section:last-of-type aside figure video {
-    width: 100% !important;
-    height: auto !important;
-    max-height: 120px !important;
-    min-height: 100px !important;
-    object-fit: cover !important;
-    border-radius: 0.3rem !important;
-    margin: 0 0 0.5rem 0 !important;
-    padding: 0 !important;
-    position: static !important;
-    display: block !important;
-}
-
-/* Contenedor específico para hitos */
-main section:last-of-type section article {
-    background: #fff !important;
-    border: 1px solid #ddd !important;
-    border-radius: 0.5rem !important;
-    padding: 1rem !important;
-    margin: 1rem 0 !important;
-    position: static !important;
-    width: auto !important;
-    height: auto !important;
-    display: block !important;
-    overflow: visible !important;
-    clear: both !important;
-}
-
-main section:last-of-type section article h4 {
-    color: #a63d40 !important;
-    font-size: 1.2rem !important;
-    margin: 0 0 1rem 0 !important;
-    text-align: left !important;
-    border-bottom: 1px solid #ddd !important;
-    padding-bottom: 0.5rem !important;
-    order: unset !important;
-}
-
-main section:last-of-type section article p {
-    margin: 0 0 1rem 0 !important;
-    padding: 0 !important;
-    background: transparent !important;
-    border: none !important;
-    font-size: 1rem !important;
-    line-height: 1.5 !important;
-    color: #333 !important;
-    order: unset !important;
-}
-
-main section:last-of-type section article ul {
-    display: block !important;
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 0 0 1rem 0 !important;
-    order: unset !important;
-}
-
-main section:last-of-type section article ul li {
-    padding: 0.3rem 0 !important;
-    margin: 0 !important;
-    border-bottom: 1px solid #eee !important;
-    background: transparent !important;
-    border-left: none !important;
-    border-radius: 0 !important;
-    font-size: 0.9rem !important;
-    order: unset !important;
-}
-
-/* Responsive para imágenes en rutas */
-@media (max-width: 768px) {
-    main section:last-of-type aside figure {
-        max-width: 120px !important;
-        min-width: 100px !important;
-        margin: 0.3rem !important;
-    }
-    
-    main section:last-of-type aside figure img {
-        max-height: 80px !important;
-        min-height: 60px !important;
-    }
-    
-  main section:last-of-type aside figure figcaption {
-        font-size: 0.7rem !important;
-        max-height: 2.5rem !important;
-    }
-}
-
-@media (max-width: 480px) {
-    main section:last-of-type aside {
-        text-align: center !important;
-    }
-    
-    main section:last-of-type aside figure {
-        max-width: 100px !important;
-        min-width: 80px !important;
-        margin: 0.2rem !important;
-    }
-    
-    main section:last-of-type aside figure img {
-        max-height: 70px !important;
-        min-height: 50px !important;
-    }
-}
-main section select {
-    appearance: none;
-    background: #fff;
-    border: 2px solid #5a1f1f;
-    border-radius: 0.5rem;
-    padding: 1rem 2rem 1rem 1rem;
-    font-size: 1.1rem;
-    color: #2c2c2c;
+    margin: 1rem auto;
     width: 100%;
-    max-width: 30rem;
-    cursor: pointer;
-    transition: border-color 0.3s ease;
-    background-size: 5px 5px, 5px 5px;
-    background-repeat: no-repeat;
-    margin: 0;
+}
+
+aside:first-of-type { /* Especificidad: 0,1,1 */
+    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+aside:first-of-type h3 { /* Especificidad: 0,1,2 */
+    color: #5a1f1f;
+    margin-bottom: 2rem;
+    align-self: center;
+}
+
+aside:first-of-type section { /* Especificidad: 0,1,2 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+aside:first_of_type img { /* Especificidad: 0,1,2 */
+    width: 6rem;
+    height: 6rem;
+    margin: 1rem auto;
+    order: 1;
+    position: static;
     display: block;
 }
 
-main section select:hover {
-    border-color: #a63d40;
+aside:first-of-type ul { /* Especificidad: 0,1,2 */
+    list-style: none;
+    padding: 0;
+    margin: 1rem auto;
+    max-width: 25rem;
+    display: flex;
+    flex-direction: column;
+    order: 2;
 }
 
-main section select:focus {
-    outline: none;
-    border-color: #a63d40;
-    box-shadow: 0 0 0 2px rgba(215, 122, 97, 0.3);
+aside:first-of-type li { /* Especificidad: 0,1,2 */
+    padding: 0.5rem 0;
+    border-bottom: 0.0625rem solid #ddd;
+    background: none;
+    border-left: none;
+    border-radius: 0;
+    margin: 0;
 }
 
-main section select option {
-    padding: 0.5rem;
-    background-color: #fff;
+aside:last-of-type { /* Especificidad: 0,1,1 */
+    padding: 1rem;
+    background: none;
+    display: flex;
+    flex-direction: column;
+}
+
+aside:last-of-type h3 { /* Especificidad: 0,1,2 */
+    color: #5a1f1f;
+    align-self: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    order: 1;
+}
+
+aside:last-of-type section { /* Especificidad: 0,1,2 */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+    padding: 0;
+    order: 2;
+}
+
+aside:last-of-type article { /* Especificidad: 0,1,2 */
+    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    width: 12.5rem;
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: auto;
+}
+
+aside:last-of-type article:hover { /* Especificidad: 0,2,2 */
+    transform: translateY(-0.5rem);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
+}
+
+aside:last-of-type article p { /* Especificidad: 0,1,3 */
+    font-size: 1.1rem;
     color: #2c2c2c;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    order: 1;
+    align-self: center;
 }
 
-main section select option[value=""] {
-    color: #999;
-    font-style: italic;
+aside:last-of-type article img { /* Especificidad: 0,1,3 */
+    margin: 0.5rem auto;
+    width: 4rem;
+    height: 4rem;
+    object-fit: contain;
+    order: 2;
+    position: static;
+    display: block;
+    background-color: transparent;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    main section select {
-        max-width: 100%;
-        font-size: 1rem;
+aside:last-of-type article ul { /* Especificidad: 0,1,3 */
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    order: 3;
+    width: 100%;
+}
+
+aside:last-of-type article li { /* Especificidad: 0,1,3 */
+    padding: 0.6rem 0;
+    border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+    color: #666;
+    background: none;
+    border-left: none;
+    border-radius: 0;
+    margin: 0;
+    align-self: flex-start;
+}
+
+aside:last-of-type article li:last-child { /* Especificidad: 0,2,3 */
+    border-bottom: none;
+}
+
+/* Estilos para el test de conocimientos */
+body main section article:not(aside article) { /* Especificidad: 0,2,4 */
+    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 50rem;
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+body main section article:not(aside article) h3 { /* Especificidad: 0,2,5 */
+    color: #5a1f1f;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    order: unset;
+}
+
+body main section article:not(aside article) p { /* Especificidad: 0,2,5 */
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    text-align: center;
+    order: unset;
+}
+
+body main section article:not(aside article) form { /* Especificidad: 0,2,5 */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+body main section article:not(aside article) fieldset { /* Especificidad: 0,2,5 */
+    border: none;
+    padding: 1rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+body main section article:not(aside article) fieldset:hover { /* Especificidad: 0,2,6 */
+    background: #e9ecef;
+    transform: translateX(0.5rem);
+}
+
+body main section article:not(aside article) input[type="radio"] { /* Especificidad: 0,3,6 */
+    margin-right: 1rem;
+    transform: scale(1.2);
+    position: static;
+}
+
+body main section article:not(aside article) label { /* Especificidad: 0,2,5 */
+    flex: 1;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+body main section article:not(aside article) button[type="submit"] { /* Especificidad: 0,3,6 */
+    background: #5a1f1f;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    align-self: center;
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+body main section article:not(aside article) button[type="submit"]:hover:not(:disabled) { /* Especificidad: 0,4,7 */
+    background: #a63d40;
+    transform: translateY(-0.2rem);
+}
+
+body main section article:not(aside article) button[type="submit"]:disabled { /* Especificidad: 0,3,7 */
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Resultados del test */
+body main aside article {
+    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 1rem;
+    padding: 3rem;
+    margin: 2rem auto;
+    max-width: 60rem;
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.15);
+    text-align: center;
+    position: static;
+    width: auto;
+    height: auto;
+    display: block;
+    flex-direction: unset;
+    align-items: unset;
+    order: unset;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+body main aside article h3 {
+    color: #5a1f1f;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    order: unset;
+}
+
+body main aside article section {
+    font-size: 1.5rem;
+    margin: 2rem 0;
+    color: #2c2c2c;
+    font-weight: normal;
+    display: block;
+    order: unset;
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 0.125rem solid #5a1f1f;
+}
+
+body main aside article section p:first-child {
+    color: #5a1f1f;
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0 0 1rem 0;
+    order: unset;
+}
+
+body main aside article section p:last-child {
+    color: #666;
+    font-size: 1.8rem;
+    font-weight: normal;
+    margin: 0;
+}
+
+body main aside article > p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: #e7f3ff;
+    color: #004085;
+    text-align: center;
+    order: unset;
+    border: 0.125rem solid #b3d7ff;
+}
+
+body main aside article section:last-of-type {
+    text-align: left;
+    margin: 3rem 0;
+    display: block;
+    order: unset;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 0.0625rem solid #ddd;
+}
+
+body main aside article h4 {
+    color: #5a1f1f;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+body main aside article ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: block;
+    flex-direction: unset;
+    order: unset;
+    width: auto;
+}
+
+body main aside article li {
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    background: #f8f9fa;
+    border-left: 0.5rem solid #5a1f1f;
+    border-bottom: none;
+    order: unset;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+body main aside article small {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.4;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+body main aside article button {
+    background: #5a1f1f;
+    color: white;
+    border: none;
+    padding: 1.2rem 2.5rem;
+    border-radius: 0.8rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 1rem 0.5rem;
+    transition: all 0.3s ease;
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+body main aside article button:hover {
+    background: #a63d40;
+    transform: translateY(-0.3rem);
+    box-shadow: 0 0.5rem 1rem rgba(166, 61, 64, 0.3);
+}
+
+/* --- CORRECCIÓN FINAL PARA RUTAS: APILADO VERTICAL Y SIN SOLAPAMIENTO --- */
+
+/* 1. Elimina el display:flex horizontal heredado de article section global */
+article section {
+    display: block;
+    width: auto;
+    position: static;
+    overflow: visible;
+}
+
+/* 2. SOLO los section hijos directos de article en rutas deben ser columna */
+main > section > article > section {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1.5rem;
+    background: #fff;
+    border-radius: 0.7rem;
+    padding: 1rem 1.5rem;
+    border-left: 0.25rem solid #a63d40;
+    position: static;
+    overflow: visible;
+    gap: 0;
+}
+
+/* 3. Los section anidados (por ejemplo, SVG altimétrico) deben ser block */
+main > section > article > section > section {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+}
+
+/* 4. Los article hijos de section (hitos) también en bloque y sin solaparse */
+main > section > article > section > article {
+    display: block;
+    background: #f8f9fa;
+    border-radius: 0.7rem;
+    margin: 1rem 0;
+    padding: 1rem 1.5rem;
+    border: 1px solid #e9ecef;
+    box-sizing: border-box;
+    position: static;
+    overflow: visible;
+}
+
+/* 5. Corrige aside dentro de hitos para galería */
+main > section > article > section > article > aside {
+    display: block;
+    margin: 0.7rem 0 0 0;
+    padding: 0.5rem 0;
+    background: #fff;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* 6. Elimina cualquier display:flex heredado de section article */
+section article {
+    display: block;
+    width: auto;
+    position: static;
+    overflow: visible;
+}
+
+/* 7. Elimina cualquier display:flex heredado de section section */
+section section {
+    display: block;
+    width: auto;
+    position: static;
+    overflow: visible;
+}
+
+/* 8. Opcional: elimina gap entre los section si hay solapamiento */
+main > section > article > section {
+    gap: 0;
+}
+
+/* Responsive: en móvil, reduce padding y margen */
+@media (max-width: 48em) {
+    main > section > article > section {
+        padding: 0.7rem 0.5rem;
     }
-}   
-main form {
-    background: #fff !important;
-    border-radius: 1rem !important;
-    padding: 2rem !important;
-    margin: 2rem auto !important;
-    max-width: 40rem !important;
-    box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.1) !important;
-    border: 1px solid #e9ecef !important;
-    display: block !important;
-}
-
-main form fieldset {
-    border: 2px solid #8b3a3a !important;
-    border-radius: 0.8rem !important;
-    padding: 2rem !important;
-    margin: 1.5rem 0 !important;
-    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%) !important;
-    display: block !important;
-}
-
-main form fieldset legend {
-    background: #8b3a3a !important;
-    color: #fff !important;
-    padding: 0.8rem 1.5rem !important;
-    border-radius: 0.5rem !important;
-    font-weight: 600 !important;
-    font-size: 1.1rem !important;
-    border: none !important;
-    margin-left: 1rem !important;
-}
-
-main form label {
-    display: block !important;
-    margin: 1.5rem 0 0.5rem 0 !important;
-    font-weight: 600 !important;
-    color: #1a1a1a !important;
-    font-size: 1.1rem !important;
-}
-
-main form input[type="text"],
-main form input[type="email"],
-main form input[type="password"],
-main form input[type="tel"],
-main form input[type="date"],
-main form input[type="number"],
-main form textarea,
-main form select {
-    width: 100% !important;
-    padding: 1rem !important;
-    border: 2px solid #ddd !important;
-    border-radius: 0.5rem !important;
-    font-size: 1rem !important;
-    color: #1a1a1a !important;
-    background: #fff !important;
-    transition: all 0.3s ease !important;
-    box-sizing: border-box !important;
-}
-
-main form input[type="text"]:focus,
-main form input[type="email"]:focus,
-main form input[type="password"]:focus,
-main form input[type="tel"]:focus,
-main form input[type="date"]:focus,
-main form input[type="number"]:focus,
-main form textarea:focus,
-main form select:focus {
-    outline: none !important;
-    border-color: #8b3a3a !important;
-    box-shadow: 0 0 0 3px rgba(139, 58, 58, 0.2) !important;
-    transform: translateY(-2px) !important;
-}
-
-main form textarea {
-    resize: vertical !important;
-    min-height: 100px !important;
-    font-family: inherit !important;
-    line-height: 1.5 !important;
-}
-
-main form input[type="submit"],
-main form button[type="submit"] {
-    background: linear-gradient(145deg, #8b3a3a, #7a3333) !important;
-    color: #fff !important;
-    border: none !important;
-    padding: 1rem 2.5rem !important;
-    border-radius: 0.8rem !important;
-    font-size: 1.1rem !important;
-    font-weight: 600 !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    margin: 1.5rem auto 0 !important;
-    display: block !important;
-    min-width: 150px !important;
-    box-shadow: 0 0.3rem 0.8rem rgba(139, 58, 58, 0.3) !important;
-}
-
-main form input[type="submit"]:hover,
-main form button[type="submit"]:hover {
-    background: linear-gradient(145deg, #5a1f1f, #4a1a1a) !important;
-    transform: translateY(-3px) !important;
-    box-shadow: 0 0.6rem 1.2rem rgba(90, 31, 31, 0.4) !important;
-}
-
-main form input[type="submit"]:active,
-main form button[type="submit"]:active {
-    transform: translateY(-1px) !important;
-    box-shadow: 0 0.2rem 0.4rem rgba(90, 31, 31, 0.3) !important;
-}
-
-main form input[type="submit"]:disabled,
-main form button[type="submit"]:disabled {
-    background: #ccc !important;
-    cursor: not-allowed !important;
-    transform: none !important;
-    box-shadow: none !important;
-}
-
-main form input[type="file"] {
-    padding: 0.8rem !important;
-    border: 2px dashed #8b3a3a !important;
-    border-radius: 0.5rem !important;
-    background: #f8f9fa !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-}
-
-main form input[type="file"]:hover {
-    border-color: #5a1f1f !important;
-    background: #e9ecef !important;
-}
-
-main form input[type="radio"],
-main form input[type="checkbox"] {
-    width: auto !important;
-    margin-right: 0.8rem !important;
-    transform: scale(1.2) !important;
-    accent-color: #8b3a3a !important;
-}
-
-/* Responsive para formularios de login */
-@media (max-width: 768px) {
-    main form {
-        margin: 1rem !important;
-        padding: 1.5rem !important;
-        max-width: none !important;
-    }
-    
-    main form fieldset {
-        padding: 1.5rem !important;
-        margin: 1rem 0 !important;
-    }
-    
-    main form fieldset legend {
-        font-size: 1rem !important;
-        padding: 0.6rem 1rem !important;
-    }
-    
-    main form input[type="submit"],
-    main form button[type="submit"] {
-        width: 100% !important;
-        min-width: auto !important;
-        font-size: 1rem !important;
-        padding: 1rem !important;
+    main > section > article > section > article {
+        padding: 0.7rem 0.5rem;
     }
 }
 
-@media (max-width: 480px) {
-    main form {
-        padding: 1rem !important;
+/* Ajuste definitivo para que las imágenes de la galería de hitos sean cuadradas y no se desborden */
+main > section > article > section > article > aside > figure {
+    width: 7rem;
+    height: 7rem;
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    background: #f8f9fa;
+    border-radius: 0.3rem;
+    border: 1px solid #eee;
+    margin: 0.2rem 0.5rem 0.2rem 0;
+    padding: 0.2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+}
+
+main > section > article > section > article > aside > figure > img {
+    width: 100%;
+    height: 100%;
+    max-width: 7rem;
+    max-height: 7rem;
+    object-fit: cover;
+    border-radius: 0.2rem;
+    display: block;
+    margin: 0 auto;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+/* Responsive: ajusta el tamaño en móvil */
+@media (max-width: 48em) {
+    main > section > article > section > article > aside > figure {
+        width: 5.5rem;
+        height: 5.5rem;
     }
-    
-    main form fieldset {
-        padding: 1rem !important;
+    main > section > article > section > article > aside > figure > img {
+        max-width: 5.5rem;
+        max-height: 5.5rem;
     }
-    
-    main form label {
-        font-size: 1rem !important;
+}
+
+@media (max-width: 30em) {
+    main > section > article > section > article > aside > figure {
+        width: 4.5rem;
+        height: 4.5rem;
     }
-    
-    main form input[type="text"],
-    main form input[type="email"],
-    main form input[type="password"],
-    main form input[type="tel"],
-    main form input[type="date"],
-    main form input[type="number"],
-    main form textarea,
-    main form select {
-        font-size: 0.9rem !important;
-        padding: 0.8rem !important;
+    main > section > article > section > article > aside > figure > img {
+        max-width: 4.5rem;
+        max-height: 4.5rem;
     }
+}
+
+/* Estilos para el contenedor del mapa usando atributo data */
+section[data-map-container="true"] {
+    min-height: 25rem;
+    height: 50vh;
+    width: 100%;
+    background: #f8f9fa;
+    border: 0.125rem solid #ddd;
+    border-radius: 0.5rem;
+    margin: 2rem 0;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+
+/* Cuando está oculto */
+section[data-map-container="true"][hidden] {
+    display: none;
+}
+
+/* Cuando está visible */
+section[data-map-container="true"]:not([hidden]) {
+    display: block;
+}
+
+@media (max-width: 48em) {
+    section[data-map-container="true"] {
+        height: 40vh;
+        min-height: 20rem;
+        margin: 1rem 0;
+        padding: 0.5rem;
+    }
+    section[data-map-container="true"] .ol-viewport {
+        min-height: 18rem;
+    }
+}
+
+@media (max-width: 30em) {
+    section[data-map-container="true"] {
+        height: 35vh;
+        min-height: 18rem;
+        margin: 0.5rem 0;
+        padding: 0.25rem;
+    }
+}
+
+/* Para orientación landscape en móviles */
+@media (max-width: 50em) and (orientation: landscape) {
+    section[data-map-container="true"] {
+        height: 60vh;
+        min-height: 15rem;
+    }
+}
+
+/* Estilos para cuando el mapa está cargando */
+section[data-map-container="true"]:empty::before {
+    content: "Cargando mapa...";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Título del mapa */
+section[data-map-container="true"] h2 {
+    margin: 0 0 1rem 0;
+    padding: 0.5rem;
+    background: #5a1f1f;
+    color: #fff;
+    border-radius: 0.3rem;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+/* Hace más grande el h5 del tercer hito de la cuarta sección de la ruta */
+body > main > section > article > section > article > h5 {
+    font-size: 1.5rem;
+    color: #a63d40;
+    font-weight: bold;
+    margin-bottom: 0.7rem;
+}
+
+/* Estilo para el select de rutas */
+body > main > section > select {
+    width: 100%;
+    max-width: 28rem;
+    padding: 1rem;
+    margin: 1.2rem 0 2rem 0;
+    font-size: 1.1rem;
+    color: #2c2c2c;
+    background: #f8f9fa;
+    border: 0.13rem solid #a63d40;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.1rem 0.4rem rgba(166, 61, 64, 0.08);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+body > main > section > select:focus {
+    border-color: #5a1f1f;
+    box-shadow: 0 0 0 0.15rem rgba(166, 61, 64, 0.15);
+    background: #fff;
 }

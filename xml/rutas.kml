@@ -45,40 +45,60 @@
       </description>
       <Placemark>
         <name>INICIO: Plaza del Ayuntamiento</name>
-        <description>Dirección: Calle Mayor</description>
+        <description>Dirección: Plaza de Alfonso II El Casto, s/n</description>
         <styleUrl>#rutaArquitectura</styleUrl>
         <Point>
-          <coordinates>-5.8448,43.3623,232</coordinates>
+          <coordinates>-5.8442,43.3603,233</coordinates>
         </Point>
       </Placemark>
       <Placemark>
         <name>La Foncalada</name>
         <description>Fuente prerrománica declarada Patrimonio de la Humanidad.
-Distancia: 500 m
+Distancia: 600 m
 Fotos disponibles: multimedia/la_foncalada.jpg </description>
         <styleUrl>#rutaArquitectura</styleUrl>
         <Point>
-          <coordinates>-5.8470,43.3631,207</coordinates>
+          <coordinates>-5.8461,43.3656,205</coordinates>
         </Point>
       </Placemark>
       <Placemark>
         <name>San Julián de los Prados</name>
         <description>Iglesia prerrománica construida en el siglo IX.
-Distancia: 1200 m
+Distancia: 1300 m
 Fotos disponibles: multimedia/san_julian_delosprados.jpg </description>
         <styleUrl>#rutaArquitectura</styleUrl>
         <Point>
-          <coordinates>-5.8500,43.3645,240</coordinates>
+          <coordinates>-5.8372,43.3675,196</coordinates>
         </Point>
       </Placemark>
       <Placemark>
         <name>Santa María del Naranco</name>
         <description>Palacio prerrománico convertido en iglesia.
-Distancia: 2500 m
+Distancia: 2400 m
 Fotos disponibles: multimedia/naranco.jpg </description>
         <styleUrl>#rutaArquitectura</styleUrl>
         <Point>
-          <coordinates>-5.8575,43.3675,320</coordinates>
+          <coordinates>-5.8611,43.3695,334</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>San Miguel de Lillo</name>
+        <description>Iglesia prerrománica del siglo IX, ejemplo único del arte asturiano.
+Distancia: 800 m
+Fotos disponibles: multimedia/san_miguel_lillo.jpg </description>
+        <styleUrl>#rutaArquitectura</styleUrl>
+        <Point>
+          <coordinates>-5.8658,43.3789,366</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Catedral de Oviedo</name>
+        <description>Catedral gótica que alberga la Cámara Santa con importantes reliquias.
+Distancia: 2500 m
+Fotos disponibles: multimedia/catedral_oviedo.jpg </description>
+        <styleUrl>#rutaArquitectura</styleUrl>
+        <Point>
+          <coordinates>-5.8439,43.3622,231</coordinates>
         </Point>
       </Placemark>
       <Placemark>
@@ -88,10 +108,12 @@ Fotos disponibles: multimedia/naranco.jpg </description>
         <LineString>
           <tessellate>1</tessellate>
           <coordinates>
-            -5.8448,43.3623,232
-            -5.8470,43.3631,207
-            -5.8500,43.3645,240
-            -5.8575,43.3675,320
+            -5.8442,43.3603,233
+            -5.8461,43.3656,205
+            -5.8372,43.3675,196
+            -5.8611,43.3695,334
+            -5.8658,43.3789,366
+            -5.8439,43.3622,231
           </coordinates>
         </LineString>
       </Placemark>
@@ -108,30 +130,60 @@ Fotos disponibles: multimedia/naranco.jpg </description>
       </description>
       <Placemark>
         <name>INICIO: Calle Gascona</name>
-        <description>Dirección: Calle Gascona</description>
+        <description>Dirección: Calle Gascona, 1</description>
         <styleUrl>#rutaGastronomica</styleUrl>
         <Point>
-          <coordinates>-5.8475,43.3628,230</coordinates>
+          <coordinates>-5.8442,43.3639,233</coordinates>
         </Point>
       </Placemark>
       <Placemark>
         <name>Sidrería Tierra Astur</name>
         <description>Degustación de sidra y tapas asturianas.
-Distancia: 100 m
+Distancia: 50 m
 Fotos disponibles: multimedia/tierra_astur.jpg </description>
         <styleUrl>#rutaGastronomica</styleUrl>
         <Point>
-          <coordinates>-5.8476,43.3629,235</coordinates>
+          <coordinates>-5.8439,43.3639,238</coordinates>
         </Point>
       </Placemark>
       <Placemark>
         <name>Restaurante El Fartuquín</name>
         <description>Especialidad en cachopos y fabada asturiana.
-Distancia: 200 m
+Distancia: 500 m
 Fotos disponibles: multimedia/fartuquin.jpg </description>
         <styleUrl>#rutaGastronomica</styleUrl>
         <Point>
-          <coordinates>-5.8478,43.3630,239</coordinates>
+          <coordinates>-5.8433,43.3594,239</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mercado El Fontán</name>
+        <description>Mercado tradicional con productos locales y puestos de comida típica.
+Distancia: 200 m
+Fotos disponibles: multimedia/mercado_fontan.jpg </description>
+        <styleUrl>#rutaGastronomica</styleUrl>
+        <Point>
+          <coordinates>-5.8456,43.3600,245</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Casa Ramón</name>
+        <description>Taberna centenaria especializada en mariscos y pescados frescos.
+Distancia: 100 m
+Fotos disponibles: multimedia/casa_ramon.jpg </description>
+        <styleUrl>#rutaGastronomica</styleUrl>
+        <Point>
+          <coordinates>-5.8453,43.3594,242</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chigre Casa Conrado</name>
+        <description>Auténtico chigre asturiano con ambiente tradicional y sidra de calidad.
+Distancia: 400 m
+Fotos disponibles: multimedia/casa_conrado.jpg </description>
+        <styleUrl>#rutaGastronomica</styleUrl>
+        <Point>
+          <coordinates>-5.8477,43.3628,228</coordinates>
         </Point>
       </Placemark>
       <Placemark>
@@ -141,9 +193,12 @@ Fotos disponibles: multimedia/fartuquin.jpg </description>
         <LineString>
           <tessellate>1</tessellate>
           <coordinates>
-            -5.8475,43.3628,230
-            -5.8476,43.3629,235
-            -5.8478,43.3630,239
+            -5.8442,43.3639,233
+            -5.8439,43.3639,238
+            -5.8433,43.3594,239
+            -5.8456,43.3600,245
+            -5.8453,43.3594,242
+            -5.8477,43.3628,228
           </coordinates>
         </LineString>
       </Placemark>
@@ -153,38 +208,58 @@ Fotos disponibles: multimedia/fartuquin.jpg </description>
       <description>
         Tipo: Paisajística
         Transporte: Bicicleta
-        Duración: 2 horas
+        Duración: 3 horas
         Dirigida a: Personas en buena forma física
-        Recomendación: 10/10
-        Descripción: Una ruta en bicicleta que recorre los paisajes del Monte Naranco.
+        Recomendación: 9/10
+        Descripción: Una ruta en bicicleta que abraza el Monte Naranco siguiendo senderos y caminos rurales dentro del concejo de Oviedo, combinando patrimonio prerrománico con paisajes naturales.
       </description>
       <Placemark>
-        <name>INICIO: Santa María del Naranco</name>
-        <description>Dirección: Carretera del Naranco</description>
+        <name>INICIO: Plaza de América (Oviedo)</name>
+        <description>Dirección: Plaza de América, s/n</description>
         <styleUrl>#rutaPaisajistica</styleUrl>
         <Point>
-          <coordinates>-5.8640,43.3775,320</coordinates>
+          <coordinates>-5.8567,43.3608,242</coordinates>
         </Point>
       </Placemark>
       <Placemark>
-        <name>San Miguel de Lillo</name>
-        <description>Iglesia prerrománica del siglo IX, situada muy cerca de Santa María del Naranco.
-Distancia: 150 m
-Fotos disponibles: multimedia/san_miguel_lillo.jpg </description>
+        <name>Santa María del Naranco</name>
+        <description>Palacio prerrománico del siglo IX convertido en iglesia, Patrimonio de la Humanidad UNESCO.
+Distancia: 1500 m
+Fotos disponibles: multimedia/santa_maria_naranco.jpg 
+Videos disponibles: multimedia/naranco_exterior.mp4 </description>
         <styleUrl>#rutaPaisajistica</styleUrl>
         <Point>
-          <coordinates>-5.8635,43.3770,315</coordinates>
+          <coordinates>-5.8611,43.3695,334</coordinates>
         </Point>
       </Placemark>
       <Placemark>
-        <name>Mirador del Naranco</name>
-        <description>Vistas panorámicas de Oviedo y la cordillera cantábrica desde la ladera del monte.
-Distancia: 400 m
-Fotos disponibles: multimedia/mirador.jpg 
-Videos disponibles: multimedia/mirador.mp4 </description>
+        <name>Mirador Monte Naranco</name>
+        <description>Punto elevado con vistas panorámicas hacia la ciudad de Oviedo.
+Distancia: 1800 m
+Fotos disponibles: multimedia/mirador.jpg </description>
         <styleUrl>#rutaPaisajistica</styleUrl>
         <Point>
-          <coordinates>-5.8645,43.3780,340</coordinates>
+          <coordinates>-5.8636,43.3844,633</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Area recreativa Naranco</name>
+        <description>Una parada para descansar y reponer fuerzas.
+Distancia: 700 m
+Fotos disponibles: multimedia/area.jpg </description>
+        <styleUrl>#rutaPaisajistica</styleUrl>
+        <Point>
+          <coordinates>-5.8564,43.3846,564</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ermita de San Isidro</name>
+        <description>Pequeña ermita situada en las faldas del Monte Naranco, cerca del cementerio El Salvador.
+Distancia: 2000 m
+Fotos disponibles: multimedia/cementerio_salvador.jpg </description>
+        <styleUrl>#rutaPaisajistica</styleUrl>
+        <Point>
+          <coordinates>-5.8875,43.3786,360</coordinates>
         </Point>
       </Placemark>
       <Placemark>
@@ -194,9 +269,11 @@ Videos disponibles: multimedia/mirador.mp4 </description>
         <LineString>
           <tessellate>1</tessellate>
           <coordinates>
-            -5.8640,43.3775,320
-            -5.8635,43.3770,315
-            -5.8645,43.3780,340
+            -5.8567,43.3608,242
+            -5.8611,43.3695,334
+            -5.8636,43.3844,633
+            -5.8564,43.3846,564
+            -5.8875,43.3786,360
           </coordinates>
         </LineString>
       </Placemark>

@@ -79,7 +79,7 @@ def generar_altimetria_ruta(ruta, nombre_ruta, svg_file):
         altitud = puntos[i][1]
         svg_content += f"""
     <circle cx="{x_svg}" cy="{y_svg}" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
-    <text x="{x_svg}" y="{y_svg - 12}" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold">{nombre}</text>
+    <text x="{x_svg}" y="{y_svg - 12}" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold" transform="rotate(-90 {x_svg} {y_svg - 12})">{nombre}</text>
     <text x="{x_svg}" y="{y_svg + 22}" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">{altitud:.0f}m</text>"""
     
     # Líneas de cuadrícula horizontales cada 50m

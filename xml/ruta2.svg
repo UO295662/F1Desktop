@@ -7,30 +7,39 @@
     <text x="75" y="384" text-anchor="end" font-family="Arial" font-size="12" fill="#0066cc" font-weight="bold">Nivel del mar (0m)</text>
     
     <!-- Perfil altimétrico -->
-    <polygon points="80.0,91.29707112970715 360.0,85.02092050209205 920.0,80.0 920.0,380 80.0,380" fill="rgba(139, 58, 58, 0.3)" stroke="#8b3a3a" stroke-width="2" />
+    <polygon points="80.0,94.69387755102042 113.6,88.57142857142856 449.6,87.34693877551018 584.0,80.0 651.2,83.67346938775512 920.0,100.81632653061223 920.0,380 80.0,380" fill="rgba(139, 58, 58, 0.3)" stroke="#8b3a3a" stroke-width="2" />
     
     <!-- Puntos de hitos -->
-    <circle cx="80.0" cy="91.29707112970715" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
-    <text x="80.0" y="79.29707112970715" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold">Calle Gascona</text>
-    <text x="80.0" y="113.29707112970715" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">230m</text>
-    <circle cx="360.0" cy="85.02092050209205" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
-    <text x="360.0" y="73.02092050209205" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold">Sidrería Tierra Astur</text>
-    <text x="360.0" y="107.02092050209205" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">235m</text>
-    <circle cx="920.0" cy="80.0" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
-    <text x="920.0" y="68.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold">Restaurante El Fartuquín</text>
-    <text x="920.0" y="102.0" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">239m</text>
-    <line x1="80" y1="317.2384937238494" x2="920" y2="317.2384937238494" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
-    <text x="70" y="320.2384937238494" text-anchor="end" font-family="Arial" font-size="8" fill="#666">50m</text>
-    <line x1="80" y1="254.47698744769875" x2="920" y2="254.47698744769875" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
-    <text x="70" y="257.4769874476988" text-anchor="end" font-family="Arial" font-size="8" fill="#666">100m</text>
-    <line x1="80" y1="191.71548117154813" x2="920" y2="191.71548117154813" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
-    <text x="70" y="194.71548117154813" text-anchor="end" font-family="Arial" font-size="8" fill="#666">150m</text>
-    <line x1="80" y1="128.9539748953975" x2="920" y2="128.9539748953975" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
-    <text x="70" y="131.9539748953975" text-anchor="end" font-family="Arial" font-size="8" fill="#666">200m</text>
+    <circle cx="80.0" cy="94.69387755102042" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="80.0" y="82.69387755102042" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold" transform="rotate(-90 80.0 82.69387755102042)">Calle Gascona</text>
+    <text x="80.0" y="116.69387755102042" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">233m</text>
+    <circle cx="113.6" cy="88.57142857142856" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="113.6" y="76.57142857142856" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold" transform="rotate(-90 113.6 76.57142857142856)">Sidrería Tierra Astur</text>
+    <text x="113.6" y="110.57142857142856" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">238m</text>
+    <circle cx="449.6" cy="87.34693877551018" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="449.6" y="75.34693877551018" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold" transform="rotate(-90 449.6 75.34693877551018)">Restaurante El Fartuquín</text>
+    <text x="449.6" y="109.34693877551018" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">239m</text>
+    <circle cx="584.0" cy="80.0" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="584.0" y="68.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold" transform="rotate(-90 584.0 68.0)">Mercado El Fontán</text>
+    <text x="584.0" y="102.0" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">245m</text>
+    <circle cx="651.2" cy="83.67346938775512" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="651.2" y="71.67346938775512" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold" transform="rotate(-90 651.2 71.67346938775512)">Casa Ramón</text>
+    <text x="651.2" y="105.67346938775512" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">242m</text>
+    <circle cx="920.0" cy="100.81632653061223" r="5" fill="#8b3a3a" stroke="#fff" stroke-width="2"/>
+    <text x="920.0" y="88.81632653061223" text-anchor="middle" font-family="Arial" font-size="10" fill="#1a1a1a" font-weight="bold" transform="rotate(-90 920.0 88.81632653061223)">Chigre Casa Conrado</text>
+    <text x="920.0" y="122.81632653061223" text-anchor="middle" font-family="Arial" font-size="9" fill="#5a1f1f">228m</text>
+    <line x1="80" y1="318.7755102040816" x2="920" y2="318.7755102040816" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="321.7755102040816" text-anchor="end" font-family="Arial" font-size="8" fill="#666">50m</text>
+    <line x1="80" y1="257.55102040816325" x2="920" y2="257.55102040816325" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="260.55102040816325" text-anchor="end" font-family="Arial" font-size="8" fill="#666">100m</text>
+    <line x1="80" y1="196.32653061224488" x2="920" y2="196.32653061224488" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="199.32653061224488" text-anchor="end" font-family="Arial" font-size="8" fill="#666">150m</text>
+    <line x1="80" y1="135.10204081632654" x2="920" y2="135.10204081632654" stroke="#ddd" stroke-width="0.5" opacity="0.7"/>
+    <text x="70" y="138.10204081632654" text-anchor="end" font-family="Arial" font-size="8" fill="#666">200m</text>
     
     <!-- Títulos -->
     <text x="500.0" y="30" text-anchor="middle" font-family="Arial" font-size="16" fill="#1a1a1a" font-weight="bold">Ruta Gastronómica de Oviedo</text>
-    <text x="500.0" y="50" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a1f1f">Distancia: 300m - Altitud máxima: 239m</text>
+    <text x="500.0" y="50" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a1f1f">Distancia: 1250m - Altitud máxima: 245m</text>
     
     <!-- Ejes -->
     <text x="40.0" y="250.0" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a1f1f" transform="rotate(-90 40.0 250.0)">Altitud (m)</text>
