@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'database.php';
 require_once 'reserva.php';
 
 if (!isset($_SESSION['usuario_id'])) {
@@ -7,8 +8,12 @@ if (!isset($_SESSION['usuario_id'])) {
     exit;
 }
 
-$reservas = new Reserva();
-$misReservas = $reservas->obtenerPorUsuario($_SESSION['usuario_id']);
+$database = new Database();
+$db = $database->getConnection();
+
+$reservas = new Reserva($db);
+$reservas->usuario_id = $_SESSION['usuario_id'];
+$misReservas = $reservas->leerPorUsuario();
 
 $mensaje = '';
 if (isset($_GET['reserva'])) {
@@ -17,9 +22,18 @@ if (isset($_GET['reserva'])) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar_reserva'])) {
     try {
-        $reservas->cancelar($_POST['reserva_id'], $_SESSION['usuario_id']);
-        $mensaje = "Reserva cancelada correctamente.";
-        $misReservas = $reservas->obtenerPorUsuario($_SESSION['usuario_id']);
+        $reserva_cancelar = new Reserva($db);
+        $reserva_cancelar->id = $_POST['reserva_id'];
+        $reserva_cancelar->usuario_id = $_SESSION['usuario_id'];
+        
+        if ($reserva_cancelar->cancelar()) {
+            $mensaje = "Reserva cancelada correctamente.";
+            // Recargar las reservas
+            $reservas->usuario_id = $_SESSION['usuario_id'];
+            $misReservas = $reservas->leerPorUsuario();
+        } else {
+            $mensaje = "Error al cancelar la reserva.";
+        }
     } catch (Exception $e) {
         $mensaje = "Error: " . $e->getMessage();
     }
@@ -44,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar_reserva'])) 
     <h1><a href="../index.html">Oviedo</a></h1>
     <nav>
         <a href="../index.html">Inicio</a>
-        <a href="viajes.php">Viajes</a>
+        <a href="lista.php">Viajes</a>
         <a href="mis_reservas.php">Mis Reservas</a>
         <a href="logout.php">Cerrar Sesión (<?= htmlspecialchars($_SESSION['usuario_nombre']) ?>)</a>
     </nav>
@@ -57,44 +71,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar_reserva'])) 
         <p><?= htmlspecialchars($mensaje) ?></p>
     <?php endif; ?>
     
-    <?php if (empty($misReservas)): ?>
+    <?php 
+    $reservas_array = $misReservas->fetchAll(PDO::FETCH_ASSOC);
+    if (empty($reservas_array)): ?>
         <section>
             <p>No tienes reservas realizadas.</p>
-            <p><a href="viajes.php">Ver recursos disponibles para reservar →</a></p>
+            <p><a href="lista.php">Ver recursos disponibles para reservar →</a></p>
         </section>
     <?php else: ?>
         <section>
             <h3>Listado de Reservas</h3>
-            <?php foreach ($misReservas as $reserva): ?>
+            <?php foreach ($reservas_array as $reserva): ?>
                 <article>
                     <h4><?= htmlspecialchars($reserva['recurso_nombre']) ?></h4>
                     
-                    <p><strong>Fecha y hora:</strong>
+                    <p>Tipo: <?= htmlspecialchars($reserva['tipo_nombre'] ?: 'Sin categoría') ?></p>
+                    <p>Ubicación: <?= htmlspecialchars($reserva['ubicacion']) ?></p>
+                    <p>Fecha y hora:
                        <?= date('d/m/Y H:i', strtotime($reserva['fecha_inicio'])) ?> - 
                        <?= date('H:i', strtotime($reserva['fecha_fin'])) ?></p>
-                    <p><strong>Número de personas:</strong> <?= $reserva['numero_personas'] ?></p>
-                    <p><strong>Precio total:</strong> €<?= number_format($reserva['precio_total'], 2) ?></p>
+                    <p>Número de personas: <?= $reserva['numero_personas'] ?></p>
+                    <p>Precio total: €<?= number_format($reserva['precio_total'], 2) ?></p>
                     
-                    <p><strong>Estado:</strong> 
+                    <p>Estado: 
                        <span>
                            <?= ucfirst($reserva['estado']) ?>
                        </span>
                     </p>
-                    <p><strong>Fecha de reserva:</strong> <?= date('d/m/Y H:i', strtotime($reserva['fecha_reserva'])) ?></p>
-                    
-                    <?php if ($reserva['fecha_cancelacion']): ?>
-                        <p><strong>Fecha de cancelación:</strong> <?= date('d/m/Y H:i', strtotime($reserva['fecha_cancelacion'])) ?></p>
-                    <?php endif; ?>
-                    
-                    <?php if ($reserva['comentarios']): ?>
-                        <p><strong>Comentarios:</strong> <?= htmlspecialchars($reserva['comentarios']) ?></p>
-                    <?php endif; ?>
+                    <p>Fecha de reserva: <?= date('d/m/Y H:i', strtotime($reserva['fecha_reserva'])) ?></p>
                     
                     <?php if ($reserva['estado'] !== 'cancelada' && strtotime($reserva['fecha_inicio']) > time()): ?>
                         <form method="POST" 
                               onsubmit="return confirm('¿Estás seguro de que deseas cancelar esta reserva? Esta acción no se puede deshacer.');">
                             <input type="hidden" name="reserva_id" value="<?= $reserva['id'] ?>">
-                            <input type="submit" name="cancelar_reserva" value="Cancelar Reserva">
+                            <input type="submit" name="cancelar_reserva" value="Cancelar Reserva" >
                         </form>
                     <?php elseif (strtotime($reserva['fecha_inicio']) <= time() && $reserva['estado'] === 'confirmada'): ?>
                         <p>⏰ Reserva en curso o completada</p>
@@ -104,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar_reserva'])) 
         </section>
     <?php endif; ?>
     
-    <p><a href="viajes.php">← Volver al catálogo de recursos</a></p>
+    <p><a href="lista.php">← Volver al catálogo de recursos</a></p>
 </main>
 </body>
 </html>

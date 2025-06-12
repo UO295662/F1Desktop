@@ -1,18 +1,25 @@
 <?php
 // filepath: c:\xampp\htdocs\F1Desktop\php\login.php
 session_start();
+require_once 'database.php';
 require_once 'usuario.php';
 
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
-        $usuario = new Usuario();
-        if ($usuario->login($_POST['email'], $_POST['password'])) {
-            $_SESSION['usuario_id'] = $usuario->getId();
-            $_SESSION['usuario_nombre'] = $usuario->getNombre();
-            $_SESSION['usuario_email'] = $usuario->getEmail();
-            header('Location: recursos.php');
+        $database = new Database();
+        $db = $database->getConnection();
+        
+        $usuario = new Usuario($db);
+        $usuario->email = $_POST['email'];
+        $usuario->password_hash = $_POST['password'];
+        
+        if ($usuario->login()) {
+            $_SESSION['usuario_id'] = $usuario->id;
+            $_SESSION['usuario_nombre'] = $usuario->nombre . ' ' . $usuario->apellidos;
+            $_SESSION['usuario_email'] = $usuario->email;
+            header('Location: lista.php');
             exit;
         } else {
             $error = "Email o contraseña incorrectos";
@@ -41,8 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1><a href="../index.html">Oviedo</a></h1>
     <nav>
         <a href="../index.html">Inicio</a>
-        <a href="recursos.php">Viajes</a>
-        <a href="reservas.php">Registro</a>
+        <a href="registro.php">Registro</a>
     </nav>
 </header>
 
@@ -57,18 +63,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <fieldset>
             <legend>Acceso al Sistema</legend>
             
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <label>Email:</label>
+            <input type="email" name="email" required>
             
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
+            <label>Contraseña:</label>
+            <input type="password" name="password" required>
             
             <input type="submit" value="Iniciar Sesión">
         </fieldset>
     </form>
     
-    <p>¿No tienes cuenta? <a href="reservas.php">Regístrate aquí</a></p>
-    <p><a href="recursos.php">Volver a la página principal</a></p>
+    <p>¿No tienes cuenta? <a href="registro.php">Regístrate aquí</a></p>
+    <p><a href="lista.php">Volver a la página principal</a></p>
 </main>
 </body>
 </html>

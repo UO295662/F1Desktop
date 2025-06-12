@@ -131,11 +131,7 @@ svg { /* Especificidad: 0,0,1 */
     font-size: 0.8em;
   }
   
-  /* Círculos y líneas más visibles en móviles */
-  svg circle { /* Especificidad: 0,0,2 */
-    r: 4;
-  }
-  
+   
   svg line { /* Especificidad: 0,0,2 */
     stroke-width: 1.5;
   }
@@ -377,4 +373,43 @@ svg { /* Especificidad: 0,0,1 */
     page-break-inside: avoid;
     transform: scale(1.2);
   }
+}
+
+
+@media (max-width: 48em) {
+    section[data-map-container="true"] {
+        height: 40vh; 
+        min-height: 20rem; 
+        margin: 1rem 0; 
+        padding: 0.5rem 
+    }
+    section[data-map-container="true"] .ol-viewport {
+        min-height: 18rem; /
+    }
+}
+
+@media (max-width: 30em) {
+    section[data-map-container="true"] {
+        height: 35vh;
+        min-height: 18rem; 
+        margin: 0.5rem 0;
+        padding: 0.25rem; 
+    }
+}
+
+@media (max-width: 50em) and (orientation: landscape) {
+    section[data-map-container="true"] {
+        height: 60vh;
+        min-height: 15rem; 
+    }
+}
+
+
+@media (max-width: 48em) {
+    main > section > article > section {
+        padding: 0.7rem 0.5rem;
+    }
+    main > section > article > section > article {
+        padding: 0.7rem 0.5rem;
+    }
 }

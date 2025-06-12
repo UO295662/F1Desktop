@@ -78,7 +78,7 @@ class Meteorologia {
             const weatherCode = datos.daily.weathercode[index];
             pronosticoHTML += `
                 <article>
-                <h5>Pronóstico del día</h5>
+                <h4>Pronóstico del día</h4>
                     <p>${new Date(fecha).toLocaleDateString()}</p>
                     <img src="https://openweathermap.org/img/wn/${this.obtenerIcono(weatherCode)}@2x.png" 
                          alt="${this.obtenerDescripcion(weatherCode)}">
@@ -102,14 +102,12 @@ class Meteorologia {
             url: this.url,
             method: 'GET',
             success: (datos) => {
-                console.log('Datos recibidos:', datos);
                 const climaActual = this.mostrarClimaActual(datos);
                 const pronostico = this.mostrarPronostico(datos);
                 
                 $("main > aside").empty();
                 
                 $("main > aside:first-of-type").html(climaActual);
-                console.log('Clima actual mostrado:', climaActual);
                 $("main > aside:last-of-type").html(pronostico);
             },
             error: (xhr, status, error) => {

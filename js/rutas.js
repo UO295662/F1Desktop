@@ -27,23 +27,23 @@ function MapHandler() {
 
 MapHandler.prototype.configurarInputFile = function() {
     const fileInput = document.querySelector('input[type="file"]');
-    const loadButton = document.querySelector('button[type="button"]');
 
-    if (!fileInput || !loadButton) return;
+    if (!fileInput) return;
 
-    loadButton.onclick = () => {
-        const file = fileInput.files[0];
-        if (!file) return alert('Selecciona un archivo XML');
-        if (!file.name.toLowerCase().endsWith('.xml')) return alert('Archivo XML inválido');
+    // Cargar automáticamente cuando se selecciona un archivo
+    fileInput.onchange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        
+        if (!file.name.toLowerCase().endsWith('.xml')) {
+            alert('Por favor, selecciona un archivo XML válido');
+            fileInput.value = ''; // Limpiar la selección
+            return;
+        }
 
         const reader = new FileReader();
         reader.onload = (e) => this.procesarRutasXML(e.target.result);
         reader.readAsText(file);
-    };
-
-    fileInput.onchange = (e) => {
-        const file = e.target.files[0];
-        loadButton.textContent = file?.name.toLowerCase().endsWith('.xml') ? `Cargar: ${file.name}` : 'Cargar Rutas';
     };
 };
 
@@ -551,7 +551,7 @@ MapHandler.prototype.convertirRutaAHTML = function(ruta) {
                     const archivo = foto.getAttribute("archivo");
                     const desc = foto.textContent;
                     if (archivo) {
-                        html += `<figure><img src="${archivo}" alt="${desc}"><figcaption>${desc}</figcaption></figure>`;
+                        html += `<figure><img src="${archivo}" alt="${desc || 'Imagen'}"><figcaption>${desc || ''}</figcaption></figure>`;
                     }
                 });
                 html += '</aside>';
@@ -564,7 +564,7 @@ MapHandler.prototype.convertirRutaAHTML = function(ruta) {
                     const archivo = video.getAttribute("archivo");
                     const desc = video.textContent;
                     if (archivo) {
-                        html += `<figure><video controls><source src="${archivo}" type="video/mp4">${desc}</video><figcaption>${desc}</figcaption></figure>`;
+                        html += `<figure><video controls><source src="${archivo}" type="video/mp4">Tu navegador no soporta video HTML5.</video><figcaption>${desc || ''}</figcaption></figure>`;
                     }
                 });
                 html += '</aside>';

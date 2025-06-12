@@ -2,7 +2,7 @@ class TestConocimientos {
     constructor() {
         this.preguntas = [
             {
-                pregunta: "¿Cuál es uno de los monumentos prerrománicos que aparece en el carrusel de imágenes?",
+                pregunta: "¿Cuál es uno de los monumentos prerrománicos más importantes de Oviedo?",
                 opciones: [
                     "Santa María del Naranco",
                     "Catedral de Santiago",
@@ -13,18 +13,7 @@ class TestConocimientos {
                 respuestaCorrecta: 0
             },
             {
-                pregunta: "¿Qué fuente histórica aparece mencionada en las imágenes del sitio?",
-                opciones: [
-                    "Fuente de Foncalada",
-                    "La Foncalada",
-                    "Fuente del Naranco",
-                    "Fuente de la Catedral",
-                    "Fuente de Santullano"
-                ],
-                respuestaCorrecta: 1
-            },
-            {
-                pregunta: "¿Cuál es el otro nombre de San Julián de los Prados?",
+                pregunta: "¿Cómo se conoce también a la iglesia de San Julián de los Prados?",
                 opciones: [
                     "Santa María",
                     "San Miguel",
@@ -35,62 +24,51 @@ class TestConocimientos {
                 respuestaCorrecta: 2
             },
             {
-                pregunta: "¿Qué información puedes consultar en la sección de Meteorología?",
+                pregunta: "¿Qué monumento histórico único se encuentra en Oviedo relacionado con el agua?",
                 opciones: [
-                    "Solo la temperatura actual",
-                    "Solo la humedad",
-                    "Pronóstico para los próximos días con temperatura y lluvia",
-                    "Solo la velocidad del viento",
-                    "Solo las condiciones de ayer"
-                ],
-                respuestaCorrecta: 2
-            },
-            {
-                pregunta: "¿Qué formatos de archivo se pueden cargar en la sección de Rutas?",
-                opciones: [
-                    "Solo PDF",
-                    "KML, SVG y XML",
-                    "Solo imágenes JPG",
-                    "Solo archivos de texto",
-                    "Solo archivos de audio"
+                    "Fuente de Foncalada",
+                    "La Foncalada",
+                    "Fuente del Naranco",
+                    "Fuente de la Catedral",
+                    "Fuente de Santullano"
                 ],
                 respuestaCorrecta: 1
             },
             {
-                pregunta: "¿Qué tipo de información incluye la sección de Gastronomía?",
+                pregunta: "¿Cuál es el plato más representativo de la gastronomía asturiana mencionado en el sitio?",
                 opciones: [
-                    "Solo recetas",
-                    "Solo horarios de restaurantes",
-                    "Platos típicos, precios y experiencias culinarias",
-                    "Solo bebidas típicas",
-                    "Solo festivales gastronómicos"
+                    "Paella",
+                    "Cocido",
+                    "Fabada asturiana",
+                    "Gazpacho",
+                    "Tortilla española"
                 ],
                 respuestaCorrecta: 2
             },
             {
-                pregunta: "¿Qué puedes planificar en la sección de Viajes?",
+                pregunta: "¿Qué dulce típico asturiano aparece en la información gastronómica?",
                 opciones: [
-                    "Solo vuelos",
-                    "Solo hoteles",
-                    "Visitas a Oviedo, incluyendo alojamiento y transporte",
-                    "Solo actividades deportivas",
-                    "Solo excursiones en bicicleta"
-                ],
-                respuestaCorrecta: 2
-            },
-            {
-                pregunta: "¿Cuál es el propósito principal de la página de Ayuda?",
-                opciones: [
-                    "Mostrar precios",
-                    "Proporcionar guía de usuario y explicar la navegación",
-                    "Mostrar el mapa del sitio",
-                    "Contactar con soporte técnico",
-                    "Descargar manuales"
+                    "Turrón",
+                    "Carbayones",
+                    "Polvorones",
+                    "Mantecadas",
+                    "Rosquillas"
                 ],
                 respuestaCorrecta: 1
             },
             {
-                pregunta: "¿Qué tipo de arquitectura caracteriza a los monumentos más importantes de Oviedo?",
+                pregunta: "¿Qué bebida tradicional asturiana se menciona en el contenido del sitio?",
+                opciones: [
+                    "Vino tinto",
+                    "Cerveza",
+                    "Sidra",
+                    "Sangría",
+                    "Horchata"
+                ],
+                respuestaCorrecta: 2
+            },
+            {
+                pregunta: "¿Qué tipo de arquitectura caracteriza los monumentos más destacados de Oviedo?",
                 opciones: [
                     "Gótica",
                     "Barroca",
@@ -101,13 +79,35 @@ class TestConocimientos {
                 respuestaCorrecta: 2
             },
             {
-                pregunta: "¿Cuál es el tema principal del sitio web F1 Desktop?",
+                pregunta: "¿En qué zona geográfica se sitúa Oviedo según la información del sitio?",
                 opciones: [
-                    "Deportes en general",
-                    "Turismo y cultura de Oviedo",
-                    "Gastronomía española",
-                    "Historia universal",
-                    "Tecnología web"
+                    "Galicia",
+                    "Cantabria",
+                    "Asturias",
+                    "León",
+                    "Castilla"
+                ],
+                respuestaCorrecta: 2
+            },
+            {
+                pregunta: "¿Qué información meteorológica puedes consultar en el sitio?",
+                opciones: [
+                    "Solo temperatura actual",
+                    "Pronóstico para los próximos días",
+                    "Solo humedad",
+                    "Solo viento",
+                    "Solo precipitaciones"
+                ],
+                respuestaCorrecta: 1
+            },
+            {
+                pregunta: "¿Cuál es el tema principal del sitio web sobre Oviedo?",
+                opciones: [
+                    "Historia medieval",
+                    "Turismo y patrimonio cultural",
+                    "Gastronomía exclusivamente",
+                    "Deportes locales",
+                    "Comercio y negocios"
                 ],
                 respuestaCorrecta: 1
             }
@@ -137,12 +137,15 @@ class TestConocimientos {
                 <h3>Pregunta ${this.preguntaActual + 1} de ${this.preguntas.length}</h3>
                 <p>${pregunta.pregunta}</p>
                 <form>
-                    ${pregunta.opciones.map((opcion, index) => `
-                        <fieldset>
-                            <input type="radio" name="respuesta" value="${index}" id="opcion_${index}">
-                            <label for="opcion_${index}">${opcion}</label>
-                        </fieldset>
-                    `).join('')}
+                    <fieldset>
+                        <legend>Selecciona tu respuesta:</legend>
+                        ${pregunta.opciones.map((opcion, index) => `
+                            <p>
+                                <input type="radio" name="respuesta" value="${index}">
+                                <label>${opcion}</label>
+                            </p>
+                        `).join('')}
+                    </fieldset>
                     <button type="submit" disabled>
                         ${this.preguntaActual === this.preguntas.length - 1 ? 'Finalizar Test' : 'Siguiente Pregunta'}
                     </button>
@@ -206,13 +209,13 @@ class TestConocimientos {
         let mensaje = '';
         
         if (puntuacion >= 9) {
-            mensaje = '¡Excelente! Conoces muy bien el contenido del sitio.';
+            mensaje = '¡Excelente! Conoces muy bien el patrimonio y cultura de Oviedo.';
         } else if (puntuacion >= 7) {
-            mensaje = '¡Muy bien! Tienes un buen conocimiento del sitio.';
+            mensaje = '¡Muy bien! Tienes un buen conocimiento sobre Oviedo y Asturias.';
         } else if (puntuacion >= 5) {
-            mensaje = 'Bien. Conoces algunos aspectos del sitio.';
+            mensaje = 'Bien. Conoces algunos aspectos de Oviedo, pero puedes aprender más.';
         } else {
-            mensaje = 'Puedes mejorar. Te recomendamos explorar más el sitio web.';
+            mensaje = 'Te recomendamos explorar más sobre la rica historia y cultura de Oviedo.';
         }
 
         resultadoContainer.innerHTML = `
@@ -235,15 +238,17 @@ class TestConocimientos {
                             return `
                                 <li>
                                     Pregunta ${index + 1}: ${esCorrecta ? '✓ Correcta' : '✗ Incorrecta'}
-                                    ${!esCorrecta ? `Tu respuesta: ${respuestaUsuario} - Respuesta correcta: ${respuestaCorrecta}` : ''}
+                                    ${!esCorrecta ? `<p>Tu respuesta: ${respuestaUsuario}</p><p>Respuesta correcta: ${respuestaCorrecta}</p>` : ''}
                                 </li>
                             `;
                         }).join('')}
                     </ul>
                 </section>
                 
-                <button onclick="location.reload()">Repetir Test</button>
-                <button onclick="window.location.href='index.html'">Volver al Inicio</button>
+                <section>
+                    <button onclick="location.reload()">Repetir Test</button>
+                    <button onclick="window.location.href='index.html'">Volver al Inicio</button>
+                </section>
             </article>
         `;
     }

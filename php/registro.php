@@ -1,6 +1,7 @@
 <?php
 // filepath: c:\xampp\htdocs\F1Desktop\php\registro.php
 session_start();
+require_once 'database.php';
 require_once 'usuario.php';
 
 $mensaje = '';
@@ -8,17 +9,22 @@ $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
-        $usuario = new Usuario();
-        $usuario->setNombre($_POST['nombre']);
-        $usuario->setApellidos($_POST['apellidos']);
-        $usuario->setEmail($_POST['email']);
-        $usuario->setTelefono($_POST['telefono']);
-        $usuario->setFechaNacimiento($_POST['fecha_nacimiento']);
-        $usuario->setCiudad($_POST['ciudad']);
-        $usuario->setCodigoPostal($_POST['codigo_postal']);
+        $database = new Database();
+        $db = $database->getConnection();
         
-        if ($usuario->registrar($_POST['password'])) {
+        $usuario = new Usuario($db);
+        $usuario->nombre = $_POST['nombre'];
+        $usuario->apellidos = $_POST['apellidos'];
+        $usuario->email = $_POST['email'];
+        $usuario->telefono = $_POST['telefono'] ?? '';
+        $usuario->password_hash = $_POST['password'];
+        
+        if ($usuario->emailExiste()) {
+            $error = "El email ya está registrado";
+        } else if ($usuario->crear()) {
             $mensaje = "Usuario registrado correctamente. Ya puedes <a href='login.php'>iniciar sesión</a>";
+        } else {
+            $error = "Error al registrar el usuario";
         }
     } catch (Exception $e) {
         $error = $e->getMessage();
@@ -44,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1><a href="../index.html">Oviedo</a></h1>
     <nav>
         <a href="../index.html">Inicio</a>
-        <a href="viajes.php">Viajes</a>
+        <a href="lista.php">Viajes</a>
         <a href="login.php">Iniciar Sesión</a>
     </nav>
 </header>
@@ -57,50 +63,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
     
     <?php if ($error): ?>
-        <p><?= htmlspecialchars($error) ?></p>
+        <p ><?= htmlspecialchars($error) ?></p>
     <?php endif; ?>
     
-    <form method="POST" action="">
+    <form method="POST" action="registro.php">
         <fieldset>
             <legend>Datos Personales</legend>
             
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required 
+            <label>Nombre:</label>
+            <input type="text" name="nombre" required 
                    value="<?= isset($_POST['nombre']) ? htmlspecialchars($_POST['nombre']) : '' ?>">
             
-            <label for="apellidos">Apellidos:</label>
-            <input type="text" id="apellidos" name="apellidos" required
+            <label>Apellidos:</label>
+            <input type="text" name="apellidos" required
                    value="<?= isset($_POST['apellidos']) ? htmlspecialchars($_POST['apellidos']) : '' ?>">
             
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required
+            <label>Email:</label>
+            <input type="email" name="email" required
                    value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>">
             
-            <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" name="telefono"
+            <label>Teléfono (opcional):</label>
+            <input type="tel" name="telefono"
                    value="<?= isset($_POST['telefono']) ? htmlspecialchars($_POST['telefono']) : '' ?>">
             
-            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento"
-                   value="<?= isset($_POST['fecha_nacimiento']) ? $_POST['fecha_nacimiento'] : '' ?>">
-            
-            <label for="ciudad">Ciudad:</label>
-            <input type="text" id="ciudad" name="ciudad"
-                   value="<?= isset($_POST['ciudad']) ? htmlspecialchars($_POST['ciudad']) : '' ?>">
-            
-            <label for="codigo_postal">Código Postal:</label>
-            <input type="text" id="codigo_postal" name="codigo_postal"
-                   value="<?= isset($_POST['codigo_postal']) ? htmlspecialchars($_POST['codigo_postal']) : '' ?>">
-            
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
+            <label>Contraseña:</label>
+            <input type="password" name="password" required>
             
             <input type="submit" value="Registrarse">
         </fieldset>
     </form>
     
     <p>¿Ya tienes cuenta? <a href="login.php">Inicia sesión aquí</a></p>
-    <p><a href="viajes.php">Volver a la página principal</a></p>
+    <p><a href="lista.php">Volver a la página principal</a></p>
 </main>
 </body>
 </html>

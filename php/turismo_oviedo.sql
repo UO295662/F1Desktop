@@ -7,8 +7,7 @@ CREATE TABLE tipos_recursos (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL UNIQUE,
     descripcion TEXT,
-    icono VARCHAR(50),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    icono VARCHAR(50)
 );
 
 -- Tabla de usuarios
@@ -18,13 +17,8 @@ CREATE TABLE usuarios (
     apellidos VARCHAR(150) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE,
     telefono VARCHAR(20),
-    fecha_nacimiento DATE,
-    ciudad VARCHAR(100),
-    codigo_postal VARCHAR(10),
     password_hash VARCHAR(255) NOT NULL,
-    activo BOOLEAN DEFAULT TRUE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    activo BOOLEAN DEFAULT TRUE
 );
 
 -- Tabla de recursos turísticos
@@ -40,11 +34,7 @@ CREATE TABLE recursos_turisticos (
     capacidad_maxima INT NOT NULL DEFAULT 1,
     precio DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
     duracion_horas DECIMAL(4, 2) DEFAULT 1.00,
-    requisitos TEXT,
-    imagenes TEXT,
     activo BOOLEAN DEFAULT TRUE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (tipo_recurso_id) REFERENCES tipos_recursos(id) ON DELETE SET NULL
 );
 
@@ -57,34 +47,25 @@ CREATE TABLE horarios_recursos (
     plazas_totales INT NOT NULL,
     plazas_disponibles INT NOT NULL,
     precio_especial DECIMAL(10, 2) DEFAULT NULL,
-    observaciones TEXT,
-    activo BOOLEAN DEFAULT TRUE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (recurso_id) REFERENCES recursos_turisticos(id) ON DELETE CASCADE
 );
 
 -- Tabla de reservas
 CREATE TABLE reservas (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT ,
     usuario_id INT NOT NULL,
     recurso_id INT NOT NULL,
     horario_id INT NOT NULL,
     numero_personas INT NOT NULL DEFAULT 1,
     precio_total DECIMAL(10, 2) NOT NULL,
-    estado ENUM('pendiente', 'confirmada', 'cancelada', 'completada') DEFAULT 'confirmada',
-    comentarios TEXT,
+    estado ENUM('pendiente', 'confirmada', 'cancelada') DEFAULT 'confirmada',
     fecha_reserva TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    fecha_cancelacion TIMESTAMP NULL,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE,
     FOREIGN KEY (recurso_id) REFERENCES recursos_turisticos(id) ON DELETE CASCADE,
     FOREIGN KEY (horario_id) REFERENCES horarios_recursos(id) ON DELETE CASCADE
 );
 
--- Índices para optimizar consultas
-CREATE INDEX idx_usuarios_email ON usuarios(email);
+-- Índices esenciales
 CREATE INDEX idx_recursos_tipo ON recursos_turisticos(tipo_recurso_id);
-CREATE INDEX idx_recursos_activo ON recursos_turisticos(activo);
 CREATE INDEX idx_horarios_recurso ON horarios_recursos(recurso_id);
-CREATE INDEX idx_horarios_fecha ON horarios_recursos(fecha_inicio, fecha_fin);
 CREATE INDEX idx_reservas_usuario ON reservas(usuario_id);
-CREATE INDEX idx_reservas_estado ON reservas(estado);

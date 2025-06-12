@@ -1,79 +1,77 @@
 <?php
-// filepath: c:\xampp\htdocs\F1Desktop\php\Usuario.php
-require_once 'Database.php';
+require_once 'database.php';
 
 class Usuario {
-    private $id;
-    private $nombre;
-    private $apellidos;
-    private $email;
-    private $telefono;
-    private $fechaNacimiento;
-    private $ciudad;
-    private $codigoPostal;
-    private $db;
-    
-    public function __construct() {
-        $this->db = Database::getInstance()->getConnection();
+    private $conn;
+    private $table_name = "usuarios";
+
+    public $id;
+    public $nombre;
+    public $apellidos;
+    public $email;
+    public $telefono;
+    public $password_hash;
+    public $activo;
+
+    public function __construct($db) {
+        $this->conn = $db;
     }
-    
-    // Setters
-    public function setNombre($nombre) { $this->nombre = $nombre; }
-    public function setApellidos($apellidos) { $this->apellidos = $apellidos; }
-    public function setEmail($email) { $this->email = $email; }
-    public function setTelefono($telefono) { $this->telefono = $telefono; }
-    public function setFechaNacimiento($fecha) { $this->fechaNacimiento = $fecha; }
-    public function setCiudad($ciudad) { $this->ciudad = $ciudad; }
-    public function setCodigoPostal($codigo) { $this->codigoPostal = $codigo; }
-    
-    // Getters
-    public function getId() { return $this->id; }
-    public function getNombre() { return $this->nombre; }
-    public function getApellidos() { return $this->apellidos; }
-    public function getEmail() { return $this->email; }
-    
-    public function registrar($password) {
-        if ($this->existeEmail($this->email)) {
-            throw new Exception("El email ya está registrado");
-        }
+
+    public function crear() {
+        $query = "INSERT INTO " . $this->table_name . "
+                SET nombre=:nombre, apellidos=:apellidos, email=:email, 
+                    telefono=:telefono, password_hash=:password_hash, activo=1";
         
-        $sql = "INSERT INTO usuarios (nombre, apellidos, email, telefono, fecha_nacimiento, ciudad, codigo_postal, password_hash) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
         
-        $stmt = $this->db->prepare($sql);
-        return $stmt->execute([
-            $this->nombre,
-            $this->apellidos,
-            $this->email,
-            $this->telefono,
-            $this->fechaNacimiento,
-            $this->ciudad,
-            $this->codigoPostal,
-            password_hash($password, PASSWORD_DEFAULT)
-        ]);
-    }
-    
-    public function login($email, $password) {
-        $sql = "SELECT * FROM usuarios WHERE email = ?";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute([$email]);
-        $usuario = $stmt->fetch();
+        $this->nombre = htmlspecialchars(strip_tags($this->nombre));
+        $this->apellidos = htmlspecialchars(strip_tags($this->apellidos));
+        $this->email = htmlspecialchars(strip_tags($this->email));
+        $this->telefono = htmlspecialchars(strip_tags($this->telefono));
+        $this->password_hash = password_hash($this->password_hash, PASSWORD_DEFAULT);
         
-        if ($usuario && password_verify($password, $usuario['password_hash'])) {
-            $this->id = $usuario['id'];
-            $this->nombre = $usuario['nombre'];
-            $this->apellidos = $usuario['apellidos'];
-            $this->email = $usuario['email'];
+        $stmt->bindParam(":nombre", $this->nombre);
+        $stmt->bindParam(":apellidos", $this->apellidos);
+        $stmt->bindParam(":email", $this->email);
+        $stmt->bindParam(":telefono", $this->telefono);
+        $stmt->bindParam(":password_hash", $this->password_hash);
+        
+        if($stmt->execute()) {
             return true;
         }
         return false;
     }
-    
-    private function existeEmail($email) {
-        $sql = "SELECT COUNT(*) FROM usuarios WHERE email = ?";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute([$email]);
-        return $stmt->fetchColumn() > 0;
+
+    public function login() {
+        $query = "SELECT id, nombre, apellidos, email, telefono, password_hash, activo
+                FROM " . $this->table_name . "
+                WHERE email = ? AND activo = 1
+                LIMIT 0,1";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->email);
+        $stmt->execute();
+        
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        if($row && password_verify($this->password_hash, $row['password_hash'])) {
+            $this->id = $row['id'];
+            $this->nombre = $row['nombre'];
+            $this->apellidos = $row['apellidos'];
+            $this->telefono = $row['telefono'];
+            $this->activo = $row['activo'];
+            return true;
+        }
+        return false;
+    }
+
+    public function emailExiste() {
+        $query = "SELECT id FROM " . $this->table_name . " WHERE email = ? LIMIT 0,1";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->email);
+        $stmt->execute();
+        
+        return $stmt->rowCount() > 0;
     }
 }
 ?>
