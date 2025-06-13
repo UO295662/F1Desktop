@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="es"><head>
+    <meta charset="UTF-8">
+    <title>Login - Oviedo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Gael Horta Calzada">
+    <meta name="description" content="Página de inicio de sesión para el sistema de reservas de Oviedo">
+    <meta name="keywords" content="login, acceso, reservas, Oviedo">
+    <link rel="stylesheet" type="text/css" href="../estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="../estilo/layout.css">
+    <link rel="icon" href="../multimedia/favicon.ico">
+</head>
+<body>
+<header>
+    <h1><a href="../index.html">Oviedo</a></h1>
+    <nav>
+        <a href="../index.html">Inicio</a>
+        <a href="registro.php">Registro</a>
+    </nav>
+</header>
+
+<main>
+    <h2>Iniciar Sesión</h2>
+    
+        
+    <form method="POST" action="login.php">
+        <fieldset>
+            <legend>Acceso al Sistema</legend>
+            
+            <label for="email">Email:</label>
+            <input id="email" name="email" required="">
+            
+            <label for="email">Contraseña:</label>
+            <input id="password" name="password" required="">
+
+            <button type="submit" id="loginBtn">
+            <span>Iniciar Sesión</span>
+        </button></fieldset>
+    </form>
+    
+    <p>¿No tienes cuenta? <a href="registro.php">Regístrate aquí</a></p>
+    <p><a href="lista.php">Volver a la página principal</a></p>
+</main>
+
+</body></html>
