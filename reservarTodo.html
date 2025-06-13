@@ -1,0 +1,76 @@
+<!DOCTYPE HTML><!DOCTYPE HTML>
+<html lang="es"><head>
+    <meta charset="UTF-8">
+    <title>Reservar - Catedral de San Salvador</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Gael Horta Calzada">
+    <meta name="description" content="Reservar en el sistema de Oviedo">
+    <meta name="keywords" content="reservar, gestión, confirmar, Oviedo">
+    <link rel="stylesheet" href="../estilo/estilo.css">
+    <link rel="stylesheet" href="../estilo/layout.css">
+    <link rel="icon" href="../multimedia/favicon.ico">
+</head>
+<body>
+<header>
+    <h1><a href="../index.html">Oviedo</a></h1>
+    <nav>
+        <a href="../index.html">Inicio</a>
+        <a href="lista.php">Viajes</a>
+        <a href="mis_reservas.php">Mis Reservas</a>
+        <a href="logout.php">Cerrar Sesión (Gael Calzada)</a>
+    </nav>
+</header>
+
+<main>
+    <h2>Reservar: Catedral de San Salvador</h2>
+    
+        
+    <section>
+        <h3>Información del Recurso</h3>
+        <p><strong>Descripción:</strong> Visita guiada a la histórica Catedral de Oviedo, conocida por su impresionante arquitectura gótica y la Cámara Santa.</p>
+        <p><strong>Ubicación:</strong> Centro Histórico de Oviedo</p>
+        <p><strong>Dirección:</strong> Plaza de Alfonso II El Casto, s/n, 33003 Oviedo</p>
+        <p><strong>Duración:</strong> 1.50 hora(s)</p>
+        <p><strong>Precio:</strong> €8.50 por persona</p>
+        <p><strong>Capacidad máxima:</strong> 25 personas</p>
+    </section>
+    
+            <form method="POST" action="">
+            <fieldset>
+                <legend>Datos de la Reserva</legend>
+                
+                <label for="horario_id">Horario disponible:</label>
+                <select id="horario_id" name="horario_id" required="" onchange="this.form.submit()">
+                    <option value="">-- Selecciona un horario --</option>
+                                            <option value="1">
+                            15/06/2025 10:00 - 
+                            11:30                            (2 plazas disponibles)
+                                                    </option>
+                                            <option value="2" selected="">
+                            15/06/2025 16:00 - 
+                            17:30                            (17 plazas disponibles)
+                                                    </option>
+                                            <option value="3">
+                            16/06/2025 10:00 - 
+                            11:30                            (15 plazas disponibles)
+                                                    </option>
+                                    </select>
+                
+                <label for="numero_personas">Número de personas:</label>
+                <input type="number" id="numero_personas" name="numero_personas" min="1" max="17" value="1" required="" onchange="this.form.submit()">
+                
+                <p><strong>Precio total: €8.50</strong></p>
+            </fieldset>
+        </form>
+        
+                    <form method="POST" action="">
+                <input type="hidden" name="horario_id" value="2">
+                <input type="hidden" name="numero_personas" value="1">
+                <input type="hidden" name="confirmar_reserva" value="confirmar">
+                <input type="submit" value="Confirmar Reserva">
+            </form>
+                
+    <p><a href="lista.php">← Volver al catálogo de recursos</a></p>
+</main>
+
+</body></html>

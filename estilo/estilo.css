@@ -1209,3 +1209,6 @@ main table tbody tr:hover { /* Especificidad: 0,1,4 */
     background: #e9ecef; /* Color de fondo - texto heredado (#2c2c2c) */
     transition: background-color 0.3s ease;
 }
+img, video, canvas {
+    overflow: hidden;
+}

@@ -393,8 +393,8 @@ MapHandler.prototype.crearSelectorRutas = function() {
     const selectorSection = document.createElement('section');
     selectorSection.innerHTML = `
         <h3>Selecciona una Ruta</h3>
-        <label>Elige una ruta:</label>
-        <select>
+        <label for="selector-rutas">Elige una ruta:</label>
+        <select id="selector-rutas">
             <option value="">-- Elige una ruta --</option>
         </select>
     `;
@@ -454,7 +454,7 @@ MapHandler.prototype.cargarSVGRuta = function(contenedorRuta, archivoSVG) {
             section.innerHTML = `
                 <h4>Perfil Altimétrico</h4>
                 <section>
-                    <h6>Perfil</h6>
+                    <h5>Perfil</h5>
                     ${svg}
                 </section>
             `;
