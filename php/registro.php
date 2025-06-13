@@ -8,24 +8,39 @@ $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
-        $database = new Database();
-        $db = $database->getConnection();
-        
-        $usuario = new Usuario($db);
-        $usuario->nombre = $_POST['nombre'];
-        $usuario->apellidos = $_POST['apellidos'];
-        $usuario->email = $_POST['email'];
-        $usuario->password_hash = $_POST['password'];
-        
-        if ($usuario->emailExiste()) {
-            $error = "El email ya está registrado";
-        } else if ($usuario->crear()) {
-            $mensaje = "Usuario registrado correctamente. Ya puedes <a href='login.php'>iniciar sesión</a>";
+        // Validar que existan los campos requeridos
+        if (!isset($_POST['nombre']) || !isset($_POST['apellidos']) || 
+            !isset($_POST['email']) || !isset($_POST['password'])) {
+            $error = "Por favor, complete todos los campos requeridos";
         } else {
-            $error = "Error al registrar el usuario";
+            $database = new Database();
+            $db = $database->getConnection();
+            
+            $usuario = new Usuario($db);
+            $usuario->nombre = trim($_POST['nombre']);
+            $usuario->apellidos = trim($_POST['apellidos']);
+            $usuario->email = trim($_POST['email']);
+            $usuario->password_hash = $_POST['password'];
+            
+            // Validaciones adicionales
+            if (empty($usuario->nombre) || empty($usuario->apellidos) || 
+                empty($usuario->email) || empty($usuario->password_hash)) {
+                $error = "Todos los campos son obligatorios";
+            } elseif (!filter_var($usuario->email, FILTER_VALIDATE_EMAIL)) {
+                $error = "El formato del email no es válido";
+            } elseif (strlen($usuario->password_hash) < 6) {
+                $error = "La contraseña debe tener al menos 6 caracteres";
+            } elseif ($usuario->emailExiste()) {
+                $error = "El email ya está registrado";
+            } elseif ($usuario->crear()) {
+                $mensaje = "Usuario registrado correctamente. Ya puedes <a href='login.php'>iniciar sesión</a>";
+                $_POST = [];
+            } else {
+                $error = "Error al registrar el usuario";
+            }
         }
     } catch (Exception $e) {
-        $error = $e->getMessage();
+        $error = "Error del servidor: " . $e->getMessage();
     }
 }
 ?>
@@ -61,29 +76,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
     
     <?php if ($error): ?>
-        <p ><?= htmlspecialchars($error) ?></p>
+        <p><?= htmlspecialchars($error) ?></p>
     <?php endif; ?>
     
     <form method="POST" action="registro.php">
         <fieldset>
             <legend>Datos Personales</legend>
             
-            <label>Nombre:</label>
-            <input type="text" name="nombre" required 
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required 
                    value="<?= isset($_POST['nombre']) ? htmlspecialchars($_POST['nombre']) : '' ?>">
             
-            <label>Apellidos:</label>
-            <input type="text" name="apellidos" required
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required
                    value="<?= isset($_POST['apellidos']) ? htmlspecialchars($_POST['apellidos']) : '' ?>">
             
-            <label>Email:</label>
-            <input type="email" name="email" required
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required
                    value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>">
-            
-            <label>Teléfono (opcional):</label>
            
-            <label>Contraseña:</label>
-            <input type="password" name="password" required>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required minlength="6">
             
             <input type="submit" value="Registrarse">
         </fieldset>

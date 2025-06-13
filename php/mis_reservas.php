@@ -3,40 +3,127 @@ session_start();
 require_once 'database.php';
 require_once 'reserva.php';
 
-if (!isset($_SESSION['usuario_id'])) {
-    header('Location: login.php');
-    exit;
-}
+class MisReservas {
+    private $db;
+    private $usuario_id;
+    private $mensaje;
+    private $error;
+    private $reservas_array;
 
-$database = new Database();
-$db = $database->getConnection();
-
-$reservas = new Reserva($db);
-$reservas->usuario_id = $_SESSION['usuario_id'];
-$misReservas = $reservas->leerPorUsuario();
-
-$mensaje = '';
-if (isset($_GET['reserva'])) {
-    $mensaje = "¡Reserva confirmada correctamente! Tu reserva ha sido registrada.";
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar_reserva'])) {
-    try {
-        $reserva_cancelar = new Reserva($db);
-        $reserva_cancelar->id = $_POST['reserva_id'];
-        $reserva_cancelar->usuario_id = $_SESSION['usuario_id'];
-        
-        if ($reserva_cancelar->cancelar()) {
-            $mensaje = "Reserva cancelada correctamente.";
-            $reservas->usuario_id = $_SESSION['usuario_id'];
-            $misReservas = $reservas->leerPorUsuario();
-        } else {
-            $mensaje = "Error al cancelar la reserva.";
+    public function __construct() {
+        if (!isset($_SESSION['usuario_id'])) {
+            header('Location: login.php');
+            exit;
         }
-    } catch (Exception $e) {
-        $mensaje = "Error: " . $e->getMessage();
+
+        $this->usuario_id = $_SESSION['usuario_id'];
+        $database = new Database();
+        $this->db = $database->getConnection();
+        $this->mensaje = '';
+        $this->error = '';
+        $this->reservas_array = [];
+    }
+
+    public function inicializar() {
+        $this->verificarMensajeConfirmacion();
+        $this->procesarCancelacion();
+        $this->cargarReservas();
+    }
+
+    private function verificarMensajeConfirmacion() {
+        if (isset($_GET['reserva'])) {
+            $this->mensaje = "¡Reserva confirmada correctamente! Tu reserva ha sido registrada.";
+        }
+    }
+
+    private function procesarCancelacion() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar_reserva'])) {
+            try {
+                $reserva_cancelar = new Reserva($this->db);
+                $reserva_cancelar->id = $_POST['reserva_id'];
+                $reserva_cancelar->usuario_id = $this->usuario_id;
+                
+                if ($reserva_cancelar->cancelar()) {
+                    $this->mensaje = "Reserva cancelada correctamente.";
+                } else {
+                    $this->error = "Error al cancelar la reserva.";
+                }
+            } catch (Exception $e) {
+                $this->error = "Error: " . $e->getMessage();
+            }
+        }
+    }
+
+    private function cargarReservas() {
+        try {
+            $reservas = new Reserva($this->db);
+            $reservas->usuario_id = $this->usuario_id;
+            $misReservas = $reservas->leerPorUsuario();
+            $this->reservas_array = $misReservas->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            $this->error = "Error al cargar las reservas: " . $e->getMessage();
+            $this->reservas_array = [];
+        }
+    }
+
+    // Método para que funcione con el HTML existente
+    public function fetchAll($tipo = PDO::FETCH_ASSOC) {
+        return $this->reservas_array;
+    }
+
+    public function tieneReservas() {
+        return !empty($this->reservas_array);
+    }
+
+    public function getReservas() {
+        return $this->reservas_array;
+    }
+
+    public function getMensaje() {
+        return $this->mensaje;
+    }
+
+    public function getError() {
+        return $this->error;
+    }
+
+    public function hayMensaje() {
+        return !empty($this->mensaje);
+    }
+
+    public function hayError() {
+        return !empty($this->error);
+    }
+
+    public function puedeSerCancelada($reserva) {
+        return $reserva['estado'] !== 'cancelada' && strtotime($reserva['fecha_inicio']) > time();
+    }
+
+    public function estaEnCursoOCompletada($reserva) {
+        return strtotime($reserva['fecha_inicio']) <= time() && $reserva['estado'] === 'confirmada';
+    }
+
+    public function formatearFecha($fecha) {
+        return date('d/m/Y H:i', strtotime($fecha));
+    }
+
+    public function formatearPrecio($precio) {
+        return number_format($precio, 2);
+    }
+
+    public function obtenerEstadoFormateado($estado) {
+        return ucfirst($estado);
+    }
+
+    public function obtenerTipoFormateado($tipo) {
+        return $tipo ?: 'Sin categoría';
     }
 }
+
+$misReservas = new MisReservas();
+$misReservas->inicializar();
+
+$mensaje = $misReservas->getMensaje();
 ?>
 
 <!DOCTYPE html>
@@ -106,7 +193,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar_reserva'])) 
                             <input type="submit" name="cancelar_reserva" value="Cancelar Reserva" >
                         </form>
                     <?php elseif (strtotime($reserva['fecha_inicio']) <= time() && $reserva['estado'] === 'confirmada'): ?>
-                        <p>⏰ Reserva en curso o completada</p>
+                        <p>Reserva en curso o completada</p>
                     <?php endif; ?>
                 </article>
             <?php endforeach; ?>

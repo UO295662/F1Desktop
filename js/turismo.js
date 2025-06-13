@@ -37,23 +37,10 @@ $(document).ready(function() {
 
     mostrarImagen(indice);
 
-    function limpiarTexto(texto) {
-        if (!texto) return 'Descripción no disponible';
-        
-        // Normalizar Unicode y limpiar caracteres problemáticos
-        return texto.normalize('NFC')
-                   .replace(/[\u2026]/g, '...')  // Reemplazar elipsis Unicode
-                   .replace(/[\u201C\u201D]/g, '"')  // Comillas curvas
-                   .replace(/[\u2018\u2019]/g, "'")  // Comillas simples curvas
-                   .replace(/[\u2013\u2014]/g, '-')  // Guiones largos
-                   .replace(/[^\x00-\x7F]/g, '')    // Eliminar caracteres no ASCII
-                   .trim();
-    }
-
     function mostrarNoticia(noticia) {
         const fecha = new Date(noticia.pubDate).toLocaleDateString('es-ES');
-        const titulo = limpiarTexto(noticia.title);
-        const descripcion = limpiarTexto(noticia.description || noticia.content || 'Descripción no disponible');
+        const titulo = noticia.title;
+        const descripcion = noticia.description || noticia.content || 'Descripción no disponible';
         const descripcionCorta = descripcion.length > 150 ? 
                                 descripcion.substring(0, 150) + '...' : 
                                 descripcion;

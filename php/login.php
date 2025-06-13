@@ -1,32 +1,96 @@
 <?php
+// filepath: c:\xampp2\htdocs\F1Desktop\php\login.php
 session_start();
 require_once 'database.php';
 require_once 'usuario.php';
 
-$error = '';
+class Login {
+    private $db;
+    private $error;
+    private $usuario;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    try {
+    public function __construct() {
+        $this->error = '';
         $database = new Database();
-        $db = $database->getConnection();
-        
-        $usuario = new Usuario($db);
-        $usuario->email = $_POST['email'];
-        $usuario->password_hash = $_POST['password'];
-        
-        if ($usuario->login()) {
-            $_SESSION['usuario_id'] = $usuario->id;
-            $_SESSION['usuario_nombre'] = $usuario->nombre . ' ' . $usuario->apellidos;
-            $_SESSION['usuario_email'] = $usuario->email;
-            header('Location: lista.php');
-            exit;
-        } else {
-            $error = "Email o contraseña incorrectos";
+        $this->db = $database->getConnection();
+        $this->usuario = new Usuario($this->db);
+    }
+
+    public function inicializar() {
+        $this->procesarLogin();
+    }
+
+    private function procesarLogin() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            try {
+                $email = $_POST['email'] ?? '';
+                $password = $_POST['password'] ?? '';
+
+                if (empty($email) || empty($password)) {
+                    $this->error = "Todos los campos son obligatorios";
+                    return;
+                }
+
+                $this->usuario->email = $email;
+                $this->usuario->password_hash = $password;
+                
+                if ($this->usuario->login()) {
+                    $this->establecerSesion();
+                    $this->redirigirUsuario();
+                } else {
+                    $this->error = "Email o contraseña incorrectos";
+                }
+            } catch (Exception $e) {
+                $this->error = $e->getMessage();
+            }
         }
-    } catch (Exception $e) {
-        $error = $e->getMessage();
+    }
+
+    private function establecerSesion() {
+        $_SESSION['usuario_id'] = $this->usuario->id;
+        $_SESSION['usuario_nombre'] = $this->usuario->nombre . ' ' . $this->usuario->apellidos;
+        $_SESSION['usuario_email'] = $this->usuario->email;
+    }
+
+    private function redirigirUsuario() {
+        header('Location: lista.php');
+        exit;
+    }
+
+    public function getError() {
+        return $this->error;
+    }
+
+    public function hayError() {
+        return !empty($this->error);
+    }
+
+    public function getEmailAnterior() {
+        return $_POST['email'] ?? '';
+    }
+
+    public static function cerrarSesion() {
+        session_start();
+        session_destroy();
+        header('Location: login.php');
+        exit;
+    }
+
+    public static function verificarSesion() {
+        if (!isset($_SESSION['usuario_id'])) {
+            header('Location: login.php');
+            exit;
+        }
+    }
+
+    public static function estaLogueado() {
+        return isset($_SESSION['usuario_id']);
     }
 }
+
+// Instanciar y ejecutar la clase
+$login = new Login();
+$login->inicializar();
 ?>
 
 <!DOCTYPE html>
@@ -54,20 +118,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <main>
     <h2>Iniciar Sesión</h2>
     
-    <?php if ($error): ?>
-        <p><?= htmlspecialchars($error) ?></p>
+    <?php if ($login->hayError()): ?>
+        <p><strong>Error:</strong> <?= htmlspecialchars($login->getError()) ?></p>
     <?php endif; ?>
     
     <form method="POST" action="login.php">
         <fieldset>
             <legend>Acceso al Sistema</legend>
             
-            <label>Email:</label>
-            <input type="email" name="email" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" 
+                   value="<?= htmlspecialchars($login->getEmailAnterior()) ?>" 
+                   required placeholder="tu@email.com">
             
-            <label>Contraseña:</label>
-            <input type="password" name="password" required>
-            
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" 
+                   required placeholder="Tu contraseña">
+
             <input type="submit" value="Iniciar Sesión">
         </fieldset>
     </form>
