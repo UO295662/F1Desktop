@@ -46,9 +46,9 @@
                             15/06/2025 10:00 - 
                             11:30                            (2 plazas disponibles)
                                                     </option>
-                                            <option value="2">
+                                            <option value="2" selected="">
                             15/06/2025 16:00 - 
-                            17:30                            (17 plazas disponibles)
+                            17:30                            (16 plazas disponibles)
                                                     </option>
                                             <option value="3">
                             16/06/2025 10:00 - 
@@ -57,12 +57,18 @@
                                     </select>
                 
                 <label for="numero_personas">Número de personas:</label>
-                <input type="number" id="numero_personas" name="numero_personas" min="1" max="25" value="1" required="" onchange="this.form.submit()">
+                <input type="number" id="numero_personas" name="numero_personas" min="1" max="16" value="1" required="" onchange="this.form.submit()">
                 
-                <p><strong>Precio total: €0.00</strong></p>
+                <p><strong>Precio total: €8.50</strong></p>
             </fieldset>
         </form>
         
+                    <form method="POST" action="">
+                <input type="hidden" name="horario_id" value="2">
+                <input type="hidden" name="numero_personas" value="1">
+                <input type="hidden" name="confirmar_reserva" value="confirmar">
+                <input type="submit" value="Confirmar Reserva">
+            </form>
                 
     <p><a href="lista.php">← Volver al catálogo de recursos</a></p>
 </main>
