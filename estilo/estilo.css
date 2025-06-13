@@ -404,7 +404,7 @@ aside:first-of-type section { /* Especificidad: 0,1,2 */
     width: 100%;
 }
 
-aside:first-of_type img { /* Especificidad: 0,1,2 */
+aside:first_of_type img { /* Especificidad: 0,1,2 */
     width: 6rem;
     height: 6rem;
     margin: 1rem auto;
@@ -1137,7 +1137,6 @@ main section:last-of-type article section button { /* Especificidad: 0,1,5 */
     position: static;
     width: auto;
     height: auto;
-    display: inline-block;
 }
 
 main section:last-of-type article section button:hover { /* Especificidad: 0,2,5 */
@@ -1154,4 +1153,59 @@ main section:last-of-type article section:last-of-type { /* Especificidad: 0,2,4
     background: none;
     border: none;
     border-radius: 0;
+}
+
+main section select{ /* Especificidad: 0,0,3 */
+    width: 100%;
+    padding: 0.8rem;
+    border: 0.125rem solid #ddd;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+    font-family: inherit;
+    background: #fff; /* Color de fondo - texto heredado de body (#2c2c2c) */
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Añadir al archivo estilo.css */
+
+/* Encabezados de tabla con contraste AAA */
+main table th { /* Especificidad: 0,0,3 */
+    background: #2c2c2c; /* Color de fondo - texto blanco definido abajo */
+    color: #ffffff; /* Color de texto sobre fondo #2c2c2c - ratio 15.26:1 */
+    padding: 1rem;
+    text-align: left;
+    font-weight: bold;
+    border: 0.125rem solid #5a1f1f;
+    font-size: 1.1rem;
+}
+
+/* Celdas del cuerpo de la tabla */
+main table td { /* Especificidad: 0,0,3 */
+    background: #ffffff; /* Color de fondo - texto heredado de body (#2c2c2c) */
+    color: #2c2c2c; /* Color de texto sobre fondo blanco - ratio 12.63:1 */
+    padding: 1rem;
+    border: 0.125rem solid #e9ecef;
+    font-size: 1rem;
+}
+
+/* Tabla general */
+main table { /* Especificidad: 0,0,2 */
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: #ffffff; /* Color de fondo base */
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.1);
+}
+
+/* Filas alternadas para mejor legibilidad */
+main table tbody tr:nth-child(even) { /* Especificidad: 0,1,4 */
+    background: #f8f9fa; /* Color de fondo - texto heredado (#2c2c2c) */
+}
+
+main table tbody tr:hover { /* Especificidad: 0,1,4 */
+    background: #e9ecef; /* Color de fondo - texto heredado (#2c2c2c) */
+    transition: background-color 0.3s ease;
 }

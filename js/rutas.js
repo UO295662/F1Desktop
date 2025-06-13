@@ -80,19 +80,7 @@ MapHandler.prototype.mostrarMapa = function() {
 
 MapHandler.prototype.initMap = function() {
     // Crear elemento popup
-    const popupElement = document.createElement('div');
-    popupElement.innerHTML = `
-        <div>
-            <div>
-                <h6>Información</h6>
-                <a href="#">&times;</a>
-            </div>
-            <div>
-                <h6>Punto</h6>
-                <p>Información del punto</p>
-            </div>
-        </div>
-    `;
+    const popupElement = document.createElement('section');
 
     this.popup = new ol.Overlay({
         element: popupElement,
@@ -125,19 +113,12 @@ MapHandler.prototype.initMap = function() {
         ]
     });
 
-    // Configurar el cierre del popup
-    const closeButton = popupElement.querySelector('a');
-    closeButton.onclick = (e) => {
-        e.preventDefault();
-        this.popup.setPosition(undefined);
-        return false;
-    };
 
     // Manejar clicks en el mapa
     this.map.on('singleclick', (evt) => {
         const feature = this.map.forEachFeatureAtPixel(evt.pixel, f => f);
         if (feature) {
-            const content = popupElement.querySelector('div > div:last-child');
+            const content = popupElement.querySelector('section > div:last-child');
             const name = feature.get('name') || 'Punto';
             const description = feature.get('description') || 'Sin descripción';
 

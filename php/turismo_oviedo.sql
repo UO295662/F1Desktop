@@ -16,7 +16,6 @@ CREATE TABLE usuarios (
     nombre VARCHAR(100) NOT NULL,
     apellidos VARCHAR(150) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE,
-    telefono VARCHAR(20),
     password_hash VARCHAR(255) NOT NULL,
     activo BOOLEAN DEFAULT TRUE
 );

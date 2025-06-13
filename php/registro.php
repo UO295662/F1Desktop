@@ -1,5 +1,4 @@
 <?php
-// filepath: c:\xampp\htdocs\F1Desktop\php\registro.php
 session_start();
 require_once 'database.php';
 require_once 'usuario.php';
@@ -16,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $usuario->nombre = $_POST['nombre'];
         $usuario->apellidos = $_POST['apellidos'];
         $usuario->email = $_POST['email'];
-        $usuario->telefono = $_POST['telefono'] ?? '';
         $usuario->password_hash = $_POST['password'];
         
         if ($usuario->emailExiste()) {
@@ -83,9 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                    value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>">
             
             <label>Teléfono (opcional):</label>
-            <input type="tel" name="telefono"
-                   value="<?= isset($_POST['telefono']) ? htmlspecialchars($_POST['telefono']) : '' ?>">
-            
+           
             <label>Contraseña:</label>
             <input type="password" name="password" required>
             

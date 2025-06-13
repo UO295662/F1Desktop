@@ -2,114 +2,114 @@ class TestConocimientos {
     constructor() {
         this.preguntas = [
             {
-                pregunta: "¿Cuál es uno de los monumentos prerrománicos más importantes de Oviedo?",
+                pregunta: "¿Qué tipos de recursos turísticos maneja la aplicación?",
                 opciones: [
-                    "Santa María del Naranco",
-                    "Catedral de Santiago",
-                    "Palacio de Valdecarzana",
-                    "Teatro Campoamor",
-                    "Universidad de Oviedo"
-                ],
-                respuestaCorrecta: 0
-            },
-            {
-                pregunta: "¿Cómo se conoce también a la iglesia de San Julián de los Prados?",
-                opciones: [
-                    "Santa María",
-                    "San Miguel",
-                    "Santullano",
-                    "San Pedro",
-                    "San Salvador"
+                    "Solo museos",
+                    "Solo restaurantes",
+                    "Museos, rutas, restaurantes, hoteles, monumentos y parques",
+                    "Solo actividades al aire libre",
+                    "Solo alojamientos"
                 ],
                 respuestaCorrecta: 2
             },
             {
-                pregunta: "¿Qué monumento histórico único se encuentra en Oviedo relacionado con el agua?",
+                pregunta: "¿Qué información meteorológica puedes consultar en la aplicación?",
                 opciones: [
-                    "Fuente de Foncalada",
-                    "La Foncalada",
-                    "Fuente del Naranco",
-                    "Fuente de la Catedral",
-                    "Fuente de Santullano"
+                    "Solo la temperatura actual",
+                    "Solo si llueve o no",
+                    "Previsión de 7 días, y tiempo actual",
+                    "Solo la humedad",
+                    "Solo alertas meteorológicas"
                 ],
-                respuestaCorrecta: 1
+                respuestaCorrecta: 2
             },
             {
-                pregunta: "¿Cuál es el plato más representativo de la gastronomía asturiana mencionado en el sitio?",
+                pregunta: "¿Qué formato de archivo necesitas para cargar rutas en el sistema?",
                 opciones: [
-                    "Paella",
-                    "Cocido",
+                    "Archivos PDF",
+                    "Archivos de imagen JPG",
+                    "Archivos XML con datos de rutas",
+                    "Archivos de texto TXT",
+                    "Archivos de video MP4"
+                ],
+                respuestaCorrecta: 2
+            },
+            {
+                pregunta: "¿Cuál es el plato más típico de la gastronomía asturiana que encontrarías en los restaurantes de la aplicación?",
+                opciones: [
+                    "Paella valenciana",
                     "Fabada asturiana",
-                    "Gazpacho",
-                    "Tortilla española"
-                ],
-                respuestaCorrecta: 2
-            },
-            {
-                pregunta: "¿Qué dulce típico asturiano aparece en la información gastronómica?",
-                opciones: [
-                    "Turrón",
-                    "Carbayones",
-                    "Polvorones",
-                    "Mantecadas",
-                    "Rosquillas"
+                    "Gazpacho andaluz",
+                    "Cocido madrileño",
+                    "Pulpo a la gallega"
                 ],
                 respuestaCorrecta: 1
             },
             {
-                pregunta: "¿Qué bebida tradicional asturiana se menciona en el contenido del sitio?",
+                pregunta: "¿Qué información incluye cada ruta cargada en el sistema?",
                 opciones: [
-                    "Vino tinto",
-                    "Cerveza",
-                    "Sidra",
+                    "Solo el nombre de la ruta",
+                    "Solo la distancia total",
+                    "Planimetría, altimetría, coordenadas y puntos de interés",
+                    "Solo las fotografías",
+                    "Solo la dificultad"
+                ],
+                respuestaCorrecta: 2
+            },
+            {
+                pregunta: "¿Cuándo puedes cancelar una reserva en el sistema?",
+                opciones: [
+                    "Siempre, sin restricciones",
+                    "Solo antes de la fecha de inicio y si no está cancelada",
+                    "Solo el mismo día",
+                    "Nunca se puede cancelar",
+                    "Solo si pagas una penalización"
+                ],
+                respuestaCorrecta: 1
+            },
+            {
+                pregunta: "¿Qué datos meteoro​lógicos son más importantes para planificar una ruta de senderismo?",
+                opciones: [
+                    "Solo la temperatura",
+                    "Temperatura, viento y probabilidad de lluvia",
+                    "Solo la humedad",
+                    "Solo la presión atmosférica",
+                    "Solo las horas de sol"
+                ],
+                respuestaCorrecta: 1
+            },
+            {
+                pregunta: "¿Qué tipos de recursos turísticos maneja la aplicación?",
+                opciones: [
+                    "Solo museos",
+                    "Solo restaurantes",
+                    "Museos, rutas, restaurantes, hoteles, monumentos y parques",
+                    "Solo actividades al aire libre",
+                    "Solo alojamientos"
+                ],
+                respuestaCorrecta: 2
+            },
+            {
+                pregunta: "¿Cómo puedes visualizar las rutas en el mapa de la aplicación?",
+                opciones: [
+                    "Solo como puntos individuales",
+                    "Como líneas de colores sobre el mapa interactivo",
+                    "Solo como fotografías",
+                    "Como texto descriptivo únicamente",
+                    "No se pueden visualizar en el mapa"
+                ],
+                respuestaCorrecta: 1
+            },
+            {
+                pregunta: "¿Qué bebida tradicional asturiana es más probable encontrar en los establecimientos gastronómicos de la aplicación?",
+                opciones: [
                     "Sangría",
-                    "Horchata"
+                    "Tinto de verano",
+                    "Sidra asturiana",
+                    "Cerveza alemana",
+                    "Vino de Rioja"
                 ],
                 respuestaCorrecta: 2
-            },
-            {
-                pregunta: "¿Qué tipo de arquitectura caracteriza los monumentos más destacados de Oviedo?",
-                opciones: [
-                    "Gótica",
-                    "Barroca",
-                    "Prerrománica asturiana",
-                    "Renacentista",
-                    "Modernista"
-                ],
-                respuestaCorrecta: 2
-            },
-            {
-                pregunta: "¿En qué zona geográfica se sitúa Oviedo según la información del sitio?",
-                opciones: [
-                    "Galicia",
-                    "Cantabria",
-                    "Asturias",
-                    "León",
-                    "Castilla"
-                ],
-                respuestaCorrecta: 2
-            },
-            {
-                pregunta: "¿Qué información meteorológica puedes consultar en el sitio?",
-                opciones: [
-                    "Solo temperatura actual",
-                    "Pronóstico para los próximos días",
-                    "Solo humedad",
-                    "Solo viento",
-                    "Solo precipitaciones"
-                ],
-                respuestaCorrecta: 1
-            },
-            {
-                pregunta: "¿Cuál es el tema principal del sitio web sobre Oviedo?",
-                opciones: [
-                    "Historia medieval",
-                    "Turismo y patrimonio cultural",
-                    "Gastronomía exclusivamente",
-                    "Deportes locales",
-                    "Comercio y negocios"
-                ],
-                respuestaCorrecta: 1
             }
         ];
         

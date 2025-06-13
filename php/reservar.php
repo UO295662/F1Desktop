@@ -42,7 +42,7 @@ if (!$recurso_data) {
     exit;
 }
 
-// Obtener horarios reales de la base de datos
+// Obtener horarios de la base de datos
 $horarios_obj = new HorarioRecurso($db);
 $horarios_obj->recurso_id = $recursoId;
 $horarios_stmt = $horarios_obj->leerPorRecurso();

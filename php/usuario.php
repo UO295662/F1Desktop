@@ -9,7 +9,6 @@ class Usuario {
     public $nombre;
     public $apellidos;
     public $email;
-    public $telefono;
     public $password_hash;
     public $activo;
 
@@ -19,21 +18,18 @@ class Usuario {
 
     public function crear() {
         $query = "INSERT INTO " . $this->table_name . "
-                SET nombre=:nombre, apellidos=:apellidos, email=:email, 
-                    telefono=:telefono, password_hash=:password_hash, activo=1";
+                SET nombre=:nombre, apellidos=:apellidos, email=:email, password_hash=:password_hash, activo=1";
         
         $stmt = $this->conn->prepare($query);
         
         $this->nombre = htmlspecialchars(strip_tags($this->nombre));
         $this->apellidos = htmlspecialchars(strip_tags($this->apellidos));
         $this->email = htmlspecialchars(strip_tags($this->email));
-        $this->telefono = htmlspecialchars(strip_tags($this->telefono));
         $this->password_hash = password_hash($this->password_hash, PASSWORD_DEFAULT);
         
         $stmt->bindParam(":nombre", $this->nombre);
         $stmt->bindParam(":apellidos", $this->apellidos);
         $stmt->bindParam(":email", $this->email);
-        $stmt->bindParam(":telefono", $this->telefono);
         $stmt->bindParam(":password_hash", $this->password_hash);
         
         if($stmt->execute()) {
@@ -43,7 +39,7 @@ class Usuario {
     }
 
     public function login() {
-        $query = "SELECT id, nombre, apellidos, email, telefono, password_hash, activo
+        $query = "SELECT id, nombre, apellidos, email, password_hash, activo
                 FROM " . $this->table_name . "
                 WHERE email = ? AND activo = 1
                 LIMIT 0,1";
@@ -58,7 +54,6 @@ class Usuario {
             $this->id = $row['id'];
             $this->nombre = $row['nombre'];
             $this->apellidos = $row['apellidos'];
-            $this->telefono = $row['telefono'];
             $this->activo = $row['activo'];
             return true;
         }

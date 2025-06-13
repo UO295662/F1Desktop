@@ -1,0 +1,35 @@
+;;;;TAREA: JUGAR AL JUEGO DESARROLLADO;;;;;;;TAREA: EL USUARIO DEBE ENCONTRAR INFORMACIÓN SOBRE EL TIEMPO DE DURACIÓN DE LA RUTA TURÍSTICA DE SU INTERÉS;;;;;;;TAREA: HACER UNA RESERVA DE ACTIVIDADES TURÍSTICAS DURANTE UNA SEMANA Y OBTENER EL PRESUPUESTO;;;;;;
+Tanda;Edad;Género;Pericia informática;Tiempo ordenador(s);Tiempo tablet(s);Tiempo móvil(s);Progreso;Comentarios;Propuestas;Valoración;Tiempo ordenador(s);Tiempo tablet(s);Tiempo móvil;Progreso;Comentarios;Propuestas;Valoración;Tiempo ordenador(s);Tiempo tablet(s);Tiempo móvil;Progreso;Comentarios;Propuestas;Valoración
+1;55;Femenino;3;90;101;97;Finalizado;No se ve bien todas las opciones;Mejorar como se ven;6;40;35;36;Finalizado;Hay un botón de cargar xml que no es muy usable;Eliminar ese botón y que se cargue directamente;4;93;78;71;Finalizado;No se intuye bien que hay que registrarse;Hacer más visibles las letras de registrarse e iniciar sesión;4
+1;60;Masculino;5;102;107;99;Finalizado;Visualización complicada de las respuestas;Aumentar la distancia entre respuestas;7;49;62;59;Finalizado;El boton es poco accesible, y el mapa se podría mejorar;Quitar el botón y mejorar el mapa;7;125;85;79;Finalizado;Hay confusión a la hora de iniciar sesión y registrarse;Hacer más visible el orden de registrarse e iniciar sesión;7
+1;20;Masculino;9;81;94;83;Finalizado;Mejorar el css para que sea más agradable visualmente;Cambiar colores y posición de las respuestas y botones;7;37;51;45;Finalizado;El elegir ruta se podría mejorar el diseño;Mejorar el diseño de elegir ruta;7;95;61;67;Finalizado;Hay pocos horarios que elegir, añadir más ;Añadir más horarios para poder elegir;7
+1;21;Femenino;6;79;73;61;Finalizado;Las preguntas podrían ser mejores;Cambiar las preguntas;6;47;53;43;Finalizado;Imágenes muy grandes;Hacer más pequeñass las imágenes;6;100;73;66;Finalizado;No ve necesidad de preguntar el teléfono;Eliminar el teléfono;6
+2;45;Masculino;7;68;72;65;Finalizado;Mejora notable en el espaciado de respuestas;Tal vez reducir un poco más el tamaño de texto;8;32;28;31;Finalizado;El texto de las imágenes está muy grande;Hacer más pequeño la leyenda de las imágenes;8;75;58;52;Finalizado;Se ve raro los recursos turísticos;Mejorar los recursos turísticos;8
+2;33;Femenino;8;71;68;59;Finalizado;Preguntas interesante y buena interfaz;Ninguna, esta bien así;9;29;33;27;Finalizado;Que el mapa se vea directamente;Eliminar el botón de ver mapa;9;68;49;44;Finalizado;Bien;Ninguna;9
+2;28;Masculino;6;82;79;74;Finalizado;Colores más atractivos;Poner colores más atractivos;7;35;31;29;Finalizado;Perfil altimétrico se ve raro;Mejorar el perfil altimétrico;8;77;55;48;Finalizado;Recursos mejorables;Mejorar la presentación de los recursos turísticos;8
+2;52;Femenino;4;95;89;91;Finalizado;Los botones son un poco pequeños pero bien;Quizás hacer los botones un poco más grandes;7,5;41;38;42;Finalizado;Mejorar como se ve;Mejorar la interfaz de la página;7;89;71;68;Finalizado;No se ve bien el precio total ;Tal vez mostrar precio total más prominente;6
+3;39;Masculino;9;65;61;57;Finalizado;Interfaz muy mejorada respecto a versiones anteriores;Ninguna;9;25;22;24;Finalizado;Bien;Ninguna;10;58;41;38;Finalizado;Le gusta como se ve;Ninguna;9
+3;47;Femenino;5;73;69;66;Finalizado;Buena experiencia de juego;Ninguna;9,5;31;28;32;Finalizado;Fácil encontrar información de rutas;Ninguna;9;64;47;45;Finalizado;Está bien;Ninguna;10
+3;64;Masculino;3;88;94;89;Finalizado;Fácil de usar;Ninguna;10;38;41;39;Finalizado;Información clara y accesible;Ninguna;10;82;69;71;Finalizado;Hace la reserva sin problemas;Ninguna;9
+3;26;Femenino;10;58;55;51;Finalizado;Excelente usabilidad;Ninguna;10;21;19;22;Finalizado;Muy intuitivo;Ninguna;10;52;36;33;Finalizado;Proceso fácil;Ninguna;10
+;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;TANDA 1- JUEGO;;;;TANDA 1- RUTA;;;;;;;TANDA 1- RESERVA;;;;;;;;;
+;;;;Valoración;6,5;;;Valoración;6;;;;;;Valoración;6;;;;;;;;
+;;;;Tiempo ordenador(s);88;;;Tiempo ordenador(s);41;;;;;;Tiempo ordenador(s);97,6;;;;;;;;
+;;;;Tiempo tablet(s);93,75;;;Tiempo tablet(s);50,25;;;;;;Tiempo tablet(s);74,25;;;;;;;;
+;;;;Tiempo móvil(s);85;;;Tiempo móvil(s);45,75;;;;;;Tiempo móvil(s);70,75;;;;;;;;
+;;;;TANDA 2-JUEGO;;;;TANDA 2-RUTA;;;;;;;TANDA 2-RESERVA;;;;;;;;;
+;;;;Valoración;7,875;;;Valoración;8;;;;;;Valoración;7,75;;;;;;;;
+;;;;Tiempo ordenador(s);79;;;Tiempo ordenador(s);34,25;;;;;;Tiempo ordenador(s);77,25;;;;;;;;
+;;;;Tiempo tablet(s);77;;;Tiempo tablet(s);32,5;;;;;;Tiempo tablet(s);58,25;;;;;;;;
+;;;;Tiempo móvil(s);72,25;;;Tiempo móvil(s);30,5;;;;;;Tiempo móvil(s);49,5;;;;;;;;
+;;;;TANDA 2-JUEGO;;;;TANDA 2-RUTA;;;;;;;TANDA 2-RESERVA;;;;;;;;;
+;;;;Valoración;9,625;;;Valoración;9,75;;;;;;Valoración;9,5;;;;;;;;
+;;;;Tiempo ordenador(s);71;;;Tiempo ordenador(s);28,75;;;;;;Tiempo ordenador(s);64;;;;;;;;
+;;;;Tiempo tablet(s);69,75;;;Tiempo tablet(s);27,5;;;;;;Tiempo tablet(s);48,25;;;;;;;;
+;;;;Tiempo móvil(s);65,75;;;Tiempo móvil(s);29,25;;;;;;Tiempo móvil(s);46,75;;;;;;;;

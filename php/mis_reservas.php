@@ -28,7 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar_reserva'])) 
         
         if ($reserva_cancelar->cancelar()) {
             $mensaje = "Reserva cancelada correctamente.";
-            // Recargar las reservas
             $reservas->usuario_id = $_SESSION['usuario_id'];
             $misReservas = $reservas->leerPorUsuario();
         } else {

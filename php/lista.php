@@ -5,7 +5,6 @@ require_once 'recurso.php';
 
 $database = new Database();
 $db = $database->getConnection();
-
 $recursos = new RecursoTuristico($db);
 $listaRecursos = $recursos->leerTodos();
 ?>

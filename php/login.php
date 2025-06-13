@@ -1,5 +1,4 @@
 <?php
-// filepath: c:\xampp\htdocs\F1Desktop\php\login.php
 session_start();
 require_once 'database.php';
 require_once 'usuario.php';

@@ -19,14 +19,12 @@ class Reserva {
     }
 
     public function crear() {
-        // NO incluir 'id' en el INSERT - MySQL lo generará automáticamente
         $query = "INSERT INTO " . $this->table_name . " 
                   (usuario_id, recurso_id, horario_id, numero_personas, precio_total, estado) 
                   VALUES (?, ?, ?, ?, ?, 'confirmada')";
         
         $stmt = $this->conn->prepare($query);
         
-        // Ejecutar con array de valores (sin incluir id)
         if($stmt->execute([
             $this->usuario_id,
             $this->recurso_id,
@@ -34,7 +32,6 @@ class Reserva {
             $this->numero_personas,
             $this->precio_total
         ])) {
-            // Obtener el ID que MySQL generó automáticamente
             $this->id = $this->conn->lastInsertId();
             return true;
         }
