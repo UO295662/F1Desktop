@@ -141,8 +141,8 @@ class TestConocimientos {
                         <legend>Selecciona tu respuesta:</legend>
                         ${pregunta.opciones.map((opcion, index) => `
                             <p>
-                                <input type="radio" name="respuesta" value="${index}">
-                                <label>${opcion}</label>
+                                <input type="radio" id="respuesta" value="${index}">
+                                <label for="respuesta">${opcion}</label>
                             </p>
                         `).join('')}
                     </fieldset>
