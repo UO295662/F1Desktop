@@ -1,5 +1,4 @@
 <?php
-// filepath: c:\xampp2\htdocs\F1Desktop\php\reservar.php
 session_start();
 require_once 'database.php';
 require_once 'recurso.php';
@@ -221,7 +220,7 @@ $reservar->inicializar();
         <a href="logout.php">Cerrar Sesión (<?= htmlspecialchars($_SESSION['usuario_nombre']) ?>)</a>
     </nav>
 </header>
-
+<p>Estás en: <a href="../index.html">Inicio</a> >> <a href="login.php">Iniciar Sesión</a> >> <a href="lista.php">Recursos Turísticos</a> >> Reservar</p>
 <main>
     <h2>Reservar: <?= htmlspecialchars($reservar->getRecursoData()['nombre']) ?></h2>
     

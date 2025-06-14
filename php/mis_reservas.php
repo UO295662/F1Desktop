@@ -118,6 +118,16 @@ class MisReservas {
     public function obtenerTipoFormateado($tipo) {
         return $tipo ?: 'Sin categoría';
     }
+
+    public function calcularPrecioTotal() {
+        $total = 0;
+        foreach ($this->reservas_array as $reserva) {
+            if ($reserva['estado'] !== 'cancelada') {
+                $total += $reserva['precio_total'];
+            }
+        }
+        return $total;
+    }
 }
 
 $misReservas = new MisReservas();
@@ -144,12 +154,13 @@ $mensaje = $misReservas->getMensaje();
     <h1><a href="../index.html">Oviedo</a></h1>
     <nav>
         <a href="../index.html">Inicio</a>
-        <a href="lista.php">Viajes</a>
-        <a href="mis_reservas.php">Mis Reservas</a>
+        <a href="lista.php">Recursos Turísticos</a>
+        <a href="mis_reservas.php" class="active">Mis Reservas</a>
         <a href="logout.php">Cerrar Sesión (<?= htmlspecialchars($_SESSION['usuario_nombre']) ?>)</a>
     </nav>
 </header>
 
+<p>Estás en: <a href="../index.html">Inicio</a> >> <a href="login.php">Iniciar Sesión</a> >> Mis Reservas</p>
 <main>
     <h2>Mis Reservas</h2>
     
@@ -165,6 +176,7 @@ $mensaje = $misReservas->getMensaje();
             <p><a href="lista.php">Ver recursos disponibles para reservar →</a></p>
         </section>
     <?php else: ?>
+        <h3>Precio total de reservas activas: €<?= number_format($misReservas->calcularPrecioTotal(), 2) ?></h3>
         <section>
             <h3>Listado de Reservas</h3>
             <?php foreach ($reservas_array as $reserva): ?>

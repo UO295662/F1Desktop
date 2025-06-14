@@ -1,5 +1,4 @@
 <?php
-// filepath: c:\xampp2\htdocs\F1Desktop\php\login.php
 session_start();
 require_once 'database.php';
 require_once 'usuario.php';
@@ -111,10 +110,11 @@ $login->inicializar();
     <h1><a href="../index.html">Oviedo</a></h1>
     <nav>
         <a href="../index.html">Inicio</a>
+        <a href="login.php" class="active">Iniciar Sesión</a>
         <a href="registro.php">Registro</a>
     </nav>
 </header>
-
+<p>Estás en: <a href="../index.html">Inicio</a> >> Iniciar Sesión</p>
 <main>
     <h2>Iniciar Sesión</h2>
     

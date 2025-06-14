@@ -14,13 +14,13 @@ body { /* Especificidad: 0,0,1 */
 /* Estilos de los enlaces externos */
 a[href^="http://"], a[href^="https://"] { /* Especificidad: 0,1,1 */
   text-decoration: underline;
-  color: #5a1f1f; /* Color de texto - fondo heredado de body (#fef6e4) */
+  color: #5a1f1f; /* Color de texto - hereda fondo #fef6e4 del body */
   transition: color 0.3s, transform 0.3s, text-decoration 0.3s;
 }
 
 a[href^="http://"]:hover, a[href^="https://"]:hover { /* Especificidad: 0,2,1 */
-  color: #a63d40; /* Color de texto - fondo heredado de body (#fef6e4) */
-  text-decoration: underline;
+  color: #a63d40; /* Color de texto - hereda fondo #fef6e4 del body */
+  text-decoration: underline; /* Color de texto - hereda fondo #fef6e4 del body */
   transform: scale(1.1);
 }
 
@@ -28,7 +28,7 @@ a[href^="http://"]:hover, a[href^="https://"]:hover { /* Especificidad: 0,2,1 */
 ul { /* Especificidad: 0,0,1 */
   list-style-type: square;
   font-size: 1.2rem;
-  color: #6b4226; /* Color de texto - fondo heredado de body (#fef6e4) */
+  color: #6b4226; /* Color de texto - hereda fondo #fef6e4 del body */
   padding-left: 1.5rem;
   margin: 1rem 0;
 }
@@ -86,7 +86,7 @@ th, td { /* Especificidad: 0,0,1 */
 }
 
 th { /* Especificidad: 0,0,1 */
-  background-color: #a63d40; /* Color de fondo - texto blanco definido abajo */
+  background-color: #95373A; /* Color de fondo - hereda texto #2c2c2c del body */
   color: #fff; /* Color de texto sobre fondo #a63d40 */
   font-weight: bold;
   text-transform: uppercase;
@@ -94,7 +94,7 @@ th { /* Especificidad: 0,0,1 */
 }
 
 td { /* Especificidad: 0,0,1 */
-  background-color: #fef6e4; /* Color de fondo - texto heredado de body (#2c2c2c) */
+  background-color: #fef6e4; /* Color de fondo - hereda texto #2c2c2c del body */
 }
 
 /* Estilo para la descripción dd */
@@ -152,7 +152,7 @@ article button { /* Especificidad: 0,0,2 */
   height: 8%;
   border: none;
   border-radius: 50%;
-  color: #fff; /* Color de texto sobre fondo #5a1f1f */
+  color: #fff; /* Color de texto - hereda fondo transparente del elemento padre */
   font-size: 1rem;
   cursor: pointer;
   display: flex;
@@ -162,7 +162,7 @@ article button { /* Especificidad: 0,0,2 */
 }
 
 article button:hover { /* Especificidad: 0,1,2 */
-  background: #a63d40; /* Color de fondo - texto blanco heredado */
+  background: #a63d40; /* Color de fondo - hereda texto #fff del elemento padre */
   transform: scale(1.1);
 }
 
@@ -181,13 +181,13 @@ article img { /* Especificidad: 0,0,2 */
   position: absolute;
   transition: all 0.5s;
   object-fit: contain;
-  background-color: #BFC7D4; /* Color de fondo - no requiere texto */
+  background-color: #BFC7D4; /* Color de fondo - hereda texto #2c2c2c del body */
 }
 
 main section article canvas { /* Especificidad: 0,0,4 */
   width: 400%;
   height: auto; 
-  background-color: #BFC7D4; /* Color de fondo - no requiere texto */
+  background-color: #BFC7D4; /* Color de fondo - hereda texto #2c2c2c del body */
   display: block; 
   margin: 0 auto;
 }
@@ -210,7 +210,7 @@ figure { /* Especificidad: 0,0,1 */
     margin: 1.5rem auto;
     width: 50%;
     max-width: 70vw;
-    background-color: #fff; /* Color de fondo - texto heredado de body (#2c2c2c) */
+    background-color: #fff; /* Color de fondo - hereda texto #2c2c2c del body */
     border-radius: 0.75rem;
     box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.08);
     padding: 1.5rem; /* Redefinición en media query para ajuste responsive */
@@ -235,7 +235,7 @@ figure figcaption { /* Especificidad: 0,0,2 */
     text-align: center;
     margin: 0.75rem 0; /* Redefinición en media query para ajuste responsive */
     font-size: clamp(0.875rem, 1.5vw, 1.25rem);
-    color: #2c2c2c; /* Color de texto - fondo blanco heredado de figure */
+    color: #2c2c2c; /* Color de texto - hereda fondo #fff del figure */
     font-weight: 500;
 }
 
@@ -247,7 +247,7 @@ figure nav { /* Especificidad: 0,0,2 */
 }
 
 figure button { /* Especificidad: 0,0,2 */
-    background: #5a1f1f; /* Color de fondo - texto blanco definido abajo */
+    background: #5a1f1f; /* Color de fondo - hereda texto #2c2c2c del body */
     color: #fff; /* Color de texto sobre fondo #5a1f1f */
     border: none;
     padding: 0.75em 1.5em; /* Redefinición en media query para ajuste responsive */
@@ -260,7 +260,7 @@ figure button { /* Especificidad: 0,0,2 */
 }
 
 figure nav button:hover { /* Especificidad: 0,1,3 */
-    background: rgba(215, 122, 97, 0.9); /* Color de fondo - texto blanco heredado */
+    background: rgba(215, 122, 97, 0.9); /* Color de fondo - hereda texto #fff del elemento padre */
     color: white;
     transform: translateY(-50%) scale(1.1);
     box-shadow: 0 0.4rem 1rem rgba(215, 122, 97, 0.4);
@@ -277,7 +277,7 @@ section nav { /* Especificidad: 0,0,2 */
 
 /* Botones del carrusel */
 section nav button { /* Especificidad: 0,0,3 */
-    background: linear-gradient(145deg, #5a1f1f, #c96a51); /* Color de fondo - texto blanco definido abajo */
+    background: linear-gradient(145deg, #5a1f1f, #c96a51); /* Color de fondo - hereda texto #2c2c2c del body */
     color: #ffffff; /* Color de texto sobre fondo gradient */
     border: 0.125rem solid #a63d40;
     border-radius: 50%;
@@ -298,7 +298,7 @@ section nav button { /* Especificidad: 0,0,3 */
 }
 
 section nav button:hover { /* Especificidad: 0,1,3 */
-    background: linear-gradient(145deg, #a63d40, #8b3439); /* Color de fondo - texto blanco heredado */
+    background: linear-gradient(145deg, #a63d40, #8b3439); /* Color de fondo - hereda texto #ffffff del elemento padre */
     border-color: #8b3439;
     transform: translateY(-0.3rem) scale(1.1);
     box-shadow: 0 0.6rem 1.2rem rgba(166, 61, 64, 0.4);
@@ -318,7 +318,7 @@ article[role="feed"] > article { /* Especificidad: 0,1,2 */
     width: auto;
     height: auto;
     display: block;
-    background-color: #fff; /* Color de fondo - texto definido abajo */
+    background-color: #fff; /* Color de fondo - hereda texto #2c2c2c del body */
     border: 0.2rem solid #5a1f1f;
     border-radius: 1rem;
     margin-bottom: 2rem;
@@ -329,7 +329,7 @@ article[role="feed"] > article { /* Especificidad: 0,1,2 */
 
 article[role="feed"] h3 { /* Especificidad: 0,1,2 */
     font-size: 2rem;
-    color: #2c2c2c; /* Color de texto sobre fondo blanco */
+    color: #2c2c2c; /* Color de texto - hereda fondo #fff del article padre */
     margin-bottom: 1rem;
     line-height: 1.4;
     width: 100%;
@@ -339,7 +339,7 @@ article[role="feed"] p { /* Especificidad: 0,1,2 */
     width: 100%;
     font-size: 1.3rem;
     line-height: 1.6;
-    color: #2c2c2c; /* Color de texto sobre fondo blanco */
+    color: #2c2c2c; /* Color de texto - hereda fondo #fff del article padre */
     margin: 1rem 0;
     white-space: normal;
     overflow: visible;
@@ -348,13 +348,13 @@ article[role="feed"] p { /* Especificidad: 0,1,2 */
 article[role="feed"] time { /* Especificidad: 0,1,2 */
     display: block;
     font-size: 1.1rem;
-    color: #666; /* Color de texto sobre fondo blanco */
+    color: #666; /* Color de texto - hereda fondo #fff del article padre */
     margin: 1rem 0;
 }
 
 article[role="feed"] a { /* Especificidad: 0,1,2 */
     display: inline-block;
-    background-color: #5a1f1f; /* Color de fondo - texto blanco definido abajo */
+    background-color: #5a1f1f; /* Color de fondo - hereda contexto del article padre */
     color: #fff; /* Color de texto sobre fondo #5a1f1f */
     padding: 1rem 2rem;
     border-radius: 0.5rem;
@@ -365,7 +365,7 @@ article[role="feed"] a { /* Especificidad: 0,1,2 */
 }
 
 article[role="feed"] a:hover { /* Especificidad: 0,2,2 */
-    background-color: #a63d40; /* Color de fondo - texto blanco heredado */
+    background-color: #a63d40; /* Color de fondo - hereda texto #fff del elemento padre */
     transform: translateY(-0.2rem);
     box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
 }
@@ -382,7 +382,7 @@ aside { /* Especificidad: 0,0,1 */
 }
 
 aside:first-of-type { /* Especificidad: 0,1,1 */
-    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo - texto heredado de body (#2c2c2c) */
+    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo - hereda texto #2c2c2c del body */
     border-radius: 1rem;
     padding: 2rem;
     box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
@@ -392,7 +392,7 @@ aside:first-of-type { /* Especificidad: 0,1,1 */
 }
 
 aside:first-of-type h3 { /* Especificidad: 0,1,2 */
-    color: #5a1f1f; /* Color de texto - fondo gradient heredado */
+    color: #5a1f1f; /* Color de texto - hereda fondo gradient del aside padre */
     margin-bottom: 2rem;
     align-self: center;
 }
@@ -404,7 +404,7 @@ aside:first-of-type section { /* Especificidad: 0,1,2 */
     width: 100%;
 }
 
-aside:first_of_type img { /* Especificidad: 0,1,2 */
+aside:first-of_type img { /* Especificidad: 0,1,2 */
     width: 6rem;
     height: 6rem;
     margin: 1rem auto;
@@ -440,7 +440,7 @@ aside:last-of-type { /* Especificidad: 0,1,1 */
 }
 
 aside:last-of-type h3 { /* Especificidad: 0,1,2 */
-    color: #5a1f1f; /* Color de texto - fondo heredado de body (#fef6e4) */
+    color: #5a1f1f; /* Color de texto - hereda fondo #fef6e4 del body */
     align-self: center;
     margin-bottom: 2rem;
     font-size: 2rem;
@@ -457,7 +457,7 @@ aside:last-of-type section { /* Especificidad: 0,1,2 */
 }
 
 aside:last-of-type article { /* Especificidad: 0,1,2 */
-    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo - texto definido abajo */
+    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo - hereda texto #2c2c2c del body */
     border-radius: 1rem;
     padding: 1rem;
     width: 100%;
@@ -478,7 +478,7 @@ aside:last-of-type article:hover { /* Especificidad: 0,2,2 */
 
 aside:last-of-type article p { /* Especificidad: 0,1,3 */
     font-size: 1.1rem;
-    color: #2c2c2c; /* Color de texto sobre fondo gradient */
+    color: #2c2c2c; /* Color de texto - hereda fondo gradient del article padre */
     margin-bottom: 1rem;
     font-weight: 500;
     order: 1;
@@ -511,7 +511,7 @@ aside:last-of-type article li { /* Especificidad: 0,1,3 */
     padding: 0.6rem 0;
     border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.1);
     font-size: 0.9rem;
-    color: #666; /* Color de texto sobre fondo gradient */
+    color: #666; /* Color de texto - hereda fondo gradient del article padre */
     background: none;
     border-left: none;
     border-radius: 0;
@@ -525,7 +525,7 @@ aside:last-of-type article li:last-child { /* Especificidad: 0,2,3 */
 
 /* Estilos para el test de conocimientos */
 body main section article:not(aside article) { /* Especificidad: 0,2,4 */
-    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo - texto definido abajo */
+    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo - hereda texto #2c2c2c del body */
     border-radius: 1rem;
     padding: 2rem;
     margin: 2rem auto;
@@ -537,7 +537,7 @@ body main section article:not(aside article) { /* Especificidad: 0,2,4 */
 }
 
 body main section article:not(aside article) h3 { /* Especificidad: 0,2,5 */
-    color: #5a1f1f; /* Color de texto sobre fondo gradient */
+    color: #5a1f1f; /* Color de texto - hereda fondo gradient del article padre */
     text-align: center;
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
@@ -564,14 +564,14 @@ body main section article:not(aside article) fieldset { /* Especificidad: 0,2,5 
     margin: 0;
     display: flex;
     align-items: center;
-    background: #f8f9fa; /* Color de fondo - texto heredado de body (#2c2c2c) */
+    background: #f8f9fa; /* Color de fondo - hereda texto #2c2c2c del body */
     border-radius: 0.5rem;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 body main section article:not(aside article) fieldset:hover { /* Especificidad: 0,2,6 */
-    background: #e9ecef; /* Color de fondo - texto heredado */
+    background: #e9ecef; /* Color de fondo - hereda texto #2c2c2c del body */
     transform: translateX(0.5rem);
 }
 
@@ -588,7 +588,7 @@ body main section article:not(aside article) label { /* Especificidad: 0,2,5 */
 }
 
 body main section article:not(aside article) button[type="submit"] { /* Especificidad: 0,3,6 */
-    background: #5a1f1f; /* Color de fondo - texto blanco definido abajo */
+    background: #5a1f1f; /* Color de fondo - hereda contexto del article padre */
     color: white; /* Color de texto sobre fondo #5a1f1f */
     border: none;
     padding: 1rem 2rem;
@@ -603,19 +603,19 @@ body main section article:not(aside article) button[type="submit"] { /* Especifi
 }
 
 body main section article:not(aside article) button[type="submit"]:hover:not(:disabled) { /* Especificidad: 0,4,7 */
-    background: #a63d40; /* Color de fondo - texto blanco heredado */
+    background: #a63d40; /* Color de fondo - hereda texto white del elemento padre */
     transform: translateY(-0.2rem);
 }
 
 body main section article:not(aside article) button[type="submit"]:disabled { /* Especificidad: 0,3,7 */
-    background: #ccc; /* Color de fondo - texto heredado de body (#2c2c2c) */
+    background: #ccc; /* Color de fondo - hereda texto #2c2c2c del body */
     cursor: not-allowed;
     transform: none;
 }
 
 /* Resultados del test */
-body main aside article {
-    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo - texto definido abajo */
+body main aside article { /* Especificidad: 0,0,4 */
+    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo - hereda texto #2c2c2c del body */
     border-radius: 1rem;
     padding: 3rem;
     margin: 2rem auto;
@@ -633,8 +633,8 @@ body main aside article {
     height: auto;
 }
 
-body main aside article h3 {
-    color: #5a1f1f; /* Color de texto sobre fondo gradient */
+body main aside article h3 { /* Especificidad: 0,0,5 */
+    color: #5a1f1f; /* Color de texto - hereda fondo gradient del article padre */
     margin-bottom: 2rem;
     font-size: 2.5rem;
     font-weight: bold;
@@ -642,10 +642,10 @@ body main aside article h3 {
     order: unset;
 }
 
-body main aside article section {
+body main aside article section { /* Especificidad: 0,0,5 */
     font-size: 1.5rem;
     margin: 2rem 0;
-    color: #2c2c2c; /* Color de texto sobre fondo definido abajo */
+    color: #2c2c2c; /* Color de texto - hereda fondo #f8f9fa definido abajo */
     font-weight: normal;
     padding: 2rem;
     border-radius: 1rem;
@@ -655,54 +655,54 @@ body main aside article section {
     order: unset;
 }
 
-body main aside article section p:first-child {
-    color: #5a1f1f; /* Color de texto sobre fondo #f8f9fa */
+body main aside article section p:first-child { /* Especificidad: 0,1,6 */
+    color: #5a1f1f; /* Color de texto - hereda fondo #f8f9fa del section padre */
     font-size: 3rem;
     font-weight: bold;
     margin: 0 0 1rem 0;
     order: unset;
 }
 
-body main aside article section p:last-child {
-    color: #666; /* Color de texto sobre fondo #f8f9fa */
+body main aside article section p:last-child { /* Especificidad: 0,1,6 */
+    color: #666; /* Color de texto - hereda fondo #f8f9fa del section padre */
     font-size: 1.8rem;
     font-weight: normal;
     margin: 0;
 }
 
-body main aside article > p {
+body main aside article > p { /* Especificidad: 0,0,5 */
     font-size: 1.5rem;
     font-weight: 500;
     margin: 2rem 0;
     padding: 1.5rem;
     border-radius: 1rem;
-    color: #004085; /* Color de texto sobre fondo definido abajo */
+    color: #004085; /* Color de texto - hereda fondo #e7f3ff definido abajo */
     text-align: center;
     border: 0.125rem solid #b3d7ff;
     background: #e7f3ff; /* Color de fondo para texto #004085 */
     order: unset;
 }
 
-body main aside article section:last-of-type {
+body main aside article section:last-of-type { /* Especificidad: 0,1,5 */
     text-align: left;
     margin: 3rem 0;
     padding: 2rem;
     border-radius: 1rem;
     border: 0.0625rem solid #ddd;
-    background: #fff; /* Color de fondo - texto heredado de body (#2c2c2c) */
+    background: #fff; /* Color de fondo - hereda texto #2c2c2c del body */
     display: block;
     order: unset;
 }
 
-body main aside article h4 {
-    color: #5a1f1f; /* Color de texto sobre fondo blanco */
+body main aside article h4 { /* Especificidad: 0,0,5 */
+    color: #5a1f1f; /* Color de texto - hereda fondo #fff del section padre */
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
 }
 
-body main aside article ul {
+body main aside article ul { /* Especificidad: 0,0,5 */
     list-style: none;
     padding: 0;
     margin: 1rem 0;
@@ -712,7 +712,7 @@ body main aside article ul {
     width: auto;
 }
 
-body main aside article li {
+body main aside article li { /* Especificidad: 0,0,5 */
     padding: 1.5rem;
     margin: 1rem 0;
     border-radius: 0.5rem;
@@ -720,20 +720,20 @@ body main aside article li {
     border-bottom: none;
     font-size: 1.1rem;
     line-height: 1.6;
-    background: #f8f9fa; /* Color de fondo - texto heredado de body (#2c2c2c) */
+    background: #f8f9fa; /* Color de fondo - hereda texto #2c2c2c del body */
     order: unset;
 }
 
-body main aside article small {
-    color: #666; /* Color de texto sobre fondo #f8f9fa */
+body main aside article small { /* Especificidad: 0,0,6 */
+    color: #666; /* Color de texto - hereda fondo #f8f9fa del li padre */
     font-size: 1rem;
     line-height: 1.4;
     display: block;
     margin-top: 0.5rem;
 }
 
-body main aside article button {
-    background: #5a1f1f; /* Color de fondo - texto blanco definido abajo */
+body main aside article button { /* Especificidad: 0,0,5 */
+    background: #5a1f1f; /* Color de fondo - hereda contexto del article padre */
     color: white; /* Color de texto sobre fondo #5a1f1f */
     border: none;
     padding: 1.2rem 2.5rem;
@@ -748,29 +748,27 @@ body main aside article button {
     height: auto;
 }
 
-body main aside article button:hover {
-    background: #a63d40; /* Color de fondo - texto blanco heredado */
+body main aside article button:hover { /* Especificidad: 0,1,5 */
+    background: #a63d40; /* Color de fondo - hereda texto white del elemento padre */
     transform: translateY(-0.3rem);
     box-shadow: 0 0.5rem 1rem rgba(166, 61, 64, 0.3);
 }
 
-/* --- CORRECCIÓN FINAL PARA RUTAS: APILADO VERTICAL Y SIN SOLAPAMIENTO --- */
-
-article section {
+article section { /* Especificidad: 0,0,2 */
     display: block;
     width: auto;
     position: static;
     overflow: visible;
 }
 
-main > section > article > section {
+main > section > article > section { /* Especificidad: 0,0,4 */
     display: flex;
     flex-direction: column;
     align-items: stretch;
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 1.5rem;
-    background: #fff; /* Color de fondo - texto heredado de body (#2c2c2c) */
+    background: #fff; /* Color de fondo - hereda texto #2c2c2c del body */
     border-radius: 0.7rem;
     padding: 1rem 1.5rem;
     border-left: 0.25rem solid #a63d40;
@@ -779,7 +777,7 @@ main > section > article > section {
     gap: 0;
 }
 
-main > section > article > section > section {
+main > section > article > section > section { /* Especificidad: 0,0,5 */
     display: block;
     width: 100%;
     box-sizing: border-box;
@@ -789,9 +787,9 @@ main > section > article > section > section {
     border: none;
 }
 
-main > section > article > section > article {
+main > section > article > section > article { /* Especificidad: 0,0,5 */
     display: block;
-    background: #f8f9fa; /* Color de fondo - texto heredado de body (#2c2c2c) */
+    background: #f8f9fa; /* Color de fondo - hereda texto #2c2c2c del body */
     border-radius: 0.7rem;
     margin: 1rem 0;
     padding: 1rem 1.5rem;
@@ -801,52 +799,44 @@ main > section > article > section > article {
     overflow: visible;
 }
 
-main > section > article > section > article > aside {
+main > section > article > section > article > aside { /* Especificidad: 0,0,6 */
     display: block;
     margin: 0.7rem 0 0 0;
     padding: 0.5rem 0;
-    background: #fff; /* Color de fondo - texto heredado de body (#2c2c2c) */
+    background: #fff; /* Color de fondo - hereda texto #2c2c2c del body */
     border-radius: 0.5rem;
     box-sizing: border-box;
     overflow-x: auto;
     white-space: nowrap;
 }
 
-section article {
+section article { /* Especificidad: 0,0,2 */
     display: block;
     width: auto;
     position: static;
     overflow: visible;
 }
 
-section section {
+section section { /* Especificidad: 0,0,2 */
     display: block;
     width: auto;
     position: static;
     overflow: visible;
 }
 
-main > section > article > section {
+main > section > article > section { /* Especificidad: 0,0,4 */
     gap: 0;
 }
 
-@media (max-width: 48em) {
-    main > section > article > section {
-        padding: 0.7rem 0.5rem;
-    }
-    main > section > article > section > article {
-        padding: 0.7rem 0.5rem;
-    }
-}
 
-main > section > article > section > article > aside > figure {
+main > section > article > section > article > aside > figure { /* Especificidad: 0,0,7 */
     width: 7rem;
     height: 7rem;
     max-width: 100%;
     max-height: 100%;
     display: inline-block;
     vertical-align: top;
-    background: #f8f9fa; /* Color de fondo - texto heredado de body (#2c2c2c) */
+    background: #f8f9fa; /* Color de fondo - hereda texto #2c2c2c del body */
     border-radius: 0.3rem;
     border: 1px solid #eee;
     margin: 0.2rem 0.5rem 0.2rem 0;
@@ -857,7 +847,7 @@ main > section > article > section > article > aside > figure {
     position: relative;
 }
 
-main > section > article > section > article > aside > figure > img {
+main > section > article > section > article > aside > figure > img { /* Especificidad: 0,0,8 */
     width: 100%;
     height: 6rem;
     max-width: none;
@@ -866,17 +856,17 @@ main > section > article > section > article > aside > figure > img {
     border-radius: 0.2rem;
     display: block;
     margin: 0;
-    background: #fff; /* Color de fondo - no requiere texto */
+    background: #fff; /* Color de fondo - no requiere texto específico */
     box-sizing: border-box;
     position: static;
 }
 
-main > section > article > section > article > aside > figure > figcaption {
+main > section > article > section > article > aside > figure > figcaption { /* Especificidad: 0,0,8 */
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.7); /* Color de fondo - texto blanco definido abajo */
+    background: rgba(0, 0, 0, 0.7); /* Color de fondo - hereda contraste para legibilidad */
     color: white; /* Color de texto sobre fondo rgba(0, 0, 0, 0.7) */
     font-size: 0.7rem;
     padding: 0.2rem;
@@ -889,7 +879,7 @@ main > section > article > section > article > aside > figure > figcaption {
 }
 
 /* Sobrescribir conflictos específicos sin afectar otros elementos */
-main > section > article > section > article > aside > figure:not(.carrusel-figure) {
+main > section > article > section > article > aside > figure:not(.carrusel-figure) { /* Especificidad: 0,1,7 */
     width: 7rem !important;
     height: 7rem !important;
     margin: 0.2rem 0.5rem 0.2rem 0 !important;
@@ -899,7 +889,7 @@ main > section > article > section > article > aside > figure:not(.carrusel-figu
     border-radius: 0.3rem !important;
 }
 
-main > section > article > section > article > aside > figure:not(.carrusel-figure) img {
+main > section > article > section > article > aside > figure:not(.carrusel-figure) img { /* Especificidad: 0,1,8 */
     width: 100% !important;
     height: 6rem !important;
     aspect-ratio: unset !important;
@@ -909,11 +899,11 @@ main > section > article > section > article > aside > figure:not(.carrusel-figu
     position: static !important;
 }
 
-section[data-map-container="true"] {
+section[data-map-container="true"] { /* Especificidad: 0,1,1 */
     min-height: 25rem; /* Redefinición en media query para ajuste responsive */
     height: 50vh; /* Redefinición en media query para ajuste responsive */
     width: 100%;
-    background: #f8f9fa; /* Color de fondo - texto heredado de body (#2c2c2c) */
+    background: #f8f9fa; /* Color de fondo - hereda texto #2c2c2c del body */
     border: 0.125rem solid #ddd;
     border-radius: 0.5rem;
     margin: 2rem 0; /* Redefinición en media query para ajuste responsive */
@@ -923,28 +913,28 @@ section[data-map-container="true"] {
     display: block;
 }
 
-section[data-map-container="true"][hidden] {
+section[data-map-container="true"][hidden] { /* Especificidad: 0,2,1 */
     display: none;
 }
 
-section[data-map-container="true"]:not([hidden]) {
+section[data-map-container="true"]:not([hidden]) { /* Especificidad: 0,2,1 */
     display: block;
 }
 
-section[data-map-container="true"]:empty::before {
+section[data-map-container="true"]:empty::before { /* Especificidad: 0,2,1 */
     content: "Cargando mapa...";
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-    color: #666; /* Color de texto sobre fondo #f8f9fa */
+    color: #666; /* Color de texto - hereda fondo #f8f9fa del section padre */
     font-size: 1.1rem;
 }
 
-section[data-map-container="true"] h2 {
+section[data-map-container="true"] h2 { /* Especificidad: 0,1,2 */
     margin: 0 0 1rem 0;
     padding: 0.5rem;
-    background: #5a1f1f; /* Color de fondo - texto blanco definido abajo */
+    background: #5a1f1f; /* Color de fondo - hereda contexto del section padre */
     color: #fff; /* Color de texto sobre fondo #5a1f1f */
     border-radius: 0.3rem;
     text-align: center;
@@ -953,7 +943,7 @@ section[data-map-container="true"] h2 {
 main form { /* Especificidad: 0,0,3 */
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* Color de fondo - texto heredado de body (#2c2c2c) */
+    gap: 1rem; /* Color de fondo - hereda texto #2c2c2c del body */
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
@@ -965,11 +955,11 @@ main form { /* Especificidad: 0,0,3 */
 }
 
 main form fieldset { /* Especificidad: 0,0,4 */
-    border: 0.125rem solid #5a1f1f; /* Color de borde - fondo blanco heredado de form */
+    border: 0.125rem solid #5a1f1f; /* Color de borde - hereda fondo blanco del form padre */
     border-radius: 0.5rem;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    background: #fef6e4; /* Color de fondo - texto heredado de body (#2c2c2c) */
+    background: #fef6e4; /* Color de fondo - hereda texto #2c2c2c del body */
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -977,7 +967,7 @@ main form fieldset { /* Especificidad: 0,0,4 */
 }
 
 main form legend { /* Especificidad: 0,0,3 */
-    color: #5a1f1f; /* Color de texto - fondo heredado de fieldset (#fef6e4) */
+    color: #5a1f1f; /* Color de texto - hereda fondo #fef6e4 del fieldset padre */
     font-weight: bold;
     padding: 0 0.5rem;
     font-size: 1.2rem;
@@ -995,7 +985,7 @@ main form label { /* Especificidad: 0,0,3 */
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #2c2c2c; /* Color de texto - fondo heredado según contexto */
+    color: #2c2c2c; /* Color de texto - hereda fondo según contexto del elemento padre */
     cursor: pointer;
     font-size: 1.1rem;
 }
@@ -1007,7 +997,7 @@ main form input { /* Especificidad: 0,0,3 */
     border-radius: 0.4rem;
     font-size: 1rem;
     font-family: inherit;
-    background: #fff; /* Color de fondo - texto heredado de body (#2c2c2c) */
+    background: #fff; /* Color de fondo - hereda texto #2c2c2c del body */
     box-sizing: border-box;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
@@ -1019,7 +1009,7 @@ main form input:focus { /* Especificidad: 0,1,3 */
 }
 
 main form input[type="submit"] { /* Especificidad: 0,1,3 */
-    background: #5a1f1f; /* Color de fondo - texto blanco definido abajo */
+    background: #5a1f1f; /* Color de fondo - hereda contexto del form padre */
     color: #fff; /* Color de texto sobre fondo #5a1f1f */
     padding: 1rem 2rem;
     border: none;
@@ -1034,13 +1024,13 @@ main form input[type="submit"] { /* Especificidad: 0,1,3 */
 }
 
 main form input[type="submit"]:hover { /* Especificidad: 0,2,3 */
-    background: #a63d40; /* Color de fondo - texto blanco heredado */
+    background: #a63d40; /* Color de fondo - hereda texto #fff del elemento padre */
     transform: translateY(-0.2rem);
 }
 main section article form { /* Especificidad: 0,0,4 */
   display: flex;
   flex-direction: column;
-  background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo - texto heredado de body (#2c2c2c) */
+  background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo - hereda texto #2c2c2c del body */
   padding: 1.5rem;
   border-radius: 1rem;
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
@@ -1052,11 +1042,11 @@ main section article form { /* Especificidad: 0,0,4 */
 }
 
 main section article form fieldset { /* Especificidad: 0,0,5 */
-  border: 0.125rem solid #5a1f1f; /* Color de borde - fondo blanco heredado de form */
+  border: 0.125rem solid #5a1f1f; /* Color de borde - hereda fondo gradient del form padre */
   border-radius: 0.5rem;
   padding: 1rem;
   margin-bottom: 0.5rem;
-  background: #fef6e4; /* Color de fondo - texto heredado de body (#2c2c2c) */
+  background: #fef6e4; /* Color de fondo - hereda texto #2c2c2c del body */
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -1162,7 +1152,7 @@ main section select{ /* Especificidad: 0,0,3 */
     border-radius: 0.4rem;
     font-size: 1rem;
     font-family: inherit;
-    background: #fff; /* Color de fondo - texto heredado de body (#2c2c2c) */
+    background: #fff; /* Color de fondo - hereda texto #2c2c2c del body */
     box-sizing: border-box;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
@@ -1171,7 +1161,7 @@ main section select{ /* Especificidad: 0,0,3 */
 
 /* Encabezados de tabla con contraste AAA */
 main table th { /* Especificidad: 0,0,3 */
-    background: #2c2c2c; /* Color de fondo - texto blanco definido abajo */
+    background: #2c2c2c; /* Color de fondo - hereda contexto del table padre */
     color: #ffffff; /* Color de texto sobre fondo #2c2c2c - ratio 15.26:1 */
     padding: 1rem;
     text-align: left;
@@ -1182,7 +1172,7 @@ main table th { /* Especificidad: 0,0,3 */
 
 /* Celdas del cuerpo de la tabla */
 main table td { /* Especificidad: 0,0,3 */
-    background: #ffffff; /* Color de fondo - texto heredado de body (#2c2c2c) */
+    background: #ffffff; /* Color de fondo - hereda contexto del table padre */
     color: #2c2c2c; /* Color de texto sobre fondo blanco - ratio 12.63:1 */
     padding: 1rem;
     border: 0.125rem solid #e9ecef;
@@ -1202,11 +1192,11 @@ main table { /* Especificidad: 0,0,2 */
 
 /* Filas alternadas para mejor legibilidad */
 main table tbody tr:nth-child(even) { /* Especificidad: 0,1,4 */
-    background: #f8f9fa; /* Color de fondo - texto heredado (#2c2c2c) */
+    background: #f8f9fa; /* Color de fondo - hereda texto #2c2c2c del td */
 }
 
 main table tbody tr:hover { /* Especificidad: 0,1,4 */
-    background: #e9ecef; /* Color de fondo - texto heredado (#2c2c2c) */
+    background: #e9ecef; /* Color de fondo - hereda texto #2c2c2c del td */
     transition: background-color 0.3s ease;
 }
 img, video, canvas {

@@ -3,10 +3,33 @@ session_start();
 require_once 'database.php';
 require_once 'recurso.php';
 
-$database = new Database();
-$db = $database->getConnection();
-$recursos = new RecursoTuristico($db);
-$listaRecursos = $recursos->leerTodos();
+class Lista {
+    private $db;
+    private $recursos;
+    private $listaRecursos;
+    
+    public function __construct() {
+        $database = new Database();
+        $this->db = $database->getConnection();
+        $this->recursos = new RecursoTuristico($this->db);
+        $this->listaRecursos = $this->recursos->leerTodos();
+    }
+    
+    public function getListaRecursos() {
+        return $this->listaRecursos;
+    }
+    
+    public function usuarioLogueado() {
+        return isset($_SESSION['usuario_id']);
+    }
+    
+    public function getNombreUsuario() {
+        return $_SESSION['usuario_nombre'] ?? '';
+    }
+}
+
+$lista = new Lista();
+$listaRecursos = $lista->getListaRecursos();
 ?>
 
 <!DOCTYPE HTML>
@@ -27,17 +50,17 @@ $listaRecursos = $recursos->leerTodos();
     <h1><a href="../index.html">Oviedo</a></h1>
     <nav>
         <a href="../index.html">Inicio</a>
-        <a href="lista.php">Recursos Turísticos</a>
-        <?php if (isset($_SESSION['usuario_id'])): ?>
+        <a href="lista.php" class="active">Recursos Turísticos</a>
+        <?php if ($lista->usuarioLogueado()): ?>
             <a href="mis_reservas.php">Mis Reservas</a>
-            <a href="logout.php">Cerrar Sesión (<?= htmlspecialchars($_SESSION['usuario_nombre']) ?>)</a>
+            <a href="logout.php">Cerrar Sesión (<?= htmlspecialchars($lista->getNombreUsuario()) ?>)</a>
         <?php else: ?>
             <a href="login.php">Iniciar Sesión</a>
             <a href="registro.php">Registro</a>
         <?php endif; ?>
     </nav>
 </header>
-
+<p>Estás en: <a href="../index.html">Inicio</a> >> <a href="login.php">Iniciar Sesión</a> >> Recursos Turísticos</p>
 <main>
     <h2>Recursos Turísticos Disponibles</h2>
     
@@ -71,7 +94,7 @@ $listaRecursos = $recursos->leerTodos();
                     <?php endif; ?>
                 </article>
             <?php endforeach; ?>
-        <?php endif; ?>
+        <?php endif; ?>    
     </section>
 </main>
 </body>
