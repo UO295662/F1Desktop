@@ -37,9 +37,19 @@ nav { /* Especificidad: 0,0,1 */
   display: flex;
 }
 
+header h1 a { /* Especificidad: 0,0,3 */
+  text-decoration: none;
+  color: #fff; /* hereda fondo #5a1f1f del header */
+}
+
+header h1 a:hover { /* Especificidad: 0,1,3 */
+  color: #fef6e4; /* Color hover claro - sobre fondo #5a1f1f del header */
+}
+
+/* Navegación del header - estos enlaces SÍ están sobre fondo oscuro */
 nav a { /* Especificidad: 0,0,2 */
   text-decoration: none;
-  color: #fff;
+  color: #fff; /* Color blanco - sobre fondo #5a1f1f */
   background-color: #5a1f1f;
   padding: 0.4rem 1rem;
   border-radius: 0.5rem;
@@ -49,18 +59,30 @@ nav a { /* Especificidad: 0,0,2 */
 }
 
 nav a:hover { /* Especificidad: 0,1,2 */
-  color: #5a1f1f;
+  color: #5a1f1f; /* Color oscuro - sobre fondo claro */
   background-color: #fef6e4;
 }
 
 nav a.active { /* Especificidad: 0,1,2 */
-  color: #fff;
+  color: #fff; /* Color blanco - sobre fondo más oscuro */
   background-color: #2d1b0f;
 }
 
-header h1 a { /* Especificidad: 0,0,3 */
-  text-decoration: none;
-  color: #fff; /* Color de texto - hereda fondo #5a1f1f del header */
+body > p a { /* Especificidad: 0,0,2 */
+    color: #1a0a0a; /* Color muy oscuro para contraste sobre fondo #fef6e4 */
+}
+
+body > p a:hover { /* Especificidad: 0,1,2 */
+    color: #2d1010; /* Color hover oscuro para contraste sobre fondo #fef6e4 */
+}
+
+/* Enlaces en main que están sobre fondo claro */
+main a:not(nav a) { /* Especificidad: 0,1,2 */
+    color: #1a0a0a; /* Color muy oscuro para contraste sobre fondo #fef6e4 */
+}
+
+main a:not(nav a):hover { /* Especificidad: 0,2,2 */
+    color: #2d1010; /* Color hover oscuro para contraste sobre fondo #fef6e4 */
 }
 
 /* Estilos responsivos para SVG */
@@ -242,7 +264,7 @@ svg { /* Especificidad: 0,0,1 */
     min-height: 3.75rem;
   }
   
-  main section:last-of-type aside figure figcaption { /* Especificidad: 0,1,5 */
+  main section:last-of_type aside figure figcaption { /* Especificidad: 0,1,5 */
     font-size: 0.7rem;
     max-height: 2.5rem;
   }
