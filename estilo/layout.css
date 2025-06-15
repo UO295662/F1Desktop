@@ -342,7 +342,4 @@ svg { /* Especificidad: 0,0,1 */
     main > section > article > section { /* Especificidad: 0,0,4 */
         padding: 0.7rem 0.5rem; /* Redefinición duplicada - considerar eliminar una */
     }
-    main > section > article > section > article { /* Especificidad: 0,0,5 */
-        padding: 0.7rem 0.5rem; /* Redefinición duplicada - considerar eliminar una */
-    }
 }

@@ -13,34 +13,51 @@ body { /* Especificidad: 0,0,1 */
 
 /* Enlaces internos */
 a { /* Especificidad: 0,0,1 */
-  color: #3d1313; /* Color de texto más oscuro para mejor contraste - sobre fondo #fef6e4 del body */
+  color: #1a0a0a; /* hereda sobre fondo #fef6e4 del body */
   text-decoration: none;
 }
 
 a:hover { /* Especificidad: 0,1,1 */
-  color: #8b2c2c; /* Color de texto hover más oscuro para mejor contraste - sobre fondo #fef6e4 del body */
+  color: #2d1010; /* hereda fondo #fef6e4 del body */
 }
 
 /* Estilos de los enlaces externos */
 a[href^="http://"], a[href^="https://"] { /* Especificidad: 0,1,1 */
   text-decoration: underline;
-  color: #3d1313; /* Color de texto más oscuro para mejor contraste - sobre fondo #fef6e4 del body */
+  color: #1a0a0a; /* hereda fondo #fef6e4 del body */
   transition: color 0.3s, transform 0.3s, text-decoration 0.3s;
 }
 
 a[href^="http://"]:hover, a[href^="https://"]:hover { /* Especificidad: 0,2,1 */
-  color: #8b2c2c; /* Color de texto hover más oscuro para mejor contraste - sobre fondo #fef6e4 del body */
+  color: #2d1010; /* hereda fondo #fef6e4 del body */
   text-decoration: underline;
   transform: scale(1.1);
 }
 
 /* También actualizar enlaces en encabezados */
 h1 a { /* Especificidad: 0,0,2 */
-  color: #3d1313; /* Color de texto más oscuro para mejor contraste - sobre fondo #fef6e4 del body */
+  color: #1a0a0a; /* hereda fondo #fef6e4 del body */
 }
 
 h1 a:hover { /* Especificidad: 0,1,2 */
-  color: #8b2c2c; /* Color de texto hover más oscuro para mejor contraste - sobre fondo #fef6e4 del body */
+  color: #2d1010; /* hereda fondo #fef6e4 del body */
+}
+
+/* Enlaces en navegación del header también necesitan actualización */
+header nav a { /* Especificidad: 0,0,3 */
+    color: #1a0a0a; 
+}
+
+header nav a:hover { /* Especificidad: 0,1,3 */
+    color: #2d1010; 
+}
+/* Enlaces en breadcrumbs */
+body > p a { /* Especificidad: 0,0,2 */
+    color: #1a0a0a; /* hereda fondo #fef6e4 del body */
+}
+
+body > p a:hover { /* Especificidad: 0,1,2 */
+    color: #2d1010; /* hereda fondo #fef6e4 del body */
 }
 
 /* Estilo de listas (ul, ol) */
@@ -739,7 +756,6 @@ body main aside article button { /* Especificidad: 0,0,5 */
     margin: 1rem 0.5rem;
     transition: all 0.3s ease;
     width: auto;
-    height: auto;
 }
 
 body main aside article button:hover { /* Especificidad: 0,1,5 */
@@ -1112,7 +1128,7 @@ main section:last-of-type article section button:hover { /* Especificidad: 0,2,5
 }
 
 /* Contenedor de botones finales */
-main section:last-of-type article section:last-of-type { /* Especificidad: 0,2,4 */
+main section:last-of_type article section:last-of-type { /* Especificidad: 0,2,4 */
     text-align: center;
     margin-top: 2rem;
     padding: 2rem 1rem;
