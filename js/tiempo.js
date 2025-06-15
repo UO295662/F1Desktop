@@ -1,35 +1,34 @@
 class TiempoHandler {
     constructor() {
         this.weatherIcons = {
-            // Mapeo de códigos OpenMeteo a iconos locales
-            0: 'multimedia/weather/sunny.png',           // Despejado
-            1: 'multimedia/weather/partly-cloudy.png',   // Principalmente despejado
-            2: 'multimedia/weather/partly-cloudy.png',   // Parcialmente nublado
-            3: 'multimedia/weather/cloudy.png',          // Nublado
-            45: 'multimedia/weather/foggy.png',          // Niebla
-            48: 'multimedia/weather/foggy.png',          // Niebla con escarcha
-            51: 'multimedia/weather/drizzle.png',        // Llovizna ligera
-            53: 'multimedia/weather/drizzle.png',        // Llovizna moderada
-            55: 'multimedia/weather/drizzle.png',        // Llovizna densa
-            56: 'multimedia/weather/frost.png',          // Llovizna helada ligera
-            57: 'multimedia/weather/frost.png',          // Llovizna helada densa
-            61: 'multimedia/weather/light-rain.png',     // Lluvia ligera
-            63: 'multimedia/weather/rainy.png',          // Lluvia moderada
-            65: 'multimedia/weather/heavy-rain.png',     // Lluvia intensa
-            66: 'multimedia/weather/frost.png',          // Lluvia helada ligera
-            67: 'multimedia/weather/frost.png',          // Lluvia helada intensa
-            71: 'multimedia/weather/snowy.png',          // Nieve ligera
-            73: 'multimedia/weather/snowy.png',          // Nieve moderada
-            75: 'multimedia/weather/snowy.png',          // Nieve intensa
-            77: 'multimedia/weather/snowy.png',          // Granizo de nieve
-            80: 'multimedia/weather/light-rain.png',     // Chubascos ligeros
-            81: 'multimedia/weather/rainy.png',          // Chubascos moderados
-            82: 'multimedia/weather/heavy-rain.png',     // Chubascos violentos
-            85: 'multimedia/weather/snowy.png',          // Chubascos de nieve ligeros
-            86: 'multimedia/weather/snowy.png',          // Chubascos de nieve intensos
-            95: 'multimedia/weather/thunderstorm.png',   // Tormenta
-            96: 'multimedia/weather/thunderstorm.png',   // Tormenta con granizo ligero
-            99: 'multimedia/weather/thunderstorm.png'    // Tormenta con granizo intenso
+            0: 'multimedia/weather/sunny.png',
+            1: 'multimedia/weather/partly-cloudy.png',   
+            2: 'multimedia/weather/partly-cloudy.png',
+            3: 'multimedia/weather/cloudy.png',        
+            45: 'multimedia/weather/foggy.png',        
+            48: 'multimedia/weather/foggy.png',         
+            51: 'multimedia/weather/drizzle.png',    
+            53: 'multimedia/weather/drizzle.png',        
+            55: 'multimedia/weather/drizzle.png',      
+            56: 'multimedia/weather/frost.png',        
+            57: 'multimedia/weather/frost.png',        
+            61: 'multimedia/weather/light-rain.png',    
+            63: 'multimedia/weather/rainy.png',         
+            65: 'multimedia/weather/heavy-rain.png',    
+            66: 'multimedia/weather/frost.png',        
+            67: 'multimedia/weather/frost.png',          
+            71: 'multimedia/weather/snowy.png',         
+            73: 'multimedia/weather/snowy.png',         
+            75: 'multimedia/weather/snowy.png',       
+            77: 'multimedia/weather/snowy.png',         
+            80: 'multimedia/weather/light-rain.png',    
+            81: 'multimedia/weather/rainy.png',         
+            82: 'multimedia/weather/heavy-rain.png',    
+            85: 'multimedia/weather/snowy.png',        
+            86: 'multimedia/weather/snowy.png',         
+            95: 'multimedia/weather/thunderstorm.png',  
+            96: 'multimedia/weather/thunderstorm.png',   
+            99: 'multimedia/weather/thunderstorm.png'   
         };
     }
 
@@ -54,7 +53,7 @@ class TiempoHandler {
         for (let i = 0; i < data.daily.time.length; i++) {
             const fecha = new Date(data.daily.time[i]);
             const weatherCode = data.daily.weathercode[i];
-            const iconPath = this.weatherIcons[weatherCode] || this.weatherIcons[0]; // Default: sunny
+            const iconPath = this.weatherIcons[weatherCode] || this.weatherIcons[0]; 
             
             html += `
                 <article>
@@ -127,7 +126,6 @@ class TiempoHandler {
     }
 }
 
-// Inicializar cuando se carga la página
 document.addEventListener('DOMContentLoaded', () => {
     const tiempoHandler = new TiempoHandler();
     tiempoHandler.obtenerDatosTiempo();

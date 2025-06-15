@@ -37,10 +37,10 @@ class MisReservas {
     }
 
     private function procesarCancelacion() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar_reserva'])) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar_reserva']) && isset($_GET['reserva_id'])) {
             try {
                 $reserva_cancelar = new Reserva($this->db);
-                $reserva_cancelar->id = $_POST['reserva_id'];
+                $reserva_cancelar->id = $_GET['reserva_id'];
                 $reserva_cancelar->usuario_id = $this->usuario_id;
                 
                 if ($reserva_cancelar->cancelar()) {
@@ -66,7 +66,6 @@ class MisReservas {
         }
     }
 
-    // Método para que funcione con el HTML existente
     public function fetchAll($tipo = PDO::FETCH_ASSOC) {
         return $this->reservas_array;
     }
@@ -192,17 +191,16 @@ $mensaje = $misReservas->getMensaje();
                     <p>Precio total: €<?= number_format($reserva['precio_total'], 2) ?></p>
                     
                     <p>Estado: 
-                       <span>
+                       <p>
                            <?= ucfirst($reserva['estado']) ?>
-                       </span>
+                        </p>
                     </p>
                     <p>Fecha de reserva: <?= date('d/m/Y H:i', strtotime($reserva['fecha_reserva'])) ?></p>
                     
                     <?php if ($reserva['estado'] !== 'cancelada' && strtotime($reserva['fecha_inicio']) > time()): ?>
-                        <form method="POST" 
+                        <form method="POST" action="mis_reservas.php?reserva_id=<?= $reserva['id'] ?>"
                               onsubmit="return confirm('¿Estás seguro de que deseas cancelar esta reserva? Esta acción no se puede deshacer.');">
-                            <input type="hidden" name="reserva_id" value="<?= $reserva['id'] ?>">
-                            <input type="submit" name="cancelar_reserva" value="Cancelar Reserva" >
+                            <input type="submit" name="cancelar_reserva" value="Cancelar Reserva">
                         </form>
                     <?php elseif (strtotime($reserva['fecha_inicio']) <= time() && $reserva['estado'] === 'confirmada'): ?>
                         <p>Reserva en curso o completada</p>

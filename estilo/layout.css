@@ -39,7 +39,7 @@ nav { /* Especificidad: 0,0,1 */
 
 nav a { /* Especificidad: 0,0,2 */
   text-decoration: none;
-  color: #fff; /* Color de texto - hereda fondo #5a1f1f del nav/header */
+  color: #fff;
   background-color: #5a1f1f;
   padding: 0.4rem 1rem;
   border-radius: 0.5rem;
@@ -229,12 +229,7 @@ svg { /* Especificidad: 0,0,1 */
     padding: 1rem;
   }
   
-  section[data-map-container="true"] { /* Especificidad: 0,1,1 */
-    height: 40vh;
-    min-height: 20rem;
-    margin: 1rem 0;
-    padding: 0.5rem;
-  }
+
   
   main section:last-of-type aside figure { /* Especificidad: 0,1,4 */
     max-width: 7.5rem;
@@ -259,26 +254,11 @@ svg { /* Especificidad: 0,0,1 */
     width: auto;
   }
 
-  section[data-map-container="true"] { /* Especificidad: 0,1,1 */
-    height: 60vh; /* Redefinición desde 40vh para mejor aprovechamiento en landscape */
-    min-height: 15rem; /* Redefinición desde 20rem para landscape más compacto */
-  }
+  
 }
 
 @media (max-width: 60rem) {
-  article[role="feed"] { /* Especificidad: 0,1,1 */
-    width: 95%; /* Redefinición para mayor ancho en tablets */
-    padding: 1rem;
-  }
 
-  article[role="feed"] h3 { /* Especificidad: 0,1,2 */
-    font-size: 1.6rem; /* Redefinición para texto más pequeño en tablets */
-  }
-
-  article[role="feed"] p { /* Especificidad: 0,1,2 */
-    font-size: 1.1rem; /* Redefinición para texto más pequeño en tablets */
-  }
-  
   figure { /* Especificidad: 0,0,1 */
     width: 80%; /* Redefinición desde 50% para mayor ancho en tablets */
     max-width: 80vw; /* Redefinición desde 70vw para tablets */
@@ -287,14 +267,7 @@ svg { /* Especificidad: 0,0,1 */
 }
 
 @media (max-width: 40rem) {
-  article[role="feed"] > article { /* Especificidad: 0,1,2 */
-    padding: 1.5rem; /* Redefinición desde 2rem para menos padding en móvil */
-  }
 
-  article[role="feed"] h3 { /* Especificidad: 0,1,2 */
-    font-size: 1.4rem; /* Redefinición desde 1.6rem para móviles */
-  }
-  
   figure { /* Especificidad: 0,0,1 */
     width: 90%; /* Redefinición desde 80% para mayor ancho en móvil */
     max-width: 90vw; /* Redefinición desde 80vw para móviles */
@@ -315,12 +288,7 @@ svg { /* Especificidad: 0,0,1 */
     font-size: 1rem; /* Redefinición para etiquetas legibles en móvil pequeño */
   }
   
-  form input[type="text"],
-  form input[type="email"],
-  form input[type="password"],
-  form input[type="tel"],
-  form input[type="date"],
-  form input[type="number"],
+  form input,
   form textarea,
   form select { /* Especificidad: 0,1,2 */
     font-size: 0.9rem; /* Redefinición para inputs legibles en móvil pequeño */
@@ -335,17 +303,7 @@ svg { /* Especificidad: 0,0,1 */
     width: 100%;
     max-width: 18.75rem;
   }
-  
-  section[data-map-container="true"] { /* Especificidad: 0,1,1 */
-    height: 35vh; /* Redefinición desde 40vh para móvil pequeño */
-    min-height: 18rem; /* Redefinición desde 20rem para móvil pequeño */
-    margin: 0.5rem 0; /* Redefinición desde 1rem 0 para menos margen */
-    padding: 0.25rem; /* Redefinición desde 0.5rem para menos padding */
-  }
-  
-  section[data-map-container="true"] .ol-viewport { /* Especificidad: 0,1,1 */
-    min-height: 16rem; /* Redefinición para viewport del mapa más compacto */
-  }
+
   
   main section:last-of-type aside { /* Especificidad: 0,1,3 */
     text-align: center;
@@ -370,36 +328,6 @@ svg { /* Especificidad: 0,0,1 */
     transform: scale(1.2);
   }
 }
-
-
-@media (max-width: 48em) {
-    section[data-map-container="true"] { /* Especificidad: 0,1,1 */
-        height: 40vh; /* Redefinición para tablets */
-        min-height: 20rem; /* Redefinición para tablets */
-        margin: 1rem 0; /* Redefinición para tablets */
-        padding: 0.5rem; /* Redefinición para tablets */
-    }
-    section[data-map-container="true"] .ol-viewport { /* Especificidad: 0,1,1 */
-        min-height: 18rem; /* Redefinición para viewport en tablets */
-    }
-}
-
-@media (max-width: 30em) {
-    section[data-map-container="true"] { /* Especificidad: 0,1,1 */
-        height: 35vh; /* Redefinición desde 40vh para móvil muy pequeño */
-        min-height: 18rem; /* Redefinición desde 20rem para móvil muy pequeño */
-        margin: 0.5rem 0; /* Redefinición desde 1rem 0 para móvil muy pequeño */
-        padding: 0.25rem; /* Redefinición desde 0.5rem para móvil muy pequeño */
-    }
-}
-
-@media (max-width: 50em) and (orientation: landscape) {
-    section[data-map-container="true"] { /* Especificidad: 0,1,1 */
-        height: 60vh; /* Redefinición desde valores anteriores para landscape */
-        min-height: 15rem; /* Redefinición desde valores anteriores para landscape */
-    }
-}
-
 
 @media (max-width: 48em) {
     main > section > article > section { /* Especificidad: 0,0,4 */

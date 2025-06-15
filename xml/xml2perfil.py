@@ -30,12 +30,11 @@ def generar_altimetria_ruta(ruta, nombre_ruta, svg_file):
         print(f"Advertencia: La ruta '{nombre_ruta}' tiene menos de 2 puntos")
         return
 
-    # Calcular escalas - SIEMPRE usar 0 como mínimo (nivel del mar)
     max_distancia = max(p[0] for p in puntos)
     max_altitud = max(p[1] for p in puntos)
-    min_altitud = 0  # FORZAR que el mínimo sea siempre el nivel del mar (0m)
+    min_altitud = 0  # mínimo sea siempre el nivel del mar (0m)
 
-    # Evitar división por cero - asegurar que hay diferencia de altitud
+    # Evitar división por cer o en caso de que todos los puntos estén al nivel del mar
     if max_altitud == min_altitud:
         max_altitud += 100  # Añadir 100m si todo está al nivel del mar
 

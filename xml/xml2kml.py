@@ -168,7 +168,6 @@ def convert_rutas_xml_to_kml(xml_file, kml_file):
         f.write('  </Document>\n')
         f.write('</kml>\n')
 
-# Uso del script
 if __name__ == "__main__":
     convert_rutas_xml_to_kml('rutas.xml', 'rutas.kml')
     print("Conversión completada. Archivo rutas.kml generado.")

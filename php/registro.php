@@ -14,8 +14,7 @@ class Registro {
     
     private function procesarFormulario() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            try {
-                // Validar que existan los campos requeridos
+            try {+
                 if (!isset($_POST['nombre']) || !isset($_POST['apellidos']) || 
                     !isset($_POST['email']) || !isset($_POST['password'])) {
                     $this->error = "Por favor, complete todos los campos requeridos";
@@ -128,7 +127,6 @@ class Registro {
     }
 }
 
-// Crear instancia y mostrar el formulario
 $registro = new Registro();
 $registro->mostrarFormulario();
 ?>

@@ -1,7 +1,7 @@
 body { /* Especificidad: 0,0,1 */
   font-family: Verdana, sans-serif;
-  color: #2c2c2c; /* Color de texto heredado del body para todos los elementos hijos */
-  background-color: #fef6e4; /* Color de fondo heredado del body para todos los elementos hijos */
+  color: #2c2c2c; /* Color de texto base para toda la página */
+  background-color: #fef6e4; /* Color de fondo base para toda la página */
   margin: 15em;
   padding-top: 0;
   padding-bottom: 0%;
@@ -14,21 +14,31 @@ body { /* Especificidad: 0,0,1 */
 /* Estilos de los enlaces externos */
 a[href^="http://"], a[href^="https://"] { /* Especificidad: 0,1,1 */
   text-decoration: underline;
-  color: #5a1f1f; /* Color de texto - hereda fondo #fef6e4 del body */
+  color: #5a1f1f; /* Color de texto específico - hereda fondo #fef6e4 del body */
   transition: color 0.3s, transform 0.3s, text-decoration 0.3s;
 }
 
 a[href^="http://"]:hover, a[href^="https://"]:hover { /* Especificidad: 0,2,1 */
-  color: #a63d40; /* Color de texto - hereda fondo #fef6e4 del body */
-  text-decoration: underline; /* Color de texto - hereda fondo #fef6e4 del body */
+  color: #a63d40; /* Color de texto hover - hereda fondo #fef6e4 del body */
+  text-decoration: underline;
   transform: scale(1.1);
+}
+
+/* Enlaces internos */
+a { /* Especificidad: 0,0,1 */
+  color: #5a1f1f; /* Color de texto - hereda fondo #fef6e4 del body */
+  text-decoration: none; /* Color de texto - hereda fondo según contexto */
+}
+
+a:hover { /* Especificidad: 0,1,1 */
+  color: #a63d40; /* Color de texto hover - hereda fondo según contexto */
 }
 
 /* Estilo de listas (ul, ol) */
 ul { /* Especificidad: 0,0,1 */
   list-style-type: square;
   font-size: 1.2rem;
-  color: #6b4226; /* Color de texto - hereda fondo #fef6e4 del body */
+  color: #6b4226; /* Color de texto específico - hereda fondo #fef6e4 del body */
   padding-left: 1.5rem;
   margin: 1rem 0;
 }
@@ -36,6 +46,7 @@ ul { /* Especificidad: 0,0,1 */
 ul li { /* Especificidad: 0,0,2 */
   margin: 0.5rem 0;
   transition: transform 0.3s ease, color 0.3s ease;
+  color: inherit; /* Color de texto - hereda #6b4226 del ul padre */
 }
 
 ol { /* Especificidad: 0,0,1 */
@@ -43,11 +54,13 @@ ol { /* Especificidad: 0,0,1 */
   padding-left: 2rem;
   margin: 1rem 0;
   font-size: 1.2rem;
+  color: inherit; /* Color de texto - hereda #2c2c2c del body */
 }
 
 ol li { /* Especificidad: 0,0,2 */
   margin: 0.5rem 0;
   font-style: italic;
+  color: inherit; /* Color de texto - hereda del ol padre */
 }
 
 /* Estilo de los títulos h1, h2, h3, h4 */
@@ -57,19 +70,29 @@ h1 { /* Especificidad: 0,0,1 */
   padding: 1.5em;
   text-align: center;
   font-size: 3em;
+  color: inherit; /* Color de texto - hereda #2c2c2c del body */
 }
 
 h2 { /* Especificidad: 0,0,1 */
   font-size: 2em;
   text-decoration: double;
+  color: inherit; /* Color de texto - hereda #2c2c2c del body */
 }
 
 h3 { /* Especificidad: 0,0,1 */
   font-size: 1.4em;
+  color: inherit; /* Color de texto - hereda #2c2c2c del body */
 }
 
 h4 { /* Especificidad: 0,0,1 */
   font-size: 1em;
+  color: inherit; /* Color de texto - hereda #2c2c2c del body */
+}
+
+/* Párrafos */
+p { /* Especificidad: 0,0,1 */
+  color: inherit; /* Color de texto - hereda #2c2c2c del body */
+  background-color: transparent; /* Color de fondo - hereda #fef6e4 del body */
 }
 
 /* Estilo para las celdas de la tabla */
@@ -78,6 +101,7 @@ table { /* Especificidad: 0,0,1 */
   border-collapse: collapse;
   margin: 1.5rem 0;
   font-size: 1rem;
+  background-color: transparent; /* Color de fondo - hereda #fef6e4 del body */
 }
 
 th, td { /* Especificidad: 0,0,1 */
@@ -86,15 +110,16 @@ th, td { /* Especificidad: 0,0,1 */
 }
 
 th { /* Especificidad: 0,0,1 */
-  background-color: #95373A; /* Color de fondo - hereda texto #2c2c2c del body */
-  color: #fff; /* Color de texto sobre fondo #a63d40 */
+  background-color: #95373A; /* Color de fondo específico */
+  color: #fff; /* Color de texto sobre fondo #95373A */
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 td { /* Especificidad: 0,0,1 */
-  background-color: #fef6e4; /* Color de fondo - hereda texto #2c2c2c del body */
+  background-color: #fef6e4; /* Color de fondo - hereda del body */
+  color: inherit; /* Color de texto - hereda #2c2c2c del body */
 }
 
 /* Estilo para la descripción dd */
@@ -103,6 +128,7 @@ dd { /* Especificidad: 0,0,1 */
   margin-left: 2rem;
   font-style: italic;
   line-height: 1.6;
+  color: inherit; /* Color de texto - hereda #2c2c2c del body */
 }
 
 /* Estructuras de contenido */
@@ -110,34 +136,37 @@ article section { /* Especificidad: 0,0,2 */
     display: flex; /* Redefinición en media query para layout responsive */
     overflow: hidden; /* Redefinición en media query para ajuste responsive */
     width: 100%; /* Redefinición en media query para ajuste responsive */
-    position: relative; /* Redefinición en media query para ajuste responsive */
+    background-color: transparent; /* Color de fondo - hereda según contexto del article padre */
 }
 
 article { /* Especificidad: 0,0,1 */
-  position: relative;
   display: flex;
   width: 30%; /* Redefinición en media query para ajuste responsive */
   max-width: 100%; /* Redefinición en media query para ajuste responsive */
   height: auto; /* Redefinición en media query para ajuste responsive */
   overflow: visible; /* Redefinición en media query para ajuste responsive */
   border-radius: 1em;
+  background-color: transparent; /* Color de fondo - hereda según contexto */
+  color: inherit; /* Color de texto - hereda según contexto */
 }
 
 section article { /* Especificidad: 0,0,2 */
-  position: relative; /* Redefinición en media query para ajuste responsive */
   display: flex;
   width: 80%; /* Redefinición en media query para ajuste responsive */
   max-width: 100%;
   height: 20vh; /* Redefinición en media query para ajuste responsive */
   overflow: hidden; /* Redefinición en media query para ajuste responsive */
   border-radius: 1em;
+  background-color: transparent; /* Color de fondo - hereda según contexto del section padre */
+  color: inherit; /* Color de texto - hereda según contexto del section padre */
 }
 
 section div div { /* Especificidad: 0,0,3 */
   min-width: 20%; 
   width: 25%;
   min-height: 20vh; /* Redefinición en media query para ajuste responsive */
-  display: block;   
+  display: block;
+  background-color: transparent; /* Color de fondo - hereda según contexto del section padre */
 }
 
 section > input[type='file'] + article { /* Especificidad: 0,1,3 */
@@ -146,23 +175,26 @@ section > input[type='file'] + article { /* Especificidad: 0,1,3 */
 
 /* Botones dentro de artículos */
 article button { /* Especificidad: 0,0,2 */
-  position: absolute;
   top: 45%;
+  left: 15%;
   width: 8%;
   height: 8%;
   border: none;
   border-radius: 50%;
-  color: #fff; /* Color de texto - hereda fondo transparente del elemento padre */
+  color: #fff; /* Color de texto específico */
+  background-color: transparent; /* Color de fondo - hereda según contexto del article padre */
   font-size: 1rem;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: transform 0.2s;
+  align-self: center;
 }
 
 article button:hover { /* Especificidad: 0,1,2 */
-  background: #a63d40; /* Color de fondo - hereda texto #fff del elemento padre */
+  background: #a63d40; /* Color de fondo hover específico */
+  color: #fff; /* Color de texto - mantiene blanco sobre fondo #a63d40 */
   transform: scale(1.1);
 }
 
@@ -178,16 +210,15 @@ article button:nth-of-type(2) { /* Especificidad: 0,1,2 */
 article img { /* Especificidad: 0,0,2 */
   width: 88%;
   height: 88%;
-  position: absolute;
   transition: all 0.5s;
   object-fit: contain;
-  background-color: #BFC7D4; /* Color de fondo - hereda texto #2c2c2c del body */
+  background-color: #BFC7D4; /* Color de fondo específico para imágenes */
 }
 
 main section article canvas { /* Especificidad: 0,0,4 */
   width: 400%;
   height: auto; 
-  background-color: #BFC7D4; /* Color de fondo - hereda texto #2c2c2c del body */
+  background-color: #BFC7D4; /* Color de fondo específico para canvas */
   display: block; 
   margin: 0 auto;
 }
@@ -195,6 +226,7 @@ main section article canvas { /* Especificidad: 0,0,4 */
 video { /* Especificidad: 0,0,1 */
   max-width: 100%;
   height: auto;
+  background-color: transparent; /* Color de fondo - hereda según contexto */
 }
 
 article img:hover,
@@ -210,7 +242,8 @@ figure { /* Especificidad: 0,0,1 */
     margin: 1.5rem auto;
     width: 50%;
     max-width: 70vw;
-    background-color: #fff; /* Color de fondo - hereda texto #2c2c2c del body */
+    background-color: #fff; /* Color de fondo específico */
+    color: #2c2c2c; /* Color de texto - hereda del body */
     border-radius: 0.75rem;
     box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.08);
     padding: 1.5rem; /* Redefinición en media query para ajuste responsive */
@@ -225,6 +258,7 @@ figure img { /* Especificidad: 0,0,2 */
     border-radius: 0.4rem;
     margin-bottom: 0.75rem; /* Redefinición en media query para ajuste responsive */
     transition: transform 0.3s ease;
+    background-color: #f8f9fa; /* Color de fondo por defecto para imágenes */
 }
 
 figure img:hover { /* Especificidad: 0,1,2 */
@@ -235,7 +269,7 @@ figure figcaption { /* Especificidad: 0,0,2 */
     text-align: center;
     margin: 0.75rem 0; /* Redefinición en media query para ajuste responsive */
     font-size: clamp(0.875rem, 1.5vw, 1.25rem);
-    color: #2c2c2c; /* Color de texto - hereda fondo #fff del figure */
+    color: #2c2c2c; /* Color de texto - hereda del figure */
     font-weight: 500;
 }
 
@@ -244,10 +278,11 @@ figure nav { /* Especificidad: 0,0,2 */
     justify-content: center;
     padding: 0.75rem 0; /* Redefinición en media query para ajuste responsive */
     gap: 0.75rem; /* Redefinición en media query para ajuste responsive */
+    background-color: transparent; /* Color de fondo - hereda #fff del figure padre */
 }
 
 figure button { /* Especificidad: 0,0,2 */
-    background: #5a1f1f; /* Color de fondo - hereda texto #2c2c2c del body */
+    background: #5a1f1f; /* Color de fondo específico */
     color: #fff; /* Color de texto sobre fondo #5a1f1f */
     border: none;
     padding: 0.75em 1.5em; /* Redefinición en media query para ajuste responsive */
@@ -260,8 +295,8 @@ figure button { /* Especificidad: 0,0,2 */
 }
 
 figure nav button:hover { /* Especificidad: 0,1,3 */
-    background: rgba(215, 122, 97, 0.9); /* Color de fondo - hereda texto #fff del elemento padre */
-    color: white;
+    background: rgba(215, 122, 97, 0.9); /* Color de fondo hover específico */
+    color: white; /* Color de texto - mantiene sobre fondo hover */
     transform: translateY(-50%) scale(1.1);
     box-shadow: 0 0.4rem 1rem rgba(215, 122, 97, 0.4);
 }
@@ -273,11 +308,12 @@ section nav { /* Especificidad: 0,0,2 */
     gap: 2rem;
     margin: 2rem 0;
     padding: 1rem;
+    background-color: transparent; /* Color de fondo - hereda según contexto del section padre */
 }
 
 /* Botones del carrusel */
 section nav button { /* Especificidad: 0,0,3 */
-    background: linear-gradient(145deg, #5a1f1f, #c96a51); /* Color de fondo - hereda texto #2c2c2c del body */
+    background: linear-gradient(145deg, #5a1f1f, #c96a51); /* Color de fondo gradient específico */
     color: #ffffff; /* Color de texto sobre fondo gradient */
     border: 0.125rem solid #a63d40;
     border-radius: 50%;
@@ -298,76 +334,11 @@ section nav button { /* Especificidad: 0,0,3 */
 }
 
 section nav button:hover { /* Especificidad: 0,1,3 */
-    background: linear-gradient(145deg, #a63d40, #8b3439); /* Color de fondo - hereda texto #ffffff del elemento padre */
+    background: linear-gradient(145deg, #a63d40, #8b3439); /* Color de fondo hover específico */
+    color: #ffffff; /* Color de texto - mantiene sobre fondo hover */
     border-color: #8b3439;
     transform: translateY(-0.3rem) scale(1.1);
     box-shadow: 0 0.6rem 1.2rem rgba(166, 61, 64, 0.4);
-}
-
-/* Estilos para las noticias */
-article[role="feed"] { /* Especificidad: 0,1,1 */
-    width: 90%;
-    margin: 2rem auto;
-    padding: 2rem;
-    display: block;
-    height: auto;
-    max-width: 120rem;
-}
-
-article[role="feed"] > article { /* Especificidad: 0,1,2 */
-    width: auto;
-    height: auto;
-    display: block;
-    background-color: #fff; /* Color de fondo - hereda texto #2c2c2c del body */
-    border: 0.2rem solid #5a1f1f;
-    border-radius: 1rem;
-    margin-bottom: 2rem;
-    padding: 2rem;
-    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
-    overflow: visible;
-}
-
-article[role="feed"] h3 { /* Especificidad: 0,1,2 */
-    font-size: 2rem;
-    color: #2c2c2c; /* Color de texto - hereda fondo #fff del article padre */
-    margin-bottom: 1rem;
-    line-height: 1.4;
-    width: 100%;
-}
-
-article[role="feed"] p { /* Especificidad: 0,1,2 */
-    width: 100%;
-    font-size: 1.3rem;
-    line-height: 1.6;
-    color: #2c2c2c; /* Color de texto - hereda fondo #fff del article padre */
-    margin: 1rem 0;
-    white-space: normal;
-    overflow: visible;
-}
-
-article[role="feed"] time { /* Especificidad: 0,1,2 */
-    display: block;
-    font-size: 1.1rem;
-    color: #666; /* Color de texto - hereda fondo #fff del article padre */
-    margin: 1rem 0;
-}
-
-article[role="feed"] a { /* Especificidad: 0,1,2 */
-    display: inline-block;
-    background-color: #5a1f1f; /* Color de fondo - hereda contexto del article padre */
-    color: #fff; /* Color de texto sobre fondo #5a1f1f */
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    font-size: 1.2rem;
-    margin-top: 1rem;
-    transition: all 0.3s ease;
-}
-
-article[role="feed"] a:hover { /* Especificidad: 0,2,2 */
-    background-color: #a63d40; /* Color de fondo - hereda texto #fff del elemento padre */
-    transform: translateY(-0.2rem);
-    box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 /* Estilos específicos para la meteorología */
@@ -379,10 +350,13 @@ aside { /* Especificidad: 0,0,1 */
     max-width: 95vw;
     margin: 1rem auto;
     width: 100%;
+    background-color: transparent; /* Color de fondo - hereda #fef6e4 del body */
+    color: inherit; /* Color de texto - hereda #2c2c2c del body */
 }
 
 aside:first-of-type { /* Especificidad: 0,1,1 */
-    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo - hereda texto #2c2c2c del body */
+    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo gradient específico */
+    color: #2c2c2c; /* Color de texto - hereda del body */
     border-radius: 1rem;
     padding: 2rem;
     box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
@@ -392,7 +366,7 @@ aside:first-of-type { /* Especificidad: 0,1,1 */
 }
 
 aside:first-of-type h3 { /* Especificidad: 0,1,2 */
-    color: #5a1f1f; /* Color de texto - hereda fondo gradient del aside padre */
+    color: #5a1f1f; /* Color de texto específico - sobre fondo gradient del aside padre */
     margin-bottom: 2rem;
     align-self: center;
 }
@@ -402,15 +376,16 @@ aside:first-of-type section { /* Especificidad: 0,1,2 */
     flex-direction: column;
     align-items: center;
     width: 100%;
+    background-color: transparent; /* Color de fondo - hereda gradient del aside padre */
 }
 
-aside:first-of_type img { /* Especificidad: 0,1,2 */
+aside:first_of_type img { /* Especificidad: 0,1,2 */
     width: 6rem;
     height: 6rem;
     margin: 1rem auto;
     order: 1;
-    position: static;
     display: block;
+    background-color: transparent; /* Color de fondo - hereda del aside padre */
 }
 
 aside:first-of-type ul { /* Especificidad: 0,1,2 */
@@ -421,6 +396,7 @@ aside:first-of-type ul { /* Especificidad: 0,1,2 */
     display: flex;
     flex-direction: column;
     order: 2;
+    color: inherit; /* Color de texto - hereda del aside padre */
 }
 
 aside:first-of-type li { /* Especificidad: 0,1,2 */
@@ -430,6 +406,7 @@ aside:first-of-type li { /* Especificidad: 0,1,2 */
     border-left: none;
     border-radius: 0;
     margin: 0;
+    color: inherit; /* Color de texto - hereda del ul padre */
 }
 
 aside:last-of-type { /* Especificidad: 0,1,1 */
@@ -437,10 +414,11 @@ aside:last-of-type { /* Especificidad: 0,1,1 */
     background: none;
     display: flex;
     flex-direction: column;
+    background-color: transparent; /* Color de fondo - hereda #fef6e4 del body */
 }
 
 aside:last-of-type h3 { /* Especificidad: 0,1,2 */
-    color: #5a1f1f; /* Color de texto - hereda fondo #fef6e4 del body */
+    color: #5a1f1f; /* Color de texto específico - sobre fondo #fef6e4 del body */
     align-self: center;
     margin-bottom: 2rem;
     font-size: 2rem;
@@ -449,15 +427,17 @@ aside:last-of-type h3 { /* Especificidad: 0,1,2 */
 
 aside:last-of-type section { /* Especificidad: 0,1,2 */
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     gap: 1rem;
     justify-items: center;
     padding: 0;
     order: 2;
+    background-color: transparent; /* Color de fondo - hereda del aside padre */
 }
 
 aside:last-of-type article { /* Especificidad: 0,1,2 */
-    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo - hereda texto #2c2c2c del body */
+    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo gradient específico */
+    color: #2c2c2c; /* Color de texto - hereda del body */
     border-radius: 1rem;
     padding: 1rem;
     width: 100%;
@@ -467,7 +447,6 @@ aside:last-of-type article { /* Especificidad: 0,1,2 */
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
     height: auto;
 }
 
@@ -478,7 +457,7 @@ aside:last-of-type article:hover { /* Especificidad: 0,2,2 */
 
 aside:last-of-type article p { /* Especificidad: 0,1,3 */
     font-size: 1.1rem;
-    color: #2c2c2c; /* Color de texto - hereda fondo gradient del article padre */
+    color: #2c2c2c; /* Color de texto - hereda del article padre */
     margin-bottom: 1rem;
     font-weight: 500;
     order: 1;
@@ -491,9 +470,8 @@ aside:last-of-type article img { /* Especificidad: 0,1,3 */
     height: 4rem;
     object-fit: contain;
     order: 2;
-    position: static;
     display: block;
-    background-color: transparent;
+    background-color: transparent; /* Color de fondo - hereda del article padre */
 }
 
 aside:last-of-type article ul { /* Especificidad: 0,1,3 */
@@ -505,13 +483,14 @@ aside:last-of-type article ul { /* Especificidad: 0,1,3 */
     flex-grow: 1;
     order: 3;
     width: 100%;
+    color: inherit; /* Color de texto - hereda del article padre */
 }
 
 aside:last-of-type article li { /* Especificidad: 0,1,3 */
     padding: 0.6rem 0;
     border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.1);
     font-size: 0.9rem;
-    color: #666; /* Color de texto - hereda fondo gradient del article padre */
+    color: #666; /* Color de texto específico - sobre fondo gradient del article padre */
     background: none;
     border-left: none;
     border-radius: 0;
@@ -525,19 +504,19 @@ aside:last-of-type article li:last-child { /* Especificidad: 0,2,3 */
 
 /* Estilos para el test de conocimientos */
 body main section article:not(aside article) { /* Especificidad: 0,2,4 */
-    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo - hereda texto #2c2c2c del body */
+    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo gradient específico */
+    color: #2c2c2c; /* Color de texto - hereda del body */
     border-radius: 1rem;
     padding: 2rem;
     margin: 2rem auto;
     max-width: 50rem;
     box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
-    position: static;
     width: auto;
     height: auto;
 }
 
 body main section article:not(aside article) h3 { /* Especificidad: 0,2,5 */
-    color: #5a1f1f; /* Color de texto - hereda fondo gradient del article padre */
+    color: #5a1f1f; /* Color de texto específico - sobre fondo gradient del article padre */
     text-align: center;
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
@@ -550,12 +529,13 @@ body main section article:not(aside article) p { /* Especificidad: 0,2,5 */
     line-height: 1.6;
     text-align: center;
     order: unset;
+    color: inherit; /* Color de texto - hereda del article padre */
 }
 
 body main section article:not(aside article) form { /* Especificidad: 0,2,5 */
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    background-color: transparent; /* Color de fondo - hereda del article padre */
 }
 
 body main section article:not(aside article) fieldset { /* Especificidad: 0,2,5 */
@@ -564,31 +544,33 @@ body main section article:not(aside article) fieldset { /* Especificidad: 0,2,5 
     margin: 0;
     display: flex;
     align-items: center;
-    background: #f8f9fa; /* Color de fondo - hereda texto #2c2c2c del body */
+    background: #f8f9fa; /* Color de fondo específico */
+    color: #2c2c2c; /* Color de texto - hereda del body */
     border-radius: 0.5rem;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 body main section article:not(aside article) fieldset:hover { /* Especificidad: 0,2,6 */
-    background: #e9ecef; /* Color de fondo - hereda texto #2c2c2c del body */
+    background: #e9ecef; /* Color de fondo hover específico */
+    color: #2c2c2c; /* Color de texto - mantiene del body */
     transform: translateX(0.5rem);
 }
 
 body main section article:not(aside article) input[type="radio"] { /* Especificidad: 0,3,6 */
     margin-right: 1rem;
     transform: scale(1.2);
-    position: static;
 }
 
 body main section article:not(aside article) label { /* Especificidad: 0,2,5 */
     flex: 1;
     cursor: pointer;
     font-size: 1.1rem;
+    color: inherit; /* Color de texto - hereda del fieldset padre */
 }
 
 body main section article:not(aside article) button[type="submit"] { /* Especificidad: 0,3,6 */
-    background: #5a1f1f; /* Color de fondo - hereda contexto del article padre */
+    background: #5a1f1f; /* Color de fondo específico */
     color: white; /* Color de texto sobre fondo #5a1f1f */
     border: none;
     padding: 1rem 2rem;
@@ -598,24 +580,26 @@ body main section article:not(aside article) button[type="submit"] { /* Especifi
     margin-top: 1rem;
     transition: all 0.3s ease;
     align-self: center;
-    position: static;
     width: auto;
 }
 
 body main section article:not(aside article) button[type="submit"]:hover:not(:disabled) { /* Especificidad: 0,4,7 */
-    background: #a63d40; /* Color de fondo - hereda texto white del elemento padre */
+    background: #a63d40; /* Color de fondo hover específico */
+    color: white; /* Color de texto - mantiene sobre fondo hover */
     transform: translateY(-0.2rem);
 }
 
 body main section article:not(aside article) button[type="submit"]:disabled { /* Especificidad: 0,3,7 */
-    background: #ccc; /* Color de fondo - hereda texto #2c2c2c del body */
+    background: #ccc; /* Color de fondo disabled específico */
+    color: #666; /* Color de texto sobre fondo disabled */
     cursor: not-allowed;
     transform: none;
 }
 
 /* Resultados del test */
 body main aside article { /* Especificidad: 0,0,4 */
-    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo - hereda texto #2c2c2c del body */
+    background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo gradient específico */
+    color: #2c2c2c; /* Color de texto - hereda del body */
     border-radius: 1rem;
     padding: 3rem;
     margin: 2rem auto;
@@ -628,13 +612,12 @@ body main aside article { /* Especificidad: 0,0,4 */
     flex-direction: unset;
     align-items: unset;
     order: unset;
-    position: static;
     width: auto;
     height: auto;
 }
 
 body main aside article h3 { /* Especificidad: 0,0,5 */
-    color: #5a1f1f; /* Color de texto - hereda fondo gradient del article padre */
+    color: #5a1f1f; /* Color de texto específico - sobre fondo gradient del article padre */
     margin-bottom: 2rem;
     font-size: 2.5rem;
     font-weight: bold;
@@ -645,18 +628,18 @@ body main aside article h3 { /* Especificidad: 0,0,5 */
 body main aside article section { /* Especificidad: 0,0,5 */
     font-size: 1.5rem;
     margin: 2rem 0;
-    color: #2c2c2c; /* Color de texto - hereda fondo #f8f9fa definido abajo */
+    color: #2c2c2c; /* Color de texto específico */
     font-weight: normal;
     padding: 2rem;
     border-radius: 1rem;
     border: 0.125rem solid #5a1f1f;
-    background: #f8f9fa; /* Color de fondo para texto #2c2c2c */
+    background: #f8f9fa; /* Color de fondo específico */
     display: block;
     order: unset;
 }
 
 body main aside article section p:first-child { /* Especificidad: 0,1,6 */
-    color: #5a1f1f; /* Color de texto - hereda fondo #f8f9fa del section padre */
+    color: #5a1f1f; /* Color de texto específico - sobre fondo #f8f9fa del section padre */
     font-size: 3rem;
     font-weight: bold;
     margin: 0 0 1rem 0;
@@ -664,7 +647,7 @@ body main aside article section p:first-child { /* Especificidad: 0,1,6 */
 }
 
 body main aside article section p:last-child { /* Especificidad: 0,1,6 */
-    color: #666; /* Color de texto - hereda fondo #f8f9fa del section padre */
+    color: #666; /* Color de texto específico - sobre fondo #f8f9fa del section padre */
     font-size: 1.8rem;
     font-weight: normal;
     margin: 0;
@@ -676,10 +659,10 @@ body main aside article > p { /* Especificidad: 0,0,5 */
     margin: 2rem 0;
     padding: 1.5rem;
     border-radius: 1rem;
-    color: #004085; /* Color de texto - hereda fondo #e7f3ff definido abajo */
+    color: #004085; /* Color de texto específico */
     text-align: center;
     border: 0.125rem solid #b3d7ff;
-    background: #e7f3ff; /* Color de fondo para texto #004085 */
+    background: #e7f3ff; /* Color de fondo específico */
     order: unset;
 }
 
@@ -689,13 +672,14 @@ body main aside article section:last-of-type { /* Especificidad: 0,1,5 */
     padding: 2rem;
     border-radius: 1rem;
     border: 0.0625rem solid #ddd;
-    background: #fff; /* Color de fondo - hereda texto #2c2c2c del body */
+    background: #fff; /* Color de fondo específico */
+    color: #2c2c2c; /* Color de texto - hereda del body */
     display: block;
     order: unset;
 }
 
 body main aside article h4 { /* Especificidad: 0,0,5 */
-    color: #5a1f1f; /* Color de texto - hereda fondo #fff del section padre */
+    color: #5a1f1f; /* Color de texto específico - sobre fondo #fff del section padre */
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
     font-weight: bold;
@@ -710,6 +694,7 @@ body main aside article ul { /* Especificidad: 0,0,5 */
     flex-direction: unset;
     order: unset;
     width: auto;
+    color: inherit; /* Color de texto - hereda del article padre */
 }
 
 body main aside article li { /* Especificidad: 0,0,5 */
@@ -720,12 +705,13 @@ body main aside article li { /* Especificidad: 0,0,5 */
     border-bottom: none;
     font-size: 1.1rem;
     line-height: 1.6;
-    background: #f8f9fa; /* Color de fondo - hereda texto #2c2c2c del body */
+    background: #f8f9fa; /* Color de fondo específico */
+    color: #2c2c2c; /* Color de texto - hereda del body */
     order: unset;
 }
 
 body main aside article small { /* Especificidad: 0,0,6 */
-    color: #666; /* Color de texto - hereda fondo #f8f9fa del li padre */
+    color: #666; /* Color de texto específico - sobre fondo #f8f9fa del li padre */
     font-size: 1rem;
     line-height: 1.4;
     display: block;
@@ -733,7 +719,7 @@ body main aside article small { /* Especificidad: 0,0,6 */
 }
 
 body main aside article button { /* Especificidad: 0,0,5 */
-    background: #5a1f1f; /* Color de fondo - hereda contexto del article padre */
+    background: #5a1f1f; /* Color de fondo específico */
     color: white; /* Color de texto sobre fondo #5a1f1f */
     border: none;
     padding: 1.2rem 2.5rem;
@@ -743,13 +729,13 @@ body main aside article button { /* Especificidad: 0,0,5 */
     cursor: pointer;
     margin: 1rem 0.5rem;
     transition: all 0.3s ease;
-    position: static;
     width: auto;
     height: auto;
 }
 
 body main aside article button:hover { /* Especificidad: 0,1,5 */
-    background: #a63d40; /* Color de fondo - hereda texto white del elemento padre */
+    background: #a63d40; /* Color de fondo hover específico */
+    color: white; /* Color de texto - mantiene sobre fondo hover */
     transform: translateY(-0.3rem);
     box-shadow: 0 0.5rem 1rem rgba(166, 61, 64, 0.3);
 }
@@ -757,8 +743,8 @@ body main aside article button:hover { /* Especificidad: 0,1,5 */
 article section { /* Especificidad: 0,0,2 */
     display: block;
     width: auto;
-    position: static;
     overflow: visible;
+    background-color: transparent; /* Color de fondo - hereda del article padre */
 }
 
 main > section > article > section { /* Especificidad: 0,0,4 */
@@ -768,11 +754,11 @@ main > section > article > section { /* Especificidad: 0,0,4 */
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 1.5rem;
-    background: #fff; /* Color de fondo - hereda texto #2c2c2c del body */
+    background: #fff; /* Color de fondo específico */
+    color: #2c2c2c; /* Color de texto - hereda del body */
     border-radius: 0.7rem;
     padding: 1rem 1.5rem;
     border-left: 0.25rem solid #a63d40;
-    position: static;
     overflow: visible;
     gap: 0;
 }
@@ -785,17 +771,18 @@ main > section > article > section > section { /* Especificidad: 0,0,5 */
     margin: 0;
     background: none;
     border: none;
+    color: inherit; /* Color de texto - hereda del section padre */
 }
 
 main > section > article > section > article { /* Especificidad: 0,0,5 */
     display: block;
-    background: #f8f9fa; /* Color de fondo - hereda texto #2c2c2c del body */
+    background: #f8f9fa; /* Color de fondo específico */
+    color: #2c2c2c; /* Color de texto - hereda del body */
     border-radius: 0.7rem;
     margin: 1rem 0;
     padding: 1rem 1.5rem;
-    border: 1px solid #e9ecef;
+    border: 0.063em solid #e9ecef;
     box-sizing: border-box;
-    position: static;
     overflow: visible;
 }
 
@@ -803,7 +790,8 @@ main > section > article > section > article > aside { /* Especificidad: 0,0,6 *
     display: block;
     margin: 0.7rem 0 0 0;
     padding: 0.5rem 0;
-    background: #fff; /* Color de fondo - hereda texto #2c2c2c del body */
+    background: #fff; /* Color de fondo específico */
+    color: #2c2c2c; /* Color de texto - hereda del body */
     border-radius: 0.5rem;
     box-sizing: border-box;
     overflow-x: auto;
@@ -813,15 +801,17 @@ main > section > article > section > article > aside { /* Especificidad: 0,0,6 *
 section article { /* Especificidad: 0,0,2 */
     display: block;
     width: auto;
-    position: static;
     overflow: visible;
+    background-color: transparent; /* Color de fondo - hereda del section padre */
+    color: inherit; /* Color de texto - hereda del section padre */
 }
 
 section section { /* Especificidad: 0,0,2 */
     display: block;
     width: auto;
-    position: static;
     overflow: visible;
+    background-color: transparent; /* Color de fondo - hereda del section padre */
+    color: inherit; /* Color de texto - hereda del section padre */
 }
 
 main > section > article > section { /* Especificidad: 0,0,4 */
@@ -836,15 +826,15 @@ main > section > article > section > article > aside > figure { /* Especificidad
     max-height: 100%;
     display: inline-block;
     vertical-align: top;
-    background: #f8f9fa; /* Color de fondo - hereda texto #2c2c2c del body */
+    background: #f8f9fa; /* Color de fondo específico */
+    color: #2c2c2c; /* Color de texto - hereda del body */
     border-radius: 0.3rem;
-    border: 1px solid #eee;
+    border: 0.063em solid #eee;
     margin: 0.2rem 0.5rem 0.2rem 0;
     padding: 0.2rem;
     box-sizing: border-box;
     overflow: hidden;
     text-align: center;
-    position: relative;
 }
 
 main > section > article > section > article > aside > figure > img { /* Especificidad: 0,0,8 */
@@ -856,17 +846,12 @@ main > section > article > section > article > aside > figure > img { /* Especif
     border-radius: 0.2rem;
     display: block;
     margin: 0;
-    background: #fff; /* Color de fondo - no requiere texto específico */
+    background: #fff; /* Color de fondo específico */
     box-sizing: border-box;
-    position: static;
 }
 
 main > section > article > section > article > aside > figure > figcaption { /* Especificidad: 0,0,8 */
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7); /* Color de fondo - hereda contraste para legibilidad */
+    background: rgba(0, 0, 0, 0.7); /* Color de fondo específico */
     color: white; /* Color de texto sobre fondo rgba(0, 0, 0, 0.7) */
     font-size: 0.7rem;
     padding: 0.2rem;
@@ -877,73 +862,52 @@ main > section > article > section > article > aside > figure > figcaption { /* 
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-
-/* Sobrescribir conflictos específicos sin afectar otros elementos */
-main > section > article > section > article > aside > figure:not(.carrusel-figure) { /* Especificidad: 0,1,7 */
-    width: 7rem !important;
-    height: 7rem !important;
-    margin: 0.2rem 0.5rem 0.2rem 0 !important;
-    padding: 0.2rem !important;
-    background: #f8f9fa !important;
-    box-shadow: none !important;
-    border-radius: 0.3rem !important;
-}
-
-main > section > article > section > article > aside > figure:not(.carrusel-figure) img { /* Especificidad: 0,1,8 */
-    width: 100% !important;
-    height: 6rem !important;
-    aspect-ratio: unset !important;
-    margin-bottom: 0 !important;
-    transition: none !important;
-    transform: none !important;
-    position: static !important;
-}
-
-section[data-map-container="true"] { /* Especificidad: 0,1,1 */
-    min-height: 25rem; /* Redefinición en media query para ajuste responsive */
-    height: 50vh; /* Redefinición en media query para ajuste responsive */
+main + section { /* Especificidad: 0,0,2 */
+    min-height: 25rem;
+    height: 50vh;
     width: 100%;
-    background: #f8f9fa; /* Color de fondo - hereda texto #2c2c2c del body */
+    background: #f8f9fa; /* Color de fondo específico */
+    color: #2c2c2c; /* Color de texto - hereda del body */
     border: 0.125rem solid #ddd;
     border-radius: 0.5rem;
-    margin: 2rem 0; /* Redefinición en media query para ajuste responsive */
-    padding: 1rem; /* Redefinición en media query para ajuste responsive */
-    position: relative;
+    margin: 2rem 0;
+    padding: 1rem;
     overflow: hidden;
     display: block;
 }
 
-section[data-map-container="true"][hidden] { /* Especificidad: 0,2,1 */
+main + section[hidden] { /* Especificidad: 0,1,2 */
     display: none;
 }
 
-section[data-map-container="true"]:not([hidden]) { /* Especificidad: 0,2,1 */
+main + section:not([hidden]) { /* Especificidad: 0,2,2 */
     display: block;
 }
 
-section[data-map-container="true"]:empty::before { /* Especificidad: 0,2,1 */
+main + section:empty::before { /* Especificidad: 0,1,2 */
     content: "Cargando mapa...";
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-    color: #666; /* Color de texto - hereda fondo #f8f9fa del section padre */
+    color: #666; /* Color de texto específico - sobre fondo #f8f9fa del section padre */
     font-size: 1.1rem;
 }
 
-section[data-map-container="true"] h2 { /* Especificidad: 0,1,2 */
+main + section h2 { /* Especificidad: 0,0,3 */
     margin: 0 0 1rem 0;
     padding: 0.5rem;
-    background: #5a1f1f; /* Color de fondo - hereda contexto del section padre */
+    background: #5a1f1f; /* Color de fondo específico */
     color: #fff; /* Color de texto sobre fondo #5a1f1f */
     border-radius: 0.3rem;
     text-align: center;
     font-size: 1.3rem;
 }
-main form { /* Especificidad: 0,0,3 */
+
+main form { /* Especificidad: 0,0,2 */
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* Color de fondo - hereda texto #2c2c2c del body */
+    gap: 1rem;
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
@@ -952,14 +916,17 @@ main form { /* Especificidad: 0,0,3 */
     width: 100%;
     box-sizing: border-box;
     border: 0.125rem solid #e9ecef;
+    background-color: #fff; /* Color de fondo específico */
+    color: #2c2c2c; /* Color de texto - hereda del body */
 }
 
-main form fieldset { /* Especificidad: 0,0,4 */
-    border: 0.125rem solid #5a1f1f; /* Color de borde - hereda fondo blanco del form padre */
+main form fieldset { /* Especificidad: 0,0,3 */
+    border: 0.125rem solid #5a1f1f;
     border-radius: 0.5rem;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    background: #fef6e4; /* Color de fondo - hereda texto #2c2c2c del body */
+    background: #fef6e4; /* Color de fondo específico */
+    color: #2c2c2c; /* Color de texto - hereda del body */
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -967,7 +934,7 @@ main form fieldset { /* Especificidad: 0,0,4 */
 }
 
 main form legend { /* Especificidad: 0,0,3 */
-    color: #5a1f1f; /* Color de texto - hereda fondo #fef6e4 del fieldset padre */
+    color: #5a1f1f; /* Color de texto específico - sobre fondo #fef6e4 del fieldset padre */
     font-weight: bold;
     padding: 0 0.5rem;
     font-size: 1.2rem;
@@ -979,13 +946,14 @@ main form p { /* Especificidad: 0,0,3 */
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    color: inherit; /* Color de texto - hereda del fieldset padre */
 }
 
 main form label { /* Especificidad: 0,0,3 */
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #2c2c2c; /* Color de texto - hereda fondo según contexto del elemento padre */
+    color: #2c2c2c; /* Color de texto específico */
     cursor: pointer;
     font-size: 1.1rem;
 }
@@ -997,7 +965,8 @@ main form input { /* Especificidad: 0,0,3 */
     border-radius: 0.4rem;
     font-size: 1rem;
     font-family: inherit;
-    background: #fff; /* Color de fondo - hereda texto #2c2c2c del body */
+    background: #fff; /* Color de fondo específico */
+    color: #2c2c2c; /* Color de texto - hereda del body */
     box-sizing: border-box;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
@@ -1009,7 +978,7 @@ main form input:focus { /* Especificidad: 0,1,3 */
 }
 
 main form input[type="submit"] { /* Especificidad: 0,1,3 */
-    background: #5a1f1f; /* Color de fondo - hereda contexto del form padre */
+    background: #5a1f1f; /* Color de fondo específico */
     color: #fff; /* Color de texto sobre fondo #5a1f1f */
     padding: 1rem 2rem;
     border: none;
@@ -1024,13 +993,16 @@ main form input[type="submit"] { /* Especificidad: 0,1,3 */
 }
 
 main form input[type="submit"]:hover { /* Especificidad: 0,2,3 */
-    background: #a63d40; /* Color de fondo - hereda texto #fff del elemento padre */
+    background: #a63d40; /* Color de fondo hover específico */
+    color: #fff; /* Color de texto - mantiene sobre fondo hover */
     transform: translateY(-0.2rem);
 }
+
 main section article form { /* Especificidad: 0,0,4 */
   display: flex;
   flex-direction: column;
-  background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo - hereda texto #2c2c2c del body */
+  background: linear-gradient(145deg, #fff 0%, #f8f9fa 100%); /* Color de fondo gradient específico */
+  color: #2c2c2c; /* Color de texto - hereda del body */
   padding: 1.5rem;
   border-radius: 1rem;
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
@@ -1042,11 +1014,12 @@ main section article form { /* Especificidad: 0,0,4 */
 }
 
 main section article form fieldset { /* Especificidad: 0,0,5 */
-  border: 0.125rem solid #5a1f1f; /* Color de borde - hereda fondo gradient del form padre */
+  border: 0.125rem solid #5a1f1f;
   border-radius: 0.5rem;
   padding: 1rem;
   margin-bottom: 0.5rem;
-  background: #fef6e4; /* Color de fondo - hereda texto #2c2c2c del body */
+  background: #fef6e4; /* Color de fondo específico */
+  color: #2c2c2c; /* Color de texto - hereda del body */
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -1054,7 +1027,7 @@ main section article form fieldset { /* Especificidad: 0,0,5 */
 }
 
 main section article form h3 { /* Especificidad: 0,0,5 */
-  color: #5a1f1f;
+  color: #5a1f1f; /* Color de texto específico - sobre fondo gradient del form padre */
   text-align: center;
   margin: 0 0 1rem 0;
   font-size: 1.4rem;
@@ -1065,14 +1038,15 @@ main section article form > p { /* Especificidad: 0,0,5 */
   margin: 0 0 1rem 0;
   line-height: 1.5;
   text-align: center;
-  background: #e7f3ff;
+  background: #e7f3ff; /* Color de fondo específico */
+  color: #004085; /* Color de texto sobre fondo #e7f3ff */
   padding: 0.8rem;
   border-radius: 0.4rem;
   border-left: 0.2rem solid #5a1f1f;
 }
 
 main section article form fieldset legend { /* Especificidad: 0,0,6 */
-  color: #5a1f1f;
+  color: #5a1f1f; /* Color de texto específico - sobre fondo #fef6e4 del fieldset padre */
   font-weight: bold;
   font-size: 1rem;
   margin-bottom: 0.5rem;
@@ -1082,7 +1056,8 @@ main section article form fieldset legend { /* Especificidad: 0,0,6 */
 main section article form fieldset p { /* Especificidad: 0,0,6 */
   display: flex;
   align-items: flex-start;
-  background: #f8f9fa;
+  background: #f8f9fa; /* Color de fondo específico */
+  color: #2c2c2c; /* Color de texto - hereda del body */
   border-radius: 0.4rem;
   padding: 0.8rem;
   margin: 0.3rem 0;
@@ -1092,7 +1067,8 @@ main section article form fieldset p { /* Especificidad: 0,0,6 */
 }
 
 main section article form fieldset p:hover { /* Especificidad: 0,1,6 */
-  background: #e9ecef;
+  background: #e9ecef; /* Color de fondo hover específico */
+  color: #2c2c2c; /* Color de texto - mantiene del body */
   border-color: #5a1f1f;
   transform: translateX(0.3rem);
 }
@@ -1110,12 +1086,13 @@ main section article form fieldset p label { /* Especificidad: 0,0,7 */
   margin: 0;
   line-height: 1.3;
   word-wrap: break-word;
+  color: inherit; /* Color de texto - hereda del p padre */
 }
 
 /* Corrección específica para botones finales del juego */
 main section:last-of-type article section button { /* Especificidad: 0,1,5 */
-    background: #5a1f1f;
-    color: white;
+    background: #5a1f1f; /* Color de fondo específico */
+    color: white; /* Color de texto sobre fondo #5a1f1f */
     border: none;
     padding: 1.2rem 2.5rem;
     border-radius: 0.8rem;
@@ -1124,13 +1101,13 @@ main section:last-of-type article section button { /* Especificidad: 0,1,5 */
     cursor: pointer;
     margin: 1rem 0.5rem;
     transition: all 0.3s ease;
-    position: static;
     width: auto;
     height: auto;
 }
 
-main section:last-of-type article section button:hover { /* Especificidad: 0,2,5 */
-    background: #a63d40;
+main section:last_of_type article section button:hover { /* Especificidad: 0,2,5 */
+    background: #a63d40; /* Color de fondo hover específico */
+    color: white; /* Color de texto - mantiene sobre fondo hover */
     transform: translateY(-0.3rem);
     box-shadow: 0 0.5rem 1rem rgba(166, 61, 64, 0.3);
 }
@@ -1143,25 +1120,25 @@ main section:last-of-type article section:last-of-type { /* Especificidad: 0,2,4
     background: none;
     border: none;
     border-radius: 0;
+    color: inherit; /* Color de texto - hereda del article padre */
 }
 
-main section select{ /* Especificidad: 0,0,3 */
+main section select { /* Especificidad: 0,0,3 */
     width: 100%;
     padding: 0.8rem;
     border: 0.125rem solid #ddd;
     border-radius: 0.4rem;
     font-size: 1rem;
     font-family: inherit;
-    background: #fff; /* Color de fondo - hereda texto #2c2c2c del body */
+    background: #fff; /* Color de fondo específico */
+    color: #2c2c2c; /* Color de texto - hereda del body */
     box-sizing: border-box;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-/* Añadir al archivo estilo.css */
-
 /* Encabezados de tabla con contraste AAA */
 main table th { /* Especificidad: 0,0,3 */
-    background: #2c2c2c; /* Color de fondo - hereda contexto del table padre */
+    background: #2c2c2c; /* Color de fondo específico */
     color: #ffffff; /* Color de texto sobre fondo #2c2c2c - ratio 15.26:1 */
     padding: 1rem;
     text-align: left;
@@ -1172,7 +1149,7 @@ main table th { /* Especificidad: 0,0,3 */
 
 /* Celdas del cuerpo de la tabla */
 main table td { /* Especificidad: 0,0,3 */
-    background: #ffffff; /* Color de fondo - hereda contexto del table padre */
+    background: #ffffff; /* Color de fondo específico */
     color: #2c2c2c; /* Color de texto sobre fondo blanco - ratio 12.63:1 */
     padding: 1rem;
     border: 0.125rem solid #e9ecef;
@@ -1184,7 +1161,7 @@ main table { /* Especificidad: 0,0,2 */
     width: 100%;
     border-collapse: collapse;
     margin: 1.5rem 0;
-    background: #ffffff; /* Color de fondo base */
+    background: #ffffff; /* Color de fondo específico */
     border-radius: 0.5rem;
     overflow: hidden;
     box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.1);
@@ -1192,13 +1169,39 @@ main table { /* Especificidad: 0,0,2 */
 
 /* Filas alternadas para mejor legibilidad */
 main table tbody tr:nth-child(even) { /* Especificidad: 0,1,4 */
-    background: #f8f9fa; /* Color de fondo - hereda texto #2c2c2c del td */
+    background: #f8f9fa; /* Color de fondo específico */
 }
 
 main table tbody tr:hover { /* Especificidad: 0,1,4 */
-    background: #e9ecef; /* Color de fondo - hereda texto #2c2c2c del td */
+    background: #e9ecef; /* Color de fondo hover específico */
     transition: background-color 0.3s ease;
 }
-img, video, canvas {
+
+img, video, canvas { /* Especificidad: 0,0,1 */
     overflow: hidden;
+}
+
+body { /* Especificidad: 0,0,1 */
+    display: flex;
+    flex-direction: column;
+}
+
+article section { /* Especificidad: 0,0,2 */
+    display: flex;
+}
+
+main form { /* Especificidad: 0,0,2 */
+    display: flex;
+    flex-direction: column;
+}
+
+article { /* Especificidad: 0,0,1 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+article button { /* Especificidad: 0,0,2 */
+    /* Sin position absolute */
+    align-self: center;
 }

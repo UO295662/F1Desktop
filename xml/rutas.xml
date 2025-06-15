@@ -228,11 +228,8 @@
                 </coordenadas>
                 <distancia unidad="m">1500</distancia>
                 <galeria_fotos>
-                    <foto archivo="multimedia/santa_maria_naranco.jpg">Vista de Santa María del Naranco desde el sendero</foto>
+                    <foto archivo="multimedia/naranco.jpg">Vista de Santa María del Naranco desde el sendero</foto>
                 </galeria_fotos>
-                <galeria_videos>
-                    <video archivo="multimedia/naranco_exterior.mp4">Recorrido exterior del monumento</video>
-                </galeria_videos>
             </hito>
             <hito>
                 <nombre>Mirador Monte Naranco</nombre>
@@ -246,6 +243,9 @@
                 <galeria_fotos>
                     <foto archivo="multimedia/mirador.jpg">Panorámica desde el Mirador de Fitoria</foto>
                 </galeria_fotos>
+                <galeria_videos>
+                    <video archivo="multimedia/mirador.mp4">Recorrido exterior del monumento</video>
+                </galeria_videos>
             </hito>
             <hito>
                 <nombre>Area recreativa Naranco</nombre>

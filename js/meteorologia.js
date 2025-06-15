@@ -72,7 +72,7 @@ class Meteorologia {
         let pronosticoHTML = `
             <h3>Pronóstico para los próximos días</h3>
             <section>
-            <h3 style="display: none;">Pronóstico para los próximos días</h3>`;
+            <h4>Pronósticos:</h4>`;
         
         datos.daily.time.forEach((fecha, index) => {
             const weatherCode = datos.daily.weathercode[index];

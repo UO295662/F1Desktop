@@ -7,7 +7,6 @@ CREATE TABLE tipos_recursos (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL UNIQUE,
     descripcion TEXT,
-    icono VARCHAR(50)
 );
 
 -- Tabla de usuarios

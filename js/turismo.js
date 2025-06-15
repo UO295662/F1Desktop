@@ -95,7 +95,7 @@ $(document).ready(function() {
                 }
             })
             .done(function(datos) {
-                const $contenedor = $('article[role="feed"]');
+                const $contenedor = $('article');
                 $contenedor.empty();
 
                 if (datos.status === 'success' && datos.results && datos.results.length > 0) {
@@ -122,7 +122,7 @@ $(document).ready(function() {
             })
             .fail(function(xhr, status, error) {
                 console.error('Error al cargar las noticias:', error);
-                const $contenedor = $('article[role="feed"]');
+                const $contenedor = $('article');
                 
                 if (xhr.status === 429) {
                     $contenedor.html('<h3>Noticias sobre Oviedo</h3><p>Se ha alcanzado el límite de consultas de la API de noticias. Inténtalo más tarde.</p>');

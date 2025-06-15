@@ -1,4 +1,4 @@
-class MapHandler {
+class Rutas {
     constructor() {
         this.map = null;
         this.currentVectorLayer = null;
@@ -56,15 +56,11 @@ class MapHandler {
             const h2 = section.querySelector('h2');
             if (h2?.textContent.includes('Mapa de Rutas')) {
                 this.mapSection = section;
-                // Añadir atributo data para identificar el mapa
-                this.mapSection.setAttribute('data-map-container', 'true');
                 return;
             }
         }
-        // Si no encuentra la sección, crear una nueva
         this.mapSection = document.createElement('section');
         this.mapSection.innerHTML = '<h2>Mapa de Rutas</h2>';
-        this.mapSection.setAttribute('data-map-container', 'true');
         document.body.appendChild(this.mapSection);
     }
 
@@ -82,7 +78,6 @@ class MapHandler {
     }
 
     initMap() {
-        // Crear elemento popup
         const popupElement = document.createElement('section');
 
         this.popup = new ol.Overlay({
@@ -95,7 +90,6 @@ class MapHandler {
             offset: [0, -10]
         });
 
-        // Inicializar el mapa directamente en la section
         this.map = new ol.Map({
             target: this.mapSection,
             layers: [
@@ -116,7 +110,6 @@ class MapHandler {
             ]
         });
 
-        // Manejar clicks en el mapa
         this.map.on('singleclick', (evt) => {
             const feature = this.map.forEachFeatureAtPixel(evt.pixel, f => f);
             if (feature) {
@@ -138,7 +131,6 @@ class MapHandler {
             this.map.updateSize();
         }, 250);
 
-        console.log('Mapa inicializado correctamente');
     }
 
     clearMap() {
@@ -151,13 +143,11 @@ class MapHandler {
 
     cargarKMLPorRuta(nombreRuta, archivoKML) {
         if (!this.map) {
-            console.log('Mapa no inicializado, esperando...');
             return setTimeout(() => this.cargarKMLPorRuta(nombreRuta, archivoKML), 500);
         }
 
         this.clearMap();
         const archivo = archivoKML || 'xml/rutas.kml';
-        console.log('Cargando archivo KML:', archivo);
 
         fetch(archivo)
             .then(r => {
@@ -172,13 +162,12 @@ class MapHandler {
     }
 
     mostrarPuntosEjemplo(nombreRuta) {
-        console.log('Mostrando puntos de ejemplo para:', nombreRuta);
 
         const puntosOviedo = [
-            { nombre: 'Catedral de Oviedo', coords: [-5.8593, 43.3614], desc: 'Catedral gótica del siglo XIV' },
+            { nombre: 'Catedral de Oviedo', coords: [-5.8593, 43.3614], desc: 'Catedral del siglo XIV' },
             { nombre: 'Teatro Campoamor', coords: [-5.8441, 43.3658], desc: 'Teatro histórico de Oviedo' },
-            { nombre: 'Universidad de Oviedo', coords: [-5.8448, 43.3547], desc: 'Campus histórico universitario' },
-            { nombre: 'Parque de San Francisco', coords: [-5.8506, 43.3625], desc: 'Principal parque urbano' }
+            { nombre: 'Universidad de Oviedo', coords: [-5.8448, 43.3547], desc: 'Campus universitario' },
+            { nombre: 'Parque de San Francisco', coords: [-5.8506, 43.3625], desc: 'Parque urbano' }
         ];
 
         const features = puntosOviedo.map((punto, i) => {
@@ -369,7 +358,6 @@ class MapHandler {
 
         const parserError = xmlDoc.querySelector("parsererror");
         if (parserError) {
-            console.error('Error parsing XML:', parserError.textContent);
             alert('Error al procesar el archivo XML. Verifica que el formato sea correcto.');
             return;
         }
@@ -385,7 +373,6 @@ class MapHandler {
     crearSelectorRutas() {
         const main = document.querySelector('main');
 
-        // Limpiar selectores existentes buscando por contenido
         const selectoresAnteriores = Array.from(main.querySelectorAll('section')).filter(section => {
             const h3 = section.querySelector('h3');
             return h3 && (h3.textContent.includes('Selecciona una Ruta') || h3.textContent.includes('Información de la Ruta'));
@@ -579,4 +566,4 @@ class MapHandler {
 }
 
 // Inicialización cuando el documento esté listo
-document.addEventListener("DOMContentLoaded", () => new MapHandler());
+document.addEventListener("DOMContentLoaded", () => new Rutas());

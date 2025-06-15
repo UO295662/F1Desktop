@@ -202,9 +202,7 @@ class TestConocimientos {
         const aciertos = this.calcularPuntuacion();
         const puntuacion = aciertos;
         
-        document.querySelector('main section').style.display = 'none';
-        const resultadoContainer = document.querySelector('main section:last-of-type');
-        resultadoContainer.style.display = 'block';
+        const resultadoContainer=document.querySelector('main section');
         
         let mensaje = '';
         
@@ -219,6 +217,7 @@ class TestConocimientos {
         }
 
         resultadoContainer.innerHTML = `
+            <h3>Resultados del Test</h3>
             <article>
                 <h3>¡Test Completado!</h3>
                 <section>

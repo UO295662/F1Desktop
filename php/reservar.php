@@ -45,50 +45,39 @@ class Reservar {
     }
 
     private function cargarRecurso() {
-        $recursos = new RecursoTuristico($this->db);
-        $recursos->id = $this->recursoId;
-
-        if ($recursos->leerUno()) {
-            $this->recurso_data = [
-                'id' => $recursos->id,
-                'nombre' => $recursos->nombre,
-                'descripcion' => $recursos->descripcion,
-                'tipo_recurso_id' => $recursos->tipo_recurso_id,
-                'ubicacion' => $recursos->ubicacion,
-                'direccion' => $recursos->direccion,
-                'precio' => $recursos->precio,
-                'duracion_horas' => $recursos->duracion_horas,
-                'capacidad_maxima' => $recursos->capacidad_maxima
-            ];
-        }
-
-        if (!$this->recurso_data) {
+        $recurso = new RecursoTuristico($this->db);
+        $recurso->id = $this->recursoId;
+        
+        if (!$recurso->leerUno()) {
             header('Location: lista.php');
             exit;
         }
+        
+        $this->recurso_data = [
+            'id' => $recurso->id,
+            'nombre' => $recurso->nombre,
+            'descripcion' => $recurso->descripcion,
+            'ubicacion' => $recurso->ubicacion,
+            'direccion' => $recurso->direccion,
+            'precio' => $recurso->precio,
+            'capacidad_maxima' => $recurso->capacidad_maxima,
+            'duracion_horas' => $recurso->duracion_horas
+        ];
     }
 
     private function cargarHorarios() {
         $horarios_obj = new HorarioRecurso($this->db);
         $horarios_obj->recurso_id = $this->recursoId;
-        $horarios_stmt = $horarios_obj->leerPorRecurso();
-        $this->horarios = $horarios_stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $horarios_obj->leerPorRecurso();
+        $this->horarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     private function calcularPrecio() {
         if ($this->horario_seleccionado && $this->numero_personas_seleccionado > 0) {
-            // Buscar el horario seleccionado
             foreach ($this->horarios as $horario) {
                 if ($horario['id'] == $this->horario_seleccionado) {
                     $precio_unitario = $horario['precio_especial'] ?: $this->recurso_data['precio'];
-                    $this->precio_calculado = $precio_unitario * $this->numero_personas_seleccionado;
-                    
-                    // Verificar límite de plazas
-                    if ($this->numero_personas_seleccionado > $horario['plazas_disponibles']) {
-                        $this->numero_personas_seleccionado = $horario['plazas_disponibles'];
-                        $this->precio_calculado = $precio_unitario * $this->numero_personas_seleccionado;
-                        $this->error = "Solo hay {$horario['plazas_disponibles']} plazas disponibles para este horario.";
-                    }
+                    $this->precio_calculado = $this->numero_personas_seleccionado * $precio_unitario;
                     break;
                 }
             }
@@ -96,10 +85,8 @@ class Reservar {
     }
 
     private function procesarReserva() {
-        // CAMBIO CLAVE: Solo procesar reserva si se presiona el botón específico de confirmar
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_reserva']) && $_POST['confirmar_reserva'] === 'confirmar') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirmar_reserva'])) {
             try {
-                $reserva = new Reserva($this->db);
                 $horarioId = $_POST['horario_id'];
                 $numeroPersonas = (int)$_POST['numero_personas'];
                 
@@ -123,6 +110,7 @@ class Reservar {
                 
                 try {
                     // Crear reserva
+                    $reserva = new Reserva($this->db);
                     $reserva->usuario_id = $_SESSION['usuario_id'];
                     $reserva->recurso_id = $this->recursoId;
                     $reserva->horario_id = $horarioId;
@@ -215,39 +203,42 @@ $reservar->inicializar();
     <h1><a href="../index.html">Oviedo</a></h1>
     <nav>
         <a href="../index.html">Inicio</a>
-        <a href="lista.php">Viajes</a>
+        <a href="lista.php">Recursos Turísticos</a>
         <a href="mis_reservas.php">Mis Reservas</a>
         <a href="logout.php">Cerrar Sesión (<?= htmlspecialchars($_SESSION['usuario_nombre']) ?>)</a>
     </nav>
 </header>
+
 <p>Estás en: <a href="../index.html">Inicio</a> >> <a href="login.php">Iniciar Sesión</a> >> <a href="lista.php">Recursos Turísticos</a> >> Reservar</p>
+
 <main>
     <h2>Reservar: <?= htmlspecialchars($reservar->getRecursoData()['nombre']) ?></h2>
     
     <?php if ($reservar->getError()): ?>
-        <p><strong>Error:</strong> <?= htmlspecialchars($reservar->getError()) ?></p>
+        <p>Error: <?= htmlspecialchars($reservar->getError()) ?></p>
     <?php endif; ?>
     
     <section>
         <h3>Información del Recurso</h3>
-        <p><strong>Descripción:</strong> <?= htmlspecialchars($reservar->getRecursoData()['descripcion']) ?></p>
-        <p><strong>Ubicación:</strong> <?= htmlspecialchars($reservar->getRecursoData()['ubicacion']) ?></p>
-        <p><strong>Dirección:</strong> <?= htmlspecialchars($reservar->getRecursoData()['direccion']) ?></p>
-        <p><strong>Duración:</strong> <?= $reservar->getRecursoData()['duracion_horas'] ?> hora(s)</p>
-        <p><strong>Precio:</strong> €<?= number_format($reservar->getRecursoData()['precio'], 2) ?> por persona</p>
-        <p><strong>Capacidad máxima:</strong> <?= $reservar->getRecursoData()['capacidad_maxima'] ?> personas</p>
+        <p>Descripción: <?= htmlspecialchars($reservar->getRecursoData()['descripcion']) ?></p>
+        <p>Ubicación: <?= htmlspecialchars($reservar->getRecursoData()['ubicacion']) ?></p>
+        <p>Dirección: <?= htmlspecialchars($reservar->getRecursoData()['direccion']) ?></p>
+        <p>Duración: <?= $reservar->getRecursoData()['duracion_horas'] ?> hora(s)</p>
+        <p>Precio: €<?= number_format($reservar->getRecursoData()['precio'], 2) ?> por persona</p>
+        <p>Capacidad máxima: <?= $reservar->getRecursoData()['capacidad_maxima'] ?> personas</p>
     </section>
     
     <?php if (empty($reservar->getHorarios())): ?>
         <p>No hay horarios disponibles para este recurso en este momento.</p>
         <p><a href="lista.php">← Volver al catálogo</a></p>
     <?php else: ?>
-        <form method="POST" action="">
+        <form method="POST" action="reservar.php?recurso=<?= $reservar->getRecursoData()['id'] ?>" 
+              oninput="this.submit()">
             <fieldset>
                 <legend>Datos de la Reserva</legend>
                 
                 <label for="horario_id">Horario disponible:</label>
-                <select id="horario_id" name="horario_id" required onchange="this.form.submit()">
+                <select id="horario_id" name="horario_id" required>
                     <option value="">-- Selecciona un horario --</option>
                     <?php foreach ($reservar->getHorarios() as $horario): ?>
                         <option value="<?= $horario['id'] ?>" 
@@ -265,22 +256,19 @@ $reservar->inicializar();
                 <label for="numero_personas">Número de personas:</label>
                 <input type="number" id="numero_personas" name="numero_personas"
                        min="1" 
-                       max="<?= $reservar->getHorarioSeleccionado() ? $reservar->getPlazasMaximas($reservar->getHorarioSeleccionado()) : $reservar->getRecursoData()['capacidad_maxima'] ?>" 
+                       max="<?= $reservar->getRecursoData()['capacidad_maxima'] ?>" 
                        value="<?= $reservar->getNumeroPersonasSeleccionado() ?>" 
-                       required onchange="this.form.submit()">
+                       required>
                 
                 <p><strong>Precio total: €<?= number_format($reservar->getPrecioCalculado(), 2) ?></strong></p>
+                
+                <?php if ($reservar->getHorarioSeleccionado() && $reservar->getPrecioCalculado() > 0): ?>
+                    <button type="submit" name="confirmar_reserva" onclick="event.stopPropagation()">
+                        Confirmar Reserva
+                    </button>
+                <?php endif; ?>
             </fieldset>
         </form>
-        
-        <?php if ($reservar->getHorarioSeleccionado() && $reservar->getPrecioCalculado() > 0): ?>
-            <form method="POST" action="">
-                <input type="hidden" name="horario_id" value="<?= $reservar->getHorarioSeleccionado() ?>">
-                <input type="hidden" name="numero_personas" value="<?= $reservar->getNumeroPersonasSeleccionado() ?>">
-                <input type="hidden" name="confirmar_reserva" value="confirmar">
-                <input type="submit" value="Confirmar Reserva">
-            </form>
-        <?php endif; ?>
     <?php endif; ?>
     
     <p><a href="lista.php">← Volver al catálogo de recursos</a></p>
