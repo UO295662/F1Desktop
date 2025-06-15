@@ -14,7 +14,7 @@ class Registro {
     
     private function procesarFormulario() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            try {+
+            try {
                 if (!isset($_POST['nombre']) || !isset($_POST['apellidos']) || 
                     !isset($_POST['email']) || !isset($_POST['password'])) {
                     $this->error = "Por favor, complete todos los campos requeridos";

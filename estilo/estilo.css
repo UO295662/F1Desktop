@@ -893,14 +893,6 @@ main + section:not([hidden]) { /* Especificidad: 0,1,2 */
     display: block;
 }
 
-main + section:empty::before { /* Especificidad: 0,1,3 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    color: #666; /* Color de texto específico - sobre fondo #f8f9fa del section padre */
-    font-size: 1.1rem;
-}
 
 main + section h2 { /* Especificidad: 0,0,3 */
     margin: 0 0 1rem 0;
@@ -922,7 +914,7 @@ main form { /* Especificidad: 0,0,2 */
     margin: 2rem auto;
     max-width: 35rem;
     width: 100%;
-    box-sizing: border-box;
+    box-sizing: border-box;                                                                                     
     border: 0.125rem solid #e9ecef;
     background-color: #fff; /* Color de fondo específico */
     color: #2c2c2c; /* Color de texto - hereda del body */
